@@ -1,0 +1,92 @@
+nohup: ignoring input
+🔒 Starting security hardening...
+npm warn exec The following package was not found and will be installed: lighthouse-ci@1.13.1
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+npm warn deprecated uuid@3.3.2: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm warn deprecated lodash.get@4.4.2: This package is deprecated. Use the optional chaining (?.) operator instead.
+npm warn deprecated intl-messageformat-parser@1.8.1: We've written a new parser that's 6x faster and is backwards compatible. Please use @formatjs/icu-messageformat-parser
+npm warn deprecated raven@2.6.4: Please upgrade to @sentry/node. See the migration guide https://bit.ly/3ybOlo7
+
+  CLI implementation for running Lighthouse with any CI tool
+
+  Usage
+    $ lighthouse-ci <target-url>
+
+  Example
+    $ lighthouse-ci https://example.com
+    $ lighthouse-ci https://example.com -s
+    $ lighthouse-ci https://example.com --score=75
+    $ lighthouse-ci https://example.com --accessibility=90 --seo=80
+    $ lighthouse-ci https://example.com --accessibility=90 --seo=80 --report=folder
+    $ lighthouse-ci https://example.com -report=folder --config-path=configs.json
+
+  Options
+    -s, --silent                    Run Lighthouse without printing report log
+    --report=<path>                 Generate an HTML report inside a specified folder
+    --filename=<filename>           Specify the name of the generated HTML report file (requires --report)
+    -json, --jsonReport             Generate JSON report in addition to HTML (requires --report)
+    --config-path                   The path to the Lighthouse config JSON (read more here: https://github.com/GoogleChrome/lighthouse/blob/master/docs/configuration.md)
+    --budget-path                   The path to the Lighthouse budgets config JSON (read more here: https://developers.google.com/web/tools/lighthouse/audits/budgets)
+    --score=<threshold>             Specify a score threshold for the CI to pass
+    --performance=<threshold>       Specify a minimal performance score for the CI to pass
+    --pwa=<threshold>               Specify a minimal pwa score for the CI to pass
+    --accessibility=<threshold>     Specify a minimal accessibility score for the CI to pass
+    --best-practice=<threshold>     [DEPRECATED] Use best-practices instead
+    --best-practices=<threshold>    Specify a minimal best-practice score for the CI to pass
+    --seo=<threshold>               Specify a minimal seo score for the CI to pass
+    --fail-on-budgets               Specify CI should fail if budgets are exceeded
+    --budget.<counts|sizes>.<type>  Specify individual budget threshold (if --budget-path not set)
+
+  In addition to listed "lighthouse-ci" configuration flags, it is also possible to pass any native "lighthouse" flag
+  To see the full list of available flags, please refer to the official Google Lighthouse documentation at https://github.com/GoogleChrome/lighthouse#cli-options
+
+
+  CLI implementation for running Lighthouse with any CI tool
+
+  Usage
+    $ lighthouse-ci <target-url>
+
+  Example
+    $ lighthouse-ci https://example.com
+    $ lighthouse-ci https://example.com -s
+    $ lighthouse-ci https://example.com --score=75
+    $ lighthouse-ci https://example.com --accessibility=90 --seo=80
+    $ lighthouse-ci https://example.com --accessibility=90 --seo=80 --report=folder
+    $ lighthouse-ci https://example.com -report=folder --config-path=configs.json
+
+  Options
+    -s, --silent                    Run Lighthouse without printing report log
+    --report=<path>                 Generate an HTML report inside a specified folder
+    --filename=<filename>           Specify the name of the generated HTML report file (requires --report)
+    -json, --jsonReport             Generate JSON report in addition to HTML (requires --report)
+    --config-path                   The path to the Lighthouse config JSON (read more here: https://github.com/GoogleChrome/lighthouse/blob/master/docs/configuration.md)
+    --budget-path                   The path to the Lighthouse budgets config JSON (read more here: https://developers.google.com/web/tools/lighthouse/audits/budgets)
+    --score=<threshold>             Specify a score threshold for the CI to pass
+    --performance=<threshold>       Specify a minimal performance score for the CI to pass
+    --pwa=<threshold>               Specify a minimal pwa score for the CI to pass
+    --accessibility=<threshold>     Specify a minimal accessibility score for the CI to pass
+    --best-practice=<threshold>     [DEPRECATED] Use best-practices instead
+    --best-practices=<threshold>    Specify a minimal best-practice score for the CI to pass
+    --seo=<threshold>               Specify a minimal seo score for the CI to pass
+    --fail-on-budgets               Specify CI should fail if budgets are exceeded
+    --budget.<counts|sizes>.<type>  Specify individual budget threshold (if --budget-path not set)
+
+  In addition to listed "lighthouse-ci" configuration flags, it is also possible to pass any native "lighthouse" flag
+  To see the full list of available flags, please refer to the official Google Lighthouse documentation at https://github.com/GoogleChrome/lighthouse#cli-options
+
+🔒 Starting security hardening...
+Error: Chrome prevented page load with an interstitial. Make sure you are testing the correct URL and that the server is properly responding to all requests. 
+
+🔒 Starting security hardening...
+performance: 73
+accessibility: 83
+best-practices: 93
+seo: 83
+pwa: 30
+
+Failed. ❌
+Error: Target score not reached. 
+

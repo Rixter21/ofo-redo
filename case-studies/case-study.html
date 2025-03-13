@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Studies - OFO Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .gradient-text {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .case-study-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .case-study-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 50px -12px rgba(255, 215, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-gray-900/80 backdrop-blur z-50">
+      <div class="container mx-auto px-6 py-4">
+        <a href="/" class="gradient-text text-2xl font-bold">OFO Development</a>
+      </div>
+    </nav>
+
+    <main class="min-h-screen pt-32 pb-20">
+      <div class="container mx-auto px-6">
+        <h1 class="text-5xl gradient-text font-bold mb-12 text-center">
+          Case Studies
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Case Study 1 -->
+          <article class="case-study-card bg-gray-800 rounded-lg p-6">
+            <img
+              src="/public/assets/images/case-studies/saas-platform.webp"
+              alt="SaaS Platform Dashboard Interface"
+              class="aspect-video object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+            <h2 class="text-2xl font-bold mb-2">Enterprise SaaS Platform</h2>
+            <div class="space-y-2 mb-4">
+              <p class="text-gray-400">
+                Developed a scalable cloud solution for managing 50,000+ global
+                users with:
+              </p>
+              <ul class="list-disc list-inside text-amber-500/80">
+                <li>Real-time collaboration features</li>
+                <li>AI-powered analytics dashboard</li>
+                <li>Multi-region AWS infrastructure</li>
+              </ul>
+            </div>
+            <a
+              href="/case-studies/saas-platform"
+              class="text-amber-500 hover:text-amber-400 transition-colors font-medium"
+            >
+              Read Case Study →
+            </a>
+          </article>
+
+          <!-- Case Study 2 -->
+          <article class="case-study-card bg-gray-800 rounded-lg p-6">
+            <img
+              src="/public/assets/images/ai-chip.webp"
+              alt="AI Neural Network Visualization"
+              class="aspect-video object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+            <h2 class="text-2xl font-bold mb-2">AI-Powered Analytics</h2>
+            <div class="space-y-2 mb-4">
+              <p class="text-gray-400">
+                Built machine learning platform processing 2TB/day with:
+              </p>
+              <ul class="list-disc list-inside text-amber-500/80">
+                <li>Real-time predictive analytics</li>
+                <li>Natural language processing</li>
+                <li>Automated anomaly detection</li>
+              </ul>
+            </div>
+            <a
+              href="/case-studies/ai-analytics"
+              class="text-amber-500 hover:text-amber-400 transition-colors font-medium"
+            >
+              Read Case Study →
+            </a>
+          </article>
+
+          <!-- Case Study 3 -->
+          <article class="case-study-card bg-gray-800 rounded-lg p-6">
+            <img
+              src="/public/assets/images/hand-touching.webp"
+              alt="Mobile Banking Interface"
+              class="aspect-video object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+            <h2 class="text-2xl font-bold mb-2">Mobile Banking App</h2>
+            <div class="space-y-2 mb-4">
+              <p class="text-gray-400">
+                Secured financial platform with military-grade encryption for:
+              </p>
+              <ul class="list-disc list-inside text-amber-500/80">
+                <li>Biometric authentication</li>
+                <li>Real-time fraud detection</li>
+                <li>Instant transaction processing</li>
+              </ul>
+            </div>
+            <a
+              href="/case-studies/mobile-banking"
+              class="text-amber-500 hover:text-amber-400 transition-colors font-medium"
+            >
+              Read Case Study →
+            </a>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+      <div class="container mx-auto px-6 py-8">
+        <p class="text-center text-gray-500">
+          © 2025 OFO Development. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

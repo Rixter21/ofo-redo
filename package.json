@@ -1,0 +1,38 @@
+{
+  "name": "ofo-redo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "run-p watch serve",
+    "serve": "nodemon server.js",
+    "start": "node server.js",
+    "build": "npm run build:css",
+    "build:css": "postcss public/assets/css/styles.css -o public/assets/css/styles.css --minify",
+    "watch": "postcss public/assets/css/styles.css -o public/assets/css/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "nodemon": "^3.1.9",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.8",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.10",
+    "compression": "^1.8.0",
+    "csso": "^5.0.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "glob": "^11.0.1",
+    "node-html-parser": "^7.0.1",
+    "nodemailer": "^6.10.0",
+    "puppeteer": "^24.3.0",
+    "terser": "^5.39.0"
+  }
+}

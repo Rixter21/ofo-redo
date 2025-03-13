@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Studies - OFO Development</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link href="assets/css/output.min.css" rel="stylesheet" />
+    <link href="assets/css/additional-styles.css" rel="stylesheet" />
+    <style>
+      .wave-bg {
+        background: linear-gradient(
+            rgba(17, 24, 39, 0.95),
+            rgba(17, 24, 39, 0.95)
+          ),
+          url("https://placehold.co/1920/1080") center/cover;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .golden-text {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+      }
+
+      .project-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        border-color: rgba(255, 215, 0, 0.5);
+        transform: translateY(-5px);
+      }
+
+      .testimonial-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+      }
+
+      .metric-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .metric-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .blog-card {
+        transition: all 0.3s ease;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+      /* Enhanced Navbar Styles */
+      .nav-link {
+        color: #d1d5db;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link:hover {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        width: 600px;
+        background-color: rgba(31, 41, 55, 0.95);
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        transform: translateY(-0.5rem);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .group:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        color: #d1d5db;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: #374151;
+        transform: translateX(0.5rem);
+      }
+
+      .dropdown-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.75rem;
+        color: #eab308;
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Backdrop Blur Effect */
+      nav {
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        background-color: rgba(17, 24, 39, 0.85);
+      }
+
+      /* Accordion Transitions */
+      .accordion div {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Premium Dropdown Footer */
+      .dropdown-menu > div:last-child {
+        border-top: 1px solid #374151;
+        background-color: #1f2937;
+        padding: 1rem;
+      }
+
+      .dropdown-menu > div:last-child h3 {
+        color: #eab308;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+    <link
+      rel="preload"
+      href="assets/images/logos/Color logo - no background.png"
+      as="image"
+      type="image/png"
+    />
+    <link
+      rel="preload"
+      href="assets/images/EHRsystem.jpg"
+      as="image"
+      type="image/jpeg"
+    />
+  </head>
+  <body class="bg-gray-900 text-gray-200">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-blue-900 focus:text-white focus:z-50"
+      >Skip to main content</a
+    >
+
+    <nav
+      class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <a href="index.html">
+              <img
+                src="assets/images/logos/Color logo - no background.png"
+                alt="OFO Development"
+                class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+              />
+            </a>
+          </div>
+
+          <button
+            data-mobile-menu-button
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="about.html" class="nav-link">About</a>
+
+            <div class="relative group" id="services-dropdown">
+              <button class="nav-link dropdown-trigger" aria-expanded="false">
+                Services
+                <span class="ml-1 transition-transform group-hover:rotate-180"
+                  >▾</span
+                >
+              </button>
+
+              <div
+                class="dropdown-menu backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 transition-all duration-500 hover:backdrop-blur-xl hover:from-gray-900/70 hover:to-gray-900/50"
+              >
+                <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="dropdown-item"
+                  >
+                    <svg class="dropdown-icon">...</svg>
+                    Custom Software
+                  </a>
+                  <a href="MobileDevelopment.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Mobile Apps
+                  </a>
+                  <a href="WebDevelopment.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Web Development
+                  </a>
+                  <a href="DataAnalysis.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Data Analysis
+                  </a>
+                  <a href="EcommerceSolutions.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    E-Commerce
+                  </a>
+                  <a href="ArtificialIntelligence.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    AI & Machine Learning
+                  </a>
+                  <a href="DigitalInnovation.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Digital Innovation
+                  </a>
+                  <a href="VirtualReality.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    VR & AR
+                  </a>
+                  <a href="GameDevelopment.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Game Development
+                  </a>
+                  <a href="CloudComputing.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Cloud Computing
+                  </a>
+                  <a href="CyberSecurity.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Cybersecurity
+                  </a>
+                  <a href="ProductManagement.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Product Management
+                  </a>
+                </div>
+
+                <div
+                  class="border-t border-white/20 p-4 bg-gray-900/30 backdrop-blur-md transition-all duration-300 hover:bg-gray-900/40"
+                >
+                  <h3 class="text-yellow-500 text-sm font-semibold mb-2">
+                    Premium Services
+                  </h3>
+                  <p class="text-gray-300 text-sm">
+                    Custom solutions tailored to your business needs
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+          </div>
+        </div>
+
+        <div
+          data-mobile-menu
+          class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 max-h-0"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="about.html" class="block nav-link">About</a>
+
+            <div class="accordion">
+              <button
+                data-services-button
+                aria-expanded="false"
+                class="w-full flex justify-between items-center nav-link"
+              >
+                Services
+                <span class="dropdown-icon transform transition-transform"
+                  >▾</span
+                >
+              </button>
+              <div
+                data-services-content
+                class="overflow-hidden transition-all duration-300 max-h-0"
+              >
+                <div class="pl-4 space-y-2">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="block nav-link"
+                    >Custom Software</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="block nav-link">Resources</a>
+            <a href="contact.html" class="block nav-link">Contact</a>
+            <a href="blog.html" class="block nav-link">Blog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main
+      id="main-content"
+      class="container mx-auto px-4 py-16 mt-20 bg-gradient-to-br from-blue-900/90 to-blue-800/50 rounded-3xl shadow-2xl"
+    >
+      <h1
+        class="text-4xl font-bold text-blue-400 mb-6 text-center animate-on-scroll"
+        data-once="true"
+      >
+        Our Case Studies
+      </h1>
+
+      <div
+        class="mb-12 flex flex-col sm:flex-row justify-center gap-4 animate-on-scroll"
+        data-once="true"
+      >
+        <div class="inline-flex flex-wrap justify-center gap-2">
+          <button
+            class="filter-btn active bg-blue-700 hover:bg-blue-600 text-white py-2 px-4 rounded-full transition-all duration-300"
+            data-filter="all"
+          >
+            All Projects
+          </button>
+          <button
+            class="filter-btn bg-blue-900/50 hover:bg-blue-700 text-white py-2 px-4 rounded-full transition-all duration-300"
+            data-filter="healthcare"
+          >
+            Healthcare
+          </button>
+          <button
+            class="filter-btn bg-blue-900/50 hover:bg-blue-700 text-white py-2 px-4 rounded-full transition-all duration-300"
+            data-filter="retail"
+          >
+            Retail
+          </button>
+          <button
+            class="filter-btn bg-blue-900/50 hover:bg-blue-700 text-white py-2 px-4 rounded-full transition-all duration-300"
+            data-filter="telemedicine"
+          >
+            Telemedicine
+          </button>
+        </div>
+
+        <div class="inline-flex flex-wrap justify-center gap-2">
+          <button
+            class="tech-filter-btn bg-gray-800/50 hover:bg-gray-700 text-white py-2 px-4 rounded-full transition-all duration-300"
+            data-tech-filter="all"
+          >
+            All Tech
+          </button>
+          <button
+            class="tech-filter-btn bg-gray-800/50 hover:bg-gray-700 text-white py-2 px-4 rounded-full transition-all duration-300"
+            data-tech-filter="cloud"
+          >
+            Cloud
+          </button>
+          <button
+            class="tech-filter-btn bg-gray-800/50 hover:bg-gray-700 text-white py-2 px-4 rounded-full transition-all duration-300"
+            data-tech-filter="ai"
+          >
+            AI/ML
+          </button>
+          <button
+            class="tech-filter-btn bg-gray-800/50 hover:bg-gray-700 text-white py-2 px-4 rounded-full transition-all duration-300"
+            data-tech-filter="mobile"
+          >
+            Mobile
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="case-studies-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
+      >
+        <div
+          class="project-card relative rounded-xl p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-blue-900/40 to-blue-800/20 animate-on-scroll"
+          data-category="healthcare"
+          data-tech="cloud"
+          data-delay="100"
+        >
+          <div class="relative overflow-hidden rounded-lg">
+            <div
+              class="image-overlay absolute inset-0 bg-blue-900/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80"
+              >
+                <p class="text-sm text-blue-200">Key Technologies:</p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >React</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >Node.js</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >AWS</span
+                  >
+                </div>
+              </div>
+            </div>
+            <img
+              src="assets/images/EHRsystem.jpg"
+              alt="Healthcare System Modernization"
+              class="w-full h-48 object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xl font-semibold text-white mt-4 mb-2">
+            Healthcare System Modernization
+          </h3>
+          <div class="tech-badges flex gap-2 mb-3">
+            <div
+              class="badge bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm"
+            >
+              ⚙️ Cloud-Based
+            </div>
+            <div
+              class="badge bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-sm"
+            >
+              ⏱️ Real-Time
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4">
+            Our healthcare systems can improve efficiency and streamline patient
+            care coordination across multiple facilities
+          </p>
+          <a
+            href="case-studies/healthcare-system-modernization.html"
+            class="text-blue-400 hover:text-blue-300 flex items-center transition-colors"
+          >
+            Read Case Study <span class="ml-2">→</span>
+          </a>
+        </div>
+
+        <div
+          class="project-card relative rounded-xl p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-blue-900/40 to-blue-800/20 animate-on-scroll"
+          data-category="retail"
+          data-tech="ai"
+          data-delay="200"
+        >
+          <div class="relative overflow-hidden rounded-lg">
+            <div
+              class="image-overlay absolute inset-0 bg-blue-900/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80"
+              >
+                <p class="text-sm text-blue-200">Key Technologies:</p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >Python</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >TensorFlow</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >BigQuery</span
+                  >
+                </div>
+              </div>
+            </div>
+            <img
+              src="assets/images/spreadsheet.jpg"
+              alt="Retail Analytics Platform"
+              class="w-full h-48 object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-xl font-semibold text-white mt-4 mb-2">
+            Retail Analytics Platform
+          </h3>
+          <div class="tech-badges flex gap-2 mb-3">
+            <div
+              class="badge bg-purple-900/30 text-purple-400 px-3 py-1 rounded-full text-sm"
+            >
+              📉 Predictive
+            </div>
+            <div
+              class="badge bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-sm"
+            >
+              🏷️ High Accuracy
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4">
+            Our AI-powered inventory prediction systems can optimize supply
+            chains and reduce waste for retail operations
+          </p>
+          <a
+            href="case-studies/ai-analytics.html"
+            class="text-blue-400 hover:text-blue-300 flex items-center transition-colors"
+          >
+            Read Case Study <span class="ml-2">→</span>
+          </a>
+        </div>
+
+        <div
+          class="project-card relative rounded-xl p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-blue-900/40 to-blue-800/20 animate-on-scroll"
+          data-category="telemedicine"
+          data-tech="mobile"
+          data-delay="300"
+        >
+          <div class="relative overflow-hidden rounded-lg">
+            <div
+              class="image-overlay absolute inset-0 bg-blue-900/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80"
+              >
+                <p class="text-sm text-blue-200">Key Technologies:</p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >WebRTC</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >HIPAA</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >Kubernetes</span
+                  >
+                </div>
+              </div>
+            </div>
+            <img
+              src="assets/images/mobile-health-app.webp"
+              alt="Telemedicine Platform"
+              class="w-full h-48 object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-xl font-semibold text-white mt-4 mb-2">
+            Telemedicine Platform
+          </h3>
+          <div class="tech-badges flex gap-2 mb-3">
+            <div
+              class="badge bg-red-900/30 text-red-400 px-3 py-1 rounded-full text-sm"
+            >
+              ⚕️ HIPAA Compliant
+            </div>
+            <div
+              class="badge bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-sm"
+            >
+              📱 Scalable
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4">
+            We build secure, HIPAA-compliant telemedicine platforms with video
+            consultation capabilities that scale with your needs
+          </p>
+          <a
+            href="case-studies/telemedicine-platform.html"
+            class="text-blue-400 hover:text-blue-300 flex items-center transition-colors"
+          >
+            Read Case Study <span class="ml-2">→</span>
+          </a>
+        </div>
+
+        <div
+          class="project-card relative rounded-xl p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-blue-900/40 to-blue-800/20 animate-on-scroll"
+          data-category="enterprise"
+          data-tech="cloud"
+          data-delay="400"
+        >
+          <div class="relative overflow-hidden rounded-lg">
+            <div
+              class="image-overlay absolute inset-0 bg-blue-900/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80"
+              >
+                <p class="text-sm text-blue-200">Key Technologies:</p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >React</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >GraphQL</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >Kubernetes</span
+                  >
+                </div>
+              </div>
+            </div>
+            <img
+              src="assets/images/ERP.webp"
+              alt="Enterprise Resource Planning"
+              class="w-full h-48 object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-xl font-semibold text-white mt-4 mb-2">
+            Enterprise Resource Planning
+          </h3>
+          <div class="tech-badges flex gap-2 mb-3">
+            <div
+              class="badge bg-teal-900/30 text-teal-400 px-3 py-1 rounded-full text-sm"
+            >
+              💼 Enhanced Productivity
+            </div>
+            <div
+              class="badge bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-sm"
+            >
+              🔄 Streamlined Workflows
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4">
+            Our enterprise resource planning solutions can modernize legacy
+            systems and connect departments through integrated workflows
+          </p>
+          <a
+            href="case-studies/enterprise-resource-planning.html"
+            class="text-blue-400 hover:text-blue-300 flex items-center transition-colors"
+          >
+            Read Case Study <span class="ml-2">→</span>
+          </a>
+        </div>
+
+        <div
+          class="project-card relative rounded-xl p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-gradient-to-br from-blue-900/40 to-blue-800/20 animate-on-scroll"
+          data-category="finance"
+          data-tech="blockchain"
+          data-delay="500"
+        >
+          <div class="relative overflow-hidden rounded-lg">
+            <div
+              class="image-overlay absolute inset-0 bg-blue-900/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80"
+              >
+                <p class="text-sm text-blue-200">Key Technologies:</p>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >Solidity</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >Web3.js</span
+                  >
+                  <span
+                    class="tech-tag bg-blue-900/30 text-blue-300 px-2 py-1 rounded-md text-xs"
+                    >AWS</span
+                  >
+                </div>
+              </div>
+            </div>
+            <img
+              src="assets/images/cryptocurrency-coding-digital-blue-background-open-source-blockchain-concept.jpg"
+              alt="Decentralized Finance Platform"
+              class="w-full h-48 object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-xl font-semibold text-white mt-4 mb-2">
+            Decentralized Finance Platform
+          </h3>
+          <div class="tech-badges flex gap-2 mb-3">
+            <div
+              class="badge bg-yellow-900/30 text-yellow-400 px-3 py-1 rounded-full text-sm"
+            >
+              ⛓️ High Reliability
+            </div>
+            <div
+              class="badge bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-sm"
+            >
+              🔒 Advanced Security
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4">
+            We can design secure, reliable blockchain solutions with custom
+            smart contracts for decentralized finance applications
+          </p>
+          <a
+            href="case-studies/defi-platform.html"
+            class="text-blue-400 hover:text-blue-300 flex items-center transition-colors"
+          >
+            Read Case Study <span class="ml-2">→</span>
+          </a>
+        </div>
+      </div>
+
+      <section
+        class="tech-achievements mt-16 border-t border-blue-800/50 pt-12 animate-on-scroll"
+        data-once="true"
+      >
+        <h2 class="text-2xl font-semibold text-blue-400 mb-8 text-center">
+          Technical Capabilities
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div
+            class="achievement-card text-center p-4 bg-blue-900/30 rounded-xl"
+          >
+            <div class="text-3xl text-blue-400 mb-2">
+              <span class="golden-text">High</span>
+            </div>
+            <div class="text-sm text-blue-300">API Processing Volume</div>
+          </div>
+          <div
+            class="achievement-card text-center p-4 bg-blue-900/30 rounded-xl"
+          >
+            <div class="text-3xl text-blue-400 mb-2">
+              <span class="golden-text">Enterprise</span>
+            </div>
+            <div class="text-sm text-blue-300">System Reliability</div>
+          </div>
+          <div
+            class="achievement-card text-center p-4 bg-blue-900/30 rounded-xl"
+          >
+            <div class="text-3xl text-blue-400 mb-2">
+              <span class="golden-text">Optimized</span>
+            </div>
+            <div class="text-sm text-blue-300">Response Time</div>
+          </div>
+          <div
+            class="achievement-card text-center p-4 bg-blue-900/30 rounded-xl"
+          >
+            <div class="text-3xl text-blue-400 mb-2">
+              <span class="golden-text">Advanced</span>
+            </div>
+            <div class="text-sm text-blue-300">Security Standards</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="capabilities mt-20 animate-on-scroll" data-once="true">
+        <h2 class="text-2xl font-semibold text-blue-400 mb-8 text-center">
+          Our Capabilities
+        </h2>
+
+        <div
+          class="max-w-4xl mx-auto bg-gradient-to-br from-blue-900/40 to-blue-800/20 rounded-xl p-8 border border-blue-900/30"
+        >
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-4">
+                Software Engineering Excellence
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Custom software development tailored to your specific
+                    needs</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Scalable, future-proof architecture design</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Full-stack development with modern technologies</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-4">
+                Industry Expertise
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Deep healthcare industry knowledge with HIPAA
+                    compliance</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Retail and supply chain optimization solutions</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-400 mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Fintech and blockchain security expertise</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="text-center mt-8">
+            <a
+              href="contact.html"
+              class="inline-block bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white px-8 py-3 rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              Discuss Your Project With Us
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16 overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-900/10 via-purple-900/10 to-blue-900/10 animate-gradient-slow"
+      ></div>
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="services.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="CaseStudies.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Case Studies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="blog.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Technologies</h4>
+            <div class="grid grid-cols-3 gap-4">
+              <img
+                src="assets/images/svg/react.svg"
+                alt="React"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/nodejs.svg"
+                alt="Node.js"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/aws.svg"
+                alt="AWS"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/tailwind.svg"
+                alt="Tailwind CSS"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/graphql.svg"
+                alt="GraphQL"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/typescript.svg"
+                alt="TypeScript"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Contact</h4>
+            <div class="space-y-3 text-gray-400">
+              <p>5470 Kietzke Ln Ste 300</p>
+              <p>Reno, NV 89511</p>
+              <p>+1-844-OFO-DEVS</p>
+              <p>contact@ofodevelopment.com</p>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Follow Us</h4>
+            <div class="flex space-x-6">
+              <a
+                href="https://twitter.com/ofodev"
+                class="text-gray-400 hover:text-blue-400 transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 4.01c-1 .49-2.1.82-3.24.97a5.07 5.07 0 002.25-2.83 10.2 10.2 0 01-3.24 1.24a5.07 5.07 0 00-8.63 4.62A14.4 14.4 0 013 2.6a5.07 5.07 0 001.57 6.77 5.07 5.07 0 01-2.3-.63v.06a5.07 5.07 0 004.07 4.97 5.07 5.07 0 01-2.29.09 5.07 5.07 0 004.73 3.52 10.2 10.2 0 01-6.32 2.18c-.41 0-.82-.02-1.22-.07a14.4 14.4 0 007.83 2.3c9.4 0 14.53-7.79 14.53-14.53 0-.22 0-.44-.02-.66a10.4 10.4 0 002.56-2.65z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com/company/ofodev"
+                class="text-gray-400 hover:text-blue-600 transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://github.com/ofodev"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-12 border-t border-gray-800">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex space-x-6 mb-4 md:mb-0">
+              <a
+                href="privacy-policy.html"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Privacy Policy</a
+              >
+              <a
+                href="terms.html"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Terms of Service</a
+              >
+              <a
+                href="sitemap.xml"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Sitemap</a
+              >
+            </div>
+            <p class="text-gray-400 text-sm">
+              © <span class="current-year"></span> OFO Development. All rights
+              reserved.<br />
+              <span class="text-gray-500 text-xs mt-1 block"
+                >Proudly building in Nevada</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="fixed bottom-8 right-8 p-3 bg-gray-800 rounded-full shadow-lg hover:bg-gray-700 transition-colors"
+      >
+        <svg
+          class="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 15l7-7 7 7"
+          ></path>
+        </svg>
+      </button>
+
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/analytics.js"></script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // Case Studies Filtering
+          const filterButtons = document.querySelectorAll(".filter-btn");
+          const techFilterButtons =
+            document.querySelectorAll(".tech-filter-btn");
+          const projectCards = document.querySelectorAll(".project-card");
+
+          // Handle main category filtering
+          filterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              // Update active button styling
+              filterButtons.forEach((btn) =>
+                btn.classList.remove("active", "bg-blue-700")
+              );
+              filterButtons.forEach((btn) =>
+                btn.classList.add("bg-blue-900/50")
+              );
+              button.classList.add("active", "bg-blue-700");
+              button.classList.remove("bg-blue-900/50");
+
+              const filter = button.getAttribute("data-filter");
+
+              // Apply filtering
+              filterProjects();
+            });
+          });
+
+          // Handle tech filtering
+          techFilterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              // Update active button styling
+              techFilterButtons.forEach((btn) =>
+                btn.classList.remove("active", "bg-gray-700")
+              );
+              techFilterButtons.forEach((btn) =>
+                btn.classList.add("bg-gray-800/50")
+              );
+              button.classList.add("active", "bg-gray-700");
+              button.classList.remove("bg-gray-800/50");
+
+              // Apply filtering
+              filterProjects();
+            });
+          });
+
+          function filterProjects() {
+            const activeCategory = document
+              .querySelector(".filter-btn.active")
+              .getAttribute("data-filter");
+            const activeTech = document
+              .querySelector(".tech-filter-btn.active")
+              .getAttribute("data-tech-filter");
+
+            projectCards.forEach((card) => {
+              const cardCategory = card.getAttribute("data-category");
+              const cardTech = card.getAttribute("data-tech");
+
+              // Check if card matches both filters
+              const matchesCategory =
+                activeCategory === "all" || cardCategory === activeCategory;
+              const matchesTech =
+                activeTech === "all" || cardTech === activeTech;
+
+              // Apply appropriate visibility and animation
+              if (matchesCategory && matchesTech) {
+                card.classList.remove("hidden");
+                setTimeout(() => {
+                  card.classList.add("animate-fadeInUp");
+                }, 50);
+              } else {
+                card.classList.add("hidden");
+                card.classList.remove("animate-fadeInUp");
+              }
+            });
+          }
+
+          // Set current year in footer
+          const yearElement = document.querySelector(".current-year");
+          if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+          }
+        });
+      </script>
+    </footer>
+  </body>
+</html>

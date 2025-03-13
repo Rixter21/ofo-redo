@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OFO - E-Commerce Solutions</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+    <!-- Basic Meta Tags -->
+    <meta
+      name="description"
+      content="OFO Development offers cutting-edge e-commerce solutions to transform your online business with powerful tools, secure payments, and optimization techniques that convert visitors into loyal customers."
+    />
+    <meta
+      name="keywords"
+      content="e-commerce solutions, online store development, payment gateway integration, mobile commerce, shopping cart development, e-commerce platform, custom storefront, conversion optimization, secure payments, online business"
+    />
+    <meta name="author" content="OFO Development" />
+    <link
+      rel="canonical"
+      href="https://ofodevelopment.com/EcommerceSolutions.html"
+    />
+
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta
+      property="og:title"
+      content="E-Commerce Solutions | OFO Development"
+    />
+    <meta
+      property="og:description"
+      content="OFO Development offers cutting-edge e-commerce solutions to transform your online business with powerful tools, secure payments, and optimization techniques that convert visitors into loyal customers."
+    />
+    <meta
+      property="og:image"
+      content="https://ofodevelopment.com/assets/images/futuristic-smart-city.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://ofodevelopment.com/EcommerceSolutions.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OFO Development" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="E-Commerce Solutions | OFO Development"
+    />
+    <meta
+      name="twitter:description"
+      content="OFO Development offers cutting-edge e-commerce solutions to transform your online business with powerful tools, secure payments, and optimization techniques that convert visitors into loyal customers."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ofodevelopment.com/assets/images/futuristic-smart-city.webp"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/additional-styles.css" />
+    <style>
+      .golden-text {
+        background: linear-gradient(45deg, #ffd700, #ffa500, #ffdd55);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradient-pulse 3s ease-in-out infinite,
+          shimmer 2s ease-in-out infinite;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      }
+
+      /* Dark mode support */
+      .dark .golden-text {
+        text-shadow: 0 0 18px rgba(255, 215, 0, 0.5);
+      }
+
+      @keyframes shimmer {
+        0% {
+          opacity: 0.95;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.95;
+        }
+      }
+      @keyframes gradient-pulse {
+        0%,
+        100% {
+          background-size: 100% 100%;
+        }
+        50% {
+          background-size: 150% 150%;
+        }
+      }
+      .hero-image-container {
+        position: relative;
+      }
+      .hero-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(255, 215, 0, 0.15),
+          transparent
+        );
+        border-radius: 1rem;
+      }
+      .solution-card {
+        @apply p-8 rounded-xl border border-gray-700 transition-all duration-300;
+      }
+      .solution-card:hover {
+        @apply border-yellow-500 border-opacity-50 scale-[1.02];
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.4));
+        }
+        50% {
+          filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+        }
+      }
+      .drop-shadow-glow {
+        animation: glow 1.5s ease-in-out infinite;
+      }
+
+      /* Footer link hover effects */
+      .footer-link {
+        @apply transition-all duration-300;
+      }
+      .footer-link:hover {
+        @apply text-yellow-400 transform scale-105;
+        animation: glow 1s ease-in-out infinite;
+      }
+      .footer-link::after {
+        @apply block h-px bg-yellow-500 scale-x-0 origin-left transition-transform duration-300;
+        content: "";
+      }
+      .footer-link:hover::after {
+        @apply scale-x-100;
+      }
+
+      /* Product filter and showcase styles */
+      .filter-button {
+        @apply px-4 py-2 rounded-lg text-gray-400 transition-all duration-300;
+      }
+      .filter-button.active {
+        @apply bg-yellow-600 text-white;
+      }
+      .filter-button:hover:not(.active) {
+        @apply bg-gray-800 text-gray-200;
+      }
+
+      .product-card {
+        @apply bg-gray-800/30 rounded-xl overflow-hidden border border-gray-700 transition-all duration-300;
+        height: 100%;
+      }
+
+      .product-card:hover {
+        @apply border-yellow-500 shadow-lg transform scale-[1.03];
+      }
+
+      /* Animation classes for scroll animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .slide-in-left.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .slide-in-right.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scale-in {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .scale-in.animated {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Staggered animations */
+      .stagger-animation > * {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      }
+
+      .stagger-animation > *:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .stagger-animation > *:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .stagger-animation > *:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .stagger-animation > *:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .stagger-animation > *:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .stagger-animation > *:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+
+      .stagger-animation.animated > * {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Product showcase modal styles */
+      .product-details-modal {
+        @apply fixed inset-0 z-50 flex items-center justify-center bg-black/80 opacity-0 pointer-events-none transition-opacity duration-300;
+      }
+      .product-details-modal.active {
+        @apply opacity-100 pointer-events-auto;
+      }
+      .product-details-content {
+        @apply bg-gray-800 p-8 rounded-xl border border-yellow-500/30 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300;
+      }
+      .product-details-modal.active .product-details-content {
+        @apply scale-100;
+      }
+    </style>
+    <link
+      rel="preload"
+      href="assets/images/logos/Color logo - no background.png"
+      as="image"
+      type="image/png"
+    />
+  </head>
+  <body class="bg-gray-900 dark:bg-gray-900 text-white">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-yellow-600 focus:text-white focus:z-50"
+    >
+      Skip to main content
+    </a>
+
+    <nav
+      class="fixed w-full z-50 bg-gray-900/50 dark:bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <a href="index.html">
+              <img
+                src="assets/images/logos/Color logo - no background.png"
+                alt="OFO Development"
+                class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+              />
+            </a>
+          </div>
+
+          <button
+            data-mobile-menu-button
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Toggle mobile menu"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="about.html"
+              class="nav-link hover:text-yellow-500 transition-colors"
+              >About</a
+            >
+
+            <div class="relative group">
+              <button
+                class="nav-link flex items-center hover:text-yellow-500 transition-colors"
+                aria-expanded="false"
+              >
+                Services
+                <span class="ml-1 transition-transform group-hover:rotate-180"
+                  >▾</span
+                >
+              </button>
+
+              <div
+                class="dropdown-menu absolute top-full left-0 mt-2 w-[600px] backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 opacity-0 invisible transition-all duration-500 transform -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 rounded-xl z-50"
+              >
+                <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </span>
+                    Custom Software
+                  </a>
+                  <a
+                    href="MobileDevelopment.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                        ></path>
+                        <path
+                          d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"
+                        ></path>
+                      </svg>
+                    </span>
+                    Mobile Apps
+                  </a>
+                  <a
+                    href="WebDevelopment.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </span>
+                    Web Development
+                  </a>
+                  <a
+                    href="DataAnalysis.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"
+                        ></path>
+                      </svg>
+                    </span>
+                    Data Analysis
+                  </a>
+                  <a
+                    href="EcommerceSolutions.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                        ></path>
+                      </svg>
+                    </span>
+                    E-Commerce
+                  </a>
+                  <a
+                    href="ArtificialIntelligence.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 011-1z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </span>
+                    AI & Machine Learning
+                  </a>
+
+                  <a
+                    href="DigitalInnovation.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"
+                        ></path>
+                      </svg>
+                    </span>
+                    Digital Innovation
+                  </a>
+                  <a
+                    href="VirtualReality.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                        <path
+                          fill-rule="evenodd"
+                          d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </span>
+                    VR & AR
+                  </a>
+
+                  <a
+                    href="GameDevelopment.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+                        ></path>
+                      </svg>
+                    </span>
+                    Game Development
+                  </a>
+                  <a
+                    href="CloudComputing.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z"
+                        ></path>
+                      </svg>
+                    </span>
+                    Cloud Computing
+                  </a>
+                  <a
+                    href="CyberSecurity.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </span>
+                    Cybersecurity
+                  </a>
+                  <a
+                    href="ProductManagement.html"
+                    class="dropdown-item flex items-center p-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-all duration-300 hover:translate-x-1"
+                  >
+                    <span class="w-5 h-5 mr-3 text-yellow-500">
+                      <svg
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                        <path
+                          fill-rule="evenodd"
+                          d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </span>
+                    Product Management
+                  </a>
+                </div>
+
+                <div
+                  class="border-t border-white/20 p-4 bg-gray-900/30 backdrop-blur-md transition-all duration-300 hover:bg-gray-900/40"
+                >
+                  <h3 class="text-yellow-500 text-sm font-semibold mb-2">
+                    Premium Enterprise Solutions
+                  </h3>
+                  <p class="text-gray-300 text-sm">
+                    Custom solutions tailored to your business needs
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="resources.html"
+              class="nav-link hover:text-yellow-500 transition-colors"
+              >Resources</a
+            >
+            <a
+              href="contact.html"
+              class="nav-link hover:text-yellow-500 transition-colors"
+              >Contact</a
+            >
+            <a
+              href="blog.html"
+              class="nav-link hover:text-yellow-500 transition-colors"
+              >Blog</a
+            >
+          </div>
+        </div>
+
+        <div
+          data-mobile-menu
+          class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden max-h-0"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a
+              href="about.html"
+              class="block nav-link hover:text-yellow-500 transition-colors py-2"
+              >About</a
+            >
+
+            <div>
+              <button
+                data-services-button
+                class="w-full flex justify-between items-center nav-link hover:text-yellow-500 transition-colors py-2"
+                aria-expanded="false"
+              >
+                Services
+                <svg
+                  class="w-4 h-4 dropdown-icon transition-transform duration-300"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+              <div
+                data-services-content
+                class="overflow-hidden max-h-0 transition-all duration-300"
+              >
+                <div class="pl-4 space-y-2 py-2">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >Custom Software</a
+                  >
+                  <a
+                    href="MobileDevelopment.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >Mobile Apps</a
+                  >
+                  <a
+                    href="WebDevelopment.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >Web Development</a
+                  >
+                  <a
+                    href="DataAnalysis.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >Data Analysis</a
+                  >
+                  <a
+                    href="EcommerceSolutions.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >E-Commerce</a
+                  >
+                  <a
+                    href="ArtificialIntelligence.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >AI & Machine Learning</a
+                  >
+                  <a
+                    href="DigitalInnovation.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >Digital Innovation</a
+                  >
+                  <a
+                    href="VirtualReality.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >VR & AR</a
+                  >
+                  <a
+                    href="GameDevelopment.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >Game Development</a
+                  >
+                  <a
+                    href="CloudComputing.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >Cloud Computing</a
+                  >
+                  <a
+                    href="CyberSecurity.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >Cybersecurity</a
+                  >
+                  <a
+                    href="ProductManagement.html"
+                    class="block nav-link hover:text-yellow-500 transition-colors py-2"
+                    >Product Management</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="resources.html"
+              class="block nav-link hover:text-yellow-500 transition-colors py-2"
+              >Resources</a
+            >
+            <a
+              href="contact.html"
+              class="block nav-link hover:text-yellow-500 transition-colors py-2"
+              >Contact</a
+            >
+            <a
+              href="blog.html"
+              class="block nav-link hover:text-yellow-500 transition-colors py-2"
+              >Blog</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main
+      id="main-content"
+      class="pt-32 pb-20 bg-gradient-to-b from-gray-900 via-gray-900/80 to-gray-900 dark:from-gray-900 dark:via-gray-900/80 dark:to-gray-900 relative"
+    >
+      <div
+        class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMCIvPjx0ZXh0CB4PSI1MCUiIHk9IjUwJSIgZm9udC1zaXplPSIyMiIgZmlsbD0iIzIyMiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC4xIj5PRk88L3RleHQ+PC9zdmc+')] opacity-[0.02]"
+      ></div>
+
+      <section class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div
+            class="md:w-1/2 relative group animate-on-scroll slide-in-left"
+            data-once="true"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-transparent rounded-2xl"
+            ></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/50 rounded-2xl"
+            ></div>
+            <img
+              src="assets/images/futuristic-smart-city.webp"
+              alt="Modern e-commerce platform"
+              class="rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-[1.02] group-hover:rotate-1"
+              loading="lazy"
+            />
+            <div
+              class="absolute -inset-4 bg-gradient-to-r from-yellow-500/30 to-transparent blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-300 -z-10"
+            ></div>
+          </div>
+
+          <div
+            class="md:w-1/2 mt-8 md:mt-0 animate-on-scroll slide-in-right"
+            data-once="true"
+          >
+            <h1 class="text-5xl font-bold golden-text mb-6">
+              Next-Gen E-Commerce Solutions
+            </h1>
+            <p class="text-xl text-gray-300 dark:text-gray-300 mb-8">
+              Transform your online business with cutting-edge e-commerce
+              platforms that convert browsers into loyal customers.
+            </p>
+            <a
+              href="contact.html"
+              class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+              aria-label="Start your e-commerce project"
+            >
+              Start Your Project
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 py-16">
+        <h2
+          class="text-3xl font-bold text-center mb-12 animate-on-scroll fade-in"
+        >
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600"
+          >
+            Powerful E-Commerce Solutions
+          </span>
+        </h2>
+        <div
+          class="grid md:grid-cols-3 gap-8 stagger-animation animate-on-scroll"
+        >
+          <div class="solution-card animate-on-scroll fade-in" data-once="true">
+            <div class="text-yellow-500 text-4xl mb-4">🛒</div>
+            <h3 class="text-2xl font-bold text-white dark:text-white mb-4">
+              Custom Store Development
+            </h3>
+            <p class="text-gray-300 dark:text-gray-300">
+              Bespoke e-commerce platforms tailored to your unique business
+              needs with advanced product management and checkout flows.
+            </p>
+          </div>
+          <div
+            class="solution-card animate-on-scroll fade-in"
+            data-once="true"
+            style="transition-delay: 0.1s"
+          >
+            <div class="text-yellow-500 text-4xl mb-4">📈</div>
+            <h3 class="text-2xl font-bold text-white dark:text-white mb-4">
+              Conversion Optimization
+            </h3>
+            <p class="text-gray-300 dark:text-gray-300">
+              Data-driven UX improvements and A/B testing to maximize your
+              store's conversion rates and average order value.
+            </p>
+          </div>
+          <div
+            class="solution-card animate-on-scroll fade-in"
+            data-once="true"
+            style="transition-delay: 0.2s"
+          >
+            <div class="text-yellow-500 text-4xl mb-4">🔒</div>
+            <h3 class="text-2xl font-bold text-white dark:text-white mb-4">
+              Secure Payments
+            </h3>
+            <p class="text-gray-300 dark:text-gray-300">
+              PCI-compliant payment integrations with support for 50+ gateways
+              and cryptocurrency options.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+          <h2
+            class="text-4xl font-bold mb-12 text-center animate-on-scroll fade-in"
+          >
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600"
+            >
+              Interactive Product Showcase
+            </span>
+          </h2>
+
+          <div
+            class="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll fade-in"
+          >
+            <button
+              class="filter-button active"
+              data-filter="all"
+              aria-pressed="true"
+              aria-label="Show all solutions"
+            >
+              All Solutions
+            </button>
+            <button
+              class="filter-button"
+              data-filter="storefront"
+              aria-pressed="false"
+              aria-label="Show storefronts"
+            >
+              Storefronts
+            </button>
+            <button
+              class="filter-button"
+              data-filter="payment"
+              aria-pressed="false"
+              aria-label="Show payment systems"
+            >
+              Payment Systems
+            </button>
+            <button
+              class="filter-button"
+              data-filter="analytics"
+              aria-pressed="false"
+              aria-label="Show analytics tools"
+            >
+              Analytics Tools
+            </button>
+            <button
+              class="filter-button"
+              data-filter="integration"
+              aria-pressed="false"
+              aria-label="Show integrations"
+            >
+              Integrations
+            </button>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation animate-on-scroll"
+          >
+            <div class="product-card group" data-category="storefront">
+              <div class="relative overflow-hidden">
+                <img
+                  src="assets/images/spreadsheet.jpg"
+                  alt="Custom Storefront UI"
+                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"
+                ></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-yellow-400">
+                  Custom Storefronts
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Beautiful, high-converting designs tailored to your brand
+                  identity with seamless mobile experiences.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm bg-yellow-600/20 text-yellow-400 px-3 py-1 rounded"
+                    >Storefront</span
+                  >
+                  <button
+                    class="text-gray-400 hover:text-yellow-400 transition-colors transform hover:scale-105"
+                    aria-label="Learn more about Custom Storefronts"
+                    data-product-details
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card group" data-category="payment">
+              <div class="relative overflow-hidden">
+                <img
+                  src="assets/images/cryptocurrency-coding-digital-blue-background-open-source-blockchain-concept.jpg"
+                  alt="Payment Gateway Integration"
+                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"
+                ></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-yellow-400">
+                  Multi-Gateway Payment System
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Support for 50+ payment gateways including credit cards,
+                  crypto, and local payment methods.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm bg-yellow-600/20 text-yellow-400 px-3 py-1 rounded"
+                    >Payment</span
+                  >
+                  <button
+                    class="text-gray-400 hover:text-yellow-400 transition-colors transform hover:scale-105"
+                    aria-label="Learn more about Multi-Gateway Payment System"
+                    data-product-details
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card group" data-category="analytics">
+              <div class="relative overflow-hidden">
+                <img
+                  src="assets/images/big-data-processing.jpg"
+                  alt="Analytics Dashboard"
+                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"
+                ></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-yellow-400">
+                  Advanced Analytics Suite
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Real-time sales tracking, customer behavior analysis, and
+                  predictive inventory management.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm bg-yellow-600/20 text-yellow-400 px-3 py-1 rounded"
+                    >Analytics</span
+                  >
+                  <button
+                    class="text-gray-400 hover:text-yellow-400 transition-colors transform hover:scale-105"
+                    aria-label="Learn more about Advanced Analytics Suite"
+                    data-product-details
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card group" data-category="integration">
+              <div class="relative overflow-hidden">
+                <img
+                  src="assets/images/manager-server-hub-using-tablet-find-firewall-misconfigurations.jpg"
+                  alt="System Integration"
+                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"
+                ></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-yellow-400">
+                  ERP Integration System
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Seamlessly connect your e-commerce platform with existing ERP,
+                  CRM, and inventory systems.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm bg-yellow-600/20 text-yellow-400 px-3 py-1 rounded"
+                    >Integration</span
+                  >
+                  <button
+                    class="text-gray-400 hover:text-yellow-400 transition-colors transform hover:scale-105"
+                    aria-label="Learn more about ERP Integration System"
+                    data-product-details
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card group" data-category="storefront">
+              <div class="relative overflow-hidden">
+                <img
+                  src="assets/images/html-css-collage.webp"
+                  alt="Headless Commerce"
+                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"
+                ></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-yellow-400">
+                  Headless Commerce Platform
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Decoupled frontend and backend for ultimate flexibility and
+                  lightning-fast performance.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm bg-yellow-600/20 text-yellow-400 px-3 py-1 rounded"
+                    >Storefront</span
+                  >
+                  <button
+                    class="text-gray-400 hover:text-yellow-400 transition-colors transform hover:scale-105"
+                    aria-label="Learn more about Headless Commerce Platform"
+                    data-product-details
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card group" data-category="integration">
+              <div class="relative overflow-hidden">
+                <img
+                  src="assets/images/medical.jpg"
+                  alt="Marketplace Integration"
+                  class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"
+                ></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-yellow-400">
+                  Marketplace Connector
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Synchronize inventory, orders, and customer data across
+                  Amazon, eBay, Etsy and more.
+                </p>
+                <div class="flex justify-between items-center">
+                  <span
+                    class="text-sm bg-yellow-600/20 text-yellow-400 px-3 py-1 rounded"
+                    >Integration</span
+                  >
+                  <button
+                    class="text-gray-400 hover:text-yellow-400 transition-colors transform hover:scale-105"
+                    aria-label="Learn more about Marketplace Connector"
+                    data-product-details
+                  >
+                    <svg
+                      class="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative py-24 overflow-hidden">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 -skew-y-3"
+        ></div>
+        <div class="container mx-auto px-6 relative">
+          <h2
+            class="text-4xl font-bold mb-16 text-center animate-on-scroll fade-in"
+          >
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600"
+            >
+              E-Commerce Technology Stack
+            </span>
+          </h2>
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10 stagger-animation animate-on-scroll"
+          >
+            <div
+              class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDIyQzYuNDc3IDIyIDIgMTcuNTIzIDIgMTJTNi40NzcgMiAxMiAyczEwIDQuNDc3IDEwIDEwLTQuNDc3IDEwLTEwIDEwem0wLTIuNWE3LjUgNy41IDAgMTAgMC0xNSA3LjUgNy41IDAgMDAwIDE1eiIgZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+')]"
+            ></div>
+            <div
+              class="flex flex-col items-center p-6 bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all duration-300 hover:-translate-y-2"
+            >
+              <div class="p-4 bg-gray-900 rounded-xl mb-4">
+                <img
+                  src="assets/images/svg/shopify.svg"
+                  class="w-12 h-12"
+                  alt="Shopify"
+                  loading="lazy"
+                />
+              </div>
+              <span
+                class="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600"
+              >
+                Shopify Plus
+              </span>
+            </div>
+            <div
+              class="flex flex-col items-center p-6 bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all duration-300 hover:-translate-y-2"
+            >
+              <div class="p-4 bg-gray-900 rounded-xl mb-4">
+                <img
+                  src="assets/images/svg/nodejs.svg"
+                  class="w-12 h-12"
+                  alt="Node.js"
+                  loading="lazy"
+                />
+              </div>
+              <span
+                class="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600"
+              >
+                Node.js
+              </span>
+            </div>
+            <div
+              class="flex flex-col items-center p-6 bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all duration-300 hover:-translate-y-2"
+            >
+              <div class="p-4 bg-gray-900 rounded-xl mb-4">
+                <img
+                  src="assets/images/svg/graphql.svg"
+                  class="w-12 h-12"
+                  alt="GraphQL"
+                  loading="lazy"
+                />
+              </div>
+              <span
+                class="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600"
+              >
+                GraphQL
+              </span>
+            </div>
+            <div
+              class="flex flex-col items-center p-6 bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all duration-300 hover:-translate-y-2"
+            >
+              <div class="p-4 bg-gray-900 rounded-xl mb-4">
+                <img
+                  src="assets/images/svg/react.svg"
+                  class="w-12 h-12"
+                  alt="React"
+                  loading="lazy"
+                />
+              </div>
+              <span
+                class="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600"
+              >
+                React Storefronts
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 py-16">
+        <h2
+          class="text-3xl font-bold text-center mb-12 animate-on-scroll fade-in"
+        >
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600"
+          >
+            Trusted by Global Businesses
+          </span>
+        </h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 animate-on-scroll stagger-animation"
+        >
+          <div
+            class="p-6 bg-gray-800/30 rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-all animate-on-scroll slide-in-left"
+          >
+            <div class="flex flex-wrap justify-center gap-6">
+              <svg
+                class="w-16 h-16 text-green-400 animate-pulse"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0L3 7l1.6 1.3L12 14l7.4-5.7L21 7l-9-7zm-2 19.7l-7.4-5.7L3 17l9 7 9-7-1.6-1.3-7.4 5.7L12 20v4.7z"
+                ></path>
+              </svg>
+              <svg
+                class="w-16 h-16 text-blue-400 animate-pulse"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                style="animation-delay: 0.5s"
+              >
+                <path
+                  d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm-1.5 16.5l-4-4 2.1-2.1 1.9 1.9 5.9-5.9 2.1 2.1-8 8z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-center text-xl font-bold text-yellow-400 mt-4">
+              PCI DSS Level 1 Certified
+            </h3>
+            <p class="text-center text-gray-400 mt-2">
+              Highest level of payment security compliance
+            </p>
+          </div>
+
+          <div
+            class="p-6 bg-gray-800/30 rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-all animate-on-scroll fade-in"
+          >
+            <div class="flex justify-center space-x-6 mb-4">
+              <svg
+                class="w-16 h-16 text-indigo-400 drop-shadow-glow"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 9V3H15V1h-2v2H11V1H9v2H3v6h2V7h14v2h2zm-2 9a4 4 0 01-8 0h2a2 2 0 004 0 2 2 0 00-2-2h-4a4 4 0 010-8c2.21 0 4 1.79 4 4h-2a2 2 0 00-4 0 2 2 0 002 2h4a4 4 0 010 8z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-center text-xl font-bold text-yellow-400 mt-4">
+              50+ Payment Methods
+            </h3>
+            <p class="text-center text-gray-400 mt-2">
+              Global payment options including cryptocurrency
+            </p>
+          </div>
+
+          <div
+            class="p-6 bg-gray-800/30 rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-all animate-on-scroll slide-in-right"
+          >
+            <div class="text-center">
+              <div
+                class="counter-value text-4xl font-bold golden-text mb-2"
+                data-count="1250000"
+                data-suffix="+"
+              >
+                0
+              </div>
+              <h3 class="text-xl font-bold text-yellow-400">
+                Transactions Secured
+              </h3>
+              <p class="text-gray-400 text-sm mt-2">
+                With 99.99% uptime guarantee
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <h2
+            class="text-3xl font-bold golden-text mb-8 text-center animate-on-scroll fade-in"
+          >
+            Why Our E-Commerce Solutions?
+          </h2>
+          <div class="space-y-6 stagger-animation animate-on-scroll">
+            <div
+              class="flex items-start p-6 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 transition-all duration-300 group animate-on-scroll fade-in"
+              data-once="true"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center bg-yellow-500/10 rounded-xl mr-6 group-hover:bg-yellow-500/20 transition-colors"
+              >
+                <svg
+                  class="w-8 h-8 text-yellow-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 mb-2"
+                >
+                  Lightning-Fast Performance
+                </h3>
+                <p class="text-gray-300 dark:text-gray-300 leading-relaxed">
+                  Optimized stores with average page load times under 1.2
+                  seconds, leveraging advanced caching and CDN networks for
+                  global speed.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start p-6 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 transition-all duration-300 group animate-on-scroll fade-in"
+              data-once="true"
+              style="transition-delay: 0.1s"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center bg-yellow-500/10 rounded-xl mr-6 group-hover:bg-yellow-500/20 transition-colors"
+              >
+                <svg
+                  class="w-8 h-8 text-yellow-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 18.75a6.75 6.75 0 100-13.5 6.75 6.75 0 000 13.5z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 22.5c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.25 12h-5.25V6.75"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 mb-2"
+                >
+                  Mobile-First Design
+                </h3>
+                <p class="text-gray-300 dark:text-gray-300 leading-relaxed">
+                  Pixel-perfect responsive experiences across all devices, with
+                  touch-optimized interfaces and progressive enhancement.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-start p-6 bg-gray-800/30 rounded-xl hover:bg-gray-800/50 transition-all duration-300 group animate-on-scroll fade-in"
+              data-once="true"
+              style="transition-delay: 0.2s"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center bg-yellow-500/10 rounded-xl mr-6 group-hover:bg-yellow-500/20 transition-colors"
+              >
+                <svg
+                  class="w-8 h-8 text-yellow-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3
+                  class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 mb-2"
+                >
+                  SEO-Optimized Architecture
+                </h3>
+                <p class="text-gray-300 dark:text-gray-300 leading-relaxed">
+                  Built-in schema markup, canonical URLs, and automatic sitemap
+                  generation for maximum search engine visibility.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="product-details-modal" id="productDetailsModal">
+        <div class="product-details-content relative">
+          <button
+            id="closeModalButton"
+            class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+            aria-label="Close modal"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+          <div id="productDetailsContent"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-transparent to-transparent"
+      ></div>
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8 mb-16">
+          <div class="relative">
+            <img
+              src="assets/images/logos/White logo - no background.png"
+              alt="OFO Logo"
+              class="w-48 mb-4 opacity-90 hover:opacity-100 transition-opacity"
+              loading="lazy"
+            />
+            <p class="text-gray-400 max-w-[260px] text-lg">
+              Transforming commerce through innovative technology
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="EcommerceSolutions.html" class="footer-link"
+                  >E-Commerce</a
+                >
+              </li>
+              <li>
+                <a href="WebDevelopment.html" class="footer-link"
+                  >Web Development</a
+                >
+              </li>
+              <li>
+                <a href="MobileDevelopment.html" class="footer-link"
+                  >Mobile Apps</a
+                >
+              </li>
+              <li>
+                <a href="ArtificialIntelligence.html" class="footer-link"
+                  >AI & Machine Learning</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Company</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="about.html" class="footer-link">About</a>
+              </li>
+              <li>
+                <a href="services.html" class="footer-link">Services</a>
+              </li>
+              <li>
+                <a href="contact.html" class="footer-link">Contact</a>
+              </li>
+              <li>
+                <a href="privacy-policy.html" class="footer-link"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Connect</h4>
+            <div class="flex space-x-8 transition-all">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-500 transform transition-all duration-300 hover:scale-110 hover:drop-shadow-glow"
+                aria-label="Twitter"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 4.01c-1 .49-2.1.82-3.24.97a5.07 5.07 0 002.25-2.83 10.2 10.2 0 01-3.24 1.24 a5.07 5.07 0 00-8.63 4.62A14.4 14.4 0 013 2.6a5.07 5.07 0 001.57 6.77 5.07 5.07 0 01-2.3-.63v.06a5.07 5.07 0 004.07 4.97 5.07 5.07 0 01-2.29.09 5.07 5.07 0 004.73 3.52 10.2 10.2 0 01-6.32 2.18c-.41 0-.82-.02-1.22-.07a14.4 14.4 0 007.83 2.3c9.4 0 14.53-7.79 14.53-14.53 0-.22 0-.44-.02-.66a10.4 10.4 0 002.56-2.65z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-500 transform transition-all duration-300 hover:scale-110 hover:drop-shadow-glow"
+                aria-label="GitHub"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-500 transform transition-all duration-300 hover:scale-110 hover:drop-shadow-glow"
+                aria-label="LinkedIn"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-24 pt-12 text-center">
+          <div class="flex items-center justify-center space-x-4 mb-6">
+            <div class="w-12 h-px bg-gray-700"></div>
+            <a
+              href="#main-content"
+              class="text-yellow-500 hover:text-yellow-400 transition-colors"
+              aria-label="Back to top"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 11l7-7 7 7M5 19l7-7 7 7"
+                ></path>
+              </svg>
+            </a>
+            <div class="w-12 h-px bg-gray-700"></div>
+          </div>
+          <p class="text-gray-400 text-sm">
+            © <span class="current-year">2025</span> OFO Development. All rights
+            reserved.<br />
+            <span class="text-gray-500 text-xs mt-1 block"
+              >Proudly building in Nevada</span
+            >
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="animated-gradient absolute bottom-0 left-0 right-0 h-1 z-10"
+      ></div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/analytics.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Enhanced product filter functionality
+        const filterButtons = document.querySelectorAll(".filter-button");
+        const productCards = document.querySelectorAll(".product-card");
+
+        // Initialize all product cards for animation
+        productCards.forEach((card) => {
+          card.classList.add("animate-on-scroll", "fade-in");
+        });
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Update ARIA attributes for accessibility
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("active");
+              btn.setAttribute("aria-pressed", "false");
+            });
+
+            // Add active class to clicked button
+            button.classList.add("active");
+            button.setAttribute("aria-pressed", "true");
+
+            const filter = button.getAttribute("data-filter");
+
+            // Enhanced filter animation with staggered timing
+            let visibleIndex = 0;
+
+            // Filter products
+            productCards.forEach((card) => {
+              if (
+                filter === "all" ||
+                card.getAttribute("data-category") === filter
+              ) {
+                // Make visible with staggered animation
+                card.style.display = "block";
+                card.style.transitionDelay = `${visibleIndex * 0.1}s`;
+                visibleIndex++;
+
+                // Reset animation
+                card.classList.remove("animated");
+                setTimeout(() => {
+                  card.classList.add("animated");
+                }, 50);
+              } else {
+                card.style.display = "none";
+                card.style.transitionDelay = "0s";
+              }
+            });
+          });
+        });
+
+        // Product showcase modal functionality
+        const modal = document.getElementById("productDetailsModal");
+        const modalContent = document.getElementById("productDetailsContent");
+        const closeModalButton = document.getElementById("closeModalButton");
+        const productButtons = document.querySelectorAll(
+          "[data-product-details]"
+        );
+
+        // Product details data
+        const productDetails = {
+          "Custom Storefronts": {
+            title: "Custom Storefronts",
+            description:
+              "Our custom storefronts are built with conversion in mind. We design beautiful, intuitive interfaces that guide customers through the buying process effortlessly.",
+            features: [
+              "Responsive design that works on all devices",
+              "Custom checkout flows optimized for conversion",
+              "Advanced product filtering and search",
+              "Rich product detail pages with zoom, videos, and more",
+              "Integration with inventory management systems",
+            ],
+            technologies: [
+              "React.js",
+              "Next.js",
+              "Vue.js",
+              "Shopify Hydrogen",
+              "Tailwind CSS",
+            ],
+            caseStudy:
+              "For a luxury fashion retailer, we developed a custom storefront that increased mobile conversions by 37% and reduced cart abandonment by 24%.",
+          },
+          "Multi-Gateway Payment System": {
+            title: "Multi-Gateway Payment System",
+            description:
+              "Our payment solutions support multiple gateways, currencies, and payment methods to ensure smooth transactions globally.",
+            features: [
+              "Support for 50+ payment gateways",
+              "Cryptocurrency payment options",
+              "Smart routing for optimal transaction costs",
+              "Fraud detection and prevention",
+              "Subscription and recurring payment support",
+              "One-click checkout options",
+            ],
+            technologies: [
+              "Stripe Connect",
+              "PayPal Commerce",
+              "Braintree",
+              "Adyen",
+              "Cryptocurrency APIs",
+            ],
+            caseStudy:
+              "We helped an international marketplace reduce payment processing fees by 18% while expanding payment options to 42 countries.",
+          },
+          "Advanced Analytics Suite": {
+            title: "Advanced Analytics Suite",
+            description:
+              "Gain deep insights into customer behavior, sales patterns, and inventory movement with our advanced analytics tools.",
+            features: [
+              "Real-time sales dashboards",
+              "Customer behavior tracking",
+              "Predictive inventory management",
+              "Conversion funnel analysis",
+              "A/B testing frameworks",
+              "Custom reporting tools",
+            ],
+            technologies: [
+              "Google Analytics 4",
+              "Segment",
+              "Mixpanel",
+              "Amplitude",
+              "Custom ETL Pipelines",
+            ],
+            caseStudy:
+              "Our analytics implementation helped a health products retailer identify underperforming products and optimize inventory, resulting in a 22% increase in inventory turnover.",
+          },
+          "ERP Integration System": {
+            title: "ERP Integration System",
+            description:
+              "Seamlessly connect your e-commerce store with your existing business systems to automate workflows and eliminate data silos.",
+            features: [
+              "Bidirectional synchronization with ERP systems",
+              "Real-time inventory updates",
+              "Automated order processing",
+              "Customer data integration",
+              "Custom business logic implementation",
+            ],
+            technologies: [
+              "SAP integration",
+              "NetSuite connectors",
+              "Microsoft Dynamics",
+              "Custom API development",
+              "ETL workflows",
+            ],
+            caseStudy:
+              "We integrated a manufacturing company's e-commerce storefront with their SAP ERP, reducing order processing time from 3 days to 2 hours.",
+          },
+          "Headless Commerce Platform": {
+            title: "Headless Commerce Platform",
+            description:
+              "Decouple your frontend and backend systems for ultimate flexibility, performance, and scalability.",
+            features: [
+              "API-first architecture",
+              "Freedom to use any frontend framework",
+              "Lightning-fast page loads",
+              "IoT and omnichannel commerce support",
+              "Progressive Web App capabilities",
+            ],
+            technologies: [
+              "Commercetools",
+              "Elastic Path",
+              "BigCommerce Headless",
+              "Custom API development",
+              "JAMstack",
+            ],
+            caseStudy:
+              "Our headless implementation for a global electronics retailer improved page load speeds by 64% and increased mobile conversion rates by 41%.",
+          },
+          "Marketplace Connector": {
+            title: "Marketplace Connector",
+            description:
+              "Expand your reach by synchronizing your inventory and orders across multiple marketplaces and sales channels.",
+            features: [
+              "Centralized inventory management",
+              "Automated order routing",
+              "Dynamic pricing strategies",
+              "Marketplace-specific optimization",
+              "Performance analytics across channels",
+            ],
+            technologies: [
+              "Amazon MWS",
+              "eBay API",
+              "Walmart Marketplace",
+              "Etsy API",
+              "Custom connectors",
+            ],
+            caseStudy:
+              "We helped a home goods manufacturer expand to 7 new marketplaces, increasing overall sales by 143% within 8 months.",
+          },
+        };
+
+        // Open modal with product details
+        productButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const productCard = this.closest(".product-card");
+            const productTitle = productCard
+              .querySelector("h3")
+              .textContent.trim();
+            const productData = productDetails[productTitle] || {
+              title: productTitle,
+              description:
+                "Detailed information about this product is coming soon.",
+              features: ["Feature details coming soon"],
+              technologies: ["Technology stack details coming soon"],
+              caseStudy: "Case study details coming soon.",
+            };
+
+            // Populate modal content
+            modalContent.innerHTML = `
+              <h2 class="text-2xl font-bold golden-text mb-4">${
+                productData.title
+              }</h2>
+              <p class="text-gray-300 mb-6">${productData.description}</p>
+              
+              <h3 class="text-xl font-semibold text-yellow-400 mb-3">Key Features</h3>
+              <ul class="list-disc pl-5 mb-6 space-y-2 text-gray-300">
+                ${productData.features
+                  .map((feature) => `<li>${feature}</li>`)
+                  .join("")}
+              </ul>
+              
+              <h3 class="text-xl font-semibold text-yellow-400 mb-3">Technologies</h3>
+              <div class="flex flex-wrap gap-2 mb-6">
+                ${productData.technologies
+                  .map(
+                    (tech) =>
+                      `<span class="px-3 py-1 bg-gray-700 rounded-full text-sm text-yellow-300">${tech}</span>`
+                  )
+                  .join("")}
+              </div>
+              
+              <div class="mt-8 p-4 border border-yellow-500/30 rounded-lg bg-gray-800/50">
+                <h3 class="text-lg font-semibold text-yellow-400 mb-2">Case Study</h3>
+                <p class="text-gray-300 italic">${productData.caseStudy}</p>
+              </div>
+              
+              <div class="mt-8 text-center">
+                <a href="contact.html" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+                  Get Custom Quote
+                </a>
+              </div>
+            `;
+
+            // Show modal
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden"; // Prevent body scrolling
+          });
+        });
+
+        // Close modal
+        closeModalButton.addEventListener("click", () => {
+          modal.classList.remove("active");
+          document.body.style.overflow = ""; // Restore body scrolling
+        });
+
+        // Close modal when clicking outside content
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("active")) {
+            modal.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

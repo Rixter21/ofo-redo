@@ -1,0 +1,81 @@
+/**
+ * Service Worker Registration Script
+ * Adds offline support and better caching to the website
+ */
+
+// Only register if service workers are supported
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => {
+        console.log(
+          "Service Worker registered with scope:",
+          registration.scope
+        );
+
+        // Check for updates to the service worker
+        registration.addEventListener("updatefound", () => {
+          const newWorker = registration.installing;
+          newWorker.addEventListener("statechange", () => {
+            if (
+              newWorker.state === "installed" &&
+              navigator.serviceWorker.controller
+            ) {
+              // New service worker available - show update notification
+              if (
+                confirm(
+                  "New version of this site is available. Reload to update?"
+                )
+              ) {
+                window.location.reload();
+              }
+            }
+          });
+        });
+      })
+      .catch((error) => {
+        console.error("Service Worker registration failed:", error);
+      });
+  });
+
+  // Listen for controlling service worker updates
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (!refreshing) {
+      refreshing = true;
+      window.location.reload();
+    }
+  });
+
+  // Handle offline status changes
+  window.addEventListener("online", updateOnlineStatus);
+  window.addEventListener("offline", updateOnlineStatus);
+
+  function updateOnlineStatus() {
+    const offlineNotification = document.getElementById("offline-notification");
+
+    if (!navigator.onLine) {
+      // User is offline - display notification if element exists
+      if (!offlineNotification) {
+        const notification = document.createElement("div");
+        notification.id = "offline-notification";
+        notification.innerHTML = `
+          <div class="fixed bottom-4 left-4 bg-red-600 text-white py-2 px-4 rounded-lg shadow-lg z-50 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+            </svg>
+            <span>You're offline. Some features may be unavailable.</span>
+          </div>
+        `;
+        document.body.appendChild(notification);
+      }
+    } else if (offlineNotification) {
+      // User is back online - remove notification
+      offlineNotification.remove();
+    }
+  }
+
+  // Check initial status
+  updateOnlineStatus();
+}

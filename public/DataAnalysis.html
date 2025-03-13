@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data & Analytics - OFO Development</title>
+
+    <!-- Basic Meta Tags -->
+    <meta
+      name="description"
+      content="Transform raw data into strategic assets with OFO Development's advanced data analytics solutions. AI-powered insights, predictive modeling, and real-time monitoring."
+    />
+    <meta
+      name="keywords"
+      content="data analytics, business intelligence, predictive analytics, data visualization, real-time dashboards, enterprise analytics, data engineering, machine learning, data mining, big data solutions"
+    />
+    <meta name="author" content="OFO Development" />
+    <link rel="canonical" href="https://ofodevelopment.com/DataAnalysis.html" />
+
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta
+      property="og:title"
+      content="Data & Analytics Solutions | OFO Development"
+    />
+    <meta
+      property="og:description"
+      content="Transform raw data into strategic assets with OFO Development's advanced data analytics solutions. AI-powered insights, predictive modeling, and real-time monitoring."
+    />
+    <meta
+      property="og:image"
+      content="https://ofodevelopment.com/assets/images/big-data-processing.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://ofodevelopment.com/DataAnalysis.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OFO Development" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Data & Analytics Solutions | OFO Development"
+    />
+    <meta
+      name="twitter:description"
+      content="Transform raw data into strategic assets with OFO Development's advanced data analytics solutions. AI-powered insights, predictive modeling, and real-time monitoring."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ofodevelopment.com/assets/images/big-data-processing.webp"
+    />
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/additional-styles.css" />
+    <link rel="stylesheet" href="assets/css/output.min.css" />
+
+    <style>
+      .chart-line {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        opacity: 0;
+        transition: stroke-dashoffset 1.5s ease-in-out, opacity 0.5s ease-in-out;
+      }
+
+      .chart-line.animated {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+
+      .chart-bar {
+        position: absolute;
+        width: 5%;
+        background: linear-gradient(to top, #3b82f6, #8b5cf6);
+        border-radius: 4px 4px 0 0;
+        transform-origin: bottom;
+        transform: scaleY(0);
+        transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      #bar-chart.active .chart-bar {
+        transform: scaleY(1);
+      }
+
+      .data-demo-control {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .data-demo-control:hover {
+        transform: translateY(-2px);
+        border-color: rgba(59, 130, 246, 0.5);
+      }
+
+      .data-demo-control.active {
+        border-color: #3b82f6;
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+
+      .view-options {
+        transition: all 0.2s ease;
+      }
+
+      .view-options:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+    <link
+      rel="preload"
+      href="assets/images/logos/Color logo - no background.png"
+      as="image"
+      type="image/png"
+    />
+  </head>
+  <body class="bg-gray-900 text-white">
+    <nav
+      class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img
+              src="assets/images/logos/Color logo - no background.png"
+              alt="OFO Development"
+              class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+            />
+          </div>
+
+          <button
+            data-mobile-menu-button
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="about.html" class="nav-link">About</a>
+
+            <div class="relative group">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Services
+                <span class="ml-1 transition-transform group-hover:rotate-180"
+                  >▾</span
+                >
+              </button>
+
+              <div
+                class="dropdown-menu backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 transition-all duration-500 hover:backdrop-blur-xl hover:from-gray-900/70 hover:to-gray-900/50"
+              >
+                <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="dropdown-item"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Custom Software
+                  </a>
+                  <a href="MobileDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Mobile Apps
+                  </a>
+                  <a href="WebDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Web Development
+                  </a>
+                  <a href="DataAnalysis.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"
+                      ></path>
+                    </svg>
+                    Data Analysis
+                  </a>
+                  <a href="EcommerceSolutions.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                      ></path>
+                    </svg>
+                    E-Commerce
+                  </a>
+                  <a href="ArtificialIntelligence.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    AI & Machine Learning
+                  </a>
+                  <a href="DigitalInnovation.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Digital Innovation
+                  </a>
+                  <a href="VirtualReality.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                      <path
+                        fill-rule="evenodd"
+                        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    VR & AR
+                  </a>
+                  <a href="GameDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+                      ></path>
+                    </svg>
+                    Game Development
+                  </a>
+                  <a href="CloudComputing.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z"
+                      ></path>
+                    </svg>
+                    Cloud Computing
+                  </a>
+                  <a href="CyberSecurity.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Cybersecurity
+                  </a>
+                  <a href="ProductManagement.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                      <path
+                        fill-rule="evenodd"
+                        d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Product Management
+                  </a>
+                </div>
+
+                <div
+                  class="border-t border-white/20 bg-gradient-to-r from-gray-900/80 via-gray-800/80 to-gray-900/80 backdrop-blur-xl transition-all duration-300 hover:from-gray-800/90 hover:to-gray-900/90"
+                >
+                  <div class="p-4">
+                    <h3
+                      class="text-yellow-500 text-sm font-semibold mb-2 flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        ></path>
+                      </svg>
+                      Premium Enterprise Solutions
+                    </h3>
+                    <p class="text-gray-300 text-sm mb-3">
+                      Custom solutions tailored to your business needs with
+                      dedicated support
+                    </p>
+                  </div>
+
+                  <div class="px-4 pb-4 flex flex-wrap gap-2">
+                    <a
+                      href="contact.html"
+                      class="text-xs px-3 py-1.5 bg-yellow-500/20 text-yellow-400 rounded-full hover:bg-yellow-500/30 transition-colors flex items-center"
+                    >
+                      <svg
+                        class="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                      Schedule Consultation
+                    </a>
+                    <a
+                      href="CaseStudies.html"
+                      class="text-xs px-3 py-1.5 bg-blue-500/20 text-blue-400 rounded-full hover:bg-blue-500/30 transition-colors flex items-center"
+                    >
+                      <svg
+                        class="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        ></path>
+                      </svg>
+                      View Case Studies
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+          </div>
+        </div>
+
+        <div
+          id="mobile-menu"
+          data-mobile-menu
+          class="mobile-menu md:hidden max-h-0 absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="about.html" class="block nav-link">About</a>
+
+            <div class="accordion">
+              <button
+                data-services-button
+                aria-expanded="false"
+                aria-controls="services-content"
+                class="w-full flex justify-between items-center nav-link"
+              >
+                Services
+                <span class="dropdown-icon transform transition-transform"
+                  >▾</span
+                >
+              </button>
+              <div
+                id="services-content"
+                data-services-content
+                class="overflow-hidden transition-all duration-300 max-h-0"
+              >
+                <div class="pl-4 space-y-2 py-2">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="block nav-link py-2"
+                    >Custom Software</a
+                  >
+                  <a href="MobileDevelopment.html" class="block nav-link py-2"
+                    >Mobile Apps</a
+                  >
+                  <a href="WebDevelopment.html" class="block nav-link py-2"
+                    >Web Development</a
+                  >
+                  <a href="DataAnalysis.html" class="block nav-link py-2"
+                    >Data Analysis</a
+                  >
+                  <a href="EcommerceSolutions.html" class="block nav-link py-2"
+                    >E-Commerce</a
+                  >
+                  <a
+                    href="ArtificialIntelligence.html"
+                    class="block nav-link py-2"
+                    >AI & Machine Learning</a
+                  >
+                  <a href="DigitalInnovation.html" class="block nav-link py-2"
+                    >Digital Innovation</a
+                  >
+                  <a href="VirtualReality.html" class="block nav-link py-2"
+                    >VR & AR</a
+                  >
+                  <a href="GameDevelopment.html" class="block nav-link py-2"
+                    >Game Development</a
+                  >
+                  <a href="CloudComputing.html" class="block nav-link py-2"
+                    >Cloud Computing</a
+                  >
+                  <a href="CyberSecurity.html" class="block nav-link py-2"
+                    >Cybersecurity</a
+                  >
+                  <a href="ProductManagement.html" class="block nav-link py-2"
+                    >Product Management</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="block nav-link">Resources</a>
+            <a href="contact.html" class="block nav-link">Contact</a>
+            <a href="blog.html" class="block nav-link">Blog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-20 min-h-screen">
+      <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <video
+            autoplay
+            muted
+            loop
+            class="w-full h-full object-cover opacity-40"
+            poster="assets/images/big-data-processing.jpg"
+          >
+            <source
+              src="assets/media/7021958_Cyber_Data_3840x2160.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-blue-900/80 to-purple-900/80"
+          ></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1
+              class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-on-scroll fade-up"
+              data-once="true"
+            >
+              Advanced Data Analytics
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-blue-200 mb-8 animate-on-scroll fade-up delay-100"
+              data-once="true"
+            >
+              Transform raw data into strategic assets with AI-powered insights
+            </p>
+            <div
+              class="flex flex-col md:flex-row justify-center gap-4 animate-on-scroll fade-up delay-200"
+              data-once="true"
+            >
+              <a
+                href="#visualization-demo"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all transform hover:scale-105"
+              >
+                Try Interactive Demo
+              </a>
+              <a
+                href="contact.html"
+                class="border-2 border-purple-400 text-purple-300 hover:bg-purple-900/50 px-8 py-3 rounded-lg transition-all transform hover:scale-105"
+              >
+                Request Consultation
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="py-16 bg-gray-800 rounded-2xl container mx-auto px-6 mb-20"
+      >
+        <h2
+          class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent animate-on-scroll"
+          data-once="true"
+        >
+          Data-Driven Impact
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div
+            class="bg-gray-900 p-6 rounded-xl border border-blue-500/30 hover:border-blue-500/70 transition-all text-center animate-on-scroll"
+          >
+            <h3 class="text-blue-400 text-lg mb-3">Faster Insights</h3>
+            <p
+              class="text-4xl font-bold text-white counter-value"
+              data-count="85"
+              data-suffix="%"
+            >
+              0%
+            </p>
+            <p class="text-blue-200 mt-2">Processing speedup</p>
+          </div>
+
+          <div
+            class="bg-gray-900 p-6 rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all text-center animate-on-scroll"
+          >
+            <h3 class="text-purple-400 text-lg mb-3">Data Points</h3>
+            <p
+              class="text-4xl font-bold text-white counter-value"
+              data-count="1.2"
+              data-suffix="M"
+            >
+              0M
+            </p>
+            <p class="text-purple-200 mt-2">Analyzed daily</p>
+          </div>
+
+          <div
+            class="bg-gray-900 p-6 rounded-xl border border-pink-500/30 hover:border-pink-500/70 transition-all text-center animate-on-scroll"
+          >
+            <h3 class="text-pink-400 text-lg mb-3">Accuracy Rate</h3>
+            <p
+              class="text-4xl font-bold text-white counter-value"
+              data-count="94"
+              data-suffix="%"
+            >
+              0%
+            </p>
+            <p class="text-pink-200 mt-2">Prediction precision</p>
+          </div>
+
+          <div
+            class="bg-gray-900 p-6 rounded-xl border border-indigo-500/30 hover:border-indigo-500/70 transition-all text-center animate-on-scroll"
+          >
+            <h3 class="text-indigo-400 text-lg mb-3">Monitoring</h3>
+            <p
+              class="text-4xl font-bold text-white counter-value"
+              data-count="24"
+              data-suffix="/7"
+            >
+              0/7
+            </p>
+            <p class="text-indigo-200 mt-2">Real-time analysis</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 mb-16">
+        <h2
+          class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent animate-on-scroll"
+          data-once="true"
+        >
+          Enterprise Analytics Solutions
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div
+            class="bg-gray-800 p-6 rounded-xl hover:transform hover:scale-105 transition-all duration-300 animate-on-scroll fade-left"
+          >
+            <img
+              src="assets/images/EHRsystem.jpg"
+              alt="Diagnostic analytics interface"
+              class="mb-4 rounded-lg h-48 w-full object-cover"
+              loading="lazy"
+            />
+            <h3
+              class="text-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-2"
+            >
+              Diagnostic Analytics
+            </h3>
+            <p class="text-gray-300">
+              Deep-dive analysis with our proprietary health check system
+              identifying data quality issues and optimization opportunities
+            </p>
+            <ul class="mt-4 space-y-2 text-gray-300">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Real-time data quality monitoring
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Anomaly detection algorithms
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Automated root cause analysis
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl hover:transform hover:scale-105 transition-all duration-300 animate-on-scroll fade-right"
+          >
+            <img
+              src="assets/images/integrate-circuit-board-graphics-concept.jpg"
+              alt="Predictive analytics infrastructure"
+              class="mb-4 rounded-lg h-48 w-full object-cover"
+              loading="lazy"
+            />
+            <h3
+              class="text-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-2"
+            >
+              Predictive Modeling
+            </h3>
+            <p class="text-gray-300">
+              Machine learning pipelines delivering 94% accurate forecasts with
+              real-time scenario modeling
+            </p>
+            <ul class="mt-4 space-y-2 text-gray-300">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Multiple forecasting algorithms
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Continuous model retraining
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                What-if scenario testing
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-16 container mx-auto px-6">
+        <h2
+          class="text-3xl bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-8 text-center animate-on-scroll"
+          data-once="true"
+        >
+          Our Analytics Stack
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div
+            class="bg-gray-800 p-4 rounded-lg flex flex-col items-center transition-all hover:bg-gray-700 hover:scale-105 animate-on-scroll"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12 mb-3 text-blue-400"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M19.572 6.019c-.909-.909-2.942-1.589-6.947-1.589-4.005 0-6.038.68-6.947 1.589-.909.909-1.589 2.942-1.589 6.947 0 4.005.68 6.038 1.589 6.947.909.909 2.942 1.589 6.947 1.589 4.005 0 6.038-.68 6.947-1.589.909-.909 1.589-2.942 1.589-6.947 0-4.005-.68-6.038-1.589-6.947zM12 14.5c-1.379 0-2.5-1.121-2.5-2.5s1.121-2.5 2.5-2.5 2.5 1.121 2.5 2.5-1.121 2.5-2.5 2.5zm6.783-5.662c-1.198-.625-2.222-1.02-3.728-1.208.409.632.695 1.352.695 2.143 0 .203-.019.402-.047.597 1.957.166 3.101 1.204 3.546 1.649l-.466-3.181zm-3.022 8.162c.207-.623.289-1.408.289-2.41 0-2.894-.732-4.703-1.25-5.548-.234.879-.755 1.648-1.458 2.192.331.389.642.898.642 1.765 0 1.506-.773 2.483-1.212 2.794.321.476.764.991 1.414 1.415.661.43 1.174.587 1.575.615v-.823zm-3.761.823c.4-.028.914-.185 1.575-.615.649-.424 1.093-.939 1.414-1.415-.439-.311-1.212-1.288-1.212-2.794 0-.867.311-1.376.642-1.765-.702-.544-1.223-1.313-1.458-2.192-.517.844-1.25 2.654-1.25 5.548 0 1.002.082 1.786.289 2.41v.823z"
+              ></path>
+            </svg>
+            <span>TensorFlow</span>
+          </div>
+          <div
+            class="bg-gray-800 p-4 rounded-lg flex flex-col items-center transition-all hover:bg-gray-700 hover:scale-105 animate-on-scroll"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12 mb-3 text-blue-400"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M9.585 11.692h4.328s2.432.039 2.432-2.35V5.391S16.714 3 11.936 3C7.362 3 7.21 4.859 7.21 4.859v14.078s-.049 2.013 2.801 2.013h4.566s2.739.536 2.739-1.847v-5.573s.112-1.839-1.627-1.839H9.585m-2.092-5.98h2.08s.993-.224.993 1.776v1.24s-.33 1.303-2.986 1.322h-.086z"
+              ></path>
+            </svg>
+            <span>PyTorch</span>
+          </div>
+          <div
+            class="bg-gray-800 p-4 rounded-lg flex flex-col items-center transition-all hover:bg-gray-700 hover:scale-105 animate-on-scroll"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12 mb-3 text-blue-400"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"
+              ></path>
+            </svg>
+            <span>MongoDB</span>
+          </div>
+          <div
+            class="bg-gray-800 p-4 rounded-lg flex flex-col items-center transition-all hover:bg-gray-700 hover:scale-105 animate-on-scroll"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12 mb-3 text-blue-400"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 00-.593.25l-4.453 4.453-.307-.307-.643-.643c4.389-4.376 5.18-4.418 5.996-3.753zm-4.863 4.861l4.44-4.44a.62.62 0 01.847.047c.692.8.617 1.708-3.667 6.019a.854.854 0 01-1.214.001l-.958-.958a.592.592 0 01.009-.836zm-3.56 5.799l.959.959a.592.592 0 01-.008.835c-.53.069-.131.123-.218.152a17.3 17.3 0 01-.547-.798c-.247-.393-.491-.804-.719-1.221.09-.005.177-.03.258-.072a.593.593 0 01.276.145zm-1.222-1.224a.592.592 0 01.146.273c-.173.08-.338.175-.504.256-.139-.402-.273-.813-.389-1.215.268.275.535.472.747.686zm11.174-2.578a.59.59 0 01.835-.011l.959.959a.855.855 0 01.002 1.215c-4.311 4.284-5.22 4.358-6.02 3.666a.62.62 0 01-.047-.847l4.271-4.982zm-7.857-6.691a.592.592 0 01-.145.274 14.75 14.75 0 00-.683-.749c.403.117.814.251 1.215.391-.081.165-.176.331-.256.504a.59.59 0 01-.131-.42zm9.142.168a.62.62 0 01.046.847l-4.439 4.438a.592.592 0 01-.835-.008l-.959-.959a.855.855 0 01.001-1.214c4.311-4.284 5.22-4.358 6.02-3.666zm-3.853 8.232a.855.855 0 00-.593.25l-2.685 2.685a.592.592 0 01-.835-.01l-.959-.958a.591.591 0 01.008-.835.62.62 0 01.847-.046l2.333-2.502a.855.855 0 011.214 0l.671.671.307.307a.856.856 0 00-.308.438z"
+              ></path>
+            </svg>
+            <span>Apache Spark</span>
+          </div>
+          <div
+            class="bg-gray-800 p-4 rounded-lg flex flex-col items-center transition-all hover:bg-gray-700 hover:scale-105 animate-on-scroll"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12 mb-3 text-blue-400"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12.007 0C6.379 0 1.621 4.393 1.621 10c0 .188.012.375.027.562l10.42-8.477 2.898 2.604C14.764 4.146 14.546 4 14.299 4c-.637 0-1.158.509-1.158 1.138 0 .629.521 1.138 1.158 1.138.636 0 1.157-.509 1.157-1.138 0-.126-.023-.247-.059-.362l2.019 1.817c.062.215.108.438.108.669 0 1.288-1.045 2.333-2.333 2.333-1.288 0-2.333-1.045-2.333-2.333 0-.297.07-.577.184-.833l-3.251-2.933-8.14 6.64C1.692 11.138 2.892 12.07 4.332 12.07c1.296 0 2.35-1.061 2.299-2.362l4.83-3.729 3.044 2.756c-.086.192-.139.403-.139.628 0 .837.67 1.515 1.498 1.515s1.498-.678 1.498-1.515c0-.602-.354-1.122-.861-1.366l2.899 2.616c.049.14.078.29.078.447 0 .747-.606 1.349-1.35 1.349-.744 0-1.35-.602-1.35-1.349 0-.269.083-.517.221-.726L10.15 5.37 5.876 8.787a2.327 2.327 0 00-.265 1.031c0 1.288 1.045 2.333 2.333 2.333 1.103 0 2.019-.775 2.253-1.806l3.119 2.819c-.014.083-.031.165-.031.25 0 .832.673 1.505 1.504 1.505s1.504-.673 1.504-1.505c0-.143-.028-.277-.069-.405l3.392 3.057a3.213 3.213 0 00-.219 1.168c0 1.78 1.445 3.223 3.225 3.223 1.779 0 3.223-1.443 3.223-3.223 0-1.779-1.444-3.223-3.223-3.223-.354 0-.688.07-1.006.18l-3.386-3.05a1.49 1.49 0 00.076-.452c0-.833-.676-1.505-1.508-1.505-.833 0-1.508.672-1.508 1.505 0 .081.019.156.031.232l-3.087-2.785c.033-.135.057-.275.057-.42 0-1.007-.817-1.823-1.825-1.823-.371 0-.714.111-1.004.301L6.389 3.876a4.29 4.29 0 01.316-.589C8.198 1.205 10.01 0 12.007 0zm9.005 18.13c.739 0 1.336.6 1.336 1.338a1.34 1.34 0 01-1.336 1.338 1.34 1.34 0 01-1.336-1.338c0-.739.598-1.338 1.336-1.338z"
+              ></path>
+            </svg>
+            <span>Kafka</span>
+          </div>
+          <div
+            class="bg-gray-800 p-4 rounded-lg flex flex-col items-center transition-all hover:bg-gray-700 hover:scale-105 animate-on-scroll"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12 mb-3 text-blue-400"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 9.861a2.139 2.139 0 100 4.278 2.139 2.139 0 100-4.278zm-5.992 6.394l-.472-.12v2.718h.472c.396 0 .937-.249.937-.696v-1.028c0-.448-.541-.874-.937-.874z"
+              ></path>
+              <path
+                d="M20.377 5.996l-3.637-.728a4.046 4.046 0 00-1.081-.52 3.925 3.925 0 00-1.228-.077L9.626 3.401 4.582 4.93a3.957 3.957 0 00-2.4 1.12A4.006 4.006 0 001 8.802v6.4c0 1.058.428 2.079 1.182 2.828a4.028 4.028 0 002.777 1.172h15.895c.289 0 .576-.047.85-.139l.301-.121V8.036a3.975 3.975 0 00-1.628-2.04zm-2.932 7.719c0 1.475-1.61 2.398-3.135 2.142a2.798 2.798 0 01-.234-.048c-.442-.104-.9-.25-1.255-.431-.29-.148-.578-.323-.801-.548-.07-.072-.138-.15-.194-.231a2.135 2.135 0 01-.441-1.31c.01-.55.235-1.152.648-1.526.137-.123.317-.225.498-.313.317-.151.691-.269 1.01-.377l.002-.6.346.112c.141.043.271.092.39.147.292-.318.743-.599 1.166-.679a2.29 2.29 0 01.373-.039 2.214 2.214 0 012.214 2.215v.486zM8.49 17.56h-.393c-.44 0-.86-.073-1.25-.206l-1.161-.463a5.75 5.75 0 01-1.687-.928 5.872 5.872 0 01-1.248-1.368L2.6 14.003V8.82a2.883 2.883 0 01.862-2.048 2.877 2.877 0 012.003-.909l.005-.001.045-.003a3.773 3.773 0 01.204-.007h2.286c.334.003.665.063.977.182l.44.17c.34.14.653.237.93.408.35.219.561.53.744.881.142.268.214.557.212.85l-.041 2.72c0 .527-.352.969-.776 1.249.201.214.32.499.32.814l-.034 1.653c0 .704-.568 1.289-1.288 1.289h-.001zM4.89 8.536c-.539 0-.744.485-.744.717l.034 1.18c0 .232.205.717.744.717h.472v-2.614H4.89z"
+              ></path>
+            </svg>
+            <span>Kubernetes</span>
+          </div>
+          <div
+            class="bg-gray-800 p-4 rounded-lg flex flex-col items-center transition-all hover:bg-gray-700 hover:scale-105 animate-on-scroll"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12 mb-3 text-blue-400"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 1.62.394 3.367.455 5.53zm3.233-4.4v.006c-.085-.072-.15-.14-.22-.197-.088-.072-.18-.133-.284-.185l-.01.007c-.012.012-.023.022-.04.032.75.104.185.19.338.33.18.14.354.333.51.575.156.254.24.513.24.777 0 .293-.085.556-.255.786-.17.23-.39.423-.664.57-.274.15-.588.222-.94.222-.16 0-.343-.02-.54-.062-.19-.043-.397-.104-.606-.188-.21-.084-.39-.18-.6-.328l.44-.68c.17.135.37.25.58.34.21.09.41.14.585.14.185 0 .33-.05.43-.143.1-.094.15-.214.15-.36 0-.1-.026-.19-.08-.26-.055-.074-.142-.134-.258-.18a2.569 2.569 0 00-.45-.128c-.257-.056-.49-.153-.68-.288-.19-.135-.3-.317-.3-.61 0-.26.077-.493.236-.692.158-.2.37-.357.636-.466.266-.11.56-.162.875-.162.207 0 .415.02.62.064.206.043.4.102.58.177.18.074.33.16.47.256l-.42.67a2.467 2.467 0 00-.392-.242 1.39 1.39 0 00-.333-.12 1.29 1.29 0 00-.193-.015c-.18 0-.32.046-.42.134-.102.087-.152.197-.152.328 0 .066.016.127.046.18.03.054.134.134.16.16.026.025.125.056.15.08.026.02.23.117.264.144a2.7 2.7 0 01.33.156c.147.082.27.18.37.292.09.112.16.24.21.38.05.14.08.29.08.457zm3.586-.86h-1.306c.012-.44.014-.873.016-1.33v-.01c.006-.444.006-.864.007-1.242v-.048h1.305v.354c.003.218.003.437.002.658a28.09 28.09 0 01-.007.663c-.002.317-.007.634-.016.955zm-3.46 5.252H8.5v-1.023h.627v1.023zm-.206-1.854c-.236 0-.445-.05-.624-.154-.178-.105-.338-.27-.445-.444C8.154 16.37 8 16.11 8 15.785a1.2 1.2 0 01.168-.658c.11-.186.265-.335.462-.444.196-.11.424-.163.684-.163.26 0 .493.057.693.17.2.117.358.27.47.462.11.19.164.41.164.666 0 .324-.153.586-.244.776-.09.19-.25.353-.43.456a1.42 1.42 0 01-.69.16zm4.6-1.973c-.23.095-.43.167-.59.216-.16.05-.32.073-.49.073-.267 0-.473-.064-.618-.19a1.002 1.002 0 01-.28-.524c-.035-.152-.05-.4-.05-.736v-1.308h.334c.354 0 .626.002.82.005.19.003.368.012.528.026v-.8a4.124 4.124 0 00-.485.023c-.173.015-.43.023-.772.023h-.424l.013-.528c.006-.238.008-.4.008-.482H11.2v.92c0 .033-.006.084-.017.16-.01.076-.02.13-.026.16h-.333l-.016-.2c-.006-.06-.01-.123-.01-.185v-.723c-.2.01-.404.008-.677.006l-.072-.001-.285-.005v.815c.257-.01.5-.013.733-.013h.323V14.3c0 .42.023.724.07.913.047.19.136.342.266.457.13.115.306.172.523.172.147 0 .297-.024.45-.07.154-.047.294-.098.42-.155v-3.06c-.19.086-.393.165-.61.238-.217.072-.456.11-.714.11-.233 0-.445-.04-.637-.119a1.456 1.456 0 01-.494-.336 1.402 1.402 0 01-.317-.516 1.946 1.946 0 01-.111-.671c0-.342.07-.642.214-.895.143-.255.348-.449.612-.579.264-.13.574-.198.93-.198.32 0 .648.053.987.16.34.108.633.234.882.377v4.548c0 .31-.057.572-.168.787-.11.215-.265.377-.46.486-.194.11-.42.164-.678.164-.238 0-.47-.03-.697-.09a3.45 3.45 0 01-.642-.232l-.297.937c.206.072.435.135.686.19.252.055.5.084.745.84.234 0 .466-.03.695-.093.23-.062.443-.162.638-.298.195-.135.356-.312.484-.53.127-.22.19-.485.19-.797v-2.902zm-1.467-.973c.087.07.17.11.25.121.082.012.17.018.262.018.188 0 .368-.044.54-.132.172-.088.32-.216.444-.384.124-.167.185-.363.185-.586 0-.164-.035-.32-.105-.47-.07-.15-.186-.272-.343-.364-.158-.092-.352-.138-.584-.138-.156 0-.3.023-.43.07a.937.937 0 00-.32.2.854.854 0 00-.2.313 1.164 1.164 0 00-.068.401c0 .203.033.386.1.546.066.162.178.323.269.405zm8.742.454h-1.904v-.75h1.904v.75zm1.94-3.255c-.22.008-.37.012-.524.17.095.346.143.735.143 1.17 0 .62-.138 1.128-.415 1.525-.276.398-.677.698-1.202.905l.445.708c.695-.285 1.216-.657 1.562-1.117.346-.46.52-1.026.52-1.696 0-.324-.037-.678-.11-1.06-.074-.383-.198-.866-.372-1.45l-.787.22c.11.313.193.585.253.815.06.232.104.465.13.7a3.71 3.71 0 01.024.427c0 .034-.001.066-.004.096-.003.03-.006.06-.01.087h.318c.03 0 .07-.003.124-.008l.027-.002.066-.006h.026c.019 0 .037-.001.054-.003a2.2 2.2 0 00.053-.005l.012-.002.022-.002h.01c.013-.001.021-.003.025-.005zm-.7-2.564l-.44-.125c-.276-.075-.62-.153-1.034-.232a2.334 2.334 0 00-.546-.074c-.35 0-.652.073-.902.218-.25.146-.445.348-.582.61-.137.26-.206.56-.206.9 0 .36.104.654.313.883.21.23.532.346.967.346.256 0 .486-.033.69-.1.203-.066.39-.165.56-.296l-.387-.686a.914.914 0 01-.314.171c-.11.04-.237.06-.376.06-.186 0-.335-.05-.45-.152-.114-.1-.172-.238-.172-.413 0-.17.052-.308.156-.415.103-.108.27-.161.5-.161.19 0 .4.028.634.083.234.056.514.137.84.243l.35-.86z"
+              ></path>
+            </svg>
+            <span>scikit-learn</span>
+          </div>
+          <div
+            class="bg-gray-800 p-4 rounded-lg flex flex-col items-center transition-all hover:bg-gray-700 hover:scale-105 animate-on-scroll"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12 mb-3 text-blue-400"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M13.325 0L0 7.69v8.962l13.325 7.69 13.325-7.69V7.69zm.529 2.376l11.593 6.711-3.838 2.213-7.755-4.494zm-9.292 5.386l7.756 4.494v8.963l-11.593-6.711v-4.494zm.765-.442l11.593-6.71 3.838 2.213-7.756 4.494zm7.756 13.899v-8.963l3.838-2.212v4.494z"
+              ></path>
+            </svg>
+            <span>AWS Redshift</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="visualization-demo"
+        class="mb-16 bg-gray-800 py-16 rounded-xl container mx-auto px-6"
+      >
+        <h2
+          class="text-3xl bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-8 text-center animate-on-scroll"
+          data-once="true"
+        >
+          Interactive Data Visualization Demo
+        </h2>
+        <p class="text-gray-300 text-center mb-8 max-w-3xl mx-auto">
+          Experience how our data visualization tools transform complex datasets
+          into actionable insights with this interactive demo.
+        </p>
+
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div class="col-span-1 space-y-4">
+            <div
+              class="bg-gray-900 p-4 rounded-lg data-demo-control active"
+              data-chart="sales"
+            >
+              <h4 class="text-blue-400 font-semibold mb-2">Sales Analysis</h4>
+              <p class="text-sm text-gray-400">
+                Monthly revenue performance with trend analysis
+              </p>
+            </div>
+            <div
+              class="bg-gray-900 p-4 rounded-lg data-demo-control"
+              data-chart="users"
+            >
+              <h4 class="text-blue-400 font-semibold mb-2">User Growth</h4>
+              <p class="text-sm text-gray-400">
+                New user acquisition and retention metrics
+              </p>
+            </div>
+            <div
+              class="bg-gray-900 p-4 rounded-lg data-demo-control"
+              data-chart="performance"
+            >
+              <h4 class="text-blue-400 font-semibold mb-2">
+                System Performance
+              </h4>
+              <p class="text-sm text-gray-400">
+                Response time and server load metrics
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-3 bg-gray-900 p-6 rounded-xl">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl text-blue-400 chart-title">
+                Sales Performance
+              </h3>
+              <div class="flex space-x-2">
+                <button
+                  class="px-3 py-1 bg-blue-600 text-white rounded-md text-sm view-options active"
+                >
+                  Line
+                </button>
+                <button
+                  class="px-3 py-1 bg-gray-700 text-gray-300 rounded-md text-sm view-options"
+                >
+                  Bar
+                </button>
+                <button
+                  class="px-3 py-1 bg-gray-700 text-gray-300 rounded-md text-sm view-options"
+                >
+                  Area
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="chart-container relative h-64 w-full bg-gray-800 rounded-lg overflow-hidden"
+            >
+              <svg
+                class="w-full h-full"
+                id="data-chart"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 800 300"
+              >
+                <defs>
+                  <linearGradient
+                    id="line-gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#3b82f6"
+                      stop-opacity="0.8"
+                    ></stop>
+                    <stop
+                      offset="100%"
+                      stop-color="#8b5cf6"
+                      stop-opacity="0.2"
+                    ></stop>
+                  </linearGradient>
+                </defs>
+
+                <line
+                  x1="50"
+                  y1="250"
+                  x2="750"
+                  y2="250"
+                  stroke="#4b5563"
+                  stroke-width="1"
+                ></line>
+                <line
+                  x1="50"
+                  y1="200"
+                  x2="750"
+                  y2="200"
+                  stroke="#4b5563"
+                  stroke-width="1"
+                ></line>
+                <line
+                  x1="50"
+                  y1="150"
+                  x2="750"
+                  y2="150"
+                  stroke="#4b5563"
+                  stroke-width="1"
+                ></line>
+                <line
+                  x1="50"
+                  y1="100"
+                  x2="750"
+                  y2="100"
+                  stroke="#4b5563"
+                  stroke-width="1"
+                ></line>
+                <line
+                  x1="50"
+                  y1="50"
+                  x2="750"
+                  y2="50"
+                  stroke="#4b5563"
+                  stroke-width="1"
+                ></line>
+
+                <text x="30" y="250" fill="#9ca3af" font-size="12">0</text>
+                <text x="30" y="200" fill="#9ca3af" font-size="12">25</text>
+                <text x="30" y="150" fill="#9ca3af" font-size="12">50</text>
+                <text x="30" y="100" fill="#9ca3af" font-size="12">75</text>
+                <text x="30" y="50" fill="#9ca3af" font-size="12">100</text>
+
+                <text x="50" y="270" fill="#9ca3af" font-size="12">Jan</text>
+                <text x="110" y="270" fill="#9ca3af" font-size="12">Feb</text>
+                <text x="170" y="270" fill="#9ca3af" font-size="12">Mar</text>
+                <text x="230" y="270" fill="#9ca3af" font-size="12">Apr</text>
+                <text x="290" y="270" fill="#9ca3af" font-size="12">May</text>
+                <text x="350" y="270" fill="#9ca3af" font-size="12">Jun</text>
+                <text x="410" y="270" fill="#9ca3af" font-size="12">Jul</text>
+                <text x="470" y="270" fill="#9ca3af" font-size="12">Aug</text>
+                <text x="530" y="270" fill="#9ca3af" font-size="12">Sep</text>
+                <text x="590" y="270" fill="#9ca3af" font-size="12">Oct</text>
+                <text x="650" y="270" fill="#9ca3af" font-size="12">Nov</text>
+                <text x="710" y="270" fill="#9ca3af" font-size="12">Dec</text>
+
+                <path
+                  id="sales-line"
+                  class="chart-line"
+                  fill="none"
+                  stroke="url(#line-gradient)"
+                  stroke-width="3"
+                  d="M50,180 L110,160 L170,140 L230,150 L290,130 L350,100 L410,90 L470,70 L530,80 L590,60 L650,40 L710,50"
+                ></path>
+
+                <path
+                  id="sales-area"
+                  fill="url(#line-gradient)"
+                  opacity="0.3"
+                  d="M50,180 L110,160 L170,140 L230,150 L290,130 L350,100 L410,90 L470,70 L530,80 L590,60 L650,40 L710,50 L710,250 L50,250 Z"
+                ></path>
+
+                <circle cx="50" cy="180" r="5" fill="#3b82f6"></circle>
+                <circle cx="110" cy="160" r="5" fill="#3b82f6"></circle>
+                <circle cx="170" cy="140" r="5" fill="#3b82f6"></circle>
+                <circle cx="230" cy="150" r="5" fill="#3b82f6"></circle>
+                <circle cx="290" cy="130" r="5" fill="#3b82f6"></circle>
+                <circle cx="350" cy="100" r="5" fill="#3b82f6"></circle>
+                <circle cx="410" cy="90" r="5" fill="#3b82f6"></circle>
+                <circle cx="470" cy="70" r="5" fill="#3b82f6"></circle>
+                <circle cx="530" cy="80" r="5" fill="#3b82f6"></circle>
+                <circle cx="590" cy="60" r="5" fill="#3b82f6"></circle>
+                <circle cx="650" cy="40" r="5" fill="#3b82f6"></circle>
+                <circle cx="710" cy="50" r="5" fill="#3b82f6"></circle>
+              </svg>
+
+              <div id="bar-chart" class="absolute inset-0 hidden">
+                <div
+                  style="left: 5.5%; bottom: 0; height: 28%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 13.5%; bottom: 0; height: 36%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 21.5%; bottom: 0; height: 44%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 29.5%; bottom: 0; height: 40%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 37.5%; bottom: 0; height: 48%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 45.5%; bottom: 0; height: 60%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 53.5%; bottom: 0; height: 64%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 61.5%; bottom: 0; height: 72%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 69.5%; bottom: 0; height: 68%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 77.5%; bottom: 0; height: 76%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 85.5%; bottom: 0; height: 84%"
+                  class="chart-bar"
+                ></div>
+                <div
+                  style="left: 93.5%; bottom: 0; height: 80%"
+                  class="chart-bar"
+                ></div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center mt-4 space-x-6">
+              <div class="flex items-center">
+                <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                <span class="text-sm text-gray-300">Actual</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-3 h-3 bg-purple-500 rounded-full mr-2"></div>
+                <span class="text-sm text-gray-300">Projected</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                <span class="text-sm text-gray-300">Industry Average</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-900 p-4 rounded-lg border border-blue-500/30">
+            <h4 class="text-blue-400 font-semibold mb-2">Key Insights</h4>
+            <ul class="text-sm text-gray-300 space-y-2">
+              <li class="flex items-start">
+                <svg
+                  class="w-4 h-4 text-green-500 mr-2 mt-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span id="insight-1"
+                  >November shows highest growth rate at 42% YoY</span
+                >
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-4 h-4 text-green-500 mr-2 mt-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span id="insight-2">Q3 outperformed projections by 18%</span>
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-4 h-4 text-yellow-500 mr-2 mt-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span id="insight-3">April showing 7% unexpected decline</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-900 p-4 rounded-lg border border-purple-500/30">
+            <h4 class="text-purple-400 font-semibold mb-2">
+              Breakdown Analysis
+            </h4>
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                  <span>Product A</span>
+                  <span>48%</span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-2">
+                  <div
+                    class="bg-blue-500 h-2 rounded-full"
+                    style="width: 48%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                  <span>Product B</span>
+                  <span>32%</span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-2">
+                  <div
+                    class="bg-purple-500 h-2 rounded-full"
+                    style="width: 32%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                  <span>Product C</span>
+                  <span>20%</span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-2">
+                  <div
+                    class="bg-green-500 h-2 rounded-full"
+                    style="width: 20%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-900 p-4 rounded-lg border border-green-500/30">
+            <h4 class="text-green-400 font-semibold mb-2">Forecasted Growth</h4>
+            <div class="text-center">
+              <div
+                class="text-4xl font-bold text-white counter-value"
+                data-count="27"
+                data-suffix="%"
+              >
+                0%
+              </div>
+              <p class="text-sm text-gray-400 mt-2">
+                Projected annual growth rate
+              </p>
+              <div class="flex justify-center mt-3">
+                <button
+                  class="text-xs bg-gray-800 hover:bg-gray-700 text-gray-300 px-2 py-1 rounded mr-2"
+                >
+                  3 Month
+                </button>
+                <button
+                  class="text-xs bg-blue-600 text-white px-2 py-1 rounded mr-2"
+                >
+                  6 Month
+                </button>
+                <button
+                  class="text-xs bg-gray-800 hover:bg-gray-700 text-gray-300 px-2 py-1 rounded"
+                >
+                  12 Month
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-16 container mx-auto px-6">
+        <h2
+          class="text-3xl bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-8 text-center animate-on-scroll"
+          data-once="true"
+        >
+          Enterprise Visualization Solutions
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-gray-800 p-6 rounded-xl animate-on-scroll fade-left">
+            <img
+              src="assets/images/technology-connection.webp"
+              alt="Real-time dashboards"
+              class="mb-4 rounded-lg h-64 w-full object-cover"
+              loading="lazy"
+            />
+            <h3
+              class="text-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-2"
+            >
+              Dynamic Dashboards
+            </h3>
+            <p class="text-gray-300">
+              Customizable real-time monitoring interfaces with drill-down
+              capabilities
+            </p>
+            <ul class="mt-4 space-y-2 text-gray-300">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Widget-based architecture
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Automated alerting system
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Interactive visualization
+              </li>
+            </ul>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-xl animate-on-scroll fade-right">
+            <video
+              autoplay
+              loop
+              muted
+              class="mb-4 rounded-lg h-64 w-full object-cover"
+              loading="lazy"
+            >
+              <source
+                src="assets/media/0_Globalization_Technology_3840x2160.webm"
+                type="video/webm"
+              />
+            </video>
+            <h3
+              class="text-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-2"
+            >
+              Geospatial Analytics
+            </h3>
+            <p class="text-gray-300">
+              Location intelligence solutions with heat mapping and territory
+              optimization
+            </p>
+            <ul class="mt-4 space-y-2 text-gray-300">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Real-time location tracking
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Advanced territory management
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-2 mt-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Interactive heat maps
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-800 p-8 rounded-xl mb-16 container mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <img
+            src="assets/images/digital-blue-hud.webp"
+            alt="Data security"
+            class="md:w-1/2 rounded-lg"
+            loading="lazy"
+          />
+          <div>
+            <h2
+              class="text-3xl bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-4"
+            >
+              GDPR & HIPAA Compliant
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Enterprise-grade security protocols with:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 space-y-2">
+              <li>End-to-end encryption</li>
+              <li>Role-based access controls</li>
+              <li>Automated audit trails</li>
+              <li>SOC 2 Type II certified infrastructure</li>
+            </ul>
+            <div class="mt-6">
+              <a
+                href="contact.html"
+                class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  ></path>
+                </svg>
+                Request Security Assessment
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="text-center bg-gray-800 p-12 rounded-xl container mx-auto mb-16 animate-on-scroll"
+      >
+        <h2
+          class="text-3xl bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent mb-6"
+        >
+          Success Story: HealthCorp
+        </h2>
+        <p class="text-gray-300 text-xl mb-8 max-w-3xl mx-auto">
+          Explore how we helped HealthCorp increase operational efficiency by
+          40% through advanced diagnostic analytics and real-time monitoring
+        </p>
+        <a
+          href="case-studies/ai-analytics.html"
+          class="bg-yellow-600 text-white px-8 py-3 rounded-lg hover:bg-yellow-700 transition-colors inline-flex items-center"
+        >
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+          View Case Study
+        </a>
+      </section>
+    </main>
+
+    <footer class="relative bg-gradient-to-br from-blue-900 to-purple-900">
+      <div class="animated-gradient absolute inset-0 z-0 opacity-20">
+        <div
+          class="absolute inset-0 bg-[url('assets/images/technology-polygonal-blue-background-abstract-low-poly-connected-with-dots-lines.jpg')] bg-cover bg-center mix-blend-soft-light"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 py-16 relative z-10">
+        <div
+          class="grid md:grid-cols-3 gap-8 border-b border-purple-400/30 pb-12"
+        >
+          <div class="space-y-4">
+            <h3
+              class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              Data Solutions
+            </h3>
+            <ul class="space-y-3 text-blue-200">
+              <li>
+                <a href="#" class="hover:text-purple-300 transition-colors"
+                  >Business Intelligence</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-purple-300 transition-colors"
+                  >Predictive Analytics</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-purple-300 transition-colors"
+                  >Data Engineering</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-purple-300 transition-colors"
+                  >Machine Learning</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h3
+              class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              Company
+            </h3>
+            <ul class="space-y-3 text-blue-200">
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-purple-300 transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="CaseStudies.html"
+                  class="hover:text-purple-300 transition-colors"
+                  >Case Studies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="blog.html"
+                  class="hover:text-purple-300 transition-colors"
+                  >Analytics Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-purple-300 transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h3
+              class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              Connect
+            </h3>
+            <div class="flex space-x-6">
+              <a
+                href="#"
+                class="p-2 bg-purple-900/30 rounded-lg hover:bg-purple-900/50 transition-colors"
+                aria-label="Twitter"
+              >
+                <svg
+                  class="w-6 h-6 text-purple-300"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="p-2 bg-purple-900/30 rounded-lg hover:bg-purple-900/50 transition-colors"
+                aria-label="GitHub"
+              >
+                <svg
+                  class="w-6 h-6 text-purple-300"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="p-2 bg-purple-900/30 rounded-lg hover:bg-purple-900/50 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  class="w-6 h-6 text-purple-300"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8 text-center">
+          <p class="text-blue-200">
+            © <span class="current-year">2025</span> OFO Data Analytics. All
+            rights reserved.<br />
+            <span class="text-sm opacity-75"
+              >Transforming data into business intelligence</span
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/analytics.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize chart animations
+        setTimeout(() => {
+          document.getElementById("sales-line").classList.add("animated");
+          document.getElementById("bar-chart").classList.add("active");
+        }, 500);
+
+        // Chart type toggle
+        const viewOptions = document.querySelectorAll(".view-options");
+        const barChart = document.getElementById("bar-chart");
+        const lineChart = document.getElementById("sales-line");
+        const areaChart = document.getElementById("sales-area");
+
+        viewOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            // Remove active class from all options
+            viewOptions.forEach((opt) =>
+              opt.classList.remove("active", "bg-blue-600", "text-white")
+            );
+            viewOptions.forEach((opt) =>
+              opt.classList.add("bg-gray-700", "text-gray-300")
+            );
+
+            // Add active class to clicked option
+            this.classList.add("active", "bg-blue-600", "text-white");
+            this.classList.remove("bg-gray-700", "text-gray-300");
+
+            // Toggle chart visibility based on selection
+            if (this.textContent.trim() === "Bar") {
+              barChart.classList.remove("hidden");
+              barChart.classList.add("active");
+              lineChart.style.opacity = "0";
+              areaChart.style.opacity = "0";
+            } else if (this.textContent.trim() === "Line") {
+              barChart.classList.add("hidden");
+              barChart.classList.remove("active");
+              lineChart.style.opacity = "1";
+              areaChart.style.opacity = "0";
+            } else if (this.textContent.trim() === "Area") {
+              barChart.classList.add("hidden");
+              barChart.classList.remove("active");
+              lineChart.style.opacity = "1";
+              areaChart.style.opacity = "1";
+            }
+          });
+        });
+
+        // Data selector functionality
+        const dataControls = document.querySelectorAll(".data-demo-control");
+        const chartTitle = document.querySelector(".chart-title");
+        const salesLine = document.getElementById("sales-line");
+        const salesArea = document.getElementById("sales-area");
+        const insight1 = document.getElementById("insight-1");
+        const insight2 = document.getElementById("insight-2");
+        const insight3 = document.getElementById("insight-3");
+
+        // Chart data paths
+        const chartData = {
+          sales: {
+            line: "M50,180 L110,160 L170,140 L230,150 L290,130 L350,100 L410,90 L470,70 L530,80 L590,60 L650,40 L710,50",
+            area: "M50,180 L110,160 L170,140 L230,150 L290,130 L350,100 L410,90 L470,70 L530,80 L590,60 L650,40 L710,50 L710,250 L50,250 Z",
+            title: "Sales Performance",
+            insights: [
+              "November shows highest growth rate at 42% YoY",
+              "Q3 outperformed projections by 18%",
+              "April showing 7% unexpected decline",
+            ],
+          },
+          users: {
+            line: "M50,200 L110,190 L170,170 L230,140 L290,120 L350,90 L410,70 L470,60 L530,50 L590,40 L650,30 L710,25",
+            area: "M50,200 L110,190 L170,170 L230,140 L290,120 L350,90 L410,70 L470,60 L530,50 L590,40 L650,30 L710,25 L710,250 L50,250 Z",
+            title: "User Growth Metrics",
+            insights: [
+              "User retention improved 28% in Q4",
+              "Mobile acquisition outpacing desktop by 3.4x",
+              "Churn rate decreased to 4.2% in December",
+            ],
+          },
+          performance: {
+            line: "M50,150 L110,80 L170,120 L230,100 L290,60 L350,90 L410,70 L470,110 L530,80 L590,50 L650,90 L710,70",
+            area: "M50,150 L110,80 L170,120 L230,100 L290,60 L350,90 L410,70 L470,110 L530,80 L590,50 L650,90 L710,70 L710,250 L50,250 Z",
+            title: "System Performance",
+            insights: [
+              "99.98% uptime achieved across all services",
+              "Peak load response time improved by 32%",
+              "Database query optimization reduced latency by 65%",
+            ],
+          },
+        };
+
+        dataControls.forEach((control) => {
+          control.addEventListener("click", function () {
+            // Remove active class from all controls
+            dataControls.forEach((ctrl) => ctrl.classList.remove("active"));
+
+            // Add active class to clicked control
+            this.classList.add("active");
+
+            // Get the chart type
+            const chartType = this.getAttribute("data-chart");
+            const data = chartData[chartType];
+
+            // Update chart data and animations
+            salesLine.classList.remove("animated");
+
+            // Use setTimeout to allow for animation reset
+            setTimeout(() => {
+              // Update the path data
+              salesLine.setAttribute("d", data.line);
+              salesArea.setAttribute("d", data.area);
+
+              // Update title and insights
+              chartTitle.textContent = data.title;
+              insight1.textContent = data.insights[0];
+              insight2.textContent = data.insights[1];
+              insight3.textContent = data.insights[2];
+
+              // Restart animation
+              salesLine.classList.add("animated");
+            }, 50);
+          });
+        });
+
+        // Initialize counters for forecasted growth section
+        document.querySelectorAll(".counter-value").forEach((el) => {
+          const count = parseInt(el.getAttribute("data-count"));
+          const suffix = el.getAttribute("data-suffix") || "";
+          let current = 0;
+          const increment = count / 50; // Divide animation into 50 steps
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= count) {
+              el.textContent = count + suffix;
+              clearInterval(timer);
+            } else {
+              el.textContent = Math.floor(current) + suffix;
+            }
+          }, 30);
+        });
+      });
+    </script>
+  </body>
+</html>

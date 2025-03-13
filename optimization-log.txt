@@ -1,0 +1,8 @@
+Image Optimization Log - Sun Mar  2 09:07:24 AM PST 2025
+=================================================
+Original Image | Original Size | WebP Size | Reduction %
+------------------------------------------------
+public/assets/images/logos/White logo - no background.png | 134.29K | 52.13K | 62%
+public/assets/images/logos/Color logo - no background.png | 183.48K | 59.26K | 68%
+public/assets/images/logos/Black logo - no background.png | 131.90K | 50.75K | 62%
+public/assets/images/logos/Color logo with background.png | 195.05K | 46.73K | 77%

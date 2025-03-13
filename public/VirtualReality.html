@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Reality - OFO Development</title>
+
+    <!-- Basic Meta Tags -->
+    <meta
+      name="description"
+      content="Transform your business with OFO's cutting-edge virtual and augmented reality solutions. Immersive VR training, AR retail experiences, and mixed reality platforms."
+    />
+    <meta
+      name="keywords"
+      content="virtual reality, augmented reality, VR development, AR solutions, mixed reality, immersive technology, VR training, AR retail, enterprise VR, XR technology, spatial computing"
+    />
+    <meta name="author" content="OFO Development" />
+    <link
+      rel="canonical"
+      href="https://ofodevelopment.com/VirtualReality.html"
+    />
+
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta
+      property="og:title"
+      content="Virtual & Augmented Reality Solutions | OFO Development"
+    />
+    <meta
+      property="og:description"
+      content="Transform your business with OFO's cutting-edge virtual and augmented reality solutions. Immersive VR training, AR retail experiences, and mixed reality platforms."
+    />
+    <meta
+      property="og:image"
+      content="https://ofodevelopment.com/assets/images/woman-enjoying-vr-headset.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://ofodevelopment.com/VirtualReality.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OFO Development" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Virtual & Augmented Reality Solutions | OFO Development"
+    />
+    <meta
+      name="twitter:description"
+      content="Transform your business with OFO's cutting-edge virtual and augmented reality solutions. Immersive VR training, AR retail experiences, and mixed reality platforms."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ofodevelopment.com/assets/images/woman-enjoying-vr-headset.jpg"
+    />
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <script src="assets/js/main.js" defer></script>
+    <link
+      rel="preload"
+      href="assets/images/logos/Color logo - no background.png"
+      as="image"
+      type="image/png"
+    />
+  </head>
+  <body class="bg-gray-900 text-white">
+    <style>
+      /* Dark Mode Styles */
+      .dark {
+        color-scheme: dark;
+      }
+
+      .dark body {
+        background-color: #111827;
+        color: #f3f4f6;
+      }
+
+      /* Scroll Animation Styles */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .animate-delay-100 {
+        transition-delay: 0.1s;
+      }
+
+      .animate-delay-200 {
+        transition-delay: 0.2s;
+      }
+
+      .animate-delay-300 {
+        transition-delay: 0.3s;
+      }
+
+      /* 3D Model Viewer Styles */
+      .model-viewer-container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 1rem;
+        background-color: rgba(30, 41, 59, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .model-viewer-controls {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        z-index: 10;
+        display: flex;
+        gap: 8px;
+      }
+
+      .model-control-button {
+        background-color: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(147, 197, 253, 0.3);
+        border-radius: 4px;
+        padding: 8px;
+        color: #93c5fd;
+        transition: all 0.2s ease;
+      }
+
+      .model-control-button:hover {
+        background-color: rgba(59, 130, 246, 0.3);
+      }
+
+      /* Enhanced Animation Effects */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+
+      /* XR Tech Card Hover Effects */
+      .xr-tech-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+
+      .xr-tech-card:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2),
+          0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .xr-tech-card img {
+        transition: transform 0.5s ease;
+      }
+
+      .xr-tech-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .xr-tech-card .tech-icon {
+        transition: all 0.3s ease;
+      }
+
+      .xr-tech-card:hover .tech-icon {
+        transform: translateY(-5px);
+      }
+      .golden-text {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Dropdown container */
+      .group:hover .dropdown-content {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: -1rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #1a1a1a;
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        min-width: 280px;
+        overflow: hidden;
+      }
+
+      .dropdown-content a {
+        @apply px-6 py-3 text-gray-300 hover:bg-gray-800 block transition-colors;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+      }
+
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+
+      .blog-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 215, 0, 0.3);
+      }
+
+      .category-tag.active {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        color: black;
+      }
+      /* Enhanced Navbar Styles */
+      .nav-link {
+        color: #d1d5db;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link:hover {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        width: 600px;
+        background-color: #1f2937;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        transform: translateY(-0.5rem);
+      }
+
+      .group:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        color: #d1d5db;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: #374151;
+        transform: translateX(0.5rem);
+      }
+
+      .dropdown-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.75rem;
+        color: #eab308;
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Backdrop Blur Effect */
+      nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* Accordion Transitions */
+      .accordion div {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Premium Dropdown Footer */
+      .dropdown-menu > div:last-child {
+        border-top: 1px solid #374151;
+        background-color: #1f2937;
+        padding: 1rem;
+      }
+
+      .dropdown-menu > div:last-child h3 {
+        color: #eab308;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+    <nav
+      class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+      aria-label="Main navigation"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img
+              src="assets/images/logos/Color logo - no background.png"
+              alt="OFO Development"
+              class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+            />
+          </div>
+
+          <a
+            href="#main-content"
+            class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded"
+            >Skip to main content</a
+          >
+
+          <button
+            data-mobile-menu-button
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="about.html" class="nav-link">About</a>
+
+            <div
+              class="relative group"
+              data-dropdown-trigger
+              aria-expanded="false"
+            >
+              <button class="nav-link dropdown-trigger" aria-expanded="false">
+                Services
+                <span class="ml-1 transition-transform group-hover:rotate-180"
+                  >▾</span
+                >
+              </button>
+
+              <div
+                class="dropdown-menu backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 transition-all duration-500 hover:backdrop-blur-xl hover:from-gray-900/70 hover:to-gray-900/50"
+              >
+                <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="dropdown-item"
+                  >
+                    <svg class="dropdown-icon">...</svg>
+                    Custom Software
+                  </a>
+                  <a href="MobileDevelopment.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Mobile Apps
+                  </a>
+                  <a href="WebDevelopment.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Web Development
+                  </a>
+                  <a href="DataAnalysis.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Data Analysis
+                  </a>
+                  <a href="EcommerceSolutions.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    E-Commerce
+                  </a>
+                  <a href="ArtificialIntelligence.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    AI & Machine Learning
+                  </a>
+                  <a href="DigitalInnovation.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Digital Innovation
+                  </a>
+                  <a href="VirtualReality.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    VR & AR
+                  </a>
+                  <a href="GameDevelopment.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Game Development
+                  </a>
+                  <a href="CloudComputing.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Cloud Computing
+                  </a>
+                  <a href="CyberSecurity.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Cybersecurity
+                  </a>
+                  <a href="ProductManagement.html" class="dropdown-item">
+                    <svg class="dropdown-icon">...</svg>
+                    Product Management
+                  </a>
+                </div>
+
+                <div
+                  class="border-t border-white/20 p-4 bg-gray-900/30 backdrop-blur-md transition-all duration-300 hover:bg-gray-900/40"
+                >
+                  <h3 class="text-yellow-500 text-sm font-semibold mb-2">
+                    Premium Services
+                  </h3>
+                  <p class="text-gray-300 text-sm">
+                    Custom solutions tailored to your business needs
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+          </div>
+        </div>
+
+        <div
+          id="mobile-menu"
+          data-mobile-menu
+          class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 max-h-0"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="about.html" class="block nav-link">About</a>
+
+            <div class="accordion">
+              <button
+                data-services-button
+                aria-expanded="false"
+                aria-controls="services-dropdown"
+                class="w-full flex justify-between items-center nav-link"
+              >
+                Services
+                <span class="dropdown-icon transform transition-transform"
+                  >▾</span
+                >
+              </button>
+              <div
+                id="services-dropdown"
+                data-services-content
+                class="overflow-hidden transition-all duration-300 max-h-0"
+              >
+                <div class="pl-4 space-y-2">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="block nav-link"
+                    >Custom Software</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="block nav-link">Resources</a>
+            <a href="contact.html" class="block nav-link">Contact</a>
+            <a href="blog.html" class="block nav-link">Blog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <video
+            autoplay
+            muted
+            loop
+            class="w-full h-full object-cover opacity-40"
+            poster="assets/images/woman-enjoying-vr-headset.jpg"
+          >
+            <source
+              src="assets/media/1114823_Team_Man_3840x2160.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-blue-900/80 to-purple-900/80"
+          ></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1
+              class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-on-scroll"
+              data-once="true"
+              aria-label="Immersive Reality Solutions"
+            >
+              Immersive Reality Solutions
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-blue-200 mb-8 animate-on-scroll animate-delay-100"
+              data-once="true"
+            >
+              Transform your business with cutting-edge virtual and augmented
+              reality experiences
+            </p>
+            <div
+              class="flex justify-center space-x-4 animate-on-scroll animate-delay-200"
+              data-once="true"
+            >
+              <a
+                href="#capabilities"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg transition-all transform hover:scale-105"
+              >
+                Explore Technologies
+              </a>
+              <a
+                href="contact.html"
+                class="border-2 border-purple-400 text-purple-300 hover:bg-purple-900/50 px-8 py-3 rounded-lg transition-all transform hover:scale-105"
+              >
+                Schedule Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 bg-gray-800" id="capabilities">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              XR Technology Stack
+            </h2>
+            <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+              End-to-end solutions for immersive digital experiences
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              class="group relative bg-gray-900 p-8 rounded-2xl transition-all hover:transform hover:-translate-y-2 hover:shadow-xl hover:border-blue-500 border-2 border-transparent xr-tech-card animate-on-scroll"
+              data-once="true"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"
+              ></div>
+              <div
+                class="tech-icon absolute top-4 right-4 w-10 h-10 bg-blue-900/50 rounded-full flex items-center justify-center text-blue-400"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <img
+                src="assets/images/woman-enjoying-vr-headset.jpg"
+                alt="VR Development"
+                class="w-full h-48 object-cover rounded-lg mb-6"
+                loading="lazy"
+              />
+              <h3 class="text-2xl font-bold mb-4 text-blue-400">
+                Virtual Reality Development
+              </h3>
+              <ul class="space-y-3 text-blue-200">
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 mr-2 text-purple-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    ></path>
+                  </svg>
+                  Enterprise VR training systems
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 mr-2 text-purple-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    ></path>
+                  </svg>
+                  Immersive product visualization
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 mr-2 text-purple-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    ></path>
+                  </svg>
+                  Multi-user VR environments
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="group relative bg-gray-900 p-8 rounded-2xl transition-all hover:transform hover:-translate-y-2 hover:shadow-xl hover:border-purple-500 border-2 border-transparent xr-tech-card animate-on-scroll animate-delay-100"
+              data-once="true"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"
+              ></div>
+              <div
+                class="tech-icon absolute top-4 right-4 w-10 h-10 bg-purple-900/50 rounded-full flex items-center justify-center text-purple-400"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  ></path>
+                </svg>
+              </div>
+              <img
+                src="assets/images/hand-touching.webp"
+                alt="AR Integration"
+                class="w-full h-48 object-cover rounded-lg mb-6"
+                loading="lazy"
+              />
+              <h3 class="text-2xl font-bold mb-4 text-purple-400">
+                Augmented Reality Solutions
+              </h3>
+              <ul class="space-y-3 text-purple-200">
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 mr-2 text-blue-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    ></path>
+                  </svg>
+                  Industrial AR maintenance
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 mr-2 text-blue-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    ></path>
+                  </svg>
+                  Retail AR experiences
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 mr-2 text-blue-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    ></path>
+                  </svg>
+                  Location-based AR
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="group relative bg-gray-900 p-8 rounded-2xl transition-all hover:transform hover:-translate-y-2 hover:shadow-xl hover:border-pink-500 border-2 border-transparent xr-tech-card animate-on-scroll animate-delay-200"
+              data-once="true"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"
+              ></div>
+              <div
+                class="tech-icon absolute top-4 right-4 w-10 h-10 bg-pink-900/50 rounded-full flex items-center justify-center text-pink-400"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                  ></path>
+                </svg>
+              </div>
+              <img
+                src="assets/images/futuristic-smart-city.webp"
+                alt="Mixed Reality"
+                class="w-full h-48 object-cover rounded-lg mb-6"
+                loading="lazy"
+              />
+              <h3 class="text-2xl font-bold mb-4 text-pink-400">
+                Mixed Reality Platforms
+              </h3>
+              <ul class="space-y-3 text-pink-200">
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 mr-2 text-blue-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    ></path>
+                  </svg>
+                  Enterprise MR collaboration
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 mr-2 text-blue-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    ></path>
+                  </svg>
+                  Spatial computing solutions
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-5 h-5 mr-2 text-blue-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    ></path>
+                  </svg>
+                  Digital twin implementations
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12 animate-on-scroll" data-once="true">
+            <h2
+              class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              Interactive XR Experience
+            </h2>
+            <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+              Explore virtual models with our interactive 3D viewer
+            </p>
+          </div>
+
+          <div
+            class="model-viewer-container animate-on-scroll"
+            data-once="true"
+          >
+            <div class="relative h-full w-full overflow-hidden rounded-xl">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-[300px] h-[300px] relative perspective-model">
+                  <div
+                    class="rotating-cube w-full h-full"
+                    style="
+                      transform-style: preserve-3d;
+                      transform: rotateX(0deg) rotateY(0deg);
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-blue-900/50 border border-blue-500 transform translate-z-[150px] flex items-center justify-center"
+                    >
+                      <span class="text-blue-200 text-2xl font-bold"
+                        >Front</span
+                      >
+                    </div>
+                    <div
+                      class="absolute inset-0 bg-purple-900/50 border border-purple-500 transform rotateY(180deg) translate-z-[150px] flex items-center justify-center"
+                    >
+                      <span class="text-purple-200 text-2xl font-bold"
+                        >Back</span
+                      >
+                    </div>
+                    <div
+                      class="absolute inset-0 bg-green-900/50 border border-green-500 transform rotateY(90deg) translate-z-[150px] flex items-center justify-center"
+                    >
+                      <span class="text-green-200 text-2xl font-bold"
+                        >Right</span
+                      >
+                    </div>
+                    <div
+                      class="absolute inset-0 bg-yellow-900/50 border border-yellow-500 transform rotateY(-90deg) translate-z-[150px] flex items-center justify-center"
+                    >
+                      <span class="text-yellow-200 text-2xl font-bold"
+                        >Left</span
+                      >
+                    </div>
+                    <div
+                      class="absolute inset-0 bg-pink-900/50 border border-pink-500 transform rotateX(90deg) translate-z-[150px] flex items-center justify-center"
+                    >
+                      <span class="text-pink-200 text-2xl font-bold">Top</span>
+                    </div>
+                    <div
+                      class="absolute inset-0 bg-indigo-900/50 border border-indigo-500 transform rotateX(-90deg) translate-z-[150px] flex items-center justify-center"
+                    >
+                      <span class="text-indigo-200 text-2xl font-bold"
+                        >Bottom</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="absolute inset-0 -z-10">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"
+                ></div>
+                <div
+                  class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.2),transparent_50%)]"
+                ></div>
+              </div>
+
+              <div class="model-viewer-controls">
+                <button
+                  class="model-control-button reset-view"
+                  aria-label="Reset view"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  class="model-control-button rotate-left"
+                  aria-label="Rotate left"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  class="model-control-button rotate-right"
+                  aria-label="Rotate right"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  class="model-control-button rotate-up"
+                  aria-label="Rotate up"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 10l7-7m0 0l7 7m-7-7v18"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  class="model-control-button rotate-down"
+                  aria-label="Rotate down"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="max-w-2xl mx-auto mt-12 text-center animate-on-scroll"
+            data-once="true"
+          >
+            <p class="text-blue-200 mb-6">
+              Our interactive 3D model viewers allow clients to visualize
+              products, environments, and spatial design concepts in real-time
+              before implementation
+            </p>
+            <a
+              href="#capabilities"
+              class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all transform hover:scale-105"
+            >
+              <span>Explore Technologies</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              XR Transformation Stories
+            </h2>
+            <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+              Real-world implementations driving measurable business outcomes
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <article
+              class="group relative bg-gray-800 p-8 rounded-2xl overflow-hidden transition-all hover:transform hover:-translate-y-2 animate-on-scroll"
+              data-once="true"
+              aria-labelledby="case-study-1"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <img
+                src="assets/images/manager-server-hub-using-tablet-find-firewall-misconfigurations.jpg"
+                alt="VR Training"
+                class="w-full h-48 object-cover rounded-lg mb-6"
+                loading="lazy"
+              />
+              <div class="flex items-center mb-4">
+                <div class="bg-blue-500/20 p-2 rounded-lg mr-4">
+                  <svg
+                    class="w-8 h-8 text-blue-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 id="case-study-1" class="text-2xl font-bold text-blue-400">
+                  Industrial VR Training
+                </h3>
+              </div>
+              <div class="space-y-4 text-blue-200">
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
+                  <p>
+                    <span
+                      class="counter-value font-bold"
+                      data-count="68"
+                      data-suffix="%"
+                      >0</span
+                    >
+                    reduction in training time
+                  </p>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
+                  <p>
+                    <span
+                      class="counter-value font-bold"
+                      data-count="92"
+                      data-suffix="%"
+                      >0</span
+                    >
+                    knowledge retention rate
+                  </p>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
+                  <p>
+                    <span
+                      class="counter-value font-bold"
+                      data-prefix="$"
+                      data-count="1.2"
+                      >0</span
+                    >M annual training cost savings
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="group relative bg-gray-800 p-8 rounded-2xl overflow-hidden transition-all hover:transform hover:-translate-y-2 animate-on-scroll animate-delay-100"
+              data-once="true"
+              aria-labelledby="case-study-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <img
+                src="assets/images/medical-banner-with-doctor-working-laptop.jpg"
+                alt="AR Retail"
+                class="w-full h-48 object-cover rounded-lg mb-6"
+                loading="lazy"
+              />
+              <div class="flex items-center mb-4">
+                <div class="bg-purple-500/20 p-2 rounded-lg mr-4">
+                  <svg
+                    class="w-8 h-8 text-purple-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  id="case-study-2"
+                  class="text-2xl font-bold text-purple-400"
+                >
+                  AR Retail Experience
+                </h3>
+              </div>
+              <div class="space-y-4 text-purple-200">
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                  <p>
+                    <span
+                      class="counter-value font-bold"
+                      data-count="40"
+                      data-suffix="%"
+                      >0</span
+                    >
+                    increase in conversion rates
+                  </p>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                  <p>
+                    <span
+                      class="counter-value font-bold"
+                      data-count="25"
+                      data-suffix="%"
+                      >0</span
+                    >
+                    reduction in product returns
+                  </p>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                  <p>
+                    <span
+                      class="counter-value font-bold"
+                      data-count="4.8"
+                      data-suffix="/5"
+                      >0</span
+                    >
+                    customer satisfaction
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="group relative bg-gray-800 p-8 rounded-2xl overflow-hidden transition-all hover:transform hover:-translate-y-2 animate-on-scroll animate-delay-200"
+              data-once="true"
+              aria-labelledby="case-study-3"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <img
+                src="assets/images/medical.jpg"
+                alt="Medical VR"
+                class="w-full h-48 object-cover rounded-lg mb-6"
+                loading="lazy"
+              />
+              <div class="flex items-center mb-4">
+                <div class="bg-pink-500/20 p-2 rounded-lg mr-4">
+                  <svg
+                    class="w-8 h-8 text-pink-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 id="case-study-3" class="text-2xl font-bold text-pink-400">
+                  Surgical VR Training
+                </h3>
+              </div>
+              <div class="space-y-4 text-pink-200">
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                  <p>
+                    <span
+                      class="counter-value font-bold"
+                      data-count="300"
+                      data-suffix="%"
+                      >0</span
+                    >
+                    faster skill acquisition
+                  </p>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                  <p>
+                    <span
+                      class="counter-value font-bold"
+                      data-count="98"
+                      data-suffix="%"
+                      >0</span
+                    >
+                    procedural accuracy
+                  </p>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                  <p>FDA-compliant simulations</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="relative py-32 overflow-hidden bg-gradient-to-br from-blue-900 to-purple-900"
+      >
+        <div class="absolute inset-0 z-0 opacity-20">
+          <div
+            class="absolute inset-0 bg-[url('assets/images/technology-polygonal-blue-background-abstract-low-poly-connected-with-dots-lines.jpg')] bg-cover bg-center mix-blend-soft-light"
+          ></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+          <div
+            class="max-w-4xl mx-auto text-center animate-on-scroll"
+            data-once="true"
+          >
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+              Start Your XR Journey
+            </h2>
+            <p class="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+              Schedule a free consultation to explore immersive technology
+              solutions for your business
+            </p>
+            <div
+              class="flex flex-col sm:flex-row justify-center items-center gap-4"
+            >
+              <a
+                href="contact.html"
+                class="group relative flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all transform hover:scale-105"
+              >
+                <span class="relative z-10">Book Strategy Session</span>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"
+                ></div>
+              </a>
+              <a
+                href="#capabilities"
+                class="flex items-center justify-center px-8 py-4 border-2 border-purple-400 text-purple-300 hover:bg-purple-900/30 rounded-xl transition-all transform hover:scale-105"
+              >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                View Demo Reel
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative bg-gray-800 py-12 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div class="animated-gradient w-full h-full opacity-10"></div>
+      </div>
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold golden-text mb-4">OFO</h3>
+            <p class="text-gray-400">
+              Building tomorrow's digital solutions today.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="CustomSoftwareDevelopment.html"
+                  class="hover:text-yellow-500"
+                  >Custom Software</a
+                >
+              </li>
+              <li>
+                <a href="MobileDevelopment.html" class="hover:text-yellow-500"
+                  >Mobile Apps</a
+                >
+              </li>
+              <li>
+                <a href="CloudComputing.html" class="hover:text-yellow-500"
+                  >Cloud Solutions</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Company</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="about.html" class="hover:text-yellow-500">About</a>
+              </li>
+              <li>
+                <a
+                  href="index.html#services-section"
+                  class="hover:text-yellow-500"
+                  >Services</a
+                >
+              </li>
+
+              <li>
+                <a href="contact.html" class="hover:text-yellow-500">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Connect</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-yellow-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 4.01c-1 .49-2.1.82-3.24.97a5.07 5.07 0 002.25-2.83 10.2 10.2 0 01-3.24 1.24 5.07 5.07 0 00-8.63 4.62A14.4 14.4 0 013 2.6a5.07 5.07 0 001.57 6.77 5.07 5.07 0 01-2.3-.63v.06a5.07 5.07 0 004.07 4.97 5.07 5.07 0 01-2.29.09 5.07 5.07 0 004.73 3.52 10.2 10.2 0 01-6.32 2.18c-.41 0-.82-.02-1.22-.07a14.4 14.4 0 007.83 2.3c9.4 0 14.53-7.79 14.53-14.53 0-.22 0-.44-.02-.66a10.4 10.4 0 002.56-2.65z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-yellow-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-yellow-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>
+            © <span class="current-year">2025</span> OFO Development. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 3D Model Viewer Controls
+        const cube = document.querySelector(".rotating-cube");
+        let rotateX = 0;
+        let rotateY = 0;
+        let isDragging = false;
+        let lastX, lastY;
+
+        function updateCubeRotation() {
+          cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        }
+
+        // Mouse/touch controls
+        const modelViewer = document.querySelector(".model-viewer-container");
+
+        modelViewer.addEventListener("mousedown", (e) => {
+          isDragging = true;
+          lastX = e.clientX;
+          lastY = e.clientY;
+        });
+
+        document.addEventListener("mousemove", (e) => {
+          if (!isDragging) return;
+          const deltaX = e.clientX - lastX;
+          const deltaY = e.clientY - lastY;
+
+          rotateY += deltaX * 0.5;
+          rotateX -= deltaY * 0.5;
+
+          updateCubeRotation();
+
+          lastX = e.clientX;
+          lastY = e.clientY;
+        });
+
+        document.addEventListener("mouseup", () => {
+          isDragging = false;
+        });
+
+        // Button controls
+        document.querySelector(".reset-view").addEventListener("click", () => {
+          rotateX = 0;
+          rotateY = 0;
+          updateCubeRotation();
+        });
+
+        document.querySelector(".rotate-left").addEventListener("click", () => {
+          rotateY -= 90;
+          updateCubeRotation();
+        });
+
+        document
+          .querySelector(".rotate-right")
+          .addEventListener("click", () => {
+            rotateY += 90;
+            updateCubeRotation();
+          });
+
+        document.querySelector(".rotate-up").addEventListener("click", () => {
+          rotateX -= 90;
+          updateCubeRotation();
+        });
+
+        document.querySelector(".rotate-down").addEventListener("click", () => {
+          rotateX += 90;
+          updateCubeRotation();
+        });
+
+        // Auto-rotation animation (can be toggled)
+        let autoRotate = true;
+        let animationId;
+
+        function animate() {
+          if (autoRotate && !isDragging) {
+            rotateY += 0.2;
+            updateCubeRotation();
+          }
+          animationId = requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Allow auto-rotation to be paused when interacting
+        modelViewer.addEventListener("mouseenter", () => {
+          autoRotate = false;
+        });
+
+        modelViewer.addEventListener("mouseleave", () => {
+          if (!isDragging) {
+            autoRotate = true;
+          }
+        });
+      });
+    </script>
+    <script src="assets/js/analytics.js"></script>
+  </body>
+</html>

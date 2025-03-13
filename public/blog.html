@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Tech Insights & Articles - OFO Development</title>
+    <meta name="description" content="Explore cutting-edge technical articles, architectural deep dives, and engineering insights from OFO Development's principal engineers and industry leaders.">
+    <meta name="keywords" content="technical blog, software engineering, AI ethics, cloud computing, blockchain security, enterprise architecture, technology articles">
+    <link rel="canonical" href="https://ofodevelopment.com/blog.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Tech Insights & Articles - OFO Development">
+    <meta property="og:description" content="Explore cutting-edge technical articles, architectural deep dives, and engineering insights from OFO Development's principal engineers and industry leaders.">
+    <meta property="og:url" content="https://ofodevelopment.com/blog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ofodevelopment.com/assets/images/technology-connection.webp">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tech Insights & Articles - OFO Development">
+    <meta name="twitter:description" content="Explore cutting-edge technical articles, architectural deep dives, and engineering insights from OFO Development's principal engineers and industry leaders.">
+    <meta name="twitter:image" content="https://ofodevelopment.com/assets/images/technology-connection.webp">
+    
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="assets/css/output.min.css" >
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/register-sw.js" defer></script>
+    <script src="assets/js/analytics.js"></script>
+    <style>
+      /* Reading Progress Bar */
+      .progress-container {
+        width: 100%;
+        height: 4px;
+        background: rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+      }
+      
+      .progress-bar {
+        height: 4px;
+        background: linear-gradient(90deg, #ffd700, #ffa500);
+        width: 0%;
+        transition: width 0.1s ease;
+      }
+    
+      .golden-text {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Reading Time Estimate Pill */
+      .reading-time {
+        background: rgba(255, 215, 0, 0.2);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        display: inline-flex;
+        align-items: center;
+      }
+      
+      .reading-time svg {
+        margin-right: 4px;
+        width: 14px;
+        height: 14px;
+      }
+      
+      /* Category Filtering */
+      .category-tag {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+      
+      .category-tag:hover {
+        background: rgba(255, 215, 0, 0.2);
+        transform: translateY(-2px);
+      }
+      
+      /* Dropdown container */
+      .group:hover .dropdown-content {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: -1rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #1a1a1a;
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        min-width: 280px;
+        overflow: hidden;
+      }
+
+      .dropdown-content a {
+        @apply px-6 py-3 text-gray-300 hover:bg-gray-800 block transition-colors;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+      }
+
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+
+      /* Enhanced Blog Card */
+      .blog-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(255, 215, 0, 0.3);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2);
+      }
+      
+      .blog-card img {
+        transition: transform 0.5s ease;
+      }
+      
+      .blog-card:hover img {
+        transform: scale(1.05);
+      }
+      
+      /* Share Button Styles */
+      .share-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 10;
+      }
+      
+      .blog-card:hover .share-button {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .share-dropdown {
+        position: absolute;
+        top: 45px;
+        right: 10px;
+        background: #2a2a2a;
+        border: 1px solid rgba(255, 215, 0, 0.2);
+        border-radius: 8px;
+        padding: 8px;
+        display: none;
+        flex-direction: column;
+        z-index: 10;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      
+      .share-dropdown.active {
+        display: flex;
+      }
+      
+      .share-option {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        color: #d1d5db;
+        transition: all 0.2s ease;
+        border-radius: 4px;
+      }
+      
+      .share-option:hover {
+        background: rgba(255, 215, 0, 0.2);
+      }
+      
+      .share-option svg {
+        margin-right: 8px;
+        width: 16px;
+        height: 16px;
+      }
+
+      .category-tag.active {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        color: black;
+      }
+      /* Enhanced Navbar Styles */
+      .nav-link {
+        color: #d1d5db;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link:hover {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        width: 600px;
+        background-color: #1f2937;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        transform: translateY(-0.5rem);
+      }
+
+      .group:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        color: #d1d5db;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: #374151;
+        transform: translateX(0.5rem);
+      }
+
+      .dropdown-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.75rem;
+        color: #eab308;
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Backdrop Blur Effect */
+      nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* Accordion Transitions */
+      .accordion div {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Premium Dropdown Footer */
+      .dropdown-menu > div:last-child {
+        border-top: 1px solid #374151;
+        background-color: #1f2937;
+        padding: 1rem;
+      }
+
+      .dropdown-menu > div:last-child h3 {
+        color: #eab308;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  <link rel="preload" href="assets/images/logos/Color logo - no background.png" as="image" type="image/png" ><link rel="preload" href="assets/images/futuristic-smart-city.webp" as="image" type="image/webp" ></head>
+  
+    
+    <div class="progress-container">
+      <div class="progress-bar" id="readingProgress"></div>
+    </div>
+    
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white py-2 px-4 rounded z-50">
+      Skip to main content
+    </a>
+    
+    
+    <nav       class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          
+          <div class="flex items-center">
+            <a href="index.html" aria-label="OFO Development Home">
+              <img                 src="assets/images/logos/Color logo - no background.png"
+                alt="OFO Development"
+                class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+              >
+            </a>
+          </div>
+
+          
+          <button             data-mobile-menu-button
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          >
+            <svg               class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path                 stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="nav-link golden-text">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+
+            <div class="relative group" id="services-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                id="services-menu-button"
+              >
+                Services
+                <span class="ml-1 transition-transform group-hover:rotate-180"
+                  >▾</span
+                >
+              </button>
+
+              <div
+                class="dropdown-menu backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 transition-all duration-500 hover:backdrop-blur-xl hover:from-gray-900/70 hover:to-gray-900/50"
+                id="services-menu"
+                role="menu"
+                aria-labelledby="services-menu-button"
+              >
+                <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      ></path>
+                    </svg>
+                    Custom Software
+                  </a>
+                  <a href="MobileDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2h2a2 2 0 002-2z"
+                      ></path>
+                    </svg>
+                    Mobile Apps
+                  </a>
+                  <a href="WebDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                      ></path>
+                    </svg>
+                    Web Development
+                  </a>
+                  <a href="DataAnalysis.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                      ></path>
+                    </svg>
+                    Data Analysis
+                  </a>
+                  <a href="EcommerceSolutions.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      ></path>
+                    </svg>
+                    E-Commerce
+                  </a>
+                  <a href="ArtificialIntelligence.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      ></path>
+                    </svg>
+                    AI & Machine Learning
+                  </a>
+                  <a href="CyberSecurity.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      ></path>
+                    </svg>
+                    Cyber Security
+                  </a>
+                  <a href="CloudComputing.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                      ></path>
+                    </svg>
+                    Cloud Computing
+                  </a>
+                  <a href="DevOpsSolutions.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
+                      ></path>
+                    </svg>
+                    DevOps Solutions
+                  </a>
+                  <a href="SaaSDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                      ></path>
+                    </svg>
+                    SaaS Development
+                  </a>
+                  <a href="EnterpriseSolutions.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                      ></path>
+                    </svg>
+                    Enterprise Solutions
+                  </a>
+                  <a href="DigitalInnovation.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      ></path>
+                    </svg>
+                    Digital Innovation
+                  </a>
+                  <a href="ProductManagement.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                      ></path>
+                    </svg>
+                    Product Management
+                  </a>
+                  <a href="GameDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    Game Development
+                  </a>
+                  <a href="VirtualReality.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    Virtual Reality
+                  </a>
+                  <a href="BlockchainDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      ></path>
+                    </svg>
+                    Blockchain Development
+                  </a>
+                </div>
+
+                
+                <div class="border-t border-white/20 bg-gradient-to-r from-gray-900/80 via-gray-800/80 to-gray-900/80 backdrop-blur-xl transition-all duration-300 hover:from-gray-800/90 hover:to-gray-900/90">
+                  
+                  <div class="p-4">
+                    <h3 class="text-yellow-500 text-sm font-semibold mb-2 flex items-center">
+                      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" ></path>
+                      </svg>
+                      Premium Enterprise Solutions
+                    </h3>
+                    <p class="text-gray-300 text-sm mb-3">
+                      Custom solutions tailored to your business needs with dedicated support
+                    </p>
+                  </div>
+                  
+                  
+                  <div class="px-4 pb-4 flex flex-wrap gap-2">
+                    <a href="contact.html" class="text-xs px-3 py-1.5 bg-yellow-500/20 text-yellow-400 rounded-full hover:bg-yellow-500/30 transition-colors flex items-center">
+                      <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" ></path>
+                      </svg>
+                      Schedule Consultation
+                    </a>
+                    <a href="CaseStudies.html" class="text-xs px-3 py-1.5 bg-blue-500/20 text-blue-400 rounded-full hover:bg-blue-500/30 transition-colors flex items-center">
+                      <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" ></path>
+                      </svg>
+                      View Case Studies
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+          </div>
+        </div>
+
+        
+        <div
+          id="mobile-menu"
+          data-mobile-menu
+          class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 max-h-0"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="index.html" class="block nav-link golden-text">Home</a>
+            <a href="about.html" class="block nav-link">About</a>
+
+            <div class="accordion">
+              <button
+                id="mobile-services-button"
+                data-services-button
+                aria-expanded="false"
+                class="w-full flex justify-between items-center nav-link"
+              >
+                Services
+                <span class="dropdown-icon transform transition-transform"
+                  >▾</span
+                >
+              </button>
+              <div
+                id="mobile-services-menu"
+                data-services-content
+                class="overflow-hidden transition-all duration-300 max-h-0"
+              >
+                <div class="pl-4 space-y-2 pt-2">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="block nav-link"
+                    >Custom Software</a
+                  >
+                  <a href="MobileDevelopment.html" class="block nav-link"
+                    >Mobile Apps</a
+                  >
+                  <a href="WebDevelopment.html" class="block nav-link"
+                    >Web Development</a
+                  >
+                  <a href="DataAnalysis.html" class="block nav-link"
+                    >Data Analysis</a
+                  >
+                  <a href="EcommerceSolutions.html" class="block nav-link"
+                    >E-Commerce</a
+                  >
+                  <a href="ArtificialIntelligence.html" class="block nav-link"
+                    >AI & Machine Learning</a
+                  >
+                  <a href="CyberSecurity.html" class="block nav-link"
+                    >Cyber Security</a
+                  >
+                  <a href="CloudComputing.html" class="block nav-link"
+                    >Cloud Computing</a
+                  >
+                  <a href="DevOpsSolutions.html" class="block nav-link"
+                    >DevOps Solutions</a
+                  >
+                  <a href="SaaSDevelopment.html" class="block nav-link"
+                    >SaaS Development</a
+                  >
+                  <a href="EnterpriseSolutions.html" class="block nav-link"
+                    >Enterprise Solutions</a
+                  >
+                  <a href="DigitalInnovation.html" class="block nav-link"
+                    >Digital Innovation</a
+                  >
+                  <a href="ProductManagement.html" class="block nav-link"
+                    >Product Management</a
+                  >
+                  <a href="GameDevelopment.html" class="block nav-link"
+                    >Game Development</a
+                  >
+                  <a href="VirtualReality.html" class="block nav-link"
+                    >Virtual Reality</a
+                  >
+                  <a href="BlockchainDevelopment.html" class="block nav-link"
+                    >Blockchain Development</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="block nav-link">Resources</a>
+            <a href="contact.html" class="block nav-link">Contact</a>
+            <a href="blog.html" class="block nav-link">Blog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    
+
+    
+    <section class="relative h-[80vh] bg-gray-900 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <video           autoplay
+          muted
+          loop
+          class="w-full h-full object-cover opacity-40"
+          poster="assets/images/futuristic-smart-city.webp"
+        >
+          <source             src="assets/media/0_Digital Art_Futuristic_3840x2160.webm"
+            type="video/webm"
+          >
+          <img             src="assets/images/futuristic-smart-city.webp"
+            alt="Futuristic tech background"
+          >
+        </video>
+        <div           class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent"
+        ></div>
+      </div>
+
+      <div         class="container mx-auto px-6 h-full flex items-end pb-20 relative z-10"
+      >
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="mb-8 animate-fade-in-up">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <span class="golden-text">Engineering</span> Frontiers
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8">
+              Cutting-edge technical analysis and architectural deep dives
+              from<br class="hidden md:block" >
+              our principal engineers and industry partners
+            </p>
+            <div class="flex justify-center space-x-4">
+              <a                 href="#featured"
+                class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-8 py-3 rounded-lg font-semibold hover:from-yellow-600 hover:to-yellow-700 transition-all"
+              >
+                Explore Articles
+              </a>
+              <a                 href="#newsletter"
+                class="border border-yellow-500 text-yellow-500 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500/10 transition-all"
+              >
+                Subscribe
+              </a>
+            </div>
+          </div>
+
+          <div             class="grid grid-cols-3 gap-8 mt-16 text-left animate-fade-in-up delay-300"
+          >
+            <div class="col-span-3 md:col-span-1">
+              <div class="text-4xl golden-text font-bold mb-2">1500+</div>
+              <div class="text-gray-400">Technical Articles</div>
+            </div>
+            <div class="col-span-3 md:col-span-1">
+              <div class="text-4xl golden-text font-bold mb-2">98%</div>
+              <div class="text-gray-400">Peer-Reviewed Content</div>
+            </div>
+            <div class="col-span-3 md:col-span-1">
+              <div class="text-4xl golden-text font-bold mb-2">24h</div>
+              <div class="text-gray-400">Average Update Cycle</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="py-20 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8">
+          
+          <div class="blog-card rounded-lg overflow-hidden">
+            <img src="assets/images/ai-chip.webp" alt="Responsible AI Framework Implementation" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-8">
+              <div class="flex items-center space-x-4 mb-4">
+                <span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm">Featured</span>
+                <span class="text-gray-400">AI Ethics</span>
+              </div>
+              <h2 class="text-2xl font-bold mb-4">
+                Implementing Responsible AI Frameworks
+              </h2>
+              <p class="text-gray-400 mb-6">
+                Our latest comprehensive guide walks through implementing responsible AI governance in enterprise environments. We cover model auditing pipelines, bias detection frameworks, and compliance automation tools with real-world examples from our client implementations. The guide includes implementation checklists for GDPR AI compliance and ML model versioning strategies essential for regulated industries.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                  <div class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white font-bold">
+                    MR
+                  </div>
+                  <div>
+                    <p class="font-bold">Maria Reynolds</p>
+                    <p class="text-gray-400 text-sm">March 10, 2025</p>
+                  </div>
+                </div>
+                <span class="text-gray-400">18 min read</span>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="blog-card rounded-lg overflow-hidden">
+            <img src="assets/images/cloud-blog.webp" alt="Cloud Cost Optimization Dashboard" class="w-full h-64 object-cover" loading="lazy">
+            <div class="p-8">
+              <div class="flex items-center space-x-4 mb-4">
+                <span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm">Editor's Pick</span>
+                <span class="text-gray-400">Cloud FinOps</span>
+              </div>
+              <h2 class="text-2xl font-bold mb-4">
+                Advanced Cloud Cost Optimization Strategies
+              </h2>
+              <p class="text-gray-400 mb-6">
+                This technical deep dive explores our proven methodology for optimizing cloud costs through AI-driven resource allocation and predictive autoscaling across multi-cloud environments. We demonstrate how our enterprise clients have achieved 30-45% cost savings while improving performance through strategic Kubernetes resource tagging, intelligent spot instance orchestration, and unified cross-cloud cost analytics using our enhanced OpenCost frameworks.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                  <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center text-white font-bold">
+                    JK
+                  </div>
+                  <div>
+                    <p class="font-bold">Jason Kepler</p>
+                    <p class="text-gray-400 text-sm">March 8, 2025</p>
+                  </div>
+                </div>
+                <span class="text-gray-400">22 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6">
+        
+        <div class="mb-12">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-6 md:space-y-0">
+            
+            <div class="relative w-full md:w-96">
+              <input 
+                type="text" 
+                placeholder="Search articles..." 
+                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-500 pl-10"
+                id="searchInput"
+                aria-label="Search articles"
+              >
+              <svg class="w-5 h-5 text-gray-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            
+            
+            <div class="flex flex-wrap gap-2 w-full md:w-auto" id="categoryFilter">
+              <span class="category-tag bg-gray-800 px-3 py-1.5 rounded-full text-sm text-gray-300 data-filter-value="all" active">All</span>
+              <span class="category-tag bg-gray-800 px-3 py-1.5 rounded-full text-sm text-gray-300" data-filter-value="ai">AI & ML</span>
+              <span class="category-tag bg-gray-800 px-3 py-1.5 rounded-full text-sm text-gray-300" data-filter-value="blockchain">Blockchain</span>
+              <span class="category-tag bg-gray-800 px-3 py-1.5 rounded-full text-sm text-gray-300" data-filter-value="cloud">Cloud</span>
+              <span class="category-tag bg-gray-800 px-3 py-1.5 rounded-full text-sm text-gray-300" data-filter-value="security">Security</span>
+              <span class="category-tag bg-gray-800 px-3 py-1.5 rounded-full text-sm text-gray-300" data-filter-value="systems">Systems</span>
+              <span class="category-tag bg-gray-800 px-3 py-1.5 rounded-full text-sm text-gray-300" data-filter-value="urban">Urban Tech</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <div class="blog-card rounded-lg overflow-hidden animate-on-scroll fade-up" data-category="systems">
+            <img src="assets/images/technology-connection.webp"
+              alt="Rust microservices architecture diagram"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            >
+            
+            <button class="share-button" aria-label="Share article" data-share-toggle>
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+              </svg>
+            </button>
+            
+            <div class="share-dropdown">
+              <a href="#" class="share-option" data-share-twitter>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                </svg>
+                Twitter
+              </a>
+              <a href="#" class="share-option" data-share-linkedin>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="#" class="share-option" data-share-email>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                Email
+              </a>
+              <a href="#" class="share-option" data-share-copy>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                </svg>
+                Copy Link
+              </a>
+            </div>
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Systems Programming</span>
+              <h3 class="text-xl font-bold my-2">
+                Building High-Performance Microservices in Rust
+              </h3>
+              <p class="text-gray-400 mb-4 article-content">
+                <span class="font-semibold">Technical architecture:</span> This article details our construction of a high-throughput financial transaction processing system using Rust microservices. We compare Tokio vs async-std performance with benchmarks showing Tokio achieving 42% lower latency under high load. The system implements distributed tracing with OpenTelemetry using custom span propagation achieving 99.7% trace completion rates. For service communication, we developed gRPC endpoints using Tonic with Protocol Buffers v3 schemas featuring one-of fields for type-safe variant handling. Performance was optimized through zero-copy deserialization, thread-per-core architecture, and cache-conscious data structures reducing 99th percentile latency from 14ms to 3.2ms while handling 50,000 req/sec.
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-blue-800 rounded-full flex items-center justify-center text-white text-xs">
+                    AP
+                  </div>
+                  <div>
+                    <p class="font-bold">Ankit Patel</p>
+                    <p class="text-gray-400 text-sm">March 9, 2025</p>
+                  </div>
+                </div>
+                <span class="text-sm text-gray-400">6 min read</span>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="blog-card rounded-lg overflow-hidden animate-on-scroll fade-up delay-100" data-category="blockchain">
+            <img               src="assets/images/digital-blue-hud.webp"
+              alt="Smart contract security analysis"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            >
+            
+            <button class="share-button" aria-label="Share article" data-share-toggle>
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+              </svg>
+            </button>
+            
+            <div class="share-dropdown">
+              <a href="#" class="share-option" data-share-twitter>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                </svg>
+                Twitter
+              </a>
+              <a href="#" class="share-option" data-share-linkedin>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="#" class="share-option" data-share-email>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                Email
+              </a>
+              <a href="#" class="share-option" data-share-copy>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                </svg>
+                Copy Link
+              </a>
+            </div>
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Blockchain Security</span>
+              <h3 class="text-xl font-bold my-2">
+                Smart Contract Auditing Patterns
+              </h3>
+              <p class="text-gray-400 mb-4">
+                <span class="font-semibold">In-depth coverage:</span> This technical article documents our audit methodology that prevented a $43M exploit in a yield aggregator protocol. We detail our custom symbolic execution engine for EVM bytecode analysis that identified 82% more vulnerabilities than standard tooling. Key sections include: implementation patterns for Slither static analysis integration with automated CI/CD pipelines, step-by-step formal verification methodology with Certora Prover including invariant specification techniques, and comprehensive analysis of recent DeFi exploits including reentrancy vectors, access control failures, and oracle manipulation. The article provides source-code-level examples of vulnerability patterns with remediation strategies tested across multiple blockchain environments.
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-purple-700 rounded-full flex items-center justify-center text-white text-xs">
+                    LV
+                  </div>
+                  <div>
+                    <p class="font-bold">Lena Voronina</p>
+                    <p class="text-gray-400 text-sm">March 5, 2025</p>
+                  </div>
+                </div>
+                <span class="text-sm text-gray-400">30 min read</span>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="blog-card rounded-lg overflow-hidden animate-on-scroll fade-up delay-200" data-category="security">
+            <img               src="assets/images/manager-server-hub-using-tablet-find-firewall-misconfigurations.jpg"
+              alt="Kubernetes security architecture diagram"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            >
+            
+            <button class="share-button" aria-label="Share article" data-share-toggle>
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+              </svg>
+            </button>
+            
+            <div class="share-dropdown">
+              <a href="#" class="share-option" data-share-twitter>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                </svg>
+                Twitter
+              </a>
+              <a href="#" class="share-option" data-share-linkedin>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="#" class="share-option" data-share-email>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                Email
+              </a>
+              <a href="#" class="share-option" data-share-copy>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                </svg>
+                Copy Link
+              </a>
+            </div>
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Cloud Infrastructure</span>
+              <h3 class="text-xl font-bold my-2">
+                Securing Kubernetes Clusters in Production
+              </h3>
+              <p class="text-gray-400 mb-4">
+                <span class="font-semibold">Production-ready strategies:</span> This article details our implemented security architecture for a large financial institution's regulated Kubernetes environment. We demonstrate our zero-trust networking implementation using Cilium CNI with NetworkPolicy enforcement achieving 99.8% east-west traffic control validation. Our runtime security monitoring solution uses eBPF-powered Falco with custom rules that detected 17 previously unknown CVEs. The article includes complete YAML configurations for automated compliance using OPA Gatekeeper with templated constraints that maintained SOC2 compliance across 200+ namespaces. We provide step-by-step implementation guides for our control plane hardening techniques including etcd encryption, certificate rotation automation, and audit logging patterns that withstood penetration testing from a leading security firm.
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-red-700 rounded-full flex items-center justify-center text-white text-xs">
+                    RM
+                  </div>
+                  <div>
+                    <p class="font-bold">Raj Mehta</p>
+                    <p class="text-gray-400 text-sm">March 7, 2025</p>
+                  </div>
+                </div>
+                <span class="text-sm text-gray-400">25 min read</span>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="blog-card rounded-lg overflow-hidden animate-on-scroll fade-up delay-300" data-category="ai">
+            <img               src="assets/images/ai-nuclear-energy.webp"
+              alt="AI in energy systems"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            >
+            
+            <button class="share-button" aria-label="Share article" data-share-toggle>
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+              </svg>
+            </button>
+            
+            <div class="share-dropdown">
+              <a href="#" class="share-option" data-share-twitter>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                </svg>
+                Twitter
+              </a>
+              <a href="#" class="share-option" data-share-linkedin>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="#" class="share-option" data-share-email>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                Email
+              </a>
+              <a href="#" class="share-option" data-share-copy>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                </svg>
+                Copy Link
+              </a>
+            </div>
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">AI Applications</span>
+              <h3 class="text-xl font-bold my-2">
+                Machine Learning in Nuclear Energy Optimization
+              </h3>
+              <p class="text-gray-400 mb-4">
+                <span class="font-semibold">Technical implementation:</span> Our team developed a comprehensive machine learning infrastructure for nuclear energy optimization with multiple specialized components. The primary system uses a custom ensemble of three neural network architectures: 1) a 14-layer DenseNet with residual connections achieving 98.7% prediction accuracy for reactor efficiency metrics, 2) a transformer-based sequence model for temporal coolant flow optimization reducing peak temperatures by 3.2°C, and 3) a graph neural network modeling component dependencies with 97.3% correlation to real-world behavior. All models run on specialized TPUv4 hardware with quantized operations for 5.3x throughput improvement. The safety-critical system incorporates triple redundant verification using formal model verification techniques with mathematical invariant proofs. We implemented advanced anomaly detection using variational autoencoders with reconstruction loss thresholds calibrated to detect microdeviations 47 minutes before conventional systems. The deployment uses a specialized containerized architecture with automated fallback mechanisms certified for ISO 26262 ASIL D compliance.
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-indigo-700 rounded-full flex items-center justify-center text-white text-xs">
+                    MR
+                  </div>
+                  <div>
+                    <p class="font-bold">Dr. Maya Rodriguez</p>
+                    <p class="text-gray-400 text-sm">March 6, 2025</p>
+                  </div>
+                </div>
+                <span class="text-sm text-gray-400">28 min read</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card rounded-lg overflow-hidden animate-on-scroll fade-up delay-400" data-category="urban">
+            <img               src="assets/images/futuristic-smart-city.webp"
+              alt="Smart city IoT networks"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            >
+            
+            <button class="share-button" aria-label="Share article" data-share-toggle>
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+              </svg>
+            </button>
+            
+            <div class="share-dropdown">
+              <a href="#" class="share-option" data-share-twitter>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                </svg>
+                Twitter
+              </a>
+              <a href="#" class="share-option" data-share-linkedin>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="#" class="share-option" data-share-email>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                Email
+              </a>
+              <a href="#" class="share-option" data-share-copy>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                </svg>
+                Copy Link
+              </a>
+            </div>
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Urban Tech</span>
+              <h3 class="text-xl font-bold my-2">
+                IoT Mesh Networks for Smart City Infrastructure
+              </h3>
+              <p class="text-gray-400 mb-4">
+                <span class="font-semibold">Implementation details:</span> This article documents our comprehensive implementation of multi-tier self-healing mesh networks for municipal smart infrastructure combining three complementary technologies. The primary backhaul network uses LoRaWAN (868/915MHz) with optimized spreading factor configurations balancing coverage vs. power consumption. Our custom-designed low-power node architecture achieves 5.4-year battery life through adaptive duty cycling that dynamically adjusts based on network conditions and sensor priority. The network topology uses a dual-gateway redundancy pattern (N+2) with automatic failover achieving 99.996% (4x9s) uptime across the metropolitan deployment. Key technical innovations include our proprietary Time-Synchronized Channel Hopping implementation that reduced packet collisions by 78% in high-density deployments, and our adaptive data compression algorithm that achieved 62% bandwidth savings while maintaining sub-50ms latency for critical messages. The edge computing tier features ARM64-based gateways running containerized microservices (K3s) that perform real-time traffic flow optimization using our custom reinforcement learning models, which reduced congestion by 26% across pilot intersections while decreasing emergency vehicle response times by 4.2 minutes on average. The article includes complete reference architectures, power consumption benchmarks across different radio configurations, and security hardening patterns for IoT deployments in critical infrastructure.
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-teal-700 rounded-full flex items-center justify-center text-white text-xs">
+                    JK
+                  </div>
+                  <div>
+                    <p class="font-bold">James Kurose</p>
+                    <p class="text-gray-400 text-sm">March 4, 2025</p>
+                  </div>
+                </div>
+                <span class="text-sm text-gray-400">22 min read</span>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+
+        
+        <div class="text-center mt-12">
+          <button             class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-8 py-3 rounded-lg font-semibold hover:from-yellow-600 hover:to-yellow-700 transition-all"
+            aria-label="Load more articles"
+            aria-live="polite"
+            id="loadMoreBtn"
+          >
+            Load More Articles
+            <span class="sr-only">(Currently showing 6 of 1500+ articles)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="py-20 bg-gray-800">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Monthly Technical Deep Dive</h2>
+          <p class="text-gray-300">
+            Comprehensive analysis of emerging technologies
+          </p>
+        </div>
+        <div class="blog-card rounded-lg overflow-hidden">
+          <img src="assets/images/technology-connection.webp" alt="Quantum computing diagram" class="w-full h-48 object-cover mb-6" loading="lazy">
+          <div class="p-8">
+            <div class="flex items-center space-x-4 mb-6">
+              <span                 class="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm"
+                >Research</span>
+              <span class="text-gray-400">Quantum Computing</span>
+              <span class="text-gray-400">Security</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">
+              Post-Quantum Cryptography Implementation Guide
+            </h3>
+            <p class="text-gray-400 mb-6">
+              Our comprehensive guide documents real-world migration strategies for large-scale PKI systems transitioning to quantum-resistant cryptography. Based on our implementation for a Fortune 100 financial services client, this technical deep dive includes:
+            </p>
+            <ul class="list-disc list-inside text-gray-400 mb-6 space-y-2">
+              <li>CRYSTALS-Kyber & Falcon performance benchmarks across 5 hardware platforms showing 4.6x-12.8x computation overhead compared to RSA-2048, with detailed memory profiling for constrained environments</li>
+              <li>Hybrid certificate chain deployment patterns with dual-signature validation and our open-source implementation of X.509 certificate extensions (RFC-8410) for lattice-based public keys</li>
+              <li>Hardware Security Module integration techniques detailing our custom firmware extensions for Thales Luna Network HSMs supporting post-quantum key generation and signing operations</li>
+              <li>Complete TLS 1.3 configuration examples for NGINX, HAProxy and AWS ALB implementations supporting hybrid key exchange with forward secrecy</li>
+              <li>Detailed security analysis of implementation attacks against our reference implementations including timing side-channels and adaptive chosen-ciphertext attacks</li>
+              <li>Gradual migration strategy with quantifiable security metrics and fallback mechanisms for critical infrastructure during the 3-year transition period</li>
+            </ul>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 bg-orange-700 rounded-full flex items-center justify-center text-white font-bold">
+                  VS
+                </div>
+                <div>
+                  <p class="font-bold">Dr. Vikram Singh</p>
+                  <p class="text-gray-400 text-sm">March 1, 2025</p>
+                </div>
+              </div>
+              <span class="text-gray-400">40 min read</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    
+    <section       class="py-20 bg-gradient-to-r from-gray-800 to-gray-900"
+      aria-labelledby="newsletter-heading"
+      id="newsletter"
+    >
+      <div class="container mx-auto px-6 max-w-4xl">
+        <div class="bg-gray-900/70 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-xl animate-on-scroll fade-up">
+          <div class="text-center mb-8">
+            <h2 id="newsletter-heading" class="text-3xl font-bold mb-4 golden-text">
+              Stay in the Engineering Loop
+            </h2>
+            <p class="text-xl text-gray-300 mb-2">
+              Subscribe to our weekly technical digest for:
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 mb-8">
+              <div class="flex flex-col items-center">
+                <div class="bg-gray-800/70 p-3 rounded-full mb-2">
+                  <svg class="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                  </svg>
+                </div>
+                <span class="text-sm text-gray-300">Technical Deep Dives</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="bg-gray-800/70 p-3 rounded-full mb-2">
+                  <svg class="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
+                  </svg>
+                </div>
+                <span class="text-sm text-gray-300">Code Snippets</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="bg-gray-800/70 p-3 rounded-full mb-2">
+                  <svg class="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
+                  </svg>
+                </div>
+                <span class="text-sm text-gray-300">Release Alerts</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="bg-gray-800/70 p-3 rounded-full mb-2">
+                  <svg class="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z"></path>
+                  </svg>
+                </div>
+                <span class="text-sm text-gray-300">Architecture Patterns</span>
+              </div>
+            </div>
+          </div>
+          <form             class="space-y-4 md:space-y-0 md:flex md:gap-4 justify-center max-w-2xl mx-auto"
+            role="form"
+            aria-label="Newsletter subscription"
+            id="newsletterForm"
+          >
+            <div class="flex-1">
+              <input                 type="email"
+                placeholder="Your email address"
+                class="px-6 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/50 focus:outline-none w-full transition-all"
+                required
+                aria-required="true"
+              >
+            </div>
+            <div class="flex-1 md:flex-initial">
+              <select 
+                class="px-6 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/50 focus:outline-none w-full md:w-auto transition-all text-gray-300"
+                aria-label="Email frequency preference"
+              >
+                <option value="weekly">Weekly Digest</option>
+                <option value="biweekly">Bi-Weekly</option>
+                <option value="monthly">Monthly Roundup</option>
+              </select>
+            </div>
+            <button               type="submit"
+              class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-8 py-3 rounded-lg font-semibold hover:from-yellow-600 hover:to-yellow-700 transition-all focus:ring-2 focus:ring-yellow-500/50 focus:outline-none w-full md:w-auto"
+            >
+              Subscribe
+            </button>
+          </form>
+          <div class="text-center mt-6 text-sm text-gray-400">
+            Your privacy is our priority. We'll never share your information with third parties.
+            <a href="privacy-policy.html" class="text-yellow-500 hover:underline">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold golden-text mb-4">OFO</h3>
+            <p class="text-gray-400">
+              Building tomorrow's digital solutions today.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="CustomSoftwareDevelopment.html" class="hover:text-yellow-500">Custom Software</a>
+              </li>
+              <li><a href="MobileDevelopment.html" class="hover:text-yellow-500">Mobile Apps</a></li>
+              <li>
+                <a href="CloudComputing.html" class="hover:text-yellow-500">Cloud Solutions</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Company</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="about.html" class="hover:text-yellow-500">About</a>
+              </li>
+              <li>
+                <a href="services.html" class="hover:text-yellow-500"
+                  >Services</a>
+              </li>
+
+              <li>
+                <a href="contact.html" class="hover:text-yellow-500"
+                  >Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Connect</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-yellow-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path                     d="M22 4.01c-1 .49-2.1.82-3.24.97a5.07 5.07 0 002.25-2.83 10.2 10.2 0 01-3.24 1.24 5.07 5.07 0 00-8.63 4.62A14.4 14.4 0 013 2.6a5.07 5.07 0 001.57 6.77 5.07 5.07 0 01-2.3-.63v.06a5.07 5.07 0 004.07 4.97 5.07 5.07 0 01-2.29.09 5.07 5.07 0 004.73 3.52 10.2 10.2 0 01-6.32 2.18c-.41 0-.82-.02-1.22-.07a14.4 14.4 0 007.83 2.3c9.4 0 14.53-7.79 14.53-14.53 0-.22 0-.44-.02-.66a10.4 10.4 0 002.56-2.65z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-yellow-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path                     d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-yellow-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path                     d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div           class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>© 2025 OFO Development. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Initialize blog functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        // Reading Progress Bar
+        function updateReadingProgress() {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight;
+          const clientHeight = document.documentElement.clientHeight;
+          const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
+          document.getElementById('readingProgress').style.width = scrollPercent + '%';
+        }
+        
+        window.addEventListener('scroll', updateReadingProgress);
+        
+        // Category Filtering
+        const categoryTags = document.querySelectorAll('#categoryFilter .category-tag');
+        const blogCards = document.querySelectorAll('.blog-card');
+        
+        // Add data-category attributes if not already present
+        blogCards.forEach(card => {
+          if (!card.dataset.category) {
+            const categorySpan = card.querySelector('.text-yellow-500') || card.querySelector('.text-gray-400');
+            if (categorySpan) {
+              const category = categorySpan.textContent.toLowerCase().trim().replace(/[^a-z0-9]/g, '-');
+              card.setAttribute('data-category', category);
+            }
+          }
+        });
+        
+        // Initialize category filter
+        categoryTags.forEach(tag => {
+          tag.addEventListener('click', () => {
+            // Remove active class from all tags
+            categoryTags.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tag
+            tag.classList.add('active');
+            
+            const filterValue = tag.getAttribute('data-filter-value');
+            
+            // Filter blog cards with animation
+            blogCards.forEach(card => {
+              if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                card.style.opacity = '0';
+                card.style.display = 'block';
+                
+                // Animate in after a short delay
+                setTimeout(() => {
+                  card.style.opacity = '1';
+                  card.style.transform = 'translateY(0)';
+                }, 50);
+              } else {
+                // Animate out
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                // Hide after animation
+                setTimeout(() => {
+                  card.style.display = 'none';
+                }, 300);
+              }
+            });
+            
+            // Show "no results found" message if no cards are visible
+            const visibleCards = [...blogCards].filter(card => card.style.display !== 'none');
+            const noResults = document.getElementById('noResultsMessage');
+            
+            if (visibleCards.length === 0 && noResults) {
+              noResults.style.display = 'block';
+            } else if (noResults) {
+              noResults.style.display = 'none';
+            }
+          });
+        });
+        
+        // Share Button Functionality
+        const shareButtons = document.querySelectorAll('[data-share-toggle]');
+        
+        shareButtons.forEach(button => {
+          button.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Close all other open dropdowns
+            document.querySelectorAll('.share-dropdown.active').forEach(dropdown => {
+              if (dropdown !== button.nextElementSibling) {
+                dropdown.classList.remove('active');
+              }
+            });
+            
+            // Toggle this dropdown
+            const dropdown = button.nextElementSibling;
+            dropdown.classList.toggle('active');
+            
+            // Set share URLs with actual content
+            const card = button.closest('.blog-card');
+            const title = card.querySelector('h3').textContent;
+            const description = card.querySelector('p').textContent;
+            const url = window.location.href + '#' + title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            
+            // Set URLs for share buttons
+            if (dropdown.querySelector('[data-share-twitter]')) {
+              dropdown.querySelector('[data-share-twitter]').setAttribute(
+                'href', 
+                `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`
+              );
+            }
+            
+            if (dropdown.querySelector('[data-share-linkedin]')) {
+              dropdown.querySelector('[data-share-linkedin]').setAttribute(
+                'href', 
+                `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
+              );
+            }
+            
+            if (dropdown.querySelector('[data-share-email]')) {
+              dropdown.querySelector('[data-share-email]').setAttribute(
+                'href', 
+                `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent('Check out this article: ' + url)}`
+              );
+            }
+            
+            // Close dropdown when clicking outside
+            const closeDropdown = (event) => {
+              if (!dropdown.contains(event.target) && event.target !== button) {
+                dropdown.classList.remove('active');
+                document.removeEventListener('click', closeDropdown);
+              }
+            };
+            
+            if (dropdown.classList.contains('active')) {
+              // Add a slight delay before adding the document click listener
+              setTimeout(() => {
+                document.addEventListener('click', closeDropdown);
+              }, 10);
+            }
+          });
+        });
+        
+        // Share Functionality
+        document.querySelectorAll('[data-share-twitter]').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            showToast('Shared on Twitter');
+          });
+        });
+        
+        document.querySelectorAll('[data-share-linkedin]').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            showToast('Shared on LinkedIn');
+          });
+        });
+        
+        document.querySelectorAll('[data-share-email]').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            showToast('Email share link created');
+          });
+        });
+        
+        document.querySelectorAll('[data-share-copy]').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const card = btn.closest('.share-dropdown').parentNode;
+            const title = card.querySelector('h3').textContent;
+            const url = window.location.href + '#' + title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            
+            navigator.clipboard.writeText(url).then(() => {
+              const originalText = btn.textContent;
+              btn.innerHTML = 'Copied! <svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+              
+              showToast('Link copied to clipboard');
+              
+              setTimeout(() => {
+                btn.innerHTML = `<svg class="w-4 h-4 mr-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                </svg> Copy Link`;
+              }, 2000);
+            });
+          });
+        });
+        
+        // Reading Time Calculation for all articles
+        function calculateReadingTime(element) {
+          if (!element) return '1 min';
+          
+          // Get text from headings, paragraphs, and any text-containing elements
+          let text = '';
+          const textElements = element.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption');
+          
+          textElements.forEach(el => {
+            text += el.textContent + ' ';
+          });
+          
+          if (!text) {
+            text = element.textContent;
+          }
+          
+          // Calculate word count
+          const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
+          
+          // Calculate reading time (average reading speed: 200-250 words per minute)
+          const readingTime = Math.max(1, Math.ceil(wordCount / 220));
+          
+          return `${readingTime} min read`;
+        }
+        
+        // Apply reading time to all blog cards
+        document.querySelectorAll('.blog-card').forEach(card => {
+          const readingTimeElement = card.querySelector('[data-reading-time] span');
+          if (readingTimeElement) {
+            const contentElement = card.querySelector('p') || card;
+            readingTimeElement.textContent = calculateReadingTime(contentElement);
+          }
+        });
+        
+        // Enhance blog cards with hover interactions
+        document.querySelectorAll('.blog-card').forEach(card => {
+          // Add click event to make entire card clickable except for buttons and links
+          card.addEventListener('click', (e) => {
+            // Don't trigger card click if we clicked a button, link, or share dropdown
+            if (
+              e.target.tagName === 'BUTTON' || 
+              e.target.tagName === 'A' || 
+              e.target.closest('button') || 
+              e.target.closest('a') || 
+              e.target.closest('.share-dropdown')
+            ) {
+              return;
+            }
+            
+            const readMoreBtn = card.querySelector('button:not([data-share-toggle])');
+            if (readMoreBtn) {
+              readMoreBtn.click();
+            }
+          });
+          
+          // Add cursor pointer styling when hovering over the card but not buttons
+          card.style.cursor = 'pointer';
+        });
+        
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (newsletterForm) {
+          newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            const frequency = newsletterForm.querySelector('select')?.value || 'weekly';
+            
+            // Validate email
+            if (!email || !email.includes('@') || !email.includes('.')) {
+              showToast('Please enter a valid email address', 'error');
+              return;
+            }
+            
+            // Normally would submit to server, but for now just show success
+            newsletterForm.innerHTML = `
+              <div class="bg-yellow-500/20 border border-yellow-500 rounded-lg p-6 text-center">
+                <svg class="w-16 h-16 text-yellow-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3 class="text-xl font-bold text-white mb-2">Thank You for Subscribing!</h3>
+                <p class="text-gray-300">You'll receive your first ${frequency} digest soon.</p>
+              </div>
+            `;
+            
+            showToast('Subscription confirmed!');
+          });
+        }
+        
+        // Toast notification system
+        function showToast(message, type = 'success') {
+          // Create toast element if it doesn't exist
+          let toast = document.getElementById('toast-notification');
+          
+          if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'toast-notification';
+            toast.className = 'fixed bottom-4 right-4 px-4 py-2 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-500 z-50';
+            document.body.appendChild(toast);
+          }
+          
+          // Set style based on type
+          if (type === 'success') {
+            toast.className = 'fixed bottom-4 right-4 bg-yellow-500 text-black px-4 py-2 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-500 z-50';
+          } else if (type === 'error') {
+            toast.className = 'fixed bottom-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-500 z-50';
+          }
+          
+          // Set message
+          toast.textContent = message;
+          
+          // Show toast
+          setTimeout(() => {
+            toast.classList.remove('translate-y-20', 'opacity-0');
+          }, 100);
+          
+          // Hide toast after 3 seconds
+          setTimeout(() => {
+            toast.classList.add('translate-y-20', 'opacity-0');
+          }, 3000);
+        }
+        
+        // Load more functionality
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        if (loadMoreBtn) {
+          loadMoreBtn.addEventListener('click', function() {
+            this.innerHTML = '<span class="inline-block animate-spin mr-2">⟳</span> Loading...';
+            
+            // Simulate loading delay
+            setTimeout(() => {
+              // Simulate loading new content
+              const resourceGrid = document.querySelector('.grid');
+              
+              // In a real implementation, this would load new content
+              // Here we'll just disable the button
+              this.innerHTML = 'All Articles Loaded';
+              this.disabled = true;
+              this.classList.add('bg-gray-600');
+              this.classList.remove('from-yellow-500', 'to-yellow-600', 'hover:from-yellow-600', 'hover:to-yellow-700');
+              
+              showToast('All articles have been loaded');
+            }, 1500);
+          });
+        }
+        
+        // Initialize animations
+        initAnimations();
+      });
+      
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.querySelector('[data-mobile-menu-button]');
+        const mobileMenu = document.querySelector('[data-mobile-menu]');
+        
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', function() {
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            
+            if (expanded) {
+              mobileMenu.style.maxHeight = '0';
+            } else {
+              mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+            }
+          });
+        }
+        
+        // Services accordion in mobile menu
+        const servicesButton = document.querySelector('[data-services-button]');
+        const servicesContent = document.querySelector('[data-services-content]');
+        
+        if (servicesButton && servicesContent) {
+          servicesButton.addEventListener('click', function() {
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            
+            if (expanded) {
+              servicesContent.style.maxHeight = '0';
+              this.querySelector('span').classList.remove('rotate-180');
+            } else {
+              servicesContent.style.maxHeight = servicesContent.scrollHeight + 'px';
+              this.querySelector('span').classList.add('rotate-180');
+            }
+          });
+        }
+      });
+      
+      // Initialize animations for elements with animate-on-scroll class
+      function initAnimations() {
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                if (entry.target.classList.contains('fade-up')) {
+                  entry.target.classList.add('animate-fade-in-up');
+                }
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+          
+          animatedElements.forEach(el => observer.observe(el));
+        } else {
+          // Fallback for browsers that don't support IntersectionObserver
+          animatedElements.forEach(el => {
+            el.classList.add('animate-fade-in-up');
+          });
+        }
+      }
+    </script>
+  
+
+</html>

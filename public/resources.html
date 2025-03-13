@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resources & Insights - OFO Development</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Access OFO Development's comprehensive library of resources including whitepapers, case studies, webinars, and technical guides on enterprise architecture, cloud computing, AI/ML, and cybersecurity."
+    />
+    <meta
+      name="keywords"
+      content="tech resources, whitepapers, case studies, enterprise architecture, cloud computing, AI, machine learning, cybersecurity, microservices, digital transformation"
+    />
+
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://ofodevelopment.com/resources.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ofodevelopment.com/resources.html"
+    />
+    <meta
+      property="og:title"
+      content="Resources & Insights - OFO Development"
+    />
+    <meta
+      property="og:description"
+      content="Access OFO Development's comprehensive library of resources including whitepapers, case studies, webinars, and technical guides."
+    />
+    <meta
+      property="og:image"
+      content="assets/images/technology-connection.webp"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://ofodevelopment.com/resources.html"
+    />
+    <meta
+      property="twitter:title"
+      content="Resources & Insights - OFO Development"
+    />
+    <meta
+      property="twitter:description"
+      content="Access OFO Development's comprehensive library of resources including whitepapers, case studies, webinars, and guides."
+    />
+    <meta
+      property="twitter:image"
+      content="assets/images/technology-connection.webp"
+    />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/output.min.css" />
+    <script src="assets/js/main.js" defer></script>
+    <style>
+      /* Reading Progress Bar */
+      .progress-container {
+        width: 100%;
+        height: 4px;
+        background: rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+      }
+
+      .progress-bar {
+        height: 4px;
+        background: linear-gradient(90deg, #ffd700, #ffa500);
+        width: 0%;
+        transition: width 0.1s ease;
+      }
+
+      .golden-text {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .resource-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+      }
+
+      .resource-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(255, 215, 0, 0.3);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .resource-card img {
+        transition: transform 0.5s ease;
+      }
+
+      .resource-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .filter-button {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .filter-button:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        transition: width 0.3s ease;
+      }
+
+      .filter-button:hover:after {
+        width: 100%;
+      }
+
+      .filter-button.active {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        color: black;
+        transform: translateY(-2px);
+      }
+
+      .download-counter {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        color: #9ca3af;
+      }
+
+      .download-counter svg {
+        width: 14px;
+        height: 14px;
+        margin-right: 4px;
+      }
+
+      .search-container {
+        position: relative;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 3rem;
+        background: rgba(31, 41, 55, 0.7);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        border-radius: 0.5rem;
+        color: white;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .search-input:focus {
+        border-color: rgba(255, 215, 0, 0.5);
+        box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9ca3af;
+      }
+
+      .related-resources {
+        transition: all 0.3s ease;
+      }
+
+      .related-resources a:hover {
+        color: #fcd34d;
+      }
+
+      /* Animation for cards */
+      .animate-fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.6s ease forwards;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+    </style>
+    <link
+      rel="preload"
+      href="assets/images/logos/Color logo - no background.png"
+      as="image"
+      type="image/png"
+    />
+  </head>
+  <body class="bg-gray-900 text-white" data-mode="dark">
+    <div class="progress-container">
+      <div class="progress-bar" id="readingProgress"></div>
+    </div>
+    <style>
+      /* Add your CSS here */
+
+      /* Enhanced Navbar Styles */
+      .nav-link {
+        color: #d1d5db;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link:hover {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        width: 600px;
+        background-color: #1f2937;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        transform: translateY(-0.5rem);
+      }
+
+      .group:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        color: #d1d5db;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: #374151;
+        transform: translateX(0.5rem);
+      }
+
+      .dropdown-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.75rem;
+        color: #eab308;
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Backdrop Blur Effect */
+      nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* Accordion Transitions */
+      .accordion div {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Premium Dropdown Footer */
+      .dropdown-menu > div:last-child {
+        border-top: 1px solid #374151;
+        background-color: #1f2937;
+        padding: 1rem;
+      }
+
+      .dropdown-menu > div:last-child h3 {
+        color: #eab308;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white py-2 px-4 rounded z-50"
+    >
+      Skip to main content
+    </a>
+
+    <nav
+      class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <a href="index.html" aria-label="OFO Development Home">
+              <img
+                src="assets/images/logos/Color logo - no background.png"
+                alt="OFO Development"
+                class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+              />
+            </a>
+          </div>
+
+          <button
+            data-mobile-menu-button
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+
+            <div class="relative group" id="services-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                id="services-menu-button"
+              >
+                Services
+                <span class="ml-1 transition-transform group-hover:rotate-180"
+                  >▾</span
+                >
+              </button>
+
+              <div
+                class="dropdown-menu backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 transition-all duration-500 hover:backdrop-blur-xl hover:from-gray-900/70 hover:to-gray-900/50"
+                id="services-menu"
+                role="menu"
+                aria-labelledby="services-menu-button"
+              >
+                <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                      ></path>
+                    </svg>
+                    Custom Software
+                  </a>
+                  <a
+                    href="MobileDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    Mobile Apps
+                  </a>
+                  <a
+                    href="WebDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                      ></path>
+                    </svg>
+                    Web Development
+                  </a>
+                  <a
+                    href="DataAnalysis.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      ></path>
+                    </svg>
+                    Data Analysis
+                  </a>
+                  <a
+                    href="EcommerceSolutions.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                      ></path>
+                    </svg>
+                    E-Commerce
+                  </a>
+                  <a
+                    href="ArtificialIntelligence.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    AI & Machine Learning
+                  </a>
+                  <a
+                    href="DigitalInnovation.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      ></path>
+                    </svg>
+                    Digital Innovation
+                  </a>
+                  <a
+                    href="VirtualReality.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    VR & AR
+                  </a>
+                  <a
+                    href="GameDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    Game Development
+                  </a>
+                  <a
+                    href="CloudComputing.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                      ></path>
+                    </svg>
+                    Cloud Computing
+                  </a>
+                  <a
+                    href="CyberSecurity.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      ></path>
+                    </svg>
+                    Cybersecurity
+                  </a>
+                  <a
+                    href="ProductManagement.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                      ></path>
+                    </svg>
+                    Product Management
+                  </a>
+                </div>
+
+                <div
+                  class="border-t border-white/20 bg-gradient-to-r from-gray-900/80 via-gray-800/80 to-gray-900/80 backdrop-blur-xl transition-all duration-300 hover:from-gray-800/90 hover:to-gray-900/90"
+                >
+                  <div class="p-4">
+                    <h3
+                      class="text-yellow-500 text-sm font-semibold mb-2 flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        ></path>
+                      </svg>
+                      Premium Enterprise Solutions
+                    </h3>
+                    <p class="text-gray-300 text-sm mb-3">
+                      Custom solutions tailored to your business needs with
+                      dedicated support
+                    </p>
+                  </div>
+
+                  <div class="px-4 pb-4 flex flex-wrap gap-2">
+                    <a
+                      href="contact.html"
+                      class="text-xs px-3 py-1.5 bg-yellow-500/20 text-yellow-400 rounded-full hover:bg-yellow-500/30 transition-colors flex items-center"
+                    >
+                      <svg
+                        class="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                      Schedule Consultation
+                    </a>
+                    <a
+                      href="CaseStudies.html"
+                      class="text-xs px-3 py-1.5 bg-blue-500/20 text-blue-400 rounded-full hover:bg-blue-500/30 transition-colors flex items-center"
+                    >
+                      <svg
+                        class="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        ></path>
+                      </svg>
+                      View Case Studies
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+          </div>
+        </div>
+
+        <div
+          data-mobile-menu
+          class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 max-h-0"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="about.html" class="block nav-link">About</a>
+            <a href="services.html" class="block nav-link">Services</a>
+
+            <div class="accordion">
+              <button
+                data-services-button
+                aria-expanded="false"
+                class="w-full flex justify-between items-center nav-link"
+              >
+                Services
+                <span class="dropdown-icon transform transition-transform"
+                  >▾</span
+                >
+              </button>
+              <div
+                data-services-content
+                class="overflow-hidden transition-all duration-300 max-h-0"
+              >
+                <div class="pl-4 space-y-2">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="block nav-link"
+                    >Custom Software</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="block nav-link">Resources</a>
+            <a href="contact.html" class="block nav-link">Contact</a>
+            <a href="blog.html" class="block nav-link">Blog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="pt-32 pb-20 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-5xl font-bold mb-6">
+            Resources & <span class="golden-text">Insights</span>
+          </h1>
+          <p class="text-xl text-gray-300">
+            Stay ahead with our latest insights, guides, and industry expertise
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-16">Featured Resources</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="resource-card rounded-lg overflow-hidden">
+            <img
+              src="assets/images/cloud-server-nobackground.webp"
+              alt="Cloud Migration Guide"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Whitepaper</span>
+              <h3 class="text-2xl font-bold my-2">
+                Enterprise Cloud Migration: A Comprehensive Guide
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Learn the best practices, strategies, and common pitfalls in
+                enterprise cloud migration.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500">15 min read</span>
+                <a
+                  href="/api/download-pdf?file=OFO-Cloud-Solutions.pdf"
+                  class="text-yellow-500 hover:text-yellow-600 download-btn"
+                  data-resource-id="cloud-migration-guide"
+                >
+                  Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="resource-card rounded-lg overflow-hidden">
+            <img
+              src="assets/images/ai-chip.webp"
+              alt="AI in Healthcare"
+              class="w-full h-64 object-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Industry Report</span>
+              <h3 class="text-2xl font-bold my-2">
+                The Future of AI in Healthcare: 2025 and Beyond
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Explore how AI is transforming healthcare delivery and patient
+                care.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500">20 min read</span>
+                <button class="text-yellow-500 hover:text-yellow-600">
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gray-900" id="resources">
+      <div class="container mx-auto px-6">
+        <div class="mb-12 max-w-3xl mx-auto">
+          <div class="search-container">
+            <input
+              type="text"
+              id="resourceSearch"
+              class="search-input"
+              placeholder="Search resources..."
+              aria-label="Search resources"
+            />
+            <svg
+              class="search-icon w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+          <button
+            class="filter-button active px-6 py-2 rounded-lg border border-yellow-500"
+            data-filter="all"
+          >
+            All Resources
+          </button>
+          <button
+            class="filter-button px-6 py-2 rounded-lg border border-yellow-500 hover:bg-yellow-500 hover:text-black transition-all"
+            data-filter="blog"
+          >
+            Blog Posts
+          </button>
+          <button
+            class="filter-button px-6 py-2 rounded-lg border border-yellow-500 hover:bg-yellow-500 hover:text-black transition-all"
+            data-filter="whitepaper"
+          >
+            Whitepapers
+          </button>
+          <button
+            class="filter-button px-6 py-2 rounded-lg border border-yellow-500 hover:bg-yellow-500 hover:text-black transition-all"
+            data-filter="case-study"
+          >
+            Case Studies
+          </button>
+          <button
+            class="filter-button px-6 py-2 rounded-lg border border-yellow-500 hover:bg-yellow-500 hover:text-black transition-all"
+            data-filter="webinar"
+          >
+            Webinars
+          </button>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8" id="resourceGrid">
+          <div
+            class="resource-card rounded-lg overflow-hidden animate-fade-up"
+            data-category="blog"
+            data-tags="devops,enterprise"
+          >
+            <img
+              src="assets/images/close-up-hands-typing-keyboard.jpg"
+              alt="DevOps Practices"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Blog Post</span>
+              <h3 class="text-xl font-bold my-2">
+                Modern DevOps Practices for Enterprise Scale
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Best practices for implementing DevOps in large organizations.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500">10 min read</span>
+                <button
+                  class="text-yellow-500 hover:text-yellow-600"
+                  aria-label="Read more about DevOps practices"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="resource-card rounded-lg overflow-hidden animate-fade-up delay-100"
+            data-category="whitepaper"
+            data-tags="security,fintech"
+          >
+            <img
+              src="assets/images/manager-server-hub-using-tablet-find-firewall-misconfigurations.jpg"
+              alt="Security Guide"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Whitepaper</span>
+              <h3 class="text-xl font-bold my-2">
+                2025 Cybersecurity Guide for FinTech
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Comprehensive security strategies for financial services.
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <span class="text-gray-500 mr-3">25 min read</span>
+                  <span class="download-counter" title="Downloaded 845 times">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                      ></path>
+                    </svg>
+                    845
+                  </span>
+                </div>
+                <a
+                  href="/api/download-pdf?file=OFO-Cybersecurity-Solutions.pdf"
+                  class="text-yellow-500 hover:text-yellow-600 download-btn"
+                  data-resource-id="security-fintech-guide"
+                  aria-label="Download FinTech security guide"
+                >
+                  Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="resource-card rounded-lg overflow-hidden animate-fade-up delay-200"
+            data-category="case-study"
+            data-tags="retail,transformation"
+          >
+            <img
+              src="assets/images/light-bulb-ideas-creative-design-graphic.webp"
+              alt="Retail Case Study"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Case Study</span>
+              <h3 class="text-xl font-bold my-2">
+                Digital Transformation in Retail
+              </h3>
+              <p class="text-gray-400 mb-4">
+                How we helped a major retailer achieve 300% growth.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500">12 min read</span>
+                <button
+                  class="text-yellow-500 hover:text-yellow-600"
+                  aria-label="Read case study on retail transformation"
+                >
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="resource-card rounded-lg overflow-hidden animate-fade-up"
+            data-category="webinar"
+            data-tags="ai,enterprise"
+          >
+            <img
+              src="assets/images/ai-chip.webp"
+              alt="AI Webinar"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Webinar</span>
+              <h3 class="text-xl font-bold my-2">
+                Implementing AI in Enterprise Systems
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Learn how to successfully integrate AI into your business.
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <span class="text-gray-500 mr-3">60 min</span>
+                  <span class="download-counter" title="Viewed 1,289 times">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      ></path>
+                    </svg>
+                    1,289
+                  </span>
+                </div>
+                <button
+                  class="text-yellow-500 hover:text-yellow-600"
+                  aria-label="Watch webinar on implementing AI"
+                >
+                  Watch Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="resource-card rounded-lg overflow-hidden animate-fade-up delay-100"
+            data-category="whitepaper"
+            data-tags="microservices,architecture"
+          >
+            <img
+              src="assets/images/technology-connection.webp"
+              alt="Microservices Guide"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Technical Guide</span>
+              <h3 class="text-xl font-bold my-2">
+                Microservices Architecture Guide
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Detailed guide on building scalable microservices.
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <span class="text-gray-500 mr-3">30 min read</span>
+                  <span class="download-counter" title="Downloaded 1,562 times">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                      ></path>
+                    </svg>
+                    1,562
+                  </span>
+                </div>
+                <a
+                  href="/api/download-pdf?file=OFO-Enterprise-Solutions.pdf"
+                  class="text-yellow-500 hover:text-yellow-600 download-btn"
+                  data-resource-id="microservices-guide"
+                  aria-label="Download microservices guide"
+                >
+                  Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="resource-card rounded-lg overflow-hidden animate-fade-up delay-200"
+            data-category="whitepaper"
+            data-tags="trends,technology"
+          >
+            <img
+              src="assets/images/digital-blue-hud.webp"
+              alt="Industry Report"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <span class="text-yellow-500 text-sm">Industry Report</span>
+              <h3 class="text-xl font-bold my-2">Tech Trends Report 2025</h3>
+              <p class="text-gray-400 mb-4">
+                Key technology trends shaping the future of business.
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <span class="text-gray-500 mr-3">15 min read</span>
+                  <span class="download-counter" title="Downloaded 2,347 times">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                      ></path>
+                    </svg>
+                    2,347
+                  </span>
+                </div>
+                <a
+                  href="/api/download-pdf?file=OFO-Custom-Software.pdf"
+                  class="text-yellow-500 hover:text-yellow-600 download-btn"
+                  data-resource-id="tech-trends-2025"
+                  aria-label="Download Tech Trends report"
+                >
+                  Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            id="loadMoreBtn"
+            class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-8 py-3 rounded-lg font-semibold hover:from-yellow-600 hover:to-yellow-700 transition-all"
+            aria-live="polite"
+          >
+            Load More Resources
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-10">Related Resources</h2>
+
+        <div
+          class="bg-gray-900/70 backdrop-blur-sm rounded-xl p-8 border border-white/10"
+        >
+          <h3 class="text-2xl mb-6">Based on your interests</h3>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="related-resources space-y-4">
+              <h4 class="font-bold text-yellow-500">Enterprise Architecture</h4>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      ></path>
+                    </svg>
+                    Distributed Systems Design
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      ></path>
+                    </svg>
+                    API Gateway Patterns
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    Microservices Webinar
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="related-resources space-y-4">
+              <h4 class="font-bold text-yellow-500">Cloud Computing</h4>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      ></path>
+                    </svg>
+                    Kubernetes Best Practices
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      ></path>
+                    </svg>
+                    Serverless Architecture Guide
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    Multi-Cloud Strategy Webinar
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="related-resources space-y-4">
+              <h4 class="font-bold text-yellow-500">Security</h4>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      ></path>
+                    </svg>
+                    Zero Trust Architecture Guide
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    2025 Security Events Calendar
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                      ></path>
+                    </svg>
+                    GDPR Compliance Checklist
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="related-resources space-y-4">
+              <h4 class="font-bold text-yellow-500">AI & Machine Learning</h4>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      ></path>
+                    </svg>
+                    ML Ops Best Practices
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    AI Ethics Webinar Series
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-300 hover:text-yellow-400 flex items-center"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                      ></path>
+                    </svg>
+                    Large Language Models Case Study
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-r from-gray-800 to-gray-900">
+      <div class="container mx-auto px-6 max-w-4xl text-center">
+        <h2 class="text-3xl font-bold mb-8">Stay Updated</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Subscribe to our newsletter for the latest insights and industry
+          trends
+        </p>
+        <form class="flex flex-col md:flex-row gap-4 justify-center">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="px-6 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-yellow-500 focus:outline-none w-full md:w-96"
+          />
+          <button
+            class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-8 py-3 rounded-lg font-semibold hover:from-yellow-600 hover:to-yellow-700 transition-all"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold golden-text mb-4">OFO</h3>
+            <p class="text-gray-400">
+              Building tomorrow's digital solutions today.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="CustomSoftwareDevelopment.html"
+                  class="hover:text-yellow-500"
+                  >Custom Software</a
+                >
+              </li>
+              <li>
+                <a href="MobileDevelopment.html" class="hover:text-yellow-500"
+                  >Mobile Apps</a
+                >
+              </li>
+              <li>
+                <a href="CloudComputing.html" class="hover:text-yellow-500"
+                  >Cloud Solutions</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Company</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="about.html" class="hover:text-yellow-500">About Us</a>
+              </li>
+              <li>
+                <a href="CaseStudies.html" class="hover:text-yellow-500"
+                  >Case Studies</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="hover:text-yellow-500">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Connect</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-yellow-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 4.01c-1 .49-2.1.82-3.24.97a5.07 5.07 0 002.25-2.83 10.2 10.2 0 01-3.24 1.24 5.07 5.07 0 00-8.63 4.62A14.4 14.4 0 013 2.6a5.07 5.07 0 001.57 6.77 5.07 5.07 0 01-2.3-.63v.06a5.07 5.07 0 004.07 4.97 5.07 5.07 0 01-2.29.09 5.07 5.07 0 004.73 3.52 10.2 10.2 0 01-6.32 2.18c-.41 0-.82-.02-1.22-.07a14.4 14.4 0 007.83 2.3c9.4 0 14.53-7.79 14.53-14.53 0-.22 0-.44-.02-.66a10.4 10.4 0 002.56-2.65z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-yellow-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-yellow-500">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400"
+        >
+          <div class="flex justify-center space-x-6 mb-4">
+            <a
+              href="privacy-policy.html"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="terms.html"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              Terms of Service
+            </a>
+            <a
+              href="sitemap.xml"
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              Sitemap
+            </a>
+          </div>
+          <p>
+            © <span id="current-year">2025</span> OFO Development. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/analytics.js"></script>
+    <script src="assets/js/register-sw.js" defer></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize reading progress indicator
+        function updateReadingProgress() {
+          const scrollTop =
+            window.scrollY || document.documentElement.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight;
+          const clientHeight = document.documentElement.clientHeight;
+          const scrollPercent =
+            (scrollTop / (scrollHeight - clientHeight)) * 100;
+          document.getElementById("readingProgress").style.width =
+            scrollPercent + "%";
+        }
+
+        window.addEventListener("scroll", updateReadingProgress);
+
+        // Resource filtering functionality
+        const filterButtons = document.querySelectorAll(".filter-button");
+        const resourceCards = document.querySelectorAll(".resource-card");
+
+        // Function to filter resources by category
+        function filterResources(category) {
+          resourceCards.forEach((card) => {
+            if (category === "all" || card.dataset.category === category) {
+              card.style.display = "block";
+              // Add animation class for smooth appearance
+              setTimeout(() => {
+                card.classList.add("animate-fade-up");
+              }, 50);
+            } else {
+              card.style.display = "none";
+              card.classList.remove("animate-fade-up");
+            }
+          });
+        }
+
+        // Filter button click handlers
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            button.classList.add("active");
+
+            // Get filter category
+            const filterCategory = button.getAttribute("data-filter");
+
+            // Filter resources
+            filterResources(filterCategory);
+          });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById("resourceSearch");
+
+        searchInput.addEventListener("input", () => {
+          const searchTerm = searchInput.value.toLowerCase().trim();
+
+          resourceCards.forEach((card) => {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            const description = card
+              .querySelector("p")
+              .textContent.toLowerCase();
+            const tags = card.dataset.tags
+              ? card.dataset.tags.toLowerCase()
+              : "";
+
+            if (
+              searchTerm === "" ||
+              title.includes(searchTerm) ||
+              description.includes(searchTerm) ||
+              tags.includes(searchTerm)
+            ) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          // If no active category filter when searching, set "All" as active
+          if (
+            searchTerm !== "" &&
+            !document.querySelector(".filter-button.active")
+          ) {
+            document
+              .querySelector('[data-filter="all"]')
+              .classList.add("active");
+          }
+        });
+
+        // Download tracking
+        const downloadButtons = document.querySelectorAll(".download-btn");
+
+        downloadButtons.forEach((button) => {
+          button.addEventListener("click", (e) => {
+            const resourceId = button.getAttribute("data-resource-id");
+            const counterElement = button
+              .closest(".p-6")
+              .querySelector(".download-counter");
+
+            // Get current download count
+            let count = parseInt(counterElement.textContent.trim());
+
+            // Increment counter
+            count++;
+            counterElement.textContent = count;
+
+            // Update the title attribute
+            counterElement.setAttribute("title", `Downloaded ${count} times`);
+
+            // Show feedback toast
+            showToast(`Resource download started`);
+
+            // In a real implementation, we would log this to the server
+            console.log(`Resource downloaded: ${resourceId}`);
+
+            // Prevent default to avoid page navigation
+            e.preventDefault();
+          });
+        });
+
+        // Load more functionality
+        const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+        loadMoreBtn.addEventListener("click", function () {
+          this.innerHTML =
+            '<span class="inline-block animate-spin mr-2">⟳</span> Loading...';
+
+          // Simulate loading delay (would be replaced with actual AJAX in production)
+          setTimeout(() => {
+            this.innerHTML = "All Resources Loaded";
+            this.disabled = true;
+            this.classList.add("bg-gray-600");
+            this.classList.remove(
+              "from-yellow-500",
+              "to-yellow-600",
+              "hover:from-yellow-600",
+              "hover:to-yellow-700"
+            );
+
+            showToast("All resources have been loaded");
+          }, 1500);
+        });
+
+        // Toast notification system
+        function showToast(message) {
+          // Create toast element if it doesn't exist
+          let toast = document.getElementById("toast-notification");
+
+          if (!toast) {
+            toast = document.createElement("div");
+            toast.id = "toast-notification";
+            toast.className =
+              "fixed bottom-4 right-4 bg-yellow-500 text-black px-4 py-2 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-500 z-50";
+            document.body.appendChild(toast);
+          }
+
+          // Set message
+          toast.textContent = message;
+
+          // Show toast
+          setTimeout(() => {
+            toast.classList.remove("translate-y-20", "opacity-0");
+          }, 100);
+
+          // Hide toast after 3 seconds
+          setTimeout(() => {
+            toast.classList.add("translate-y-20", "opacity-0");
+          }, 3000);
+        }
+
+        // Initialize animations for elements with animate-on-scroll class
+        function initAnimations() {
+          const animatedElements =
+            document.querySelectorAll(".animate-fade-up");
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.style.opacity = "1";
+                  entry.target.style.transform = "translateY(0)";
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1 }
+          );
+
+          animatedElements.forEach((el) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            observer.observe(el);
+          });
+        }
+
+        initAnimations();
+      });
+    </script>
+  </body>
+</html>

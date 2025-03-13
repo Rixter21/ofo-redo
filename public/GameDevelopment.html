@@ -1,0 +1,2200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OFO - Game Development Solutions</title>
+
+    <!-- Basic Meta Tags -->
+    <meta
+      name="description"
+      content="Professional game development services for PC, console, mobile and XR platforms. Full-cycle development from concept to launch with expertise in Unreal Engine, Unity, and more."
+    />
+    <meta
+      name="keywords"
+      content="game development, unreal engine, unity, game design, mobile games, console games, VR games, AR games, multiplayer games, game engine, game programming"
+    />
+    <meta name="author" content="OFO Development" />
+    <link
+      rel="canonical"
+      href="https://ofodevelopment.com/GameDevelopment.html"
+    />
+
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta
+      property="og:title"
+      content="Game Development Solutions | OFO Development"
+    />
+    <meta
+      property="og:description"
+      content="Professional game development services for PC, console, mobile and XR platforms. Full-cycle development from concept to launch with expertise in Unreal Engine, Unity, and more."
+    />
+    <meta
+      property="og:image"
+      content="https://ofodevelopment.com/assets/images/woman-enjoying-vr-headset.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://ofodevelopment.com/GameDevelopment.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OFO Development" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Game Development Solutions | OFO Development"
+    />
+    <meta
+      name="twitter:description"
+      content="Professional game development services for PC, console, mobile and XR platforms. Full-cycle development from concept to launch with expertise in Unreal Engine, Unity, and more."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ofodevelopment.com/assets/images/woman-enjoying-vr-headset.jpg"
+    />
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link
+      rel="preload"
+      href="assets/images/woman-enjoying-vr-headset.jpg"
+      as="image"
+    />
+    <link
+      rel="preload"
+      href="assets/images/man-scanning-his-eyes-biometrics-security-technology-digital-remix.jpg"
+      as="image"
+    />
+    <link
+      rel="preload"
+      href="assets/images/logos/Color logo - no background.png"
+      as="image"
+      type="image/png"
+    />
+  </head>
+  <body class="bg-gray-900 text-white">
+    <style>
+      .engine-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+      }
+
+      .engine-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+        border-color: rgba(255, 215, 0, 0.5);
+      }
+
+      .development-process {
+        background: linear-gradient(45deg, #1a1a1a 30%, #2a2a2a 100%);
+        border: 1px solid rgba(255, 215, 0, 0.15);
+      }
+
+      .solution-card {
+        @apply p-8 rounded-xl bg-gray-800 border border-gray-700 transition-all duration-300;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .solution-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .solution-card:hover {
+        @apply border-yellow-500 bg-gray-700/50;
+        transform: translateY(-3px);
+      }
+
+      .solution-card:hover::before {
+        opacity: 1;
+      }
+
+      .nav-link {
+        @apply relative text-gray-300 hover:text-yellow-500 transition-colors duration-300;
+      }
+
+      .nav-link::after {
+        @apply content-[''] absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-500 transition-all duration-300;
+      }
+
+      .nav-link:hover::after {
+        @apply w-full;
+      }
+
+      .footer-link {
+        @apply relative transition-colors duration-300;
+      }
+
+      .footer-link:hover {
+        @apply text-yellow-500;
+      }
+
+      .footer-link::after {
+        @apply content-[''] absolute left-0 -bottom-1 w-0 h-px bg-yellow-500 transition-all duration-300;
+      }
+
+      .footer-link:hover::after {
+        @apply w-full;
+      }
+      /* Enhanced Navbar Styles */
+      .nav-link {
+        color: #d1d5db;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link:hover {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        width: 600px;
+        background-color: #1f2937;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        transform: translateY(-0.5rem);
+      }
+
+      .group:hover .dropdown-menu,
+      .dropdown-menu:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .dropdown-menu::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        border-width: 0 10px 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent #1f2937 transparent;
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        color: #d1d5db;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: #374151;
+        transform: translateX(0.5rem);
+      }
+
+      .dropdown-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.75rem;
+        color: #eab308;
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Backdrop Blur Effect */
+      nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* Accordion Transitions */
+      .accordion div {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Premium Dropdown Footer */
+      .dropdown-menu > div:last-child {
+        border-top: 1px solid #374151;
+        background-color: #1f2937;
+        padding: 1rem;
+      }
+
+      .dropdown-menu > div:last-child h3 {
+        color: #eab308;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      /* New styles for enhanced features */
+      .premium-card {
+        @apply bg-gray-800 rounded-xl p-6 border border-gray-700 transition-all duration-500;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .premium-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), transparent);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .premium-card:hover {
+        @apply border-yellow-500 transform -translate-y-2;
+        box-shadow: 0 10px 25px -5px rgba(255, 215, 0, 0.1);
+      }
+
+      .premium-card:hover::before {
+        opacity: 1;
+      }
+
+      .premium-card-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .tech-tag {
+        @apply px-3 py-1 bg-gray-700 rounded-full text-xs text-gray-300 transition-all duration-300;
+      }
+
+      .tech-tag:hover {
+        @apply bg-yellow-900/50 text-yellow-300;
+      }
+
+      .case-study-card {
+        @apply transition-all duration-300;
+      }
+
+      .case-study-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .stat-card {
+        @apply bg-gray-800/50 backdrop-blur-md p-6 rounded-xl border border-gray-700 transition-all duration-300;
+      }
+
+      .stat-card:hover {
+        @apply border-yellow-500/50 bg-gray-700/50;
+        transform: translateY(-3px);
+      }
+
+      .accordion-item {
+        @apply bg-gray-800 rounded-xl overflow-hidden border border-gray-700 transition-all duration-300;
+      }
+
+      .accordion-header {
+        @apply w-full flex justify-between items-center p-4 text-left font-semibold text-white;
+        transition: background-color 0.3s ease;
+      }
+
+      .accordion-header:hover {
+        @apply bg-gray-700;
+      }
+
+      .accordion-content {
+        @apply p-4 bg-gray-800/50;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      .accordion-content.active {
+        max-height: 500px;
+      }
+
+      .engine-feature {
+        @apply p-4 rounded-lg bg-gray-900/50;
+      }
+
+      /* Progress indicator */
+      .reading-progress-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        z-index: 9999;
+      }
+
+      .reading-progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #ffd700, #ffa500);
+        width: 0%;
+        transition: width 0.1s ease;
+      }
+
+      /* Dark mode toggle */
+      .theme-toggle {
+        @apply fixed bottom-8 left-8 p-3 bg-gray-800 rounded-full shadow-lg hover:bg-gray-700 transition-colors z-50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* ROI Calculator */
+      .roi-calculator {
+        @apply bg-gray-800/80 backdrop-blur-xl p-6 rounded-xl border border-gray-700 transition-all duration-300;
+      }
+
+      .roi-calculator:hover {
+        @apply border-yellow-500/30;
+      }
+
+      .roi-input {
+        @apply bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 w-full text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50;
+      }
+
+      .roi-slider {
+        @apply w-full h-2 bg-gray-700 rounded-full appearance-none cursor-pointer;
+      }
+
+      .roi-slider::-webkit-slider-thumb {
+        @apply appearance-none w-4 h-4 rounded-full bg-yellow-500 cursor-pointer;
+      }
+
+      .roi-result {
+        @apply text-2xl font-bold text-yellow-500;
+      }
+
+      /* Lazy loading */
+      .lazy-image {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .lazy-image.loaded {
+        opacity: 1;
+      }
+
+      /* Scroll animations */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+
+    <div class="reading-progress-container">
+      <div class="reading-progress-bar" id="reading-progress"></div>
+    </div>
+
+    <nav
+      class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <a href="index.html" aria-label="OFO Development Home">
+              <img
+                src="assets/images/logos/Color logo - no background.png"
+                alt="OFO Development"
+                class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+              />
+            </a>
+          </div>
+
+          <button
+            id="mobile-menu-button"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="about.html" class="nav-link">About</a>
+
+            <div class="relative group" id="services-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                id="services-menu-button"
+              >
+                Services
+                <span class="ml-1 transition-transform group-hover:rotate-180"
+                  >▾</span
+                >
+              </button>
+
+              <div
+                class="dropdown-menu backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 transition-all duration-500 hover:backdrop-blur-xl hover:from-gray-900/70 hover:to-gray-900/50"
+                id="services-menu"
+                role="menu"
+                aria-labelledby="services-menu-button"
+              >
+                <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                      ></path>
+                    </svg>
+                    Custom Software
+                  </a>
+                  <a
+                    href="MobileDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    Mobile Apps
+                  </a>
+                  <a
+                    href="WebDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                      ></path>
+                    </svg>
+                    Web Development
+                  </a>
+                  <a
+                    href="DataAnalysis.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      ></path>
+                    </svg>
+                    Data Analysis
+                  </a>
+                  <a
+                    href="EcommerceSolutions.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                      ></path>
+                    </svg>
+                    E-Commerce
+                  </a>
+                  <a
+                    href="ArtificialIntelligence.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    AI & Machine Learning
+                  </a>
+                  <a
+                    href="DigitalInnovation.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      ></path>
+                    </svg>
+                    Digital Innovation
+                  </a>
+                  <a
+                    href="VirtualReality.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    VR & AR
+                  </a>
+                  <a
+                    href="GameDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    Game Development
+                  </a>
+                  <a
+                    href="CloudComputing.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                      ></path>
+                    </svg>
+                    Cloud Computing
+                  </a>
+                  <a
+                    href="CyberSecurity.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      ></path>
+                    </svg>
+                    Cybersecurity
+                  </a>
+                  <a
+                    href="ProductManagement.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                      ></path>
+                    </svg>
+                    Product Management
+                  </a>
+                </div>
+
+                <div
+                  class="border-t border-white/20 p-4 bg-gray-900/30 backdrop-blur-md transition-all duration-300 hover:bg-gray-900/40"
+                >
+                  <h3 class="text-yellow-500 text-sm font-semibold mb-2">
+                    Premium Services
+                  </h3>
+                  <p class="text-gray-300 text-sm">
+                    Custom solutions tailored to your business needs
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+          </div>
+        </div>
+
+        <div
+          class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 hidden"
+          id="mobile-menu"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="about.html" class="block nav-link">About</a>
+
+            <div class="accordion">
+              <button
+                id="mobile-services-button"
+                class="w-full flex justify-between items-center nav-link"
+                aria-expanded="false"
+              >
+                Services
+                <span
+                  class="transform transition-transform"
+                  id="mobile-services-icon"
+                  >▾</span
+                >
+              </button>
+              <div
+                class="overflow-hidden transition-all duration-300 max-h-0"
+                id="mobile-services-content"
+              >
+                <div class="pl-4 space-y-2 py-2">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="block nav-link py-2"
+                    >Custom Software</a
+                  >
+                  <a href="MobileDevelopment.html" class="block nav-link py-2"
+                    >Mobile Apps</a
+                  >
+                  <a href="WebDevelopment.html" class="block nav-link py-2"
+                    >Web Development</a
+                  >
+                  <a href="DataAnalysis.html" class="block nav-link py-2"
+                    >Data Analysis</a
+                  >
+                  <a href="EcommerceSolutions.html" class="block nav-link py-2"
+                    >E-Commerce</a
+                  >
+                  <a
+                    href="ArtificialIntelligence.html"
+                    class="block nav-link py-2"
+                    >AI & Machine Learning</a
+                  >
+                  <a href="DigitalInnovation.html" class="block nav-link py-2"
+                    >Digital Innovation</a
+                  >
+                  <a href="VirtualReality.html" class="block nav-link py-2"
+                    >VR & AR</a
+                  >
+                  <a href="GameDevelopment.html" class="block nav-link py-2"
+                    >Game Development</a
+                  >
+                  <a href="CloudComputing.html" class="block nav-link py-2"
+                    >Cloud Computing</a
+                  >
+                  <a href="CyberSecurity.html" class="block nav-link py-2"
+                    >Cybersecurity</a
+                  >
+                  <a href="ProductManagement.html" class="block nav-link py-2"
+                    >Product Management</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="block nav-link">Resources</a>
+            <a href="contact.html" class="block nav-link">Contact</a>
+            <a href="blog.html" class="block nav-link">Blog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main
+      class="pt-32 pb-20 bg-gradient-to-b from-gray-900 via-gray-900/80 to-gray-900 relative"
+    >
+      <div
+        class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjIyIiBmaWxsPSIjMjIyIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjEiPk9GTzwvdGV4dD48L3N2Zz4=')] opacity-[0.02]"
+      ></div>
+
+      <section class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2 relative group">
+            <img
+              src="assets/images/woman-enjoying-vr-headset.jpg"
+              alt="Game Development"
+              class="rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-[1.02]"
+              loading="eager"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-yellow-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
+            ></div>
+          </div>
+          <div class="md:w-1/2 mt-8 md:mt-0">
+            <h1
+              class="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+            >
+              Next-Gen Game Development
+            </h1>
+            <p class="text-xl text-gray-300 mb-8">
+              From concept to launch - full-cycle development for PC, console,
+              mobile, and XR platforms
+            </p>
+            <a
+              href="contact.html"
+              class="inline-block bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-yellow-600/20"
+              aria-label="Start your game development project"
+            >
+              Start Your Project
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="solution-card fade-in-up">
+            <div class="text-yellow-500 text-4xl mb-4">🎮</div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              Multiplatform Development
+            </h3>
+            <p class="text-gray-300">
+              Simultaneous deployment for PC, consoles, mobile devices, and
+              VR/AR platforms
+            </p>
+          </div>
+          <div class="solution-card fade-in-up" style="transition-delay: 0.2s">
+            <div class="text-yellow-500 text-4xl mb-4">🕹️</div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              Game Engine Expertise
+            </h3>
+            <p class="text-gray-300">
+              Unreal Engine 5, Unity, Godot, and custom engine development
+            </p>
+          </div>
+          <div class="solution-card fade-in-up" style="transition-delay: 0.4s">
+            <div class="text-yellow-500 text-4xl mb-4">🌐</div>
+            <h3 class="text-2xl font-bold text-white mb-4">Live Operations</h3>
+            <p class="text-gray-300">
+              24/7 live service management with real-time analytics and updates
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative py-24 overflow-hidden">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-gray-900 via-yellow-900/20 to-gray-900"
+        ></div>
+        <div class="container mx-auto px-6 relative">
+          <h2
+            class="text-4xl font-bold mb-16 text-center bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+          >
+            Supported Technologies
+          </h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="engine-card p-6 rounded-xl fade-in-up">
+              <img
+                src="assets/images/svg/unreal.png"
+                alt="Unreal Engine"
+                class="h-16 mx-auto mb-4 lazy-image"
+                data-src="assets/images/svg/unreal-engine.svg"
+                loading="lazy"
+              />
+              <h3 class="text-xl font-bold text-white text-center">
+                Unreal Engine 5
+              </h3>
+            </div>
+            <div
+              class="engine-card p-6 rounded-xl fade-in-up"
+              style="transition-delay: 0.15s"
+            >
+              <img
+                src="assets/images/svg/unity.svg"
+                alt="Unity"
+                class="h-16 mx-auto mb-4 lazy-image"
+                data-src="assets/images/svg/unity.svg"
+                loading="lazy"
+              />
+              <h3 class="text-xl font-bold text-white text-center">
+                Unity 2023
+              </h3>
+            </div>
+            <div
+              class="engine-card p-6 rounded-xl fade-in-up"
+              style="transition-delay: 0.3s"
+            >
+              <img
+                src="assets/images/svg/godot.svg"
+                alt="Godot"
+                class="h-16 mx-auto mb-4 lazy-image"
+                data-src="assets/images/svg/godot.svg"
+                loading="lazy"
+              />
+              <h3 class="text-xl font-bold text-white text-center">Godot 4</h3>
+            </div>
+            <div
+              class="engine-card p-6 rounded-xl fade-in-up"
+              style="transition-delay: 0.45s"
+            >
+              <img
+                src="assets/images/svg/cryengine.svg"
+                alt="CryEngine"
+                class="h-16 mx-auto mb-4 lazy-image"
+                data-src="assets/images/svg/cryengine.svg"
+                loading="lazy"
+              />
+              <h3 class="text-xl font-bold text-white text-center">
+                CryEngine V
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 py-16">
+        <div class="development-process p-12 rounded-2xl">
+          <h2
+            class="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+          >
+            End-to-End Development Pipeline
+          </h2>
+          <div class="grid md:grid-cols-4 gap-8">
+            <div class="text-center fade-in-up">
+              <div class="text-yellow-500 text-2xl mb-2">1. Concept</div>
+              <p class="text-gray-300">
+                Game design documentation<br />Prototyping<br />Market research
+              </p>
+            </div>
+            <div class="text-center fade-in-up" style="transition-delay: 0.15s">
+              <div class="text-yellow-500 text-2xl mb-2">2. Production</div>
+              <p class="text-gray-300">
+                Asset creation<br />Programming<br />QA testing
+              </p>
+            </div>
+            <div class="text-center fade-in-up" style="transition-delay: 0.3s">
+              <div class="text-yellow-500 text-2xl mb-2">3. Launch</div>
+              <p class="text-gray-300">
+                Store optimization<br />Platform certification<br />Release
+                management
+              </p>
+            </div>
+            <div class="text-center fade-in-up" style="transition-delay: 0.45s">
+              <div class="text-yellow-500 text-2xl mb-2">4. LiveOps</div>
+              <p class="text-gray-300">
+                Content updates<br />Community management<br />Analytics &
+                tuning
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative py-24 overflow-hidden">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-gray-900 via-yellow-900/20 to-gray-900"
+        ></div>
+        <div class="container mx-auto px-6 relative">
+          <div class="text-center mb-20">
+            <h2
+              class="text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+            >
+              Advanced Game Development Solutions
+            </h2>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+              Cutting-edge technologies powering the world's most immersive
+              gaming experiences
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="premium-card group fade-in-up">
+              <div class="premium-card-inner">
+                <div
+                  class="text-yellow-500 text-4xl mb-4 transition-transform group-hover:rotate-12"
+                >
+                  🎮
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Multiplayer Infrastructure
+                </h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  Scalable backend solutions supporting 1M+ concurrent players
+                  with &lt;1ms latency
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="premium-card group fade-in-up"
+              style="transition-delay: 0.15s"
+            >
+              <div class="premium-card-inner">
+                <div
+                  class="text-yellow-500 text-4xl mb-4 transition-transform group-hover:rotate-12"
+                >
+                  🌐
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Cross-Platform SDK
+                </h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  Unified API for PC, consoles, mobile, and XR platforms with
+                  automatic adaptation
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="premium-card group fade-in-up"
+              style="transition-delay: 0.3s"
+            >
+              <div class="premium-card-inner">
+                <div
+                  class="text-yellow-500 text-4xl mb-4 transition-transform group-hover:rotate-12"
+                >
+                  🤖
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  AI-Driven NPCs
+                </h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  Machine learning-powered characters with dynamic personality
+                  matrices
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="premium-card group fade-in-up"
+              style="transition-delay: 0.15s"
+            >
+              <div class="premium-card-inner">
+                <div
+                  class="text-yellow-500 text-4xl mb-4 transition-transform group-hover:rotate-12"
+                >
+                  📊
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  LiveOps Analytics
+                </h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  Real-time player behavior tracking with predictive retention
+                  modeling
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="premium-card group fade-in-up"
+              style="transition-delay: 0.3s"
+            >
+              <div class="premium-card-inner">
+                <div
+                  class="text-yellow-500 text-4xl mb-4 transition-transform group-hover:rotate-12"
+                >
+                  🛡️
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Anti-Cheat Systems
+                </h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  Machine learning-powered detection with zero false positives
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="premium-card group fade-in-up"
+              style="transition-delay: 0.45s"
+            >
+              <div class="premium-card-inner">
+                <div
+                  class="text-yellow-500 text-4xl mb-4 transition-transform group-hover:rotate-12"
+                >
+                  💸
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">
+                  Monetization Engine
+                </h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  Dynamic pricing algorithms and personalized offer systems
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-20 grid md:grid-cols-3 gap-8 text-center">
+            <div class="stat-card fade-in-up">
+              <div
+                class="text-5xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+              >
+                240ms
+              </div>
+              <div class="text-gray-300">Global Matchmaking</div>
+            </div>
+            <div class="stat-card fade-in-up" style="transition-delay: 0.15s">
+              <div
+                class="text-5xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+              >
+                99.99%
+              </div>
+              <div class="text-gray-300">Uptime Guarantee</div>
+            </div>
+            <div class="stat-card fade-in-up" style="transition-delay: 0.3s">
+              <div
+                class="text-5xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+              >
+                8K
+              </div>
+              <div class="text-gray-300">Simultaneous Players</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 py-16">
+        <h2
+          class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+        >
+          Game Development ROI Calculator
+        </h2>
+        <div class="max-w-3xl mx-auto roi-calculator fade-in-up">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <div class="mb-6">
+                <label for="development-cost" class="block text-gray-300 mb-2"
+                  >Development Budget ($)</label
+                >
+                <input
+                  type="number"
+                  id="development-cost"
+                  min="10000"
+                  max="10000000"
+                  step="10000"
+                  value="100000"
+                  class="roi-input"
+                />
+              </div>
+              <div class="mb-6">
+                <label for="target-audience" class="block text-gray-300 mb-2"
+                  >Target Audience Size</label
+                >
+                <input
+                  type="range"
+                  id="target-audience"
+                  min="1000"
+                  max="10000000"
+                  step="1000"
+                  value="100000"
+                  class="roi-slider"
+                />
+                <div class="flex justify-between text-sm text-gray-400 mt-1">
+                  <span>1K</span>
+                  <span>10M</span>
+                </div>
+                <div class="text-center text-gray-300 mt-1" id="audience-value">
+                  100,000 players
+                </div>
+              </div>
+              <div class="mb-6">
+                <label for="monetization-model" class="block text-gray-300 mb-2"
+                  >Monetization Model</label
+                >
+                <select id="monetization-model" class="roi-input">
+                  <option value="premium">Premium (One-time Purchase)</option>
+                  <option value="freemium">Freemium (In-app Purchases)</option>
+                  <option value="subscription">Subscription</option>
+                  <option value="ads">Ad-supported</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <div class="mb-6">
+                <label for="development-time" class="block text-gray-300 mb-2"
+                  >Development Time (months)</label
+                >
+                <input
+                  type="range"
+                  id="development-time"
+                  min="3"
+                  max="36"
+                  step="1"
+                  value="12"
+                  class="roi-slider"
+                />
+                <div class="flex justify-between text-sm text-gray-400 mt-1">
+                  <span>3</span>
+                  <span>36</span>
+                </div>
+                <div class="text-center text-gray-300 mt-1" id="time-value">
+                  12 months
+                </div>
+              </div>
+              <div class="mb-6">
+                <label for="platform-count" class="block text-gray-300 mb-2"
+                  >Number of Platforms</label
+                >
+                <div class="flex space-x-4">
+                  <button
+                    class="platform-btn px-4 py-2 bg-gray-700 rounded-lg text-gray-300 hover:bg-yellow-600 hover:text-white transition-colors"
+                    data-value="1"
+                  >
+                    1
+                  </button>
+                  <button
+                    class="platform-btn px-4 py-2 bg-gray-700 rounded-lg text-gray-300 hover:bg-yellow-600 hover:text-white transition-colors"
+                    data-value="2"
+                  >
+                    2
+                  </button>
+                  <button
+                    class="platform-btn px-4 py-2 bg-yellow-600 rounded-lg text-white hover:bg-yellow-700 transition-colors active"
+                    data-value="3"
+                  >
+                    3+
+                  </button>
+                </div>
+              </div>
+              <div class="mt-8 p-6 bg-gray-900/50 rounded-lg">
+                <h3 class="text-xl font-bold text-white mb-4">Estimated ROI</h3>
+                <div
+                  class="text-4xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+                  id="roi-result"
+                >
+                  385%
+                </div>
+                <p class="text-gray-400 text-sm">
+                  Estimated break-even:
+                  <span id="breakeven-result">5 months</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 text-center">
+            <p class="text-gray-400 text-sm">
+              This calculator provides estimates based on industry averages.
+              Actual results may vary based on market conditions, game quality,
+              and marketing efforts.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 py-16">
+        <h2
+          class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+        >
+          Game Development Success Stories
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="case-study-card fade-in-up">
+            <div class="relative overflow-hidden rounded-2xl h-64">
+              <img
+                src="assets/images/woman-enjoying-vr-headset.jpg"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110 lazy-image"
+                data-src="assets/images/woman-enjoying-vr-headset.jpg"
+                alt="VR Racing Game"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"
+              ></div>
+              <div class="absolute bottom-0 left-0 right-0 p-4">
+                <span class="bg-yellow-600 text-white text-xs px-2 py-1 rounded"
+                  >VR Racing</span
+                >
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-6 mb-3">
+              Neon Velocity VR
+            </h3>
+            <p class="text-gray-300">
+              Multiplayer VR racing experience with cross-platform play
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="tech-tag">Unreal Engine 5</span>
+              <span class="tech-tag">VR</span>
+              <span class="tech-tag">Cross-Platform</span>
+            </div>
+            <button
+              class="mt-6 text-yellow-500 hover:text-yellow-400 flex items-center transition-colors"
+              aria-label="View case study details"
+              data-case="neon-velocity"
+            >
+              View Details
+              <svg
+                class="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <div
+            class="case-study-card fade-in-up"
+            style="transition-delay: 0.2s"
+          >
+            <div class="relative overflow-hidden rounded-2xl h-64">
+              <img
+                src="assets/images/man-scanning-his-eyes-biometrics-security-technology-digital-remix.jpg"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110 lazy-image"
+                data-src="assets/images/man-scanning-his-eyes-biometrics-security-technology-digital-remix.jpg"
+                alt="Mobile RPG"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"
+              ></div>
+              <div class="absolute bottom-0 left-0 right-0 p-4">
+                <span class="bg-yellow-600 text-white text-xs px-2 py-1 rounded"
+                  >Mobile RPG</span
+                >
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-6 mb-3">
+              Chronicles of Aetheria
+            </h3>
+            <p class="text-gray-300">
+              Open-world mobile RPG with cloud-based progression
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="tech-tag">Unity</span>
+              <span class="tech-tag">Mobile</span>
+              <span class="tech-tag">LiveOps</span>
+            </div>
+            <button
+              class="mt-6 text-yellow-500 hover:text-yellow-400 flex items-center transition-colors"
+              aria-label="View case study details"
+              data-case="chronicles"
+            >
+              View Details
+              <svg
+                class="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="case-study-modal"
+          class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center hidden"
+        >
+          <div
+            class="bg-gray-900 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
+          >
+            <button
+              id="close-modal"
+              class="absolute top-4 right-4 text-gray-400 hover:text-white"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+            <div id="case-study-content"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 py-16">
+        <h2
+          class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+        >
+          Engine Capability Matrix
+        </h2>
+        <div class="accordion-group space-y-4">
+          <div class="accordion-item fade-in-up">
+            <button
+              class="accordion-header"
+              id="accordion-engine1"
+              aria-expanded="false"
+              aria-controls="content-engine1"
+            >
+              <span>Unreal Engine 5 vs Unity 2023</span>
+              <span class="transform transition-transform" id="icon-engine1"
+                >▾</span
+              >
+            </button>
+            <div
+              class="accordion-content"
+              id="content-engine1"
+              aria-labelledby="accordion-engine1"
+            >
+              <div class="grid md:grid-cols-2 gap-8">
+                <div class="engine-feature">
+                  <h4 class="text-yellow-500 text-lg mb-2">Unreal Strengths</h4>
+                  <ul class="list-disc pl-6 text-gray-300">
+                    <li>Nanite virtualized geometry</li>
+                    <li>Lumen global illumination</li>
+                    <li>MetaHuman creator</li>
+                    <li>Superior visual fidelity</li>
+                    <li>Blueprint visual scripting</li>
+                  </ul>
+                </div>
+                <div class="engine-feature">
+                  <h4 class="text-yellow-500 text-lg mb-2">Unity Advantages</h4>
+                  <ul class="list-disc pl-6 text-gray-300">
+                    <li>2D/3D hybrid pipeline</li>
+                    <li>Cross-platform build system</li>
+                    <li>Asset store ecosystem</li>
+                    <li>Lower learning curve</li>
+                    <li>DOTS performance architecture</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="accordion-item fade-in-up"
+            style="transition-delay: 0.15s"
+          >
+            <button
+              class="accordion-header"
+              id="accordion-engine2"
+              aria-expanded="false"
+              aria-controls="content-engine2"
+            >
+              <span>Mobile vs Console Development</span>
+              <span class="transform transition-transform" id="icon-engine2"
+                >▾</span
+              >
+            </button>
+            <div
+              class="accordion-content"
+              id="content-engine2"
+              aria-labelledby="accordion-engine2"
+            >
+              <div class="grid md:grid-cols-2 gap-8">
+                <div class="engine-feature">
+                  <h4 class="text-yellow-500 text-lg mb-2">
+                    Mobile Optimization
+                  </h4>
+                  <ul class="list-disc pl-6 text-gray-300">
+                    <li>Battery efficiency techniques</li>
+                    <li>Touch-first interface design</li>
+                    <li>Progressive asset loading</li>
+                    <li>Offline mode capabilities</li>
+                    <li>Adaptive resolution scaling</li>
+                  </ul>
+                </div>
+                <div class="engine-feature">
+                  <h4 class="text-yellow-500 text-lg mb-2">
+                    Console Development
+                  </h4>
+                  <ul class="list-disc pl-6 text-gray-300">
+                    <li>Hardware-specific optimization</li>
+                    <li>Controller input prioritization</li>
+                    <li>Platform certification process</li>
+                    <li>Living room UX considerations</li>
+                    <li>System-level integration</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item fade-in-up" style="transition-delay: 0.3s">
+            <button
+              class="accordion-header"
+              id="accordion-engine3"
+              aria-expanded="false"
+              aria-controls="content-engine3"
+            >
+              <span>VR/AR Development Considerations</span>
+              <span class="transform transition-transform" id="icon-engine3"
+                >▾</span
+              >
+            </button>
+            <div
+              class="accordion-content"
+              id="content-engine3"
+              aria-labelledby="accordion-engine3"
+            >
+              <div class="grid md:grid-cols-2 gap-8">
+                <div class="engine-feature">
+                  <h4 class="text-yellow-500 text-lg mb-2">
+                    Technical Requirements
+                  </h4>
+                  <ul class="list-disc pl-6 text-gray-300">
+                    <li>90+ FPS rendering pipeline</li>
+                    <li>Stereoscopic rendering optimization</li>
+                    <li>Motion sickness mitigation</li>
+                    <li>Spatial audio implementation</li>
+                    <li>Hand tracking integration</li>
+                  </ul>
+                </div>
+                <div class="engine-feature">
+                  <h4 class="text-yellow-500 text-lg mb-2">
+                    Design Considerations
+                  </h4>
+                  <ul class="list-disc pl-6 text-gray-300">
+                    <li>Intuitive interaction models</li>
+                    <li>Comfortable locomotion systems</li>
+                    <li>Spatial UI/UX design</li>
+                    <li>Physical interaction simulation</li>
+                    <li>Accessibility adaptations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <h3
+              class="text-2xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+            >
+              OFO
+            </h3>
+            <p class="text-gray-400">
+              Building tomorrow's digital solutions today.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="WebDevelopment.html" class="footer-link"
+                  >Web Development</a
+                >
+              </li>
+              <li>
+                <a href="MobileDevelopment.html" class="footer-link"
+                  >Mobile Apps</a
+                >
+              </li>
+              <li>
+                <a href="CloudComputing.html" class="footer-link"
+                  >Cloud Solutions</a
+                >
+              </li>
+              <li>
+                <a href="GameDevelopment.html" class="footer-link"
+                  >Game Development</a
+                >
+              </li>
+              <li>
+                <a href="VirtualReality.html" class="footer-link"
+                  >VR/AR Solutions</a
+                >
+              </li>
+              <li>
+                <a href="ArtificialIntelligence.html" class="footer-link"
+                  >AI Solutions</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Company</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li>
+                <a href="CaseStudies.html" class="footer-link">Case Studies</a>
+              </li>
+              <li><a href="blog.html" class="footer-link">Blog</a></li>
+              <li><a href="contact.html" class="footer-link">Careers</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-4">Connect</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-500"
+                aria-label="Twitter"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-500"
+                aria-label="GitHub"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-500"
+                aria-label="LinkedIn"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400"
+        >
+          <p>
+            © <span id="current-year">2025</span> OFO Development. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <button
+      class="theme-toggle"
+      id="theme-toggle"
+      aria-label="Toggle dark/light mode"
+    >
+      <svg
+        class="w-6 h-6 text-yellow-500"
+        id="theme-toggle-dark-icon"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+        ></path>
+      </svg>
+      <svg
+        class="w-6 h-6 text-yellow-500 hidden"
+        id="theme-toggle-light-icon"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        ></path>
+      </svg>
+    </button>
+
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 p-3 bg-gray-800 rounded-full shadow-lg hover:bg-gray-700 transition-colors opacity-0 invisible"
+      aria-label="Back to top"
+    >
+      <svg
+        class="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 15l7-7 7 7"
+        ></path>
+      </svg>
+    </button>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set current year
+        document.getElementById("current-year").textContent =
+          new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          const isOpen = mobileMenu.classList.toggle("hidden");
+          mobileMenu.style.maxHeight = isOpen
+            ? "0"
+            : `${mobileMenu.scrollHeight}px`;
+          mobileMenuButton.setAttribute("aria-expanded", !isOpen);
+          document.body.style.overflow = isOpen ? "" : "hidden";
+        });
+
+        // Mobile services accordion
+        const mobileServicesButton = document.getElementById(
+          "mobile-services-button"
+        );
+        const mobileServicesContent = document.getElementById(
+          "mobile-services-content"
+        );
+        const mobileServicesIcon = document.getElementById(
+          "mobile-services-icon"
+        );
+
+        mobileServicesButton.addEventListener("click", function () {
+          const isExpanded =
+            mobileServicesButton.getAttribute("aria-expanded") === "true";
+          mobileServicesButton.setAttribute("aria-expanded", !isExpanded);
+          mobileServicesContent.style.maxHeight = isExpanded
+            ? "0"
+            : `${mobileServicesContent.scrollHeight}px`;
+          mobileServicesIcon.style.transform = isExpanded
+            ? ""
+            : "rotate(180deg)";
+        });
+
+        // Close mobile menu on resize
+        window.addEventListener("resize", () => {
+          if (window.innerWidth >= 768) {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.style.maxHeight = "0";
+            document.body.style.overflow = "";
+            mobileMenuButton.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+          if (
+            !mobileMenu.contains(e.target) &&
+            !mobileMenuButton.contains(e.target) &&
+            !mobileMenu.classList.contains("hidden")
+          ) {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.style.maxHeight = "0";
+            document.body.style.overflow = "";
+            mobileMenuButton.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+        accordionHeaders.forEach((header) => {
+          header.addEventListener("click", () => {
+            const contentId = header.getAttribute("aria-controls");
+            const content = document.getElementById(contentId);
+            const iconId = header
+              .getAttribute("id")
+              .replace("accordion-", "icon-");
+            const icon = document.getElementById(iconId);
+
+            const isExpanded = header.getAttribute("aria-expanded") === "true";
+
+            // Close all accordions
+            document.querySelectorAll(".accordion-content").forEach((item) => {
+              if (item.id !== contentId) {
+                item.classList.remove("active");
+                item.style.maxHeight = "0";
+                const itemHeader = document.querySelector(
+                  `[aria-controls="${item.id}"]`
+                );
+                itemHeader.setAttribute("aria-expanded", "false");
+                const itemIcon = document.getElementById(
+                  itemHeader.getAttribute("id").replace("accordion-", "icon-")
+                );
+                itemIcon.style.transform = "";
+              }
+            });
+
+            // Toggle current accordion
+            header.setAttribute("aria-expanded", !isExpanded);
+            if (!isExpanded) {
+              content.classList.add("active");
+              content.style.maxHeight = `${content.scrollHeight}px`;
+              icon.style.transform = "rotate(180deg)";
+            } else {
+              content.classList.remove("active");
+              content.style.maxHeight = "0";
+              icon.style.transform = "";
+            }
+          });
+        });
+
+        // Reading progress indicator
+        const progressBar = document.getElementById("reading-progress");
+
+        window.addEventListener("scroll", () => {
+          const winScroll =
+            document.body.scrollTop || document.documentElement.scrollTop;
+          const height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+          const scrolled = (winScroll / height) * 100;
+          progressBar.style.width = scrolled + "%";
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById("back-to-top");
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTopButton.classList.remove("opacity-0", "invisible");
+            backToTopButton.classList.add("opacity-100", "visible");
+          } else {
+            backToTopButton.classList.add("opacity-0", "invisible");
+            backToTopButton.classList.remove("opacity-100", "visible");
+          }
+        });
+
+        backToTopButton.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Dark mode toggle
+        const themeToggleButton = document.getElementById("theme-toggle");
+        const darkIcon = document.getElementById("theme-toggle-dark-icon");
+        const lightIcon = document.getElementById("theme-toggle-light-icon");
+
+        // Check for saved theme preference or use OS preference
+        const userTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        // Initial theme setup
+        if (userTheme === "light" || (!userTheme && !systemTheme)) {
+          document.documentElement.classList.add("light-mode");
+          lightIcon.classList.remove("hidden");
+          darkIcon.classList.add("hidden");
+        } else {
+          document.documentElement.classList.add("dark-mode");
+          darkIcon.classList.remove("hidden");
+          lightIcon.classList.add("hidden");
+        }
+
+        // Theme toggle button
+        themeToggleButton.addEventListener("click", () => {
+          const isDark =
+            document.documentElement.classList.contains("dark-mode");
+
+          if (isDark) {
+            document.documentElement.classList.remove("dark-mode");
+            document.documentElement.classList.add("light-mode");
+            localStorage.setItem("theme", "light");
+            darkIcon.classList.add("hidden");
+            lightIcon.classList.remove("hidden");
+          } else {
+            document.documentElement.classList.remove("light-mode");
+            document.documentElement.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark");
+            lightIcon.classList.add("hidden");
+            darkIcon.classList.remove("hidden");
+          }
+        });
+
+        // ROI Calculator
+        const developmentCost = document.getElementById("development-cost");
+        const targetAudience = document.getElementById("target-audience");
+        const audienceValue = document.getElementById("audience-value");
+        const developmentTime = document.getElementById("development-time");
+        const timeValue = document.getElementById("time-value");
+        const monetizationModel = document.getElementById("monetization-model");
+        const platformButtons = document.querySelectorAll(".platform-btn");
+        const roiResult = document.getElementById("roi-result");
+        const breakevenResult = document.getElementById("breakeven-result");
+
+        let platforms = 3; // Default value
+
+        function calculateROI() {
+          const cost = parseInt(developmentCost.value);
+          const audience = parseInt(targetAudience.value);
+          const time = parseInt(developmentTime.value);
+          const model = monetizationModel.value;
+
+          // Monetization multipliers (simplified for demo)
+          const modelMultipliers = {
+            premium: 1.2,
+            freemium: 0.8,
+            subscription: 1.5,
+            ads: 0.6,
+          };
+
+          // Calculate ROI (simplified formula for demo)
+          const baseRevenue = audience * 0.05; // 5% conversion rate
+          const modelMultiplier = modelMultipliers[model];
+          const platformMultiplier = 0.7 + platforms * 0.1; // More platforms = higher multiplier
+          const timeMultiplier = 1 - time * 0.01; // Longer development = lower multiplier
+
+          const revenue =
+            baseRevenue * modelMultiplier * platformMultiplier * timeMultiplier;
+          const roi = ((revenue - cost) / cost) * 100;
+
+          // Calculate break-even (simplified)
+          const breakeven = Math.ceil((cost / revenue) * 12); // in months
+
+          // Update UI
+          roiResult.textContent = Math.round(roi) + "%";
+          breakevenResult.textContent = breakeven + " months";
+        }
+
+        // Update audience value display
+        targetAudience.addEventListener("input", () => {
+          audienceValue.textContent =
+            new Intl.NumberFormat().format(targetAudience.value) + " players";
+          calculateROI();
+        });
+
+        // Update time value display
+        developmentTime.addEventListener("input", () => {
+          timeValue.textContent = developmentTime.value + " months";
+          calculateROI();
+        });
+
+        // Platform buttons
+        platformButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            platformButtons.forEach((btn) =>
+              btn.classList.remove("bg-yellow-600", "text-white", "active")
+            );
+            button.classList.add("bg-yellow-600", "text-white", "active");
+            platforms = parseInt(button.getAttribute("data-value"));
+            calculateROI();
+          });
+        });
+
+        // Calculate on any input change
+        [developmentCost, monetizationModel].forEach((input) => {
+          input.addEventListener("input", calculateROI);
+          input.addEventListener("change", calculateROI);
+        });
+
+        // Initial calculation
+        calculateROI();
+
+        // Case study modal
+        const caseStudyButtons = document.querySelectorAll("[data-case]");
+        const modal = document.getElementById("case-study-modal");
+        const closeModal = document.getElementById("close-modal");
+        const caseStudyContent = document.getElementById("case-study-content");
+
+        // Case study data
+        const caseStudies = {
+          "neon-velocity": {
+            title: "Neon Velocity VR",
+            image: "assets/images/woman-enjoying-vr-headset.jpg",
+            description:
+              "A high-octane VR racing experience that pushes the boundaries of immersive gameplay. Players can race through neon-lit futuristic cities with friends across multiple VR platforms.",
+            challenge:
+              "Creating a consistent experience across different VR hardware while maintaining 90+ FPS performance required for comfortable VR gameplay.",
+            solution:
+              "We developed a custom rendering pipeline that dynamically adjusts visual fidelity based on hardware capabilities, ensuring smooth performance across all supported platforms.",
+            technologies: [
+              "Unreal Engine 5",
+              "SteamVR",
+              "Oculus SDK",
+              "PlayStation VR",
+              "Cross-platform multiplayer",
+            ],
+            results: [
+              "Consistent 90+ FPS across all supported platforms",
+              "Cross-platform multiplayer with minimal latency",
+              "Intuitive VR controls with zero motion sickness reports",
+              "Dynamic track generation system for endless replayability",
+            ],
+          },
+          chronicles: {
+            title: "Chronicles of Aetheria",
+            image:
+              "assets/images/man-scanning-his-eyes-biometrics-security-technology-digital-remix.jpg",
+            description:
+              "An expansive mobile RPG featuring a persistent open world with cloud-based progression that allows players to continue their adventure across multiple devices.",
+            challenge:
+              "Creating a seamless open-world experience on mobile devices with varying hardware capabilities while maintaining real-time cloud synchronization.",
+            solution:
+              "We implemented a dynamic streaming system that loads world chunks based on player location and device capabilities, combined with an efficient delta-sync system for cloud saves.",
+            technologies: [
+              "Unity",
+              "AWS GameLift",
+              "DynamoDB",
+              "Firebase",
+              "Custom shader pipeline",
+            ],
+            results: [
+              "Seamless world streaming with no loading screens",
+              "Real-time cloud synchronization with <2s delay",
+              "Optimized for devices dating back 5+ generations",
+              "Reduced battery consumption by 40% compared to similar titles",
+            ],
+          },
+        };
+
+        // Open modal with case study content
+        caseStudyButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const caseKey = button.getAttribute("data-case");
+            const caseData = caseStudies[caseKey];
+
+            if (caseData) {
+              // Generate HTML for case study
+              caseStudyContent.innerHTML = `
+                <div class="mb-8">
+                  <img src="${caseData.image}" alt="${
+                caseData.title
+              }" class="w-full h-64 object-cover rounded-lg">
+                </div>
+                <h3 class="text-3xl font-bold text-white mb-4">${
+                  caseData.title
+                }</h3>
+                <p class="text-gray-300 mb-6">${caseData.description}</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h4 class="text-xl font-bold text-yellow-500 mb-3">Challenge</h4>
+                    <p class="text-gray-300">${caseData.challenge}</p>
+                  </div>
+                  <div>
+                    <h4 class="text-xl font-bold text-yellow-500 mb-3">Solution</h4>
+                    <p class="text-gray-300">${caseData.solution}</p>
+                  </div>
+                </div>
+                
+                <h4 class="text-xl font-bold text-yellow-500 mb-3">Technologies Used</h4>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  ${caseData.technologies
+                    .map((tech) => `<span class="tech-tag">${tech}</span>`)
+                    .join("")}
+                </div>
+                
+                <h4 class="text-xl font-bold text-yellow-500 mb-3">Key Results</h4>
+                <ul class="list-disc pl-6 text-gray-300">
+                  ${caseData.results
+                    .map((result) => `<li>${result}</li>`)
+                    .join("")}
+                </ul>
+              `;
+
+              // Show modal
+              modal.classList.remove("hidden");
+              document.body.style.overflow = "hidden";
+            }
+          });
+        });
+
+        // Close modal
+        closeModal.addEventListener("click", () => {
+          modal.classList.add("hidden");
+          document.body.style.overflow = "";
+        });
+
+        // Close modal on outside click
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.classList.add("hidden");
+            document.body.style.overflow = "";
+          }
+        });
+
+        // Close modal on escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+            modal.classList.add("hidden");
+            document.body.style.overflow = "";
+          }
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll(".fade-in-up");
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        fadeElements.forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Lazy loading images
+        const lazyImages = document.querySelectorAll(".lazy-image");
+
+        const imageObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.getAttribute("data-src");
+
+                if (src) {
+                  img.src = src;
+                  img.classList.add("loaded");
+                  imageObserver.unobserve(img);
+                }
+              }
+            });
+          },
+          {
+            rootMargin: "200px 0px",
+          }
+        );
+
+        lazyImages.forEach((image) => {
+          imageObserver.observe(image);
+        });
+      });
+    </script>
+    <script src="assets/js/analytics.js"></script>
+  </body>
+</html>

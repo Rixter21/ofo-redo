@@ -1,0 +1,40 @@
+# robots.txt for OFO Development (ofodevelopment.com)
+# Last updated: 2025-03-06
+
+User-agent: *
+Allow: /
+
+# Allow all bots to access all content
+# Main pages
+Allow: /index.html
+Allow: /about.html
+Allow: /services.html
+Allow: /contact.html
+Allow: /blog.html
+Allow: /resources.html
+Allow: /CaseStudies.html
+
+# Service pages
+Allow: /ArtificialIntelligence.html
+Allow: /BlockchainDevelopment.html
+Allow: /CloudComputing.html
+Allow: /CustomSoftwareDevelopment.html
+Allow: /CyberSecurity.html
+Allow: /DataAnalysis.html
+Allow: /DevOpsSolutions.html
+Allow: /DigitalInnovation.html
+Allow: /EcommerceSolutions.html
+Allow: /EnterpriseSolutions.html
+Allow: /GameDevelopment.html
+Allow: /MobileDevelopment.html
+Allow: /ProductManagement.html
+Allow: /SaaSDevelopment.html
+Allow: /VirtualReality.html
+Allow: /WebDevelopment.html
+
+# Legal pages
+Allow: /privacy-policy.html
+Allow: /terms.html
+
+# Sitemap
+Sitemap: https://ofodevelopment.com/sitemap.xml

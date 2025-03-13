@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cutting-edge digital transformation solutions driving business evolution through emerging technologies."
+    />
+    <meta
+      name="keywords"
+      content="digital innovation, digital transformation, emerging technologies, business evolution"
+    />
+    <meta name="author" content="OFO Development" />
+    <meta property="og:title" content="Digital Innovation - OFO Development" />
+    <meta
+      property="og:description"
+      content="Cutting-edge digital transformation solutions driving business evolution through emerging technologies."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ofodevelopment.com/DigitalInnovation.html"
+    />
+    <meta
+      property="og:image"
+      content="https://ofodevelopment.com/assets/images/futuristic-smart-city.webp"
+    />
+    <meta property="og:image:alt" content="Digital Innovation" />
+    <meta property="og:site_name" content="OFO Development" />
+    <title>Digital Innovation - OFO Development</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/css/additional-styles.css" rel="stylesheet" />
+    <style>
+      .golden-text {
+        background: linear-gradient(45deg, #ffd700, #ffaa00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradientShift 3s ease infinite;
+      }
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Innovation Timeline Styles */
+      .timeline-container {
+        position: relative;
+        margin: 2rem 0;
+      }
+
+      .timeline-track {
+        position: absolute;
+        width: 4px;
+        background: linear-gradient(to bottom, #4f46e5, #10b981);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 4px;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+      }
+
+      .timeline-item.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .timeline-marker {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #4f46e5;
+        border: 3px solid #1f2937;
+        z-index: 10;
+        transition: all 0.3s ease;
+      }
+
+      .timeline-marker:hover {
+        transform: translateX(-50%) scale(1.2);
+        background: #6366f1;
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+      }
+
+      .timeline-content {
+        position: relative;
+        width: calc(50% - 30px);
+        background: rgba(31, 41, 55, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(79, 70, 229, 0.2);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        border-color: rgba(79, 70, 229, 0.5);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2),
+          0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: auto;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-right: auto;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content::before {
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 20px;
+        border: 10px solid transparent;
+        border-right-color: rgba(31, 41, 55, 0.8);
+      }
+
+      .timeline-item:nth-child(even) .timeline-content::before {
+        content: "";
+        position: absolute;
+        left: 100%;
+        top: 20px;
+        border: 10px solid transparent;
+        border-left-color: rgba(31, 41, 55, 0.8);
+      }
+
+      .timeline-date {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: #4f46e5;
+        border-radius: 1rem;
+        color: white;
+        font-weight: 600;
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Technology Card Styles */
+      .tech-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(99, 102, 241, 0.1);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        z-index: 1;
+      }
+
+      .tech-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(79, 70, 229, 0.15),
+          rgba(16, 185, 129, 0.15)
+        );
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .tech-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        border-color: rgba(99, 102, 241, 0.5);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2),
+          0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .tech-card:hover::before {
+        opacity: 1;
+      }
+
+      .tech-card-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .tech-card:hover .tech-card-icon {
+        transform: scale(1.1) translateY(-5px);
+      }
+
+      .tech-card-content {
+        padding: 1.25rem;
+      }
+
+      .tech-card-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .tech-card:hover .tech-card-title {
+        color: #6366f1;
+      }
+
+      /* Stats Counter Styles */
+      .stat-card {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(99, 102, 241, 0.5);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .stat-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, #4f46e5, #10b981);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.5s ease;
+      }
+
+      .stat-card:hover::after {
+        transform: scaleX(1);
+      }
+      /* Enhanced Navbar Styles */
+      .nav-link {
+        color: #d1d5db;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link:hover {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        width: 600px;
+        background-color: #1f2937;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        transform: translateY(-0.5rem);
+      }
+
+      .group:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        color: #d1d5db;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: #374151;
+        transform: translateX(0.5rem);
+      }
+
+      .dropdown-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.75rem;
+        color: #eab308;
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Backdrop Blur Effect */
+      nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* Accordion Transitions */
+      .accordion div {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Premium Dropdown Footer */
+      .dropdown-menu > div:last-child {
+        border-top: 1px solid #374151;
+        background-color: #1f2937;
+        padding: 1rem;
+      }
+
+      .dropdown-menu > div:last-child h3 {
+        color: #eab308;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+    <link
+      rel="preload"
+      href="assets/images/logos/Color logo - no background.png"
+      as="image"
+      type="image/png"
+    />
+  </head>
+  <body
+    class="bg-gray-900 text-white dark:bg-gray-900 dark:text-white light:bg-gray-50 light:text-gray-900"
+  >
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white py-2 px-4 rounded z-50"
+    >
+      Skip to main content
+    </a>
+
+    <div
+      class="reading-progress fixed top-0 left-0 w-full h-1 bg-transparent z-50"
+    >
+      <div
+        class="reading-progress-bar h-full w-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500"
+      ></div>
+    </div>
+
+    <nav
+      class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img
+              src="assets/images/logos/Color logo - no background.png"
+              alt="OFO Development"
+              class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+            />
+          </div>
+
+          <button
+            data-mobile-menu-button
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="about.html" class="nav-link">About</a>
+
+            <div class="relative group" data-dropdown-container>
+              <button
+                class="nav-link dropdown-trigger"
+                data-dropdown-toggle
+                aria-expanded="false"
+              >
+                Services
+                <span class="ml-1 transition-transform group-hover:rotate-180"
+                  >▾</span
+                >
+              </button>
+
+              <div
+                class="dropdown-menu backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 transition-all duration-500 hover:backdrop-blur-xl hover:from-gray-900/70 hover:to-gray-900/50"
+                id="services-menu"
+                role="menu"
+                aria-labelledby="services-menu-button"
+              >
+                <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                      ></path>
+                    </svg>
+                    Custom Software
+                  </a>
+                  <a
+                    href="MobileDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    Mobile Apps
+                  </a>
+                  <a
+                    href="WebDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                      ></path>
+                    </svg>
+                    Web Development
+                  </a>
+                  <a
+                    href="DataAnalysis.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      ></path>
+                    </svg>
+                    Data Analysis
+                  </a>
+                  <a
+                    href="EcommerceSolutions.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                      ></path>
+                    </svg>
+                    E-Commerce
+                  </a>
+                  <a
+                    href="ArtificialIntelligence.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    AI & Machine Learning
+                  </a>
+                  <a
+                    href="DigitalInnovation.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      ></path>
+                    </svg>
+                    Digital Innovation
+                  </a>
+                  <a
+                    href="VirtualReality.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    VR & AR
+                  </a>
+                  <a
+                    href="GameDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    Game Development
+                  </a>
+                  <a
+                    href="CloudComputing.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                      ></path>
+                    </svg>
+                    Cloud Computing
+                  </a>
+                  <a
+                    href="CyberSecurity.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      ></path>
+                    </svg>
+                    Cybersecurity
+                  </a>
+                  <a
+                    href="ProductManagement.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                      ></path>
+                    </svg>
+                    Product Management
+                  </a>
+                </div>
+
+                <div
+                  class="border-t border-white/20 bg-gradient-to-r from-gray-900/80 via-gray-800/80 to-gray-900/80 backdrop-blur-xl transition-all duration-300 hover:from-gray-800/90 hover:to-gray-900/90"
+                >
+                  <div class="p-4">
+                    <h3
+                      class="text-yellow-500 text-sm font-semibold mb-2 flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        ></path>
+                      </svg>
+                      Premium Enterprise Solutions
+                    </h3>
+                    <p class="text-gray-300 text-sm mb-3">
+                      Custom solutions tailored to your business needs with
+                      dedicated support
+                    </p>
+                  </div>
+
+                  <div class="px-4 pb-4 flex flex-wrap gap-2">
+                    <a
+                      href="contact.html"
+                      class="text-xs px-3 py-1.5 bg-yellow-500/20 text-yellow-400 rounded-full hover:bg-yellow-500/30 transition-colors flex items-center"
+                    >
+                      <svg
+                        class="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                      Schedule Consultation
+                    </a>
+                    <a
+                      href="CaseStudies.html"
+                      class="text-xs px-3 py-1.5 bg-blue-500/20 text-blue-400 rounded-full hover:bg-blue-500/30 transition-colors flex items-center"
+                    >
+                      <svg
+                        class="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        ></path>
+                      </svg>
+                      View Case Studies
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+          </div>
+        </div>
+
+        <div
+          data-mobile-menu
+          class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 max-h-0"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="about.html" class="block nav-link">About</a>
+
+            <div class="accordion">
+              <button
+                data-services-button
+                aria-expanded="false"
+                class="w-full flex justify-between items-center nav-link"
+              >
+                Services
+                <span class="dropdown-icon transform transition-transform"
+                  >▾</span
+                >
+              </button>
+              <div
+                data-services-content
+                class="overflow-hidden transition-all duration-300 max-h-0"
+              >
+                <div class="pl-4 space-y-2">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="block nav-link"
+                    >Custom Software</a
+                  >
+                  <a href="MobileDevelopment.html" class="block nav-link"
+                    >Mobile Apps</a
+                  >
+                  <a href="WebDevelopment.html" class="block nav-link"
+                    >Web Development</a
+                  >
+                  <a href="DataAnalysis.html" class="block nav-link"
+                    >Data Analysis</a
+                  >
+                  <a href="EcommerceSolutions.html" class="block nav-link"
+                    >E-Commerce</a
+                  >
+                  <a href="ArtificialIntelligence.html" class="block nav-link"
+                    >AI & Machine Learning</a
+                  >
+                  <a href="DigitalInnovation.html" class="block nav-link"
+                    >Digital Innovation</a
+                  >
+                  <a href="VirtualReality.html" class="block nav-link"
+                    >VR & AR</a
+                  >
+                  <a href="GameDevelopment.html" class="block nav-link"
+                    >Game Development</a
+                  >
+                  <a href="CloudComputing.html" class="block nav-link"
+                    >Cloud Computing</a
+                  >
+                  <a href="CyberSecurity.html" class="block nav-link"
+                    >Cybersecurity</a
+                  >
+                  <a href="ProductManagement.html" class="block nav-link"
+                    >Product Management</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="block nav-link">Resources</a>
+            <a href="contact.html" class="block nav-link">Contact</a>
+            <a href="blog.html" class="block nav-link">Blog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="relative h-[80vh] flex items-center justify-center overflow-hidden bg-gray-900/50"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="assets/images/futuristic-smart-city.webp"
+          alt="Digital Innovation"
+          class="w-full h-full object-cover opacity-50"
+          loading="lazy"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent"
+        ></div>
+      </div>
+
+      <div class="relative z-10 text-center container px-6 mx-auto">
+        <h1
+          class="text-5xl md:text-7xl font-bold mb-6 golden-text animate-fade-in-up"
+        >
+          Pioneering Digital Transformation
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto animate-fade-in-up delay-100"
+        >
+          Accelerating business evolution through cutting-edge technological
+          innovation
+        </p>
+        <a
+          href="#contact"
+          class="inline-block bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-amber-600 hover:to-yellow-500 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-2xl animate-fade-in-up delay-200"
+        >
+          Start Your Journey
+        </a>
+      </div>
+    </section>
+
+    <main id="main-content" class="container mx-auto px-6 py-12 mt-24">
+      <div class="mb-12">
+        <h1 class="text-4xl golden-text mb-8">Digital Innovation</h1>
+        <p class="text-xl text-gray-300 mb-6 max-w-4xl">
+          Cutting-edge digital transformation solutions driving business
+          evolution through emerging technologies. We help organizations
+          reimagine their processes, products, and business models in the
+          digital age.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-8">
+          <span
+            class="px-4 py-2 bg-gray-800 rounded-full text-sm border border-indigo-500/30"
+            >Digital Transformation</span
+          >
+          <span
+            class="px-4 py-2 bg-gray-800 rounded-full text-sm border border-indigo-500/30"
+            >Innovation Labs</span
+          >
+          <span
+            class="px-4 py-2 bg-gray-800 rounded-full text-sm border border-indigo-500/30"
+            >Emerging Tech</span
+          >
+          <span
+            class="px-4 py-2 bg-gray-800 rounded-full text-sm border border-indigo-500/30"
+            >Design Thinking</span
+          >
+          <span
+            class="px-4 py-2 bg-gray-800 rounded-full text-sm border border-indigo-500/30"
+            >Rapid Prototyping</span
+          >
+          <span
+            class="px-4 py-2 bg-gray-800 rounded-full text-sm border border-indigo-500/30"
+            >Digital Strategy</span
+          >
+        </div>
+      </div>
+
+      <section class="grid md:grid-cols-2 gap-8 mb-16">
+        <div
+          class="bg-gray-800 p-8 rounded-2xl border border-gray-700 animate-on-scroll fade-left"
+        >
+          <h2 class="text-2xl golden-text mb-8">Our Innovation Process</h2>
+
+          <div class="timeline-container relative">
+            <div class="timeline-track"></div>
+
+            <div class="timeline-item" id="timeline-item-1">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 1</span>
+                <h3 class="text-lg font-semibold mb-2">Discovery & Research</h3>
+                <p class="text-gray-400">
+                  Market analysis and technology scouting to identify strategic
+                  opportunities. We analyze current systems, define goals, and
+                  establish KPIs.
+                </p>
+                <div class="mt-4 flex justify-between items-center">
+                  <span class="text-xs text-gray-500">2-4 Weeks</span>
+                  <span
+                    class="text-xs inline-flex items-center px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200"
+                  >
+                    Planning
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="timeline-item-2">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 2</span>
+                <h3 class="text-lg font-semibold mb-2">
+                  Prototype Development
+                </h3>
+                <p class="text-gray-400">
+                  Rapid prototyping with agile methodologies to validate
+                  concepts. We create minimum viable prototypes to test
+                  hypotheses and refine direction.
+                </p>
+                <div class="mt-4 flex justify-between items-center">
+                  <span class="text-xs text-gray-500">4-8 Weeks</span>
+                  <span
+                    class="text-xs inline-flex items-center px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                  >
+                    Experimentation
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="timeline-item-3">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 3</span>
+                <h3 class="text-lg font-semibold mb-2">Implementation</h3>
+                <p class="text-gray-400">
+                  Full-stack development with scalable architecture and DevOps
+                  integration. This phase includes quality assurance and
+                  security testing.
+                </p>
+                <div class="mt-4 flex justify-between items-center">
+                  <span class="text-xs text-gray-500">8-12 Weeks</span>
+                  <span
+                    class="text-xs inline-flex items-center px-2.5 py-0.5 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                  >
+                    Development
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item" id="timeline-item-4">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Phase 4</span>
+                <h3 class="text-lg font-semibold mb-2">Optimization</h3>
+                <p class="text-gray-400">
+                  Continuous improvement through analytics and user feedback
+                  loops. Post-launch support, performance tuning, and iterative
+                  enhancement.
+                </p>
+                <div class="mt-4 flex justify-between items-center">
+                  <span class="text-xs text-gray-500">Ongoing</span>
+                  <span
+                    class="text-xs inline-flex items-center px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
+                  >
+                    Refinement
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gray-800 p-8 rounded-2xl border border-gray-700 animate-on-scroll fade-right"
+        >
+          <h2 class="text-2xl golden-text mb-6">Core Technologies</h2>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="tech-card overflow-hidden rounded-lg">
+              <div class="p-4">
+                <img
+                  src="assets/images/ai-chip.webp"
+                  alt="AI"
+                  class="w-12 h-12 mb-2 tech-card-icon"
+                  loading="lazy"
+                />
+                <h3 class="tech-card-title">AI/ML Solutions</h3>
+                <p class="text-sm text-gray-400">
+                  Predictive analytics and intelligent automation for business
+                  optimization
+                </p>
+              </div>
+            </div>
+
+            <div class="tech-card overflow-hidden rounded-lg">
+              <div class="p-4">
+                <img
+                  src="assets/images/futuristic-smart-city.webp"
+                  alt="IoT"
+                  class="w-12 h-12 mb-2 tech-card-icon"
+                  loading="lazy"
+                />
+                <h3 class="tech-card-title">IoT Integration</h3>
+                <p class="text-sm text-gray-400">
+                  Smart connected systems and real-time monitoring for
+                  operational excellence
+                </p>
+              </div>
+            </div>
+
+            <div class="tech-card overflow-hidden rounded-lg">
+              <div class="p-4">
+                <img
+                  src="assets/images/p2p-network.jpg"
+                  alt="Blockchain"
+                  class="w-12 h-12 mb-2 tech-card-icon"
+                  loading="lazy"
+                />
+                <h3 class="tech-card-title">Blockchain Systems</h3>
+                <p class="text-sm text-gray-400">
+                  Decentralized solutions and smart contract development for
+                  trusted transactions
+                </p>
+              </div>
+            </div>
+
+            <div class="tech-card overflow-hidden rounded-lg">
+              <div class="p-4">
+                <img
+                  src="assets/images/woman-enjoying-vr-headset.jpg"
+                  alt="AR/VR"
+                  class="w-12 h-12 mb-2 tech-card-icon"
+                  loading="lazy"
+                />
+                <h3 class="tech-card-title">AR/VR Experiences</h3>
+                <p class="text-sm text-gray-400">
+                  Immersive training simulations and virtual showrooms for
+                  enhanced engagement
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="mb-16 py-10 bg-gray-800 rounded-2xl border border-gray-700 animate-on-scroll fade-up"
+      >
+        <h2 class="text-3xl golden-text text-center mb-12">
+          Innovation Impact
+        </h2>
+        <div class="grid md:grid-cols-4 gap-8 px-6">
+          <div class="stat-card p-6 text-center">
+            <div
+              class="text-4xl font-bold mb-2 text-indigo-400 counter-value"
+              data-count="85"
+              data-suffix="%"
+            >
+              0%
+            </div>
+            <p class="text-gray-300">Reduced Time-to-Market</p>
+          </div>
+
+          <div class="stat-card p-6 text-center">
+            <div
+              class="text-4xl font-bold mb-2 text-blue-400 counter-value"
+              data-count="250"
+              data-suffix="+"
+            >
+              0+
+            </div>
+            <p class="text-gray-300">Innovation Projects</p>
+          </div>
+
+          <div class="stat-card p-6 text-center">
+            <div
+              class="text-4xl font-bold mb-2 text-green-400 counter-value"
+              data-count="42"
+              data-suffix="%"
+            >
+              0%
+            </div>
+            <p class="text-gray-300">ROI Increase</p>
+          </div>
+
+          <div class="stat-card p-6 text-center">
+            <div
+              class="text-4xl font-bold mb-2 text-purple-400 counter-value"
+              data-count="12"
+              data-prefix="$"
+              data-suffix="M"
+            >
+              $0M
+            </div>
+            <p class="text-gray-300">Client Cost Savings</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="mb-16 bg-gray-800/50 p-8 rounded-2xl border border-gray-700 animate-on-scroll fade-up"
+      >
+        <h2 class="text-3xl golden-text mb-8">
+          Digital Transformation Methodologies
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800 p-6 rounded-xl border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300 hover:transform hover:-translate-y-2"
+          >
+            <div class="text-indigo-400 mb-4">
+              <svg
+                class="w-10 h-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Design Thinking</h3>
+            <p class="text-gray-300">
+              Human-centered approach to innovation that integrates human needs,
+              technological possibilities, and business requirements.
+            </p>
+            <div class="mt-4 text-sm text-indigo-300">
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-indigo-900/30 rounded-full"
+                >User Research</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-indigo-900/30 rounded-full"
+                >Ideation</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-indigo-900/30 rounded-full"
+                >Prototyping</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:transform hover:-translate-y-2"
+          >
+            <div class="text-blue-400 mb-4">
+              <svg
+                class="w-10 h-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Agile Transformation</h3>
+            <p class="text-gray-300">
+              Implementing agile methodologies across the organization to
+              accelerate innovation cycles and respond to market changes.
+            </p>
+            <div class="mt-4 text-sm text-blue-300">
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-blue-900/30 rounded-full"
+                >Scrum</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-blue-900/30 rounded-full"
+                >Kanban</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-blue-900/30 rounded-full"
+                >DevOps</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:transform hover:-translate-y-2"
+          >
+            <div class="text-purple-400 mb-4">
+              <svg
+                class="w-10 h-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">
+              Digital Ecosystem Building
+            </h3>
+            <p class="text-gray-300">
+              Creating interconnected platforms and services that enable new
+              business models and enhanced customer experiences.
+            </p>
+            <div class="mt-4 text-sm text-purple-300">
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-purple-900/30 rounded-full"
+                >API Economy</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-purple-900/30 rounded-full"
+                >Microservices</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-purple-900/30 rounded-full"
+                >Integration</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-all duration-300 hover:transform hover:-translate-y-2"
+          >
+            <div class="text-green-400 mb-4">
+              <svg
+                class="w-10 h-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Data-Driven Innovation</h3>
+            <p class="text-gray-300">
+              Leveraging big data, analytics, and AI to uncover insights that
+              drive product development and business strategy.
+            </p>
+            <div class="mt-4 text-sm text-green-300">
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-green-900/30 rounded-full"
+                >Predictive Analytics</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-green-900/30 rounded-full"
+                >Machine Learning</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-green-900/30 rounded-full"
+                >Business Intelligence</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl border border-red-500/20 hover:border-red-500/40 transition-all duration-300 hover:transform hover:-translate-y-2"
+          >
+            <div class="text-red-400 mb-4">
+              <svg
+                class="w-10 h-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Enterprise Modernization</h3>
+            <p class="text-gray-300">
+              Transforming legacy systems and processes into modern, flexible
+              architectures that support rapid innovation.
+            </p>
+            <div class="mt-4 text-sm text-red-300">
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-red-900/30 rounded-full"
+                >Cloud Migration</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-red-900/30 rounded-full"
+                >API-First</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-red-900/30 rounded-full"
+                >Legacy Integration</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 p-6 rounded-xl border border-amber-500/20 hover:border-amber-500/40 transition-all duration-300 hover:transform hover:-translate-y-2"
+          >
+            <div class="text-amber-400 mb-4">
+              <svg
+                class="w-10 h-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Innovation Culture</h3>
+            <p class="text-gray-300">
+              Building organizational capabilities that foster creativity,
+              experimentation, and continuous learning.
+            </p>
+            <div class="mt-4 text-sm text-amber-300">
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-amber-900/30 rounded-full"
+                >Design Sprints</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-amber-900/30 rounded-full"
+                >Innovation Workshops</span
+              >
+              <span
+                class="inline-block mr-2 mb-2 px-2 py-1 bg-amber-900/30 rounded-full"
+                >Change Management</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="mb-16 bg-gray-800/50 p-8 rounded-2xl border border-gray-700 animate-on-scroll fade-up"
+      >
+        <h2 class="text-3xl golden-text mb-8">Innovation Labs & Workshops</h2>
+
+        <div
+          class="relative p-6 border border-yellow-500/30 rounded-xl bg-black/30 mb-12"
+        >
+          <div
+            class="absolute -top-5 left-6 px-4 py-1 bg-gradient-to-r from-yellow-500 to-amber-600 text-black rounded-full font-semibold"
+          >
+            Our Approach
+          </div>
+          <p class="text-gray-300 mt-4">
+            Our innovation labs combine methodical exploration with creative
+            experimentation to solve complex business challenges. We create a
+            safe environment for teams to ideate, prototype, and validate ideas
+            before scaling them into production.
+          </p>
+
+          <div class="grid md:grid-cols-4 gap-6 mt-8">
+            <div class="text-center">
+              <div
+                class="w-16 h-16 mx-auto rounded-full bg-yellow-900/30 flex items-center justify-center border border-yellow-500/30"
+              >
+                <span class="text-yellow-500 font-bold text-2xl">01</span>
+              </div>
+              <h4 class="font-semibold mt-3 mb-1">Discover</h4>
+              <p class="text-sm text-gray-400">
+                Understanding the challenge and research
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 mx-auto rounded-full bg-yellow-900/30 flex items-center justify-center border border-yellow-500/30"
+              >
+                <span class="text-yellow-500 font-bold text-2xl">02</span>
+              </div>
+              <h4 class="font-semibold mt-3 mb-1">Ideate</h4>
+              <p class="text-sm text-gray-400">
+                Creating diverse solution concepts
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 mx-auto rounded-full bg-yellow-900/30 flex items-center justify-center border border-yellow-500/30"
+              >
+                <span class="text-yellow-500 font-bold text-2xl">03</span>
+              </div>
+              <h4 class="font-semibold mt-3 mb-1">Prototype</h4>
+              <p class="text-sm text-gray-400">
+                Building low-fidelity mock-ups
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 mx-auto rounded-full bg-yellow-900/30 flex items-center justify-center border border-yellow-500/30"
+              >
+                <span class="text-yellow-500 font-bold text-2xl">04</span>
+              </div>
+              <h4 class="font-semibold mt-3 mb-1">Validate</h4>
+              <p class="text-sm text-gray-400">
+                Testing with users and stakeholders
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div
+            class="bg-gray-800 rounded-xl overflow-hidden border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300"
+          >
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-purple-400 mb-4">
+                Design Sprint Workshops
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Intensive 5-day workshops that compress months of work into a
+                single week. Perfect for validating new product ideas or solving
+                critical business challenges quickly.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-purple-400 mr-2 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Problem definition and mapping</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-purple-400 mr-2 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Solution sketching and storyboarding</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-purple-400 mr-2 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Prototype creation and user testing</span
+                  >
+                </li>
+              </ul>
+              <div class="text-purple-400 text-sm font-medium">
+                Duration: 1 week | Team size: 4-7 people
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 rounded-xl overflow-hidden border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300"
+          >
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-blue-400 mb-4">
+                Digital Transformation Workshops
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Strategic sessions to identify transformation opportunities,
+                develop roadmaps, and align stakeholders around a shared vision
+                for digital innovation.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-blue-400 mr-2 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300">Current state assessment</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-blue-400 mr-2 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300">Opportunity identification</span>
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-blue-400 mr-2 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-300"
+                    >Transformation roadmap development</span
+                  >
+                </li>
+              </ul>
+              <div class="text-blue-400 text-sm font-medium">
+                Duration: 2-3 days | Team size: 8-12 people
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="mb-16 bg-gray-800/50 p-8 rounded-2xl border border-gray-700 animate-on-scroll fade-up"
+      >
+        <h2 class="text-3xl golden-text mb-8">Featured Case Studies</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a
+            href="case-studies/ai-analytics.html"
+            class="group block bg-gray-800 rounded-xl overflow-hidden hover:transform hover:-translate-y-2 transition-all duration-300 border border-indigo-500/20 hover:border-indigo-500/40"
+          >
+            <div class="relative">
+              <img
+                src="assets/images/big-data-processing.jpg"
+                alt="AI Analytics"
+                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div
+                class="absolute top-3 right-3 bg-indigo-500 text-white text-xs px-2 py-1 rounded"
+              >
+                AI & Analytics
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors"
+              >
+                AI-Powered Analytics Platform
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Revolutionizing data insights for enterprise clients with
+                real-time processing capabilities
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500 text-xs">Financial Services</span>
+                <span class="text-indigo-400 text-sm flex items-center">
+                  View Case
+                  <svg
+                    class="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="case-studies/case-study.html"
+            class="group block bg-gray-800 rounded-xl overflow-hidden hover:transform hover:-translate-y-2 transition-all duration-300 border border-blue-500/20 hover:border-blue-500/40"
+          >
+            <div class="relative">
+              <img
+                src="assets/images/ERP.webp"
+                alt="ERP System"
+                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div
+                class="absolute top-3 right-3 bg-blue-500 text-white text-xs px-2 py-1 rounded"
+              >
+                Enterprise Systems
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-lg font-semibold mb-2 group-hover:text-blue-400 transition-colors"
+              >
+                Enterprise ERP Modernization
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Streamlining operations for manufacturing clients through
+                cloud-native ERP transformation
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500 text-xs">Manufacturing</span>
+                <span class="text-blue-400 text-sm flex items-center">
+                  View Case
+                  <svg
+                    class="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="case-studies/case-study.html"
+            class="group block bg-gray-800 rounded-xl overflow-hidden hover:transform hover:-translate-y-2 transition-all duration-300 border border-green-500/20 hover:border-green-500/40"
+          >
+            <div class="relative">
+              <img
+                src="assets/images/medical.jpg"
+                alt="Healthcare"
+                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div
+                class="absolute top-3 right-3 bg-green-500 text-white text-xs px-2 py-1 rounded"
+              >
+                Healthcare Tech
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-lg font-semibold mb-2 group-hover:text-green-400 transition-colors"
+              >
+                Healthcare Analytics Platform
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Improving patient outcomes through predictive analytics and
+                AI-powered insights
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-500 text-xs">Healthcare</span>
+                <span class="text-green-400 text-sm flex items-center">
+                  View Case
+                  <svg
+                    class="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section
+        class="mb-16 bg-gray-800/50 p-8 rounded-2xl border border-gray-700 animate-on-scroll fade-up"
+      >
+        <h2 class="text-3xl golden-text mb-10">
+          Digital Innovation Technology Stack
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div
+            class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all duration-300 text-center group hover:transform hover:-translate-y-2"
+          >
+            <img
+              src="assets/images/svg/react.svg"
+              alt="React"
+              class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition-transform"
+              loading="lazy"
+            />
+            <h3 class="font-medium text-gray-300">React</h3>
+            <p class="text-xs text-gray-500 mt-1">Frontend Framework</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all duration-300 text-center group hover:transform hover:-translate-y-2"
+          >
+            <img
+              src="assets/images/svg/nodejs.svg"
+              alt="Node.js"
+              class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition-transform"
+              loading="lazy"
+            />
+            <h3 class="font-medium text-gray-300">Node.js</h3>
+            <p class="text-xs text-gray-500 mt-1">Backend Runtime</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all duration-300 text-center group hover:transform hover:-translate-y-2"
+          >
+            <img
+              src="assets/images/svg/tensorflow.svg"
+              alt="TensorFlow"
+              class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition-transform"
+              loading="lazy"
+            />
+            <h3 class="font-medium text-gray-300">TensorFlow</h3>
+            <p class="text-xs text-gray-500 mt-1">AI Framework</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all duration-300 text-center group hover:transform hover:-translate-y-2"
+          >
+            <img
+              src="assets/images/svg/aws.svg"
+              alt="AWS"
+              class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition-transform"
+              loading="lazy"
+            />
+            <h3 class="font-medium text-gray-300">AWS</h3>
+            <p class="text-xs text-gray-500 mt-1">Cloud Platform</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all duration-300 text-center group hover:transform hover:-translate-y-2"
+          >
+            <img
+              src="assets/images/svg/graphql.svg"
+              alt="GraphQL"
+              class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition-transform"
+              loading="lazy"
+            />
+            <h3 class="font-medium text-gray-300">GraphQL</h3>
+            <p class="text-xs text-gray-500 mt-1">API Technology</p>
+          </div>
+
+          <div
+            class="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all duration-300 text-center group hover:transform hover:-translate-y-2"
+          >
+            <img
+              src="assets/images/svg/kubernetes.svg"
+              alt="Kubernetes"
+              class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition-transform"
+              loading="lazy"
+            />
+            <h3 class="font-medium text-gray-300">Kubernetes</h3>
+            <p class="text-xs text-gray-500 mt-1">Orchestration</p>
+          </div>
+        </div>
+
+        <div
+          class="mt-10 p-6 bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-xl border border-indigo-500/20"
+        >
+          <h3 class="text-xl font-semibold mb-3 text-indigo-400">
+            Technology Selection Philosophy
+          </h3>
+          <p class="text-gray-300">
+            Our approach to technology selection balances innovation with
+            pragmatism. We evaluate emerging technologies based on their
+            maturity, community support, and alignment with business goals. This
+            ensures we deliver solutions that are both cutting-edge and
+            sustainable for the long term.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="mb-16 relative overflow-hidden rounded-2xl animate-on-scroll fade-up"
+        id="contact"
+      >
+        <div class="absolute inset-0 z-0">
+          <img
+            src="assets/images/digital-blue-hud.webp"
+            alt="Digital Background"
+            class="w-full h-full object-cover opacity-20"
+            loading="lazy"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-indigo-900/80 to-gray-900/90"
+          ></div>
+        </div>
+
+        <div class="relative z-10 p-8 md:p-12">
+          <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 golden-text">
+              Ready to Transform Your Business?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 md:px-12">
+              Let our innovation experts help you navigate the digital landscape
+              and unlock new opportunities for growth.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4">
+              <a
+                href="contact.html"
+                class="px-8 py-3 bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-semibold rounded-lg hover:from-amber-600 hover:to-yellow-500 transition-all transform hover:scale-105"
+              >
+                Schedule a Consultation
+              </a>
+
+              <a
+                href="CaseStudies.html"
+                class="px-8 py-3 bg-gray-800 text-white font-semibold rounded-lg border border-yellow-500/30 hover:border-yellow-500/60 transition-all"
+              >
+                Explore Success Stories
+              </a>
+            </div>
+
+            <div
+              class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto"
+            >
+              <div class="p-4 bg-gray-800/60 rounded-lg border border-white/10">
+                <div class="text-xl text-yellow-500 font-bold">24/7</div>
+                <div class="text-sm text-gray-400">Support</div>
+              </div>
+
+              <div class="p-4 bg-gray-800/60 rounded-lg border border-white/10">
+                <div class="text-xl text-yellow-500 font-bold">100%</div>
+                <div class="text-sm text-gray-400">Satisfaction</div>
+              </div>
+
+              <div class="p-4 bg-gray-800/60 rounded-lg border border-white/10">
+                <div class="text-xl text-yellow-500 font-bold">10+</div>
+                <div class="text-sm text-gray-400">Industries</div>
+              </div>
+
+              <div class="p-4 bg-gray-800/60 rounded-lg border border-white/10">
+                <div class="text-xl text-yellow-500 font-bold">5★</div>
+                <div class="text-sm text-gray-400">Rated Service</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16 overflow-hidden"
+    >
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="services.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="case-studies.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Case Studies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="blog.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Technologies</h4>
+            <div class="grid grid-cols-3 gap-4">
+              <img
+                src="assets/images/svg/react.svg"
+                alt="React"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/nodejs.svg"
+                alt="Node.js"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/aws.svg"
+                alt="AWS"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/tailwind.svg"
+                alt="Tailwind CSS"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/graphql.svg"
+                alt="GraphQL"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+              <img
+                src="assets/images/svg/typescript.svg"
+                alt="TypeScript"
+                class="h-8 w-8 hover:scale-110 transition-transform"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Contact</h4>
+            <div class="space-y-3 text-gray-400">
+              <p>5470 Kietzke Ln Ste 300</p>
+              <p>Reno, NV 89511</p>
+              <p>+1-844-OFO-DEVS</p>
+              <p>contact@ofodevelopment.com</p>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Follow Us</h4>
+            <div class="flex space-x-6">
+              <a
+                href="https://twitter.com/ofodev"
+                class="text-gray-400 hover:text-blue-400 transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 4.01c-1 .49-2.1.82-3.24.97a5.07 5.07 0 002.25-2.83 10.2 10.2 0 01-3.24 1.24a5.07 5.07 0 00-8.63 4.62A14.4 14.4 0 013 2.6a5.07 5.07 0 001.57 6.77 5.07 5.07 0 01-2.3-.63v.06a5.07 5.07 0 004.07 4.97 5.07 5.07 0 01-2.29.09 5.07 5.07 0 004.73 3.52 10.2 10.2 0 01-6.32 2.18c-.41 0-.82-.02-1.22-.07a14.4 14.4 0 007.83 2.3c9.4 0 14.53-7.79 14.53-14.53 0-.22 0-.44-.02-.66a10.4 10.4 0 002.56-2.65z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com/company/ofodev"
+                class="text-gray-400 hover:text-blue-600 transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://github.com/ofodev"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-12 border-t border-gray-800">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex space-x-6 mb-4 md:mb-0">
+              <a
+                href="privacy-policy.html"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Privacy Policy</a
+              >
+              <a
+                href="terms.html"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Terms of Service</a
+              >
+              <a
+                href="sitemap.xml"
+                class="text-gray-400 hover:text-white transition-colors"
+                >Sitemap</a
+              >
+            </div>
+            <p class="text-gray-400 text-sm">
+              © <span id="current-year"></span> OFO Development. All rights
+              reserved.<br />
+              <span class="text-gray-500 text-xs mt-1 block"
+                >Proudly building in Nevada</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="fixed bottom-8 right-8 p-3 bg-gray-800 rounded-full shadow-lg hover:bg-gray-700 transition-colors"
+      >
+        <svg
+          class="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 15l7-7 7 7"
+          ></path>
+        </svg>
+      </button>
+
+      <script>
+        document.getElementById("current-year").textContent =
+          new Date().getFullYear();
+      </script>
+    </footer>
+
+    <div id="dark-mode-toggle-container"></div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/analytics.js"></script>
+    <script>
+      // Timeline Animation Code
+      document.addEventListener("DOMContentLoaded", function () {
+        // Handle timeline animations when they come into view
+        const timelineItems = document.querySelectorAll(".timeline-item");
+
+        // Create an intersection observer for timeline items
+        const timelineObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                // Unobserve after animation is triggered
+                timelineObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        // Observe all timeline items
+        timelineItems.forEach((item) => {
+          timelineObserver.observe(item);
+        });
+      });
+    </script>
+  </body>
+</html>

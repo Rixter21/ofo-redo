@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeFi Platform Case Study - OFO Development</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Discover how OFO Development builds secure, scalable decentralized finance (DeFi) platforms with smart contract architecture and seamless blockchain integration."
+    />
+    <meta
+      name="keywords"
+      content="defi platform, decentralized finance, blockchain development, smart contracts, web3, cryptocurrency, financial technology, blockchain integration"
+    />
+    <meta name="author" content="OFO Development" />
+    <link
+      rel="canonical"
+      href="https://ofodevelopment.com/case-studies/defi-platform.html"
+    />
+
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta
+      property="og:title"
+      content="DeFi Platform Case Study - OFO Development"
+    />
+    <meta
+      property="og:description"
+      content="Our DeFi platform solutions enable secure, transparent financial transactions through blockchain technology and smart contract architecture."
+    />
+    <meta
+      property="og:image"
+      content="https://ofodevelopment.com/assets/images/cryptocurrency-coding-digital-blue-background-open-source-blockchain-concept.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://ofodevelopment.com/case-studies/defi-platform.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OFO Development" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="DeFi Platform Case Study - OFO Development"
+    />
+    <meta
+      name="twitter:description"
+      content="Our secure DeFi platform solutions provide transparent, efficient financial services through advanced blockchain technology."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ofodevelopment.com/assets/images/cryptocurrency-coding-digital-blue-background-open-source-blockchain-concept.webp"
+    />
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link href="../assets/css/output.min.css" rel="stylesheet" />
+    <link href="../assets/css/additional-styles.css" rel="stylesheet" />
+    <style>
+      .wave-bg {
+        background: linear-gradient(
+            rgba(17, 24, 39, 0.95),
+            rgba(17, 24, 39, 0.95)
+          ),
+          url("https://placehold.co/1920/1080") center/cover;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .golden-text {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+      }
+
+      .project-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        border-color: rgba(255, 215, 0, 0.5);
+        transform: translateY(-5px);
+      }
+
+      .testimonial-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+      }
+
+      .metric-card {
+        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .metric-card:hover {
+        transform: translateY(-5px);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .case-study-hero {
+        position: relative;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+
+      .case-study-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(17, 24, 39, 0.9),
+          rgba(17, 24, 39, 0.95)
+        );
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .project-timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .project-timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(to bottom, #ffd700, rgba(255, 215, 0, 0.1));
+        border-radius: 1rem;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-bottom: 2rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -2.5rem;
+        top: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: #ffd700;
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      }
+
+      .tech-tag {
+        display: inline-block;
+        background-color: rgba(59, 130, 246, 0.2);
+        color: #93c5fd;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .result-card {
+        background: linear-gradient(
+          145deg,
+          rgba(30, 41, 59, 0.6),
+          rgba(30, 41, 59, 0.2)
+        );
+        border: 1px solid rgba(255, 215, 0, 0.1);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .result-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 215, 0, 0.3);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-gray-200">
+    <!-- Schema.org markup for DeFi Platform Case Study -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "DeFi Platform Case Study",
+        "description": "A comprehensive examination of OFO Development's approach to building secure, scalable decentralized finance platforms with smart contract architecture.",
+        "image": "https://ofodevelopment.com/assets/images/cryptocurrency-coding-digital-blue-background-open-source-blockchain-concept.webp",
+        "author": {
+          "@type": "Organization",
+          "name": "OFO Development",
+          "url": "https://ofodevelopment.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "OFO Development",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ofodevelopment.com/assets/images/logos/Color logo - no background.png"
+          }
+        },
+        "datePublished": "2025-03-09",
+        "about": {
+          "@type": "SoftwareApplication",
+          "name": "DeFi Platform",
+          "applicationCategory": "FinancialApplication",
+          "operatingSystem": "Web3"
+        },
+        "keywords": "defi, decentralized finance, blockchain, smart contracts, web3, ethereum, financial technology",
+        "url": "https://ofodevelopment.com/case-studies/defi-platform.html",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://ofodevelopment.com/case-studies/defi-platform.html"
+        }
+      }
+    </script>
+
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-blue-900 focus:text-white focus:z-50"
+      >Skip to main content</a
+    >
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <a href="../index.html">
+              <img
+                src="../assets/images/logos/Color logo - no background.png"
+                alt="OFO Development"
+                class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+              />
+            </a>
+          </div>
+
+          <button
+            data-mobile-menu-button
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="../services.html" class="nav-link">Services</a>
+            <a href="../CaseStudies.html" class="nav-link">Case Studies</a>
+            <a href="../resources.html" class="nav-link">Resources</a>
+            <a href="../contact.html" class="nav-link">Contact</a>
+            <a href="../blog.html" class="nav-link">Blog</a>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+          data-mobile-menu
+          class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 max-h-0"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="../about.html" class="block nav-link">About</a>
+            <a href="../services.html" class="block nav-link">Services</a>
+            <a href="../CaseStudies.html" class="block nav-link"
+              >Case Studies</a
+            >
+            <a href="../resources.html" class="block nav-link">Resources</a>
+            <a href="../contact.html" class="block nav-link">Contact</a>
+            <a href="../blog.html" class="block nav-link">Blog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div
+      class="case-study-hero bg-cover bg-center"
+      style="background-image: url('../assets/images/cryptocurrency-coding-digital-blue-background-open-source-blockchain-concept.webp')"
+    >
+      <div class="container mx-auto px-6 py-24 relative z-10">
+        <div
+          class="max-w-3xl mx-auto text-center animate-on-scroll"
+          data-once="true"
+        >
+          <div
+            class="mb-4 inline-block px-3 py-1 bg-blue-900/30 rounded-full text-blue-300 text-sm font-medium"
+          >
+            BLOCKCHAIN TECHNOLOGY
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span class="golden-text">DeFi Platform</span>
+          </h1>
+          <p class="text-xl text-gray-300 mb-8">
+            Secure, scalable decentralized finance solutions that enable transparent,
+            peer-to-peer financial services through blockchain technology
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <div class="bg-blue-900/30 rounded-xl px-6 py-3">
+              <div class="text-sm text-blue-300">Development Time</div>
+              <div class="text-xl font-bold">4-8 Months</div>
+            </div>
+            <div class="bg-blue-900/30 rounded-xl px-6 py-3">
+              <div class="text-sm text-blue-300">Team Size</div>
+              <div class="text-xl font-bold">5-12 Members</div>
+            </div>
+            <div class="bg-blue-900/30 rounded-xl px-6 py-3">
+              <div class="text-sm text-blue-300">Key Capability</div>
+              <div class="text-xl font-bold text-green-400">
+                Smart Contracts
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="main-content" class="container mx-auto px-4 py-16">
+      <!-- Solution Overview -->
+      <section class="mb-20 animate-on-scroll" data-once="true">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold mb-6 golden-text">The Solution</h2>
+            <p class="text-gray-300 mb-6">
+              Our DeFi platform solutions enable secure, transparent financial
+              transactions through blockchain technology and smart contract architecture.
+              We create custom decentralized applications that provide lending, 
+              borrowing, staking, and trading capabilities without traditional
+              intermediaries, offering increased security, efficiency, and accessibility
+              for financial services.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-tag">FinTech Sector</span>
+              <span class="tech-tag">Web3 Development</span>
+              <span class="tech-tag">Blockchain Solutions</span>
+            </div>
+          </div>
+          <div class="bg-blue-900/20 p-6 rounded-xl border border-blue-900/30">
+            <blockquote class="italic text-gray-300">
+              "We design DeFi platforms that enable financial services with 
+              transparency, security, and efficiency through innovative blockchain
+              technology and audited smart contract architecture."
+              <footer class="mt-4 text-sm text-blue-300 not-italic">
+                — OFO Development, Blockchain Solutions Team
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- Challenge Section -->
+      <section class="mb-20 animate-on-scroll" data-once="true">
+        <h2 class="text-3xl font-bold mb-8 golden-text">The Challenges</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <p class="text-gray-300 mb-6">
+              Developing decentralized finance platforms presents unique challenges
+              that require specialized expertise and careful consideration. Security
+              concerns, complex integration with blockchain networks, and creating
+              intuitive user experiences for non-technical users are critical factors
+              that must be addressed for successful implementation.
+            </p>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <svg
+                  class="w-6 h-6 text-red-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Ensuring smart contract security and preventing exploits
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-6 h-6 text-red-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Optimizing gas efficiency for cost-effective transactions
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-6 h-6 text-red-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Creating user-friendly interfaces for blockchain interactions
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div
+              class="bg-gradient-to-br from-blue-900/40 to-blue-900/10 rounded-xl p-6 border border-blue-900/30"
+            >
+              <h3 class="text-xl font-semibold mb-4 text-blue-300">
+                Key Requirements
+              </h3>
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-500 mr-2 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  Rigorous security architecture with multiple audit stages
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-500 mr-2 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  Seamless wallet integration and asset connectivity
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-500 mr-2 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  Responsive frontend with blockchain transaction status updates
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-6 h-6 text-blue-500 mr-2 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  Interoperability with major blockchain networks
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Approach Section -->
+      <section class="mb-20 animate-on-scroll" data-once="true">
+        <h2 class="text-3xl font-bold mb-8 golden-text">Our Approach</h2>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div
+            class="bg-gradient-to-br from-gray-800/50 to-gray-900/80 rounded-xl p-6 border border-gray-700/30 hover:border-blue-900/30 transition-all"
+          >
+            <div class="text-blue-400 mb-4">
+              <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M3 3a1 1 0 000 2h10a1 1 0 100-2H3zm0 4a1 1 0 000 2h10a1 1 0 100-2H3zm0 4a1 1 0 100 2h6a1 1 0 100-2H3z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Design & Architecture</h3>
+            <p class="text-gray-300">
+              We design secure smart contract architectures through tokenomics 
+              modeling, risk assessment, and formal verification planning to
+              establish a foundation for robust DeFi functionality.
+            </p>
+          </div>
+          <div
+            class="bg-gradient-to-br from-gray-800/50 to-gray-900/80 rounded-xl p-6 border border-gray-700/30 hover:border-blue-900/30 transition-all"
+          >
+            <div class="text-blue-400 mb-4">
+              <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Development & Testing</h3>
+            <p class="text-gray-300">
+              Our development process includes test-driven smart contract implementation,
+              comprehensive security auditing, and gas optimization to ensure
+              efficient, secure code that functions as intended.
+            </p>
+          </div>
+          <div
+            class="bg-gradient-to-br from-gray-800/50 to-gray-900/80 rounded-xl p-6 border border-gray-700/30 hover:border-blue-900/30 transition-all"
+          >
+            <div class="text-blue-400 mb-4">
+              <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Frontend & Integration</h3>
+            <p class="text-gray-300">
+              We create intuitive web3 interfaces with wallet connectivity, 
+              real-time transaction status, and responsive designs that make 
+              blockchain interactions accessible to all users.
+            </p>
+          </div>
+        </div>
+        <div class="project-timeline my-12">
+          <div class="timeline-item">
+            <h3 class="text-xl font-semibold mb-2">
+              Phase 1: Protocol Design & Specifications
+            </h3>
+            <p class="text-gray-300 mb-4">
+              During this phase, we define the DeFi platform architecture,
+              create detailed smart contract specifications, and establish
+              security protocols to guide development and risk mitigation.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-2">
+              <span class="tech-tag">Tokenomics Modeling</span>
+              <span class="tech-tag">Security Specifications</span>
+              <span class="tech-tag">Protocol Architecture</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <h3 class="text-xl font-semibold mb-2">
+              Phase 2: Smart Contract Development
+            </h3>
+            <p class="text-gray-300 mb-4">
+              We implement core DeFi functionality through secure smart contracts,
+              using best practices for upgradeability, access control, and gas
+              optimization while maintaining comprehensive test coverage.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-2">
+              <span class="tech-tag">Solidity/Rust</span>
+              <span class="tech-tag">OpenZeppelin</span>
+              <span class="tech-tag">Hardhat/Truffle</span>
+              <span class

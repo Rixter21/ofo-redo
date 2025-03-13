@@ -1,0 +1,12 @@
++ set -eo pipefail
++ LOG_FILE=masterpiece.log
++ PLAN_FILE=docs/masterplan.md
++ echo '🔒 Starting security hardening...'
++ tee -a masterpiece.log
+🔒 Starting security hardening...
++ npx lighthouse-ci http://localhost:3000 --security --performance=90 --accessibility=95
++ tee -a masterpiece.log
+- Running Lighthouse on http://localhost:3000 ...
+
+Error: Chrome prevented page load with an interstitial. Make sure you are testing the correct URL and that the server is properly responding to all requests. 
+

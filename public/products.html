@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OFO Solutions - Our Products</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/output.min.css" />
+
+    <!-- Basic Meta Tags -->
+    <meta
+      name="description"
+      content="Transform your business with OFO's cutting-edge AI solutions including Neural Insights, Cloud Nexus, and AutoFlow - designed to propel your organization into the future."
+    />
+    <meta
+      name="keywords"
+      content="AI solutions, predictive analytics, cloud infrastructure, process automation, cloud nexus, neural insights, autoflow, enterprise solutions, business transformation"
+    />
+    <meta name="author" content="OFO Development" />
+    <link rel="canonical" href="https://ofodevelopment.com/products.html" />
+
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta
+      property="og:title"
+      content="AI Products & Solutions | OFO Development"
+    />
+    <meta
+      property="og:description"
+      content="Transform your business with OFO's cutting-edge AI solutions including Neural Insights, Cloud Nexus, and AutoFlow - designed to propel your organization into the future."
+    />
+    <meta
+      property="og:image"
+      content="https://ofodevelopment.com/assets/images/ai-chip.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://ofodevelopment.com/products.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OFO Development" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="AI Products & Solutions | OFO Development"
+    />
+    <meta
+      name="twitter:description"
+      content="Transform your business with OFO's cutting-edge AI solutions including Neural Insights, Cloud Nexus, and AutoFlow - designed to propel your organization into the future."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ofodevelopment.com/assets/images/ai-chip.webp"
+    />
+
+    <!-- Product Schema.org Markup for Enhanced Search Visibility -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "Product",
+            "name": "OFO Neural Insights",
+            "description": "Real-time predictive analytics powered by deep learning algorithms",
+            "image": "https://ofodevelopment.com/assets/images/ai-chip.webp",
+            "url": "https://ofodevelopment.com/products.html#neural-insights",
+            "brand": {
+              "@type": "Brand",
+              "name": "OFO Development"
+            },
+            "category": "AI Analytics"
+          },
+          {
+            "@type": "Product",
+            "name": "OFO Cloud Nexus",
+            "description": "Scalable cloud infrastructure with automated resource optimization",
+            "image": "https://ofodevelopment.com/assets/images/saas-concept2.webp",
+            "url": "https://ofodevelopment.com/products.html#cloud-nexus",
+            "brand": {
+              "@type": "Brand",
+              "name": "OFO Development"
+            },
+            "category": "Cloud Infrastructure"
+          },
+          {
+            "@type": "Product",
+            "name": "OFO AutoFlow",
+            "description": "Intelligent process automation with self-learning workflows",
+            "image": "https://ofodevelopment.com/assets/images/futuristic-smart-city.webp",
+            "url": "https://ofodevelopment.com/products.html#autoflow",
+            "brand": {
+              "@type": "Brand",
+              "name": "OFO Development"
+            },
+            "category": "Process Automation"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link
+      rel="preload"
+      href="assets/images/logos/Color logo - no background.png"
+      as="image"
+      type="image/png"
+    />
+    <style>
+      /* Original Styles */
+
+      /* Enhanced Navbar Styles */
+      .nav-link {
+        color: #d1d5db;
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-link:hover {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.5rem;
+        width: 600px;
+        background-color: #1f2937;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        transform: translateY(-0.5rem);
+      }
+
+      .group:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        color: #d1d5db;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: #374151;
+        transform: translateX(0.5rem);
+      }
+
+      .dropdown-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: 0.75rem;
+        color: #eab308;
+      }
+
+      /* Mobile Menu Animation */
+      .mobile-menu {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Backdrop Blur Effect */
+      nav {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* Accordion Transitions */
+      .accordion div {
+        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Premium Dropdown Footer */
+      .dropdown-menu > div:last-child {
+        border-top: 1px solid #374151;
+        background-color: #1f2937;
+        padding: 1rem;
+      }
+
+      .dropdown-menu > div:last-child h3 {
+        color: #eab308;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Enhanced Hero Section Animation */
+      .animated-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+      }
+
+      .hero-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .hero-particles span {
+        position: absolute;
+        display: block;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: move 25s linear infinite;
+        z-index: 1;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes move {
+        0% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+          opacity: 1;
+          border-radius: 0;
+        }
+        100% {
+          transform: translateY(-1000px) translateX(500px) rotate(720deg);
+          opacity: 0;
+          border-radius: 50%;
+        }
+      }
+
+      /* Product Card Enhanced Styles */
+      .product-card {
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(59, 130, 246, 0.1);
+      }
+
+      .product-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+          0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        border-color: rgba(59, 130, 246, 0.3);
+      }
+
+      .product-card img {
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .product-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        z-index: 10;
+        transition: all 0.3s ease;
+      }
+
+      .product-badge.new {
+        background-color: #3b82f6;
+        color: white;
+      }
+
+      .product-badge.popular {
+        background-color: #8b5cf6;
+        color: white;
+      }
+
+      .product-badge.enterprise {
+        background-color: #10b981;
+        color: white;
+      }
+
+      .category-filter-button {
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .category-filter-button.active {
+        background-color: #3b82f6;
+        color: white;
+      }
+
+      .category-filter-button:hover:not(.active) {
+        border-color: #3b82f6;
+      }
+
+      /* Feature comparison table */
+      .comparison-table {
+        overflow-x: auto;
+      }
+
+      .comparison-table th {
+        min-width: 160px;
+      }
+
+      .comparison-table td:not(:first-child) {
+        text-align: center;
+      }
+
+      /* Product tour */
+      .product-tour-btn {
+        transition: all 0.3s ease;
+      }
+
+      .product-tour-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      /* ROI Calculator */
+      .calculator-container {
+        transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      .calculator-container.active {
+        max-height: 800px;
+        opacity: 1;
+      }
+
+      /* Testimonial carousel */
+      .testimonial-carousel {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-slide {
+        transition: all 0.5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      .testimonial-slide.active {
+        opacity: 1;
+        position: relative;
+      }
+
+      /* Enhanced detail view */
+      .product-detail-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .product-detail-modal.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .product-detail-content {
+        background-color: #1f2937;
+        border-radius: 0.5rem;
+        width: 90%;
+        max-width: 900px;
+        max-height: 90vh;
+        overflow-y: auto;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+      }
+
+      .product-detail-modal.active .product-detail-content {
+        transform: translateY(0);
+      }
+
+      /* Accessibility focus styles */
+      button:focus-visible,
+      a:focus-visible {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+      }
+
+      /* Chat widget */
+      .chat-widget {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 40;
+        transition: all 0.3s ease;
+      }
+
+      .chat-widget-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 9999px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .chat-widget-button:hover {
+        transform: scale(1.1);
+      }
+
+      /* Related products section */
+      .related-products {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+      }
+
+      .related-products.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-gray-100">
+    <nav
+      class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <a href="index.html" aria-label="Homepage">
+              <img
+                src="assets/images/logos/Color logo - no background.png"
+                alt="OFO Development"
+                class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+              />
+            </a>
+          </div>
+
+          <button
+            data-mobile-menu-button
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="about.html" class="nav-link">About</a>
+
+            <div class="relative group" id="services-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-label="Services menu"
+              >
+                Services
+                <span class="ml-1 transition-transform group-hover:rotate-180"
+                  >▾</span
+                >
+              </button>
+
+              <div
+                class="dropdown-menu backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 transition-all duration-500 hover:backdrop-blur-xl hover:from-gray-900/70 hover:to-gray-900/50"
+                role="menu"
+                aria-label="Services submenu"
+              >
+                <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Custom Software
+                  </a>
+                  <a
+                    href="MobileDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 116 0v2h2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2h2V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2h-1v-2h1v-5H7v5h10V9a2 2 0 00-2-2h-1V7a3 3 0 00-6 0v2H7V7a5 5 0 015-5z"
+                      ></path>
+                    </svg>
+                    Mobile Apps
+                  </a>
+                  <a
+                    href="WebDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Web Development
+                  </a>
+                  <a
+                    href="DataAnalysis.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Data Analysis
+                  </a>
+                  <a
+                    href="EcommerceSolutions.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                      ></path>
+                    </svg>
+                    E-Commerce
+                  </a>
+                  <a
+                    href="ArtificialIntelligence.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    AI & Machine Learning
+                  </a>
+                  <a
+                    href="DigitalInnovation.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"
+                      ></path>
+                    </svg>
+                    Digital Innovation
+                  </a>
+                  <a
+                    href="VirtualReality.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    VR & AR
+                  </a>
+                  <a
+                    href="GameDevelopment.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+                      ></path>
+                    </svg>
+                    Game Development
+                  </a>
+                  <a
+                    href="CloudComputing.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M5 12a1 1 0 102 0V6.414l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L5 6.414V12zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z"
+                      ></path>
+                    </svg>
+                    Cloud Computing
+                  </a>
+                  <a
+                    href="CyberSecurity.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    Cybersecurity
+                  </a>
+                  <a
+                    href="ProductManagement.html"
+                    class="dropdown-item"
+                    role="menuitem"
+                  >
+                    <svg
+                      class="dropdown-icon"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
+                      ></path>
+                    </svg>
+                    Product Management
+                  </a>
+                </div>
+
+                <div
+                  class="border-t border-white/20 p-4 bg-gray-900/30 backdrop-blur-md transition-all duration-300 hover:bg-gray-900/40"
+                >
+                  <h3 class="text-yellow-500 text-sm font-semibold mb-2">
+                    Premium Services
+                  </h3>
+                  <p class="text-gray-300 text-sm">
+                    Custom solutions tailored to your business needs
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="nav-link">Resources</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+          </div>
+        </div>
+
+        <div
+          data-mobile-menu
+          class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 max-h-0"
+        >
+          <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="about.html" class="block nav-link">About</a>
+
+            <div class="accordion">
+              <button
+                data-services-button
+                aria-expanded="false"
+                aria-label="Toggle services menu"
+                class="w-full flex justify-between items-center nav-link"
+              >
+                Services
+                <span class="dropdown-icon transform transition-transform"
+                  >▾</span
+                >
+              </button>
+              <div
+                data-services-content
+                class="overflow-hidden transition-all duration-300 max-h-0"
+              >
+                <div class="pl-4 space-y-2">
+                  <a
+                    href="CustomSoftwareDevelopment.html"
+                    class="block nav-link"
+                    >Custom Software</a
+                  >
+                  <a href="MobileDevelopment.html" class="block nav-link"
+                    >Mobile Apps</a
+                  >
+                  <a href="WebDevelopment.html" class="block nav-link"
+                    >Web Development</a
+                  >
+                  <a href="DataAnalysis.html" class="block nav-link"
+                    >Data Analysis</a
+                  >
+                  <a href="EcommerceSolutions.html" class="block nav-link"
+                    >E-Commerce</a
+                  >
+                  <a href="ArtificialIntelligence.html" class="block nav-link"
+                    >AI & Machine Learning</a
+                  >
+                  <a href="DigitalInnovation.html" class="block nav-link"
+                    >Digital Innovation</a
+                  >
+                  <a href="VirtualReality.html" class="block nav-link"
+                    >VR & AR</a
+                  >
+                  <a href="GameDevelopment.html" class="block nav-link"
+                    >Game Development</a
+                  >
+                  <a href="CloudComputing.html" class="block nav-link"
+                    >Cloud Computing</a
+                  >
+                  <a href="CyberSecurity.html" class="block nav-link"
+                    >Cybersecurity</a
+                  >
+                  <a href="ProductManagement.html" class="block nav-link"
+                    >Product Management</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a href="resources.html" class="block nav-link">Resources</a>
+            <a href="contact.html" class="block nav-link">Contact</a>
+            <a href="blog.html" class="block nav-link">Blog</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header
+      class="relative bg-gradient-to-r from-blue-900 to-purple-900 py-20 overflow-hidden"
+    >
+      <!-- Animated background with particles -->
+      <div class="animated-bg"></div>
+      <div class="hero-particles">
+        <span
+          style="
+            width: 8px;
+            height: 8px;
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+            animation-duration: 30s;
+          "
+        ></span>
+        <span
+          style="
+            width: 12px;
+            height: 12px;
+            left: 20%;
+            top: 30%;
+            animation-delay: 2s;
+            animation-duration: 25s;
+          "
+        ></span>
+        <span
+          style="
+            width: 15px;
+            height: 15px;
+            left: 30%;
+            top: 40%;
+            animation-delay: 4s;
+            animation-duration: 20s;
+          "
+        ></span>
+        <span
+          style="
+            width: 10px;
+            height: 10px;
+            left: 40%;
+            top: 10%;
+            animation-delay: 6s;
+            animation-duration: 35s;
+          "
+        ></span>
+        <span
+          style="
+            width: 9px;
+            height: 9px;
+            left: 50%;
+            top: 50%;
+            animation-delay: 8s;
+            animation-duration: 18s;
+          "
+        ></span>
+        <span
+          style="
+            width: 14px;
+            height: 14px;
+            left: 60%;
+            top: 20%;
+            animation-delay: 10s;
+            animation-duration: 22s;
+          "
+        ></span>
+        <span
+          style="
+            width: 11px;
+            height: 11px;
+            left: 70%;
+            top: 30%;
+            animation-delay: 12s;
+            animation-duration: 28s;
+          "
+        ></span>
+        <span
+          style="
+            width: 13px;
+            height: 13px;
+            left: 80%;
+            top: 40%;
+            animation-delay: 14s;
+            animation-duration: 23s;
+          "
+        ></span>
+        <span
+          style="
+            width: 16px;
+            height: 16px;
+            left: 90%;
+            top: 10%;
+            animation-delay: 16s;
+            animation-duration: 33s;
+          "
+        ></span>
+      </div>
+
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+      >
+        <h1
+          class="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-transparent"
+        >
+          Transform Your Business with Our AI Solutions
+        </h1>
+        <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+          Cutting-edge products designed to propel your organization into the
+          future of technology and innovation
+        </p>
+
+        <!-- Product Category Filter -->
+        <div class="flex flex-wrap justify-center gap-3 mb-6">
+          <button
+            class="category-filter-button active px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700"
+            data-category="all"
+            aria-pressed="true"
+          >
+            All Products
+          </button>
+          <button
+            class="category-filter-button px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700"
+            data-category="analytics"
+            aria-pressed="false"
+          >
+            Analytics
+          </button>
+          <button
+            class="category-filter-button px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700"
+            data-category="infrastructure"
+            aria-pressed="false"
+          >
+            Infrastructure
+          </button>
+          <button
+            class="category-filter-button px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700"
+            data-category="automation"
+            aria-pressed="false"
+          >
+            Automation
+          </button>
+          <button
+            class="category-filter-button px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700"
+            data-category="security"
+            aria-pressed="false"
+          >
+            Security
+          </button>
+        </div>
+
+        <div class="flex justify-center space-x-4 mt-8">
+          <a
+            href="#core-products"
+            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
+            >Core Solutions</a
+          >
+          <a
+            href="#enterprise-products"
+            class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors"
+            >Enterprise Suite</a
+          >
+          <a
+            href="#comparison"
+            class="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition-colors"
+            >Compare Products</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section id="core-products" class="mb-24">
+        <h2
+          class="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+        >
+          Core Technology Solutions
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Neural Insights Card -->
+          <div
+            id="neural-insights"
+            class="product-card bg-gray-800 rounded-lg p-6 hover:bg-gray-700 overflow-hidden"
+            data-category="analytics"
+          >
+            <div class="product-badge popular">Popular</div>
+            <img
+              src="assets/images/ai-chip.webp"
+              alt="AI analytics platform interface showing data visualizations"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-xl font-bold mb-2">OFO Neural Insights</h3>
+            <p class="text-gray-400 mb-4">
+              Real-time predictive analytics powered by deep learning algorithms
+            </p>
+            <div class="flex flex-col space-y-3">
+              <button
+                class="view-details-btn w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+                data-product="neural-insights"
+                aria-label="View details for Neural Insights"
+              >
+                View Details
+              </button>
+              <div class="flex space-x-2">
+                <a
+                  href="ArtificialIntelligence.html"
+                  class="flex-1 text-center bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors duration-300"
+                  aria-label="Learn more about Neural Insights"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cloud Nexus Card -->
+          <div
+            id="cloud-nexus"
+            class="product-card bg-gray-800 rounded-lg p-6 hover:bg-gray-700 overflow-hidden"
+            data-category="infrastructure"
+          >
+            <div class="product-badge enterprise">Enterprise</div>
+            <img
+              src="assets/images/saas-concept2.webp"
+              alt="Cloud infrastructure network diagram"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-xl font-bold mb-2">OFO Cloud Nexus</h3>
+            <p class="text-gray-400 mb-4">
+              Scalable cloud infrastructure with automated resource optimization
+            </p>
+            <div class="flex flex-col space-y-3">
+              <button
+                class="view-details-btn w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+                data-product="cloud-nexus"
+                aria-label="View details for Cloud Nexus"
+              >
+                View Details
+              </button>
+              <div class="flex space-x-2">
+                <a
+                  href="CloudComputing.html"
+                  class="flex-1 text-center bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors duration-300"
+                  aria-label="Learn more about Cloud Nexus"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- AutoFlow Card -->
+          <div
+            id="autoflow"
+            class="product-card bg-gray-800 rounded-lg p-6 hover:bg-gray-700 overflow-hidden"
+            data-category="automation"
+          >
+            <div class="product-badge new">New</div>
+            <img
+              src="assets/images/futuristic-smart-city.webp"
+              alt="Automation workflow diagram with connected nodes"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-xl font-bold mb-2">OFO AutoFlow</h3>
+            <p class="text-gray-400 mb-4">
+              Intelligent process automation with self-learning workflows
+            </p>
+            <div class="flex flex-col space-y-3">
+              <button
+                class="view-details-btn w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+                data-product="autoflow"
+                aria-label="View details for AutoFlow"
+              >
+                View Details
+              </button>
+              <div class="flex space-x-2">
+                <a
+                  href="DigitalInnovation.html"
+                  class="flex-1 text-center bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors duration-300"
+                  aria-label="Learn more about AutoFlow"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enterprise Products Section -->
+      <section
+        id="enterprise-products"
+        class="mb-24 pt-16 border-t border-gray-800"
+      >
+        <h2
+          class="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+        >
+          Enterprise-Grade Solutions
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <!-- SecureGuard -->
+          <div
+            class="product-card bg-gray-800 rounded-lg p-6 hover:bg-gray-700 overflow-hidden"
+            data-category="security"
+          >
+            <div class="product-badge enterprise">Enterprise</div>
+            <img
+              src="assets/images/man-scanning-his-eyes-biometrics-security-technology-digital-remix.webp"
+              alt="Advanced cybersecurity protection with biometric scanning"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-xl font-bold mb-2 flex items-center">
+              <span
+                class="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent"
+                >OFO SecureGuard</span
+              >
+              <span
+                class="ml-2 px-2 py-1 bg-blue-900/40 text-blue-300 text-xs rounded-full"
+                >New</span
+              >
+            </h3>
+            <p class="text-gray-400 mb-2">
+              Enterprise-grade security platform with intelligent threat
+              detection and real-time protection
+            </p>
+            <ul class="mb-4 text-sm text-gray-400 space-y-2">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                AI-powered threat detection with 99.7% accuracy
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Zero-trust implementation with continuous verification
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Automated remediation workflows reduce response time by 86%
+              </li>
+            </ul>
+            <div class="flex space-x-2">
+              <a
+                href="CyberSecurity.html"
+                class="flex-1 text-center bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+              >
+                Learn More
+              </a>
+              <a
+                href="contact.html?product=secureguard"
+                class="px-4 py-2 border border-blue-500 text-blue-400 hover:bg-blue-900/30 rounded-md transition-colors duration-300"
+              >
+                Request Demo
+              </a>
+            </div>
+          </div>
+
+          <!-- DataMesh -->
+          <div
+            class="product-card bg-gray-800 rounded-lg p-6 hover:bg-gray-700 overflow-hidden"
+            data-category="infrastructure"
+          >
+            <div class="product-badge new">New</div>
+            <img
+              src="assets/images/big-data-processing.webp"
+              alt="Unified data management platform with visual data flow"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-xl font-bold mb-2 flex items-center">
+              <span
+                class="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
+                >OFO DataMesh</span
+              >
+              <span
+                class="ml-2 px-2 py-1 bg-purple-900/40 text-purple-300 text-xs rounded-full"
+                >New</span
+              >
+            </h3>
+            <p class="text-gray-400 mb-2">
+              Unified data fabric solution for seamless integration and
+              management across multiple data sources
+            </p>
+            <ul class="mb-4 text-sm text-gray-400 space-y-2">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-purple-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Real-time data transformation with 200+ pre-built connectors
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-purple-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Regulatory compliance automation with audit trail
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-purple-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                75% reduction in data integration costs with self-service UI
+              </li>
+            </ul>
+            <div class="flex space-x-2">
+              <a
+                href="DataAnalysis.html"
+                class="flex-1 text-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+              >
+                Explore Platform
+              </a>
+              <a
+                href="contact.html?product=datamesh"
+                class="px-4 py-2 border border-purple-500 text-purple-400 hover:bg-purple-900/30 rounded-md transition-colors duration-300"
+              >
+                Request Demo
+              </a>
+            </div>
+          </div>
+
+          <!-- DevVelocity -->
+          <div
+            class="product-card bg-gray-800 rounded-lg p-6 hover:bg-gray-700 overflow-hidden"
+            data-category="automation"
+          >
+            <div class="product-badge new">New</div>
+            <img
+              src="assets/images/programming-background-collage.webp"
+              alt="Developer productivity platform with code optimization"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+              loading="lazy"
+            />
+            <h3 class="text-xl font-bold mb-2 flex items-center">
+              <span
+                class="bg-gradient-to-r from-green-500 to-teal-500 bg-clip-text text-transparent"
+                >OFO DevVelocity</span
+              >
+              <span
+                class="ml-2 px-2 py-1 bg-green-900/40 text-green-300 text-xs rounded-full"
+                >New</span
+              >
+            </h3>
+            <p class="text-gray-400 mb-2">
+              CI/CD acceleration platform with AI-driven optimizations for
+              development teams
+            </p>
+            <ul class="mb-4 text-sm text-gray-400 space-y-2">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-green-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Reduce build times by up to 67% with ML-optimized processes
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-green-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Automated code quality analysis with remediation suggestions
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-green-500 mr-2 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Cloud environment management with 30% cost optimization
+              </li>
+            </ul>
+            <div class="flex space-x-2">
+              <a
+                href="DevOpsSolutions.html"
+                class="flex-1 text-center bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-4 py-2 rounded-md transition-colors duration-300"
+              >
+                View Features
+              </a>
+              <a
+                href="contact.html?product=devvelocity"
+                class="px-4 py-2 border border-green-500 text-green-400 hover:bg-green-900/30 rounded-md transition-colors duration-300"
+              >
+                Free Trial
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Comparison Section -->
+      <section id="comparison" class="mb-24 pt-16 border-t border-gray-800">
+        <h2
+          class="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+        >
+          Product Comparison
+        </h2>
+
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl mb-8">
+          <div class="comparison-table w-full overflow-x-auto">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr class="bg-gray-900">
+                  <th class="py-4 px-6 text-left text-gray-300">Features</th>
+                  <th class="py-4 px-6 text-center">
+                    <span class="block text-blue-400 font-bold"
+                      >Neural Insights</span
+                    >
+                    <span class="text-xs text-gray-400">AI Analytics</span>
+                  </th>
+                  <th class="py-4 px-6 text-center">
+                    <span class="block text-purple-400 font-bold"
+                      >Cloud Nexus</span
+                    >
+                    <span class="text-xs text-gray-400">Infrastructure</span>
+                  </th>
+                  <th class="py-4 px-6 text-center">
+                    <span class="block text-green-400 font-bold">AutoFlow</span>
+                    <span class="text-xs text-gray-400">Automation</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-700">
+                <tr class="hover:bg-gray-750">
+                  <td class="py-4 px-6 text-left font-medium">
+                    Deployment Options
+                  </td>
+                  <td class="py-4 px-6 text-center">Cloud, On-Premise</td>
+                  <td class="py-4 px-6 text-center">Cloud, Multi-Region</td>
+                  <td class="py-4 px-6 text-center">
+                    Cloud, On-Premise, Hybrid
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-750">
+                  <td class="py-4 px-6 text-left font-medium">
+                    AI Capabilities
+                  </td>
+                  <td class="py-4 px-6 text-center">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900 text-blue-300"
+                    >
+                      Advanced
+                    </span>
+                  </td>
+                  <td class="py-4 px-6 text-center">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                    >
+                      Basic
+                    </span>
+                  </td>
+                  <td class="py-4 px-6 text-center">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-900 text-green-300"
+                    >
+                      Intermediate
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-750">
+                  <td class="py-4 px-6 text-left font-medium">
+                    Integration Options
+                  </td>
+                  <td class="py-4 px-6 text-center">REST API, SDK, Webhooks</td>
+                  <td class="py-4 px-6 text-center">REST API, GraphQL, SDK</td>
+                  <td class="py-4 px-6 text-center">REST API, Webhooks</td>
+                </tr>
+                <tr class="hover:bg-gray-750">
+                  <td class="py-4 px-6 text-left font-medium">
+                    Real-time Processing
+                  </td>
+                  <td class="py-4 px-6 text-center">
+                    <svg
+                      class="w-6 h-6 mx-auto text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </td>
+                  <td class="py-4 px-6 text-center">
+                    <svg
+                      class="w-6 h-6 mx-auto text-purple-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </td>
+                  <td class="py-4 px-6 text-center">
+                    <svg
+                      class="w-6 h-6 mx-auto text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-750">
+                  <td class="py-4 px-6 text-left font-medium">Customization</td>
+                  <td class="py-4 px-6 text-center">High</td>
+                  <td class="py-4 px-6 text-center">Medium</td>
+                  <td class="py-4 px-6 text-center">Very High</td>
+                </tr>
+                <tr class="hover:bg-gray-750">
+                  <td class="py-4 px-6 text-left font-medium">
+                    Enterprise Support
+                  </td>
+                  <td class="py-4 px-6 text-center">24/7, Dedicated</td>
+                  <td class="py-4 px-6 text-center">24/7, Dedicated</td>
+                  <td class="py-4 px-6 text-center">Business Hours</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a
+            href="contact.html?subject=Product%20Inquiry"
+            class="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-colors shadow-lg shadow-blue-900/20"
+          >
+            Schedule a Personalized Demo
+          </a>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="mb-24 pt-16 border-t border-gray-800">
+        <h2
+          class="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+        >
+          Client Success Stories
+        </h2>
+
+        <div
+          class="testimonial-carousel relative bg-gray-800 rounded-xl overflow-hidden shadow-xl mb-8"
+        >
+          <!-- Testimonial 1 -->
+          <div class="testimonial-slide active p-8">
+            <div
+              class="flex flex-col md:flex-row items-center md:items-start gap-8"
+            >
+              <div
+                class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-4 border-blue-500 shadow-lg shadow-blue-900/20"
+              >
+                <img
+                  src="assets/images/Vector_2646-world.webp"
+                  alt="Sarah Chen, CTO at TechForward"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="flex-1">
+                <div class="flex mb-2 text-yellow-400">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                </div>
+                <h4 class="text-xl font-bold mb-2">
+                  Sarah Chen, CTO at TechForward
+                </h4>
+                <p class="text-gray-300 italic mb-4">
+                  "Implementing OFO's Neural Insights platform gave us the
+                  predictive capabilities we'd been missing. Our decision-making
+                  process is now 70% faster with 85% more accurate forecasting.
+                  What impressed me most was how their team customized the
+                  solution to fit our unique industry requirements."
+                </p>
+                <div class="text-blue-400 text-sm font-medium">
+                  Using Neural Insights since 2023
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-slide p-8">
+            <div
+              class="flex flex-col md:flex-row items-center md:items-start gap-8"
+            >
+              <div
+                class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-4 border-green-500 shadow-lg shadow-green-900/20"
+              >
+                <img
+                  src="assets/images/light-bulb-ideas-creative-design-graphic.webp"
+                  alt="Michael Rodriguez, DevOps Lead at Innovate Solutions"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="flex-1">
+                <div class="flex mb-2 text-yellow-400">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                </div>
+                <h4 class="text-xl font-bold mb-2">
+                  Michael Rodriguez, DevOps Lead at Innovate Solutions
+                </h4>
+                <p class="text-gray-300 italic mb-4">
+                  "DevVelocity has transformed our CI/CD pipeline. Build times
+                  reduced by 63%, and the automated code quality analysis caught
+                  issues we'd been missing for months. The seamless integration
+                  with our existing tools made adoption painless. Well worth the
+                  investment."
+                </p>
+                <div class="text-green-400 text-sm font-medium">
+                  Using DevVelocity since 2024
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-slide p-8">
+            <div
+              class="flex flex-col md:flex-row items-center md:items-start gap-8"
+            >
+              <div
+                class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-4 border-purple-500 shadow-lg shadow-purple-900/20"
+              >
+                <img
+                  src="assets/images/integrate-circuit-board-graphics-concept.webp"
+                  alt="Jessica Thompson, Data Director at Global Finance"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="flex-1">
+                <div class="flex mb-2 text-yellow-400">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    ></path>
+                  </svg>
+                </div>
+                <h4 class="text-xl font-bold mb-2">
+                  Jessica Thompson, Data Director at Global Finance
+                </h4>
+                <p class="text-gray-300 italic mb-4">
+                  "DataMesh solved our data integration nightmare. We were
+                  dealing with 12 different data sources and spending over 40
+                  hours weekly just maintaining connections. Now everything
+                  flows seamlessly with 99.8% uptime. The regulatory compliance
+                  features alone saved us from potential fines."
+                </p>
+                <div class="text-purple-400 text-sm font-medium">
+                  Using DataMesh since 2024
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial Navigation -->
+        <div class="flex justify-center space-x-2">
+          <button
+            class="w-3 h-3 rounded-full bg-blue-500"
+            aria-label="View testimonial 1"
+            data-slide="0"
+          ></button>
+          <button
+            class="w-3 h-3 rounded-full bg-gray-600"
+            aria-label="View testimonial 2"
+            data-slide="1"
+          ></button>
+          <button
+            class="w-3 h-3 rounded-full bg-gray-600"
+            aria-label="View testimonial 3"
+            data-slide="2"
+          ></button>
+        </div>
+      </section>
+
+      <!-- ROI Calculator Section -->
+      <section class="mb-24 pt-16 border-t border-gray-800">
+        <h2
+          class="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+        >
+          Calculate Your Technology ROI
+        </h2>
+        <p class="text-center text-gray-300 mb-10 max-w-3xl mx-auto">
+          Explore how OFO products can deliver measurable business value for
+          your organization. Our ROI calculator helps estimate potential savings
+          and efficiency gains.
+        </p>
+
+        <div class="max-w-5xl mx-auto bg-gray-800 rounded-xl p-8 shadow-xl">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <label class="block text-gray-300 mb-2 font-medium"
+                >Industry</label
+              >
+              <select
+                class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 text-white focus:border-blue-500 focus:outline-none"
+              >
+                <option value="" disabled selected>Select your industry</option>
+                <option value="finance">Financial Services</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="retail">Retail & E-commerce</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="technology">Technology</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-300 mb-2 font-medium"
+                >Company Size</label
+              >
+              <select
+                class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 text-white focus:border-blue-500 focus:outline-none"
+              >
+                <option value="" disabled selected>Select company size</option>
+                <option value="small">Small (1-50 employees)</option>
+                <option value="medium">Medium (51-500 employees)</option>
+                <option value="large">Large (501-5000 employees)</option>
+                <option value="enterprise">Enterprise (5000+ employees)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-300 mb-2 font-medium"
+                >Annual Technology Budget</label
+              >
+              <div class="flex">
+                <span
+                  class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-600 bg-gray-700 text-gray-300"
+                  >$</span
+                >
+                <input
+                  type="text"
+                  class="flex-1 bg-gray-700 border border-gray-600 rounded-r-md p-3 text-white focus:border-blue-500 focus:outline-none"
+                  placeholder="500,000"
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block text-gray-300 mb-2 font-medium"
+                >Solution of Interest</label
+              >
+              <select
+                class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 text-white focus:border-blue-500 focus:outline-none"
+              >
+                <option value="" disabled selected>Select solution</option>
+                <option value="neural">Neural Insights (Analytics)</option>
+                <option value="cloud">Cloud Nexus (Infrastructure)</option>
+                <option value="autoflow">AutoFlow (Automation)</option>
+                <option value="secure">SecureGuard (Security)</option>
+                <option value="datamesh">DataMesh (Data Fabric)</option>
+                <option value="multiple">Multiple Solutions</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-colors shadow-lg shadow-blue-900/20"
+            >
+              Calculate Estimated ROI
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-white">Products</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#neural-insights"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Neural Insights</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#cloud-nexus"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Cloud Nexus</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#autoflow"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >AutoFlow</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#enterprise-products"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Enterprise Solutions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#comparison"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Product Comparison</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-white">Services</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="CustomSoftwareDevelopment.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Custom Software</a
+                >
+              </li>
+              <li>
+                <a
+                  href="ArtificialIntelligence.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >AI & Machine Learning</a
+                >
+              </li>
+              <li>
+                <a
+                  href="CloudComputing.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Cloud Solutions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="CyberSecurity.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Cybersecurity</a
+                >
+              </li>
+              <li>
+                <a
+                  href="DataAnalysis.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Data Analytics</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-white">Resources</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="blog.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="resources.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="CaseStudies.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Case Studies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Support</a
+                >
+              </li>
+              <li>
+                <a
+                  href="resources.html#webinars"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Webinars</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-white">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-400 hover:text-blue-400 transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
