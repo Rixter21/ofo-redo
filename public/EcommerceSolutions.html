@@ -55,11 +55,10 @@
       name="twitter:image"
       content="https://ofodevelopment.com/assets/images/futuristic-smart-city.webp"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    />
+    <link rel="stylesheet" href="assets/css/output.min.css" />
     <link rel="stylesheet" href="assets/css/additional-styles.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/ecommerce-premium.css" />
     <style>
       .golden-text {
         background: linear-gradient(45deg, #ffd700, #ffa500, #ffdd55);
@@ -271,7 +270,7 @@
     </a>
 
     <nav
-      class="fixed w-full z-50 bg-gray-900/50 dark:bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
+      class="fixed w-full z-50 bg-gray-900/50 dark:bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60 premium-nav"
     >
       <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
@@ -712,7 +711,7 @@
         class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMCIvPjx0ZXh0CB4PSI1MCUiIHk9IjUwJSIgZm9udC1zaXplPSIyMiIgZmlsbD0iIzIyMiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC4xIj5PRk88L3RleHQ+PC9zdmc+')] opacity-[0.02]"
       ></div>
 
-      <section class="container mx-auto px-6">
+      <section class="container mx-auto px-6 premium-hero">
         <div class="flex flex-col md:flex-row items-center gap-12">
           <div
             class="md:w-1/2 relative group animate-on-scroll slide-in-left"
@@ -770,7 +769,10 @@
         <div
           class="grid md:grid-cols-3 gap-8 stagger-animation animate-on-scroll"
         >
-          <div class="solution-card animate-on-scroll fade-in" data-once="true">
+          <div
+            class="solution-card premium-card animate-on-scroll fade-in"
+            data-once="true"
+          >
             <div class="text-yellow-500 text-4xl mb-4">🛒</div>
             <h3 class="text-2xl font-bold text-white dark:text-white mb-4">
               Custom Store Development
@@ -781,7 +783,7 @@
             </p>
           </div>
           <div
-            class="solution-card animate-on-scroll fade-in"
+            class="solution-card premium-card animate-on-scroll fade-in"
             data-once="true"
             style="transition-delay: 0.1s"
           >
@@ -795,7 +797,7 @@
             </p>
           </div>
           <div
-            class="solution-card animate-on-scroll fade-in"
+            class="solution-card premium-card animate-on-scroll fade-in"
             data-once="true"
             style="transition-delay: 0.2s"
           >
@@ -827,7 +829,7 @@
             class="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll fade-in"
           >
             <button
-              class="filter-button active"
+              class="filter-button premium-filter-button active"
               data-filter="all"
               aria-pressed="true"
               aria-label="Show all solutions"
@@ -835,7 +837,7 @@
               All Solutions
             </button>
             <button
-              class="filter-button"
+              class="filter-button premium-filter-button"
               data-filter="storefront"
               aria-pressed="false"
               aria-label="Show storefronts"
@@ -843,7 +845,7 @@
               Storefronts
             </button>
             <button
-              class="filter-button"
+              class="filter-button premium-filter-button"
               data-filter="payment"
               aria-pressed="false"
               aria-label="Show payment systems"
@@ -851,7 +853,7 @@
               Payment Systems
             </button>
             <button
-              class="filter-button"
+              class="filter-button premium-filter-button"
               data-filter="analytics"
               aria-pressed="false"
               aria-label="Show analytics tools"
@@ -859,7 +861,7 @@
               Analytics Tools
             </button>
             <button
-              class="filter-button"
+              class="filter-button premium-filter-button"
               data-filter="integration"
               aria-pressed="false"
               aria-label="Show integrations"
@@ -871,7 +873,10 @@
           <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation animate-on-scroll"
           >
-            <div class="product-card group" data-category="storefront">
+            <div
+              class="product-card premium-product-card group"
+              data-category="storefront"
+            >
               <div class="relative overflow-hidden">
                 <img
                   src="assets/images/spreadsheet.jpg"
@@ -919,7 +924,10 @@
               </div>
             </div>
 
-            <div class="product-card group" data-category="payment">
+            <div
+              class="product-card premium-product-card group"
+              data-category="payment"
+            >
               <div class="relative overflow-hidden">
                 <img
                   src="assets/images/cryptocurrency-coding-digital-blue-background-open-source-blockchain-concept.jpg"
@@ -967,7 +975,10 @@
               </div>
             </div>
 
-            <div class="product-card group" data-category="analytics">
+            <div
+              class="product-card premium-product-card group"
+              data-category="analytics"
+            >
               <div class="relative overflow-hidden">
                 <img
                   src="assets/images/big-data-processing.jpg"
@@ -1015,7 +1026,10 @@
               </div>
             </div>
 
-            <div class="product-card group" data-category="integration">
+            <div
+              class="product-card premium-product-card group"
+              data-category="integration"
+            >
               <div class="relative overflow-hidden">
                 <img
                   src="assets/images/manager-server-hub-using-tablet-find-firewall-misconfigurations.jpg"
@@ -1063,7 +1077,10 @@
               </div>
             </div>
 
-            <div class="product-card group" data-category="storefront">
+            <div
+              class="product-card premium-product-card group"
+              data-category="storefront"
+            >
               <div class="relative overflow-hidden">
                 <img
                   src="assets/images/html-css-collage.webp"
@@ -1111,7 +1128,10 @@
               </div>
             </div>
 
-            <div class="product-card group" data-category="integration">
+            <div
+              class="product-card premium-product-card group"
+              data-category="integration"
+            >
               <div class="relative overflow-hidden">
                 <img
                   src="assets/images/medical.jpg"

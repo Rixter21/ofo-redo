@@ -39,6 +39,107 @@
     - Offline notification system
     - Update notification for new service worker versions
 
+## EcommerceSolutions Page Design (v3.1)
+
+**Last Updated:** 2025-03-15
+
+### Core Components:
+
+1. **Hero Section**
+
+   - Full-width video background with overlay
+   - Gradient text headings with animations
+   - High-contrast CTA buttons with hover effects
+   - Responsive layout for all devices
+   - Premium badge element highlighting enterprise focus
+
+2. **E-commerce Statistics Section**
+
+   - Animated counter elements with threshold triggers
+   - Premium glass-card styling with amber/gold accents
+   - Hover effects with subtle border transitions
+   - Responsive grid layout for all device sizes
+
+3. **Interactive Product Showcase**
+
+   - Premium filter button system with enhanced styling:
+     - Consistent amber/gold gradient for active state
+     - Subtle hover effects with gradient backgrounds
+     - Smooth transitions between states
+     - Proper ARIA attributes for accessibility
+     - Visual feedback for active filters
+   - Product card grid with premium styling:
+     - Glass-morphism effects with backdrop blur
+     - Hover animations with scale and elevation
+     - Golden accent elements for premium feel
+     - Feature list with icon indicators
+   - Modal-based detailed product views:
+     - Comprehensive feature lists
+     - Technical specifications
+     - Case study integration
+     - Premium styling with golden accents
+
+4. **Trust Signals Section**
+
+   - Security badge display with hover animations
+   - Certification showcase with visual distinction
+   - Partner logos with interactive hover effects
+   - Responsive grid layout with optimal spacing
+
+5. **Solution Categories**
+
+   - Tab-based navigation between solution types
+   - Visual distinction for different categories
+   - Icon-based visual elements for each solution
+   - Consistent card styling with premium effects
+
+6. **Call-to-Action Section**
+   - Gradient background with decorative elements
+   - Strong heading with golden text accent
+   - Supporting copy with clear value proposition
+   - Premium button styling with hover animations
+
+### Interactive Elements:
+
+- Premium filter buttons with sophisticated styling:
+  - Subtle gradient backgrounds on hover
+  - Premium gold gradient for active state
+  - Subtle glow effect for active buttons
+  - Smooth transitions between all states
+- Product filtering system with smooth animations
+- Detailed product modals with case studies
+- Animated statistics with threshold-based counters
+- Dark/light mode toggle integration
+- Staggered scroll animations with IntersectionObserver
+- Premium card hover effects with elevation and scaling
+
+### Visual Style:
+
+- Consistent with site's premium amber/gold theme
+- Enhanced glassmorphism effects with backdrop blur
+- Premium gradient techniques for text and backgrounds
+- Sophisticated shadow effects with layered depth
+- Subtle animation effects for ambient atmosphere
+
+### Accessibility Features:
+
+- Proper ARIA attributes for all interactive elements
+- Keyboard navigation support for filtering system
+- Focus management for modals and interactive elements
+- Semantic HTML structure with proper heading hierarchy
+- Color contrast compliance for all text elements
+- Screen reader support for dynamic content changes
+- Reduced motion support for animations
+
+### Performance Optimizations:
+
+- Lazy loading for product images
+- Efficient animation implementations
+- Conditional rendering for filtered content
+- IntersectionObserver for animation triggers
+- Optimized modal content loading
+- Mobile-optimized responsive layouts
+
 ## Enterprise Solutions Page Design (v2.1)
 
 **Last Updated:** 2025-02-15
@@ -93,50 +194,80 @@
 - Semantic HTML5 markup
 - Responsive breakpoints
 
-## Game Development Page Design (v3.0)
+## Game Development Page Design (v3.1)
 
-**Last Updated:** 2025-02-28
+**Last Updated:** 2025-03-15
 
 ### Core Components:
 
-1. **Enhanced Hero Section**
+1. **Premium Hero Section**
 
-   - Gradient text headings
-   - Interactive image hover effects
-   - High-contrast CTA buttons
+   - Full-height hero section with video background maintained
+   - Custom animated particles effect with golden/amber color scheme
+   - Animated gradient text headings with staggered animation timing
+   - Enhanced feature list with interactive hover effects and improved iconography
+   - 3D effect for hero image with floating elements and decorative code snippet
+   - Engine logos section with hover effects for brand recognition
+   - Enhanced CTA buttons with arrow animations and improved visual hierarchy
+   - Scroll indicator animation for better user experience
+   - Responsive design improvements for all device sizes
 
-2. **Feature Cards**
+2. **Game Development Trends Section**
+
+   - Replaced redundant Supported Technologies section
+   - Modern card-based layout with icon-based visual elements
+   - Four key trend cards highlighting industry innovations:
+     - Cross-Platform Play
+     - Procedural Generation
+     - Ray Tracing & Photorealism
+     - Cloud Gaming Infrastructure
+   - Each card features a distinctive icon in a golden accent container
+   - Detailed descriptions of each trend with technical implications
+   - Responsive grid layout (1 column on mobile, 2 columns on desktop)
+   - Staggered animation timing for visual interest
+
+3. **Feature Cards**
 
    - Animation-based hover interactions
    - Background gradient transitions
    - Staggered fade-in animations
 
-3. **Engine Comparison Matrix**
+4. **Engine Comparison Matrix**
 
    - Accordion-based UI pattern
    - Detailed technical specifications
    - Interactive comparison panels
 
-4. **ROI Calculator Tool**
+5. **ROI Calculator Tool**
 
    - Interactive input sliders
    - Real-time calculation updates
    - Responsive layout design
    - Clearly presented results
 
-5. **Case Study Showcase**
+6. **Case Study Showcase**
    - Modal-based detailed view
    - Categorized technology tags
    - Visual hierarchy for key metrics
 
 ### Interactive Elements:
 
-- Scroll-triggered animations
+- Custom JavaScript particle animation system with:
+  - Configurable particle count, size, and speed
+  - Golden/amber color palette for premium feel
+  - Random movement patterns with boundary detection
+  - Subtle glow effects for enhanced visual appeal
+- Animated gradient text with keyframe animations
+- 3D transform effects for hero image with perspective
+- Floating decorative elements with custom animation timing
+- Scroll-triggered animations throughout page
 - Reading progress indicator
 - Dark/light mode toggle
 - Lazy loading for images
 - Smooth accordion transitions
 - Mobile-optimized touch interactions
+- Hover state animations for interactive elements
+- Scroll indicator with bounce animation
 
 ### Accessibility Features:
 
@@ -145,14 +276,19 @@
 - Semantic HTML structure
 - Focus management for modals
 - Color contrast compliance
+- Reduced motion support for animations
+- Proper labeling for interactive elements
 
 ### Performance Optimizations:
 
+- Efficient particle animation with requestAnimationFrame
+- Conditional particle density based on device capabilities
 - Image preloading for critical assets
-- Efficient animation techniques
+- Efficient animation techniques with hardware acceleration
 - Progressive image loading
 - Conditional rendering
 - Intersection Observer implementations
+- CSS animations for better performance
 
 ## About Page Design (v3.1)
 
@@ -1106,259 +1242,4 @@
 1. **Hero Section**
 
    - Full-width banner with gradient overlay
-   - Client logo integration with proper sizing and padding
-   - Project title with golden gradient styling
-   - Key metrics summary with animated counters
-   - Technology stack tags with consistent styling
-
-2. **Challenge & Solution**
-
-   - Two-column layout with clear visual separation
-   - Icon-based headings with golden accent
-   - Structured content presentation with bullet points
-   - Supporting image with responsive sizing
-
-3. **Interactive Timeline**
-
-   - Phase-based project visualization
-   - Interactive timeline with clickable phases
-   - Current phase highlighting
-   - Responsive condensed view for mobile
-
-4. **Results Section**
-
-   - Animated metrics counters with threshold triggers
-   - Visual result cards with golden accents
-   - Before/after comparisons where applicable
-   - Client quote with premium styling
-
-5. **Technical Solution**
-
-   - Architecture diagram with responsive scaling
-   - Technology stack breakdown with branded icons
-   - Implementation highlights with code snippets
-   - Integration points visualization
-
-6. **Testimonial Section**
-
-   - Client quote with premium styling and quotation marks
-   - Client representative details with title
-   - Rating visualization with star icons
-   - Professional photo integration
-
-7. **Related Case Studies**
-   - Card-based recommendations with hover effects
-   - Industry and technology tags for context
-   - Thumbnail image with consistent aspect ratio
-   - Clear call-to-action for navigation
-
-### Interactive Elements:
-
-- Reading progress indicator
-- Animated metrics counters with IntersectionObserver triggers
-- Interactive timeline with phase details on click
-- Scroll-triggered animations with staggered timing
-- Hover effects on related case study cards
-- Dark/light mode toggle integration
-- Smooth scrolling for in-page navigation
-
-### Accessibility Features:
-
-- ARIA attributes for interactive elements
-- Keyboard navigation for timeline
-- Focus management for interactive elements
-- Semantic HTML structure with proper heading hierarchy
-- Skip to main content link
-- Color contrast compliance
-- Screen reader support for dynamic content
-
-### Performance Optimizations:
-
-- Lazy loading for images throughout
-- Efficient animation implementations
-- Conditional rendering for complex elements
-- IntersectionObserver for animation triggers
-- Mobile-optimized responsive layout
-- SVG optimization for icons and graphics
-
-## Data Analysis Page Design (v3.0)
-
-**Last Updated:** 2025-02-28
-
-### Core Components:
-
-1. **Hero Section**
-
-   - Video background with overlay gradient
-   - Animated gradient text headings
-   - Dual CTA buttons with hover effects
-   - Scroll indicator animation
-   - Responsive content positioning
-
-2. **Metrics Section**
-
-   - Animated counter elements with custom styling
-   - Color-coded metric cards with hover effects
-   - Border transition animations
-   - Responsive grid layout for all devices
-
-3. **Core Features Grid**
-
-   - Two-column feature showcase
-   - Image integration with rounded corners
-   - Gradient text headings for feature titles
-   - Checkbox-style feature lists with icons
-
-4. **Analytics Stack Display**
-
-   - Interactive technology icons with SVG graphics
-   - Grid-based responsive layout
-   - Hover scale and background transitions
-   - Consistent visual styling for technology elements
-
-5. **Interactive Data Visualization Demo**
-
-   - Toggle-based chart type selection (line, bar, area)
-   - Dynamic chart data updates based on dataset selection
-   - Real-time insight updates with contextual information
-   - Supplementary metrics displays with progress bars
-
-6. **Enterprise Visualization Solutions**
-
-   - Grid-based card layout with media integration
-   - Hover animations with scale transformations
-   - Feature lists with icon indicators
-   - Gradient text headings for visual hierarchy
-
-7. **Compliance Section**
-
-   - Split-content layout with image and text
-   - List-based feature presentation with icons
-   - CTA button with icon integration
-   - Responsive layout with column reordering for mobile
-
-8. **Case Study CTA**
-   - Centered content layout with gradient heading
-   - High-contrast background with subtle pattern
-   - Icon-integrated CTA button
-   - Responsive text sizing and button placement
-
-## Footer Design (v3.0)
-
-**Last Updated:** 2025-03-05
-
-### Core Components:
-
-1. **Main Footer Grid Layout**
-
-   - Four-column responsive grid structure
-   - Company information in first column
-   - Service links in second column
-   - Company links in third column
-   - Contact information in fourth column
-   - Mobile-optimized layout that stacks columns on smaller screens
-
-2. **Company Information Section**
-
-   - Logo with proper sizing and margin spacing
-   - Concise company description with premium styling
-   - Social media icons with hover effects
-   - Interactive icon backgrounds with transition animations
-   - Border styling on icon containers for visual enhancement
-
-3. **Navigation Columns**
-
-   - Clear section headings with golden text gradient
-   - Organized link groupings by category (Services, Company)
-   - Consistent link styling with hover transition effects
-   - Left-to-right text animation on hover
-   - Logical organization of site navigation
-
-4. **Contact Information Section**
-
-   - Icon-based contact details with visual alignment
-   - Address with proper formatting and line breaks
-   - Phone number and email with consistent styling
-   - SVG icons with premium amber/gold accent color
-   - Properly formatted contact details with icon alignment
-
-5. **Technology Partners Section**
-
-   - Horizontal divider with proper spacing
-   - "TRUSTED TECHNOLOGIES" heading with subtle styling
-   - Tech stack logo grid with consistent spacing
-   - Grayscale default state with color hover effect
-   - Scale transformation on hover for interactive feedback
-   - Optimized logo sizing for proper visual balance
-
-6. **Copyright Section**
-
-   - Clean horizontal divider for visual separation
-   - Copyright text with dynamic year inclusion
-   - Legal links (Privacy Policy, Terms, Sitemap)
-   - Consistent styling with hover state transitions
-   - Centered layout with proper spacing
-
-7. **Back to Top Button**
-
-   - Fixed positioning in bottom-right corner
-   - Circular design with subtle border styling
-   - Interactive hover state with elevation effects
-   - Smooth scrolling functionality with JavaScript
-   - Visibility toggle based on scroll position
-   - Premium styling consistent with site design language
-
-8. **Our Commitment to Excellence Section** (Pre-Footer)
-
-   - "Our Commitment to Excellence" heading with golden text accent
-   - Three-column grid layout with premium glass cards
-   - Icon-based visual elements for each commitment area
-   - Consistent styling with glass-card design and yellow accent colors
-   - Quality Assurance, On-Time Delivery, and Dedicated Support focus areas
-   - Descriptive content explaining company commitments
-   - Responsive layout that maintains visual hierarchy on all devices
-
-9. **Call-to-Action Section** (Pre-Footer)
-
-   - Full-width design with gradient background effects
-   - Decorative overlay elements with blur effects
-   - Strong heading with golden text accent
-   - Supporting copy with clear value proposition
-   - Dual CTA buttons with contrasting styles
-   - Premium button styling with hover animations
-
-### Interactive Elements:
-
-- Back-to-top button with smooth scrolling
-- Social media icons with hover animations
-- Footer links with left-to-right transition effects
-- Technology logos with color and scale transitions on hover
-- Visual visibility toggles based on scroll position
-- Proper focus states for keyboard navigation
-
-### Visual Style:
-
-- Consistent with homepage's premium amber/gold theme
-- Subtle gradient backgrounds for sections
-- Proper spacing between all elements
-- Clear visual hierarchy with section headings
-- Responsive behavior that maintains readability at all screen sizes
-- Glassmorphism effects for premium visual aesthetic
-
-### Accessibility Features:
-
-- Proper ARIA labels for all interactive elements
-- Semantic HTML structure with appropriate heading levels
-- Keyboard navigation support for all interactive elements
-- Sufficient color contrast for all text elements
-- Screen reader considerations for icon-only elements
-- Proper focus management for interactive components
-
-### Performance Optimizations:
-
-- External CDN for technology stack logos
-- Optimized SVG icons for minimal file size
-- Efficient CSS with minimal redundancy
-- JavaScript optimizations for scroll events
-- Conditional rendering for visibility-based elements
-- Mobile-optimized responsive behavior
+   - Client logo integration with proper
