@@ -50,11 +50,12 @@
     />
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    />
+    <link rel="stylesheet" href="assets/css/output.min.css" />
+    <link rel="stylesheet" href="assets/css/additional-styles.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/enterprise-solutions.css" />
     <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/components.js" defer></script>
     <link
       rel="preload"
       href="assets/images/logos/Color logo - no background.png"
@@ -739,7 +740,8 @@
     </nav>
 
     <main id="main-content">
-      <section class="relative py-32 overflow-hidden">
+      <!-- Hero Section -->
+      <section class="hero-section">
         <div class="absolute inset-0 z-0">
           <video
             autoplay
@@ -747,9 +749,1263 @@
             loop
             class="w-full h-full object-cover opacity-40"
             poster="assets/images/top-skyscraper.webp"
-          ></video>
+          >
+            <source
+              src="assets/media/1475060_People_Business_3840x2160.mov"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container mx-auto px-6 relative z-10">
+          <div class="hero-content fade-in-up">
+            <div class="hero-badge">Enterprise-Grade Solutions</div>
+            <h1 class="hero-title">
+              Transform Your Business with
+              <span class="blue-gradient-text">Enterprise Solutions</span>
+            </h1>
+            <p class="hero-description">
+              Comprehensive, scalable, and secure enterprise solutions designed
+              to optimize operations, enhance productivity, and drive innovation
+              across your organization. Our tailored approach ensures seamless
+              integration with your existing systems while providing the
+              flexibility to adapt to your evolving business needs.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#contact-form" class="hero-cta">Schedule Consultation</a>
+              <a href="#solutions" class="hero-secondary-cta"
+                >Explore Solutions</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enterprise Solutions Section -->
+      <section id="solutions" class="solutions-section">
+        <div class="container mx-auto px-6 relative z-10">
+          <h2 class="section-title">
+            Our <span class="blue-gradient-text">Enterprise Solutions</span>
+          </h2>
+          <p class="section-subtitle">
+            Comprehensive enterprise solutions designed to address complex
+            business challenges, streamline operations, and drive digital
+            transformation across your organization.
+          </p>
+
+          <div class="solutions-grid">
+            <!-- ERP Solution -->
+            <div class="solution-card fade-in-up">
+              <div class="solution-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="solution-title">Enterprise Resource Planning (ERP)</h3>
+              <p class="solution-description">
+                Integrated management of core business processes in real-time,
+                providing a single source of truth for your organization's data.
+              </p>
+              <ul class="solution-features">
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Financial management and accounting
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Supply chain and inventory management
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Human resources and payroll
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Manufacturing and production planning
+                </li>
+              </ul>
+            </div>
+
+            <!-- CRM Solution -->
+            <div class="solution-card fade-in-up" style="animation-delay: 0.2s">
+              <div class="solution-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="solution-title">
+                Customer Relationship Management (CRM)
+              </h3>
+              <p class="solution-description">
+                Comprehensive platform to manage customer interactions,
+                streamline sales processes, and enhance customer service.
+              </p>
+              <ul class="solution-features">
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Sales automation and pipeline management
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Marketing campaign management
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Customer service and support
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Analytics and reporting
+                </li>
+              </ul>
+            </div>
+
+            <!-- Business Intelligence -->
+            <div class="solution-card fade-in-up" style="animation-delay: 0.4s">
+              <div class="solution-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="solution-title">Business Intelligence & Analytics</h3>
+              <p class="solution-description">
+                Transform raw data into actionable insights with advanced
+                analytics tools and interactive dashboards.
+              </p>
+              <ul class="solution-features">
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Data warehousing and integration
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Predictive analytics and forecasting
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Interactive dashboards and reporting
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Big data processing and analysis
+                </li>
+              </ul>
+            </div>
+
+            <!-- Digital Transformation -->
+            <div class="solution-card fade-in-up" style="animation-delay: 0.6s">
+              <div class="solution-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              </div>
+              <h3 class="solution-title">Digital Transformation</h3>
+              <p class="solution-description">
+                Comprehensive strategy and implementation to modernize your
+                business processes and leverage digital technologies.
+              </p>
+              <ul class="solution-features">
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Process automation and optimization
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Legacy system modernization
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Cloud migration and infrastructure
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Digital workplace and collaboration
+                </li>
+              </ul>
+            </div>
+
+            <!-- Enterprise Security -->
+            <div class="solution-card fade-in-up" style="animation-delay: 0.8s">
+              <div class="solution-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+              </div>
+              <h3 class="solution-title">Enterprise Security Solutions</h3>
+              <p class="solution-description">
+                Comprehensive security framework to protect your critical
+                assets, data, and infrastructure from evolving threats.
+              </p>
+              <ul class="solution-features">
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Identity and access management
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Threat detection and prevention
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Data protection and encryption
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Compliance and governance
+                </li>
+              </ul>
+            </div>
+
+            <!-- Enterprise Integration -->
+            <div class="solution-card fade-in-up" style="animation-delay: 1s">
+              <div class="solution-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"
+                  />
+                </svg>
+              </div>
+              <h3 class="solution-title">Enterprise Integration & APIs</h3>
+              <p class="solution-description">
+                Connect disparate systems and applications to create a unified
+                ecosystem that enables seamless data flow.
+              </p>
+              <ul class="solution-features">
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  API development and management
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Enterprise service bus (ESB)
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Microservices architecture
+                </li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Data integration and ETL processes
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="benefits-section">
+        <div class="container mx-auto px-6">
+          <h2 class="section-title">
+            Why Choose Our
+            <span class="blue-gradient-text">Enterprise Solutions</span>
+          </h2>
+          <p class="section-subtitle">
+            Our enterprise solutions are designed to deliver tangible business
+            value, enhance operational efficiency, and provide a competitive
+            advantage in today's digital landscape.
+          </p>
+
+          <div class="benefits-grid">
+            <!-- Benefit 1 -->
+            <div class="benefit-card fade-in-up">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="benefit-icon"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+              <h3 class="benefit-title">Accelerated Digital Transformation</h3>
+              <p class="benefit-description">
+                Fast-track your digital transformation journey with our proven
+                methodologies and industry expertise, enabling you to quickly
+                adapt to changing market dynamics.
+              </p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="benefit-card fade-in-up" style="animation-delay: 0.2s">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="benefit-icon"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+              <h3 class="benefit-title">Enhanced Security & Compliance</h3>
+              <p class="benefit-description">
+                Protect your critical assets with enterprise-grade security
+                features and ensure compliance with industry regulations and
+                standards.
+              </p>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="benefit-card fade-in-up" style="animation-delay: 0.4s">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="benefit-icon"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                />
+              </svg>
+              <h3 class="benefit-title">Improved Operational Efficiency</h3>
+              <p class="benefit-description">
+                Streamline business processes, automate routine tasks, and
+                optimize resource allocation to achieve greater operational
+                efficiency and cost savings.
+              </p>
+            </div>
+
+            <!-- Benefit 4 -->
+            <div class="benefit-card fade-in-up" style="animation-delay: 0.6s">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="benefit-icon"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+              <h3 class="benefit-title">Enhanced Collaboration</h3>
+              <p class="benefit-description">
+                Foster collaboration across departments and teams with
+                integrated communication tools and centralized information
+                management.
+              </p>
+            </div>
+
+            <!-- Benefit 5 -->
+            <div class="benefit-card fade-in-up" style="animation-delay: 0.8s">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="benefit-icon"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                />
+              </svg>
+              <h3 class="benefit-title">Data-Driven Decision Making</h3>
+              <p class="benefit-description">
+                Leverage advanced analytics and business intelligence tools to
+                gain actionable insights and make informed decisions based on
+                real-time data.
+              </p>
+            </div>
+
+            <!-- Benefit 6 -->
+            <div class="benefit-card fade-in-up" style="animation-delay: 1s">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="benefit-icon"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+              <h3 class="benefit-title">Scalability & Future-Proofing</h3>
+              <p class="benefit-description">
+                Our solutions are designed to scale with your business growth
+                and adapt to evolving technology trends, ensuring long-term
+                value and relevance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solution Capabilities Section -->
+      <section class="case-studies-section">
+        <div class="container mx-auto px-6">
+          <h2 class="section-title">
+            Solution <span class="blue-gradient-text">Capabilities</span>
+          </h2>
+          <p class="section-subtitle">
+            Our enterprise solutions are designed with powerful capabilities to
+            address complex business challenges across various industries.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-8 mt-12">
+            <!-- Capability 1 -->
+            <div class="case-study-card fade-in-up">
+              <img
+                src="assets/images/EHR.webp"
+                alt="Healthcare Solutions"
+                class="case-study-image"
+              />
+              <div class="case-study-content">
+                <span class="case-study-tag">Healthcare</span>
+                <h3 class="case-study-title">Healthcare System Solutions</h3>
+                <p class="case-study-description">
+                  Our healthcare solutions are designed to streamline patient
+                  care, optimize administrative processes, and ensure data
+                  security while maintaining compliance with industry
+                  regulations.
+                </p>
+                <a href="#solutions" class="case-study-link">
+                  Learn More
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Capability 2 -->
+            <div
+              class="case-study-card fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <img
+                src="assets/images/big-data-processing.webp"
+                alt="Financial Services Analytics"
+                class="case-study-image"
+              />
+              <div class="case-study-content">
+                <span class="case-study-tag">Financial Services</span>
+                <h3 class="case-study-title">Analytics Capabilities</h3>
+                <p class="case-study-description">
+                  Our analytics solutions provide powerful data processing
+                  capabilities, enabling organizations to transform raw data
+                  into actionable insights for informed decision-making and
+                  strategic planning.
+                </p>
+                <a href="#solutions" class="case-study-link">
+                  Learn More
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Capability 3 -->
+            <div
+              class="case-study-card fade-in-up"
+              style="animation-delay: 0.6s"
+            >
+              <img
+                src="assets/images/ERP.webp"
+                alt="Manufacturing ERP Solutions"
+                class="case-study-image"
+              />
+              <div class="case-study-content">
+                <span class="case-study-tag">Manufacturing</span>
+                <h3 class="case-study-title">ERP Capabilities</h3>
+                <p class="case-study-description">
+                  Our ERP solutions are built to integrate core business
+                  processes, optimize supply chain management, and enhance
+                  operational efficiency through centralized data management and
+                  automated workflows.
+                </p>
+                <a href="#solutions" class="case-study-link">
+                  Learn More
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Approach Section -->
+      <section class="testimonials-section">
+        <div class="container mx-auto px-6">
+          <h2 class="section-title">
+            Our <span class="blue-gradient-text">Approach</span>
+          </h2>
+          <p class="section-subtitle">
+            At OFO Development, we follow a structured methodology to deliver
+            enterprise solutions that are tailored to your specific business
+            needs and objectives.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-8 mt-12">
+            <!-- Approach 1 -->
+            <div class="testimonial-card fade-in-up">
+              <h3 class="solution-title mb-4">Discovery & Analysis</h3>
+              <p class="testimonial-quote">
+                We begin with a comprehensive assessment of your current
+                systems, processes, and business goals. Our team works closely
+                with your stakeholders to identify pain points, opportunities
+                for improvement, and specific requirements for your enterprise
+                solution.
+              </p>
+              <div class="mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-12 w-12 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Approach 2 -->
+            <div
+              class="testimonial-card fade-in-up"
+              style="animation-delay: 0.3s"
+            >
+              <h3 class="solution-title mb-4">Design & Development</h3>
+              <p class="testimonial-quote">
+                Based on our analysis, we design a customized solution
+                architecture that aligns with your business objectives. Our
+                development process follows industry best practices, with
+                regular checkpoints to ensure the solution meets your
+                expectations and requirements.
+              </p>
+              <div class="mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-12 w-12 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Approach 3 -->
+            <div
+              class="testimonial-card fade-in-up"
+              style="animation-delay: 0.6s"
+            >
+              <h3 class="solution-title mb-4">Implementation & Support</h3>
+              <p class="testimonial-quote">
+                We implement your solution with minimal disruption to your
+                operations, providing comprehensive training and documentation.
+                Our ongoing support ensures your enterprise solution continues
+                to deliver value as your business evolves and grows.
+              </p>
+              <div class="mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-12 w-12 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section id="contact-form" class="cta-section">
+        <div class="container mx-auto px-6">
+          <div class="cta-container">
+            <h2 class="cta-title">
+              Ready to Transform Your
+              <span class="blue-gradient-text">Enterprise</span>?
+            </h2>
+            <p class="cta-description">
+              Let's discuss how our enterprise solutions can address your
+              specific business challenges and help you achieve your strategic
+              objectives. Our team of experts is ready to provide a personalized
+              consultation and develop a tailored solution for your
+              organization.
+            </p>
+            <div class="cta-buttons">
+              <a href="contact.html" class="hero-cta"
+                >Schedule a Consultation</a
+              >
+              <a href="resources.html" class="hero-secondary-cta"
+                >Explore Resources</a
+              >
+            </div>
+          </div>
         </div>
       </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <img
+              src="assets/images/logos/Color logo - no background.png"
+              alt="OFO Development"
+              class="w-40 mb-6"
+            />
+            <p class="text-gray-400 mb-6">
+              Delivering innovative enterprise solutions that drive digital
+              transformation and business growth.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="social-icon" aria-label="Facebook">
+                <svg
+                  class="w-6 h-6 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Twitter">
+                <svg
+                  class="w-6 h-6 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Instagram">
+                <svg
+                  class="w-6 h-6 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="GitHub">
+                <svg
+                  class="w-6 h-6 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="LinkedIn">
+                <svg
+                  class="w-6 h-6 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3>Enterprise Solutions</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="footer-link">ERP Systems</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">CRM Platforms</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Business Intelligence</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Digital Transformation</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">Enterprise Security</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link">API Integration</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="about.html" class="footer-link">About Us</a>
+              </li>
+              <li>
+                <a href="CaseStudies.html" class="footer-link">Case Studies</a>
+              </li>
+              <li>
+                <a href="blog.html" class="footer-link">Blog</a>
+              </li>
+              <li>
+                <a href="resources.html" class="footer-link">Resources</a>
+              </li>
+              <li>
+                <a href="contact.html" class="footer-link">Contact</a>
+              </li>
+              <li>
+                <a href="careers.html" class="footer-link">Careers</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Contact</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg
+                  class="w-6 h-6 text-blue-500 mr-2 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+                <span class="text-gray-400">
+                  5470 Kietzke Ln ste 300<br />Reno, Nevada 89511
+                </span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-6 h-6 text-blue-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+                <span class="text-gray-400">+1 (844) 633-3837</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-6 h-6 text-blue-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span class="text-gray-400">info@ofodevelopment.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm">
+            © 2025 OFO Development. All rights reserved.
+          </p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="privacy-policy.html" class="footer-link text-sm"
+              >Privacy Policy</a
+            >
+            <a href="terms.html" class="footer-link text-sm"
+              >Terms of Service</a
+            >
+            <a href="sitemap.xml" class="footer-link text-sm">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
