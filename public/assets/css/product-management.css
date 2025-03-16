@@ -1,0 +1,746 @@
+/* Product Management Premium Styles */
+
+/* Base styles and animations */
+.golden-text {
+  background: linear-gradient(45deg, #ffd700, #ffa500, #ffdd55);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-pulse 3s ease-in-out infinite,
+    shimmer 2s ease-in-out infinite;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Dark mode support */
+.dark .golden-text {
+  text-shadow: 0 0 18px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes gradient-pulse {
+  0%,
+  100% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 150% 150%;
+  }
+}
+
+/* Performance optimized animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.6s ease forwards;
+}
+
+/* Enhanced Roadmap Visualization Styles */
+.roadmap-container {
+  position: relative;
+  overflow-x: hidden;
+  padding: 2rem 0;
+  margin-bottom: 350px; /* Increased space for content display */
+  max-width: 100%;
+}
+
+.roadmap-timeline {
+  position: relative;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2), rgba(249, 115, 22, 0.2));
+  margin: 3rem 0;
+  border-radius: 2px;
+}
+
+.roadmap-timeline::before,
+.roadmap-timeline::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: -8px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.roadmap-timeline::before {
+  left: 0;
+  background-color: #3b82f6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.roadmap-timeline::after {
+  right: 0;
+  background-color: #3b82f6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.roadmap-phase {
+  position: absolute;
+  width: 25%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.roadmap-phase-1 {
+  left: 0%;
+}
+
+.roadmap-phase-2 {
+  left: 25%;
+}
+
+.roadmap-phase-3 {
+  left: 50%;
+}
+
+.roadmap-phase-4 {
+  left: 75%;
+}
+
+.roadmap-marker {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.roadmap-phase-1 .roadmap-marker {
+  background-color: #3b82f6;
+}
+
+.roadmap-phase-2 .roadmap-marker {
+  background-color: #8b5cf6;
+}
+
+.roadmap-phase-3 .roadmap-marker {
+  background-color: #ec4899;
+}
+
+.roadmap-phase-4 .roadmap-marker {
+  background-color: #f97316;
+}
+
+.roadmap-content {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100%;
+  background-color: rgba(30, 41, 59, 0.95);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+  max-height: 0;
+  overflow: hidden;
+  display: none;
+}
+
+.roadmap-phase:hover .roadmap-marker,
+.roadmap-phase.active .roadmap-marker,
+.roadmap-phase:focus .roadmap-marker {
+  transform: translateX(-50%) scale(1.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.roadmap-phase.active .roadmap-content,
+.roadmap-phase:focus .roadmap-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  max-height: 1200px; /* Further increased to allow all content to be visible */
+  overflow: visible;
+  display: block;
+}
+
+.roadmap-phase-1 .roadmap-content {
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.roadmap-phase-2 .roadmap-content {
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.roadmap-phase-3 .roadmap-content {
+  border-color: rgba(236, 72, 153, 0.5);
+}
+
+.roadmap-phase-4 .roadmap-content {
+  border-color: rgba(249, 115, 22, 0.5);
+}
+
+/* Accessibility improvements */
+.roadmap-phase {
+  outline: none;
+}
+
+.roadmap-phase:focus {
+  outline: 2px solid rgba(255, 215, 0, 0.5);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Animation classes for scroll animations - optimized */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.slide-in-left.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.slide-in-right.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.scale-in.animated {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered animations - optimized */
+.stagger-animation > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  will-change: opacity, transform;
+}
+
+.stagger-animation > *:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.stagger-animation > *:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.stagger-animation > *:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.stagger-animation > *:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.stagger-animation > *:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.stagger-animation > *:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+.stagger-animation.animated > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced capability cards */
+.capability-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.capability-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.capability-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.capability-card:hover::before {
+  opacity: 1;
+}
+
+.capability-card .text-3xl {
+  transition: transform 0.3s ease;
+}
+
+.capability-card:hover .text-3xl {
+  transform: scale(1.2);
+}
+
+/* Testimonial section styles */
+.testimonial-section {
+  background: linear-gradient(to bottom, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+  border-radius: 1rem;
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent 70%);
+  z-index: 0;
+}
+
+.testimonial-card {
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 5rem;
+  line-height: 1;
+  font-family: serif;
+  color: rgba(255, 215, 0, 0.1);
+  z-index: 0;
+}
+
+.testimonial-content {
+  position: relative;
+  z-index: 1;
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.client-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Enhanced CTA section */
+.cta-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  z-index: 0;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.cta-button:hover::after {
+  opacity: 1;
+}
+
+.cta-button-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+  .roadmap-container {
+    margin-bottom: 600px; /* More space for content on mobile */
+  }
+  
+  .roadmap-content {
+    padding: 1rem;
+  }
+  
+  .roadmap-phase-1,
+  .roadmap-phase-2,
+  .roadmap-phase-3,
+  .roadmap-phase-4 {
+    width: 22%; /* Slightly narrower to prevent overlap */
+  }
+  
+  .roadmap-phase-1 {
+    left: 1%;
+  }
+  
+  .roadmap-phase-2 {
+    left: 26%;
+  }
+  
+  .roadmap-phase-3 {
+    left: 51%;
+  }
+  
+  .roadmap-phase-4 {
+    left: 76%;
+  }
+  
+  .capability-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .roadmap-container {
+    margin-bottom: 650px; /* Even more space for content on small mobile */
+  }
+  
+  .roadmap-content {
+    font-size: 0.9rem;
+  }
+  
+  .roadmap-marker {
+    width: 16px;
+    height: 16px;
+    top: -6px;
+  }
+  
+  .roadmap-timeline::before,
+  .roadmap-timeline::after {
+    width: 16px;
+    height: 16px;
+    top: -6px;
+  }
+}
+
+/* Lazy loading styles */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Print styles for better document printing */
+@media print {
+  .roadmap-container {
+    margin-bottom: 0;
+  }
+  
+  .roadmap-phase.active .roadmap-content {
+    display: block !important;
+    opacity: 1 !important;
+    max-height: none !important;
+    position: relative;
+    top: 2rem;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+  
+  .roadmap-marker,
+  .roadmap-timeline::before,
+  .roadmap-timeline::after {
+    box-shadow: none;
+    print-color-adjust: exact;
+  }
+  
+  .golden-text {
+    color: #ffd700 !important;
+    -webkit-text-fill-color: #ffd700;
+  }
+  
+  .capability-card,
+  .testimonial-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+ /* Nav styles */
+ .nav-link {
+  color: #d1d5db;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  width: 600px;
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(-0.5rem);
+}
+
+.group:hover .dropdown-menu,
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Active states for menu items */
+.mobile-menu.active {
+  max-height: 500px !important;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #374151;
+  transform: translateX(0.5rem);
+}
+
+.dropdown-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.75rem;
+  color: #eab308;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu {
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Backdrop Blur Effect */
+nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Accordion Transitions */
+.accordion div {
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium Dropdown Footer */
+.dropdown-menu > div:last-child {
+  border-top: 1px solid #374151;
+  background-color: #1f2937;
+  padding: 1rem;
+}
+
+.dropdown-menu > div:last-child h3 {
+  color: #eab308;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Methodology Section Improvements */
+#methodology .relative h-24 {
+  height: auto !important;
+  min-height: 120px;
+  margin-bottom: 40px;
+}
+
+#methodology .absolute {
+  position: relative !important;
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#methodology .absolute.top-0 {
+  margin-top: 10px;
+}
+
+#methodology .absolute.bottom-0 {
+  margin-bottom: 20px;
+}
+
+#methodology .absolute.left-0,
+#methodology .absolute.right-0,
+#methodology .absolute.left-1\/3,
+#methodology .absolute.left-2\/3 {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  transform: none !important;
+  margin: 0;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+#methodology .absolute.top-1\/2 {
+  position: absolute;
+}
+
+#methodology .transform.-translate-y-1\/2 {
+  transform: translateY(-50%) !important;
+}
+
+@media (max-width: 768px) {
+  #methodology .md\:flex-row {
+    flex-direction: column !important;
+  }
+  
+  #methodology .md\:w-1\/3,
+  #methodology .md\:w-2\/3 {
+    width: 100% !important;
+  }
+  
+  #methodology .absolute.left-0,
+  #methodology .absolute.right-0,
+  #methodology .absolute.left-1\/3,
+  #methodology .absolute.left-2\/3 {
+    width: 25%;
+    font-size: 0.8rem;
+  }
+}
