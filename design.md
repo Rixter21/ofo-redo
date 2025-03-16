@@ -1295,6 +1295,140 @@
    - Brief overview with key metrics highlight
    - Responsive layout for all device sizes
 
+## Virtual Reality Page Design (v3.2)
+
+**Last Updated:** 2025-03-16
+
+### Core Components:
+
+1. **Immersive Hero Section**
+
+   - Full-height hero section with video background
+   - Animated gradient text headings with blue/purple color scheme
+   - Dual CTA buttons with premium hover effects
+   - Responsive layout for all device sizes
+   - Background video with subtle overlay for text readability
+
+2. **XR Technology Stack Section**
+
+   - Three-column grid showcasing VR, AR, and MR technologies
+   - Interactive cards with 3D hover effects and transform animations
+   - Feature lists with icon indicators
+   - Premium card styling with gradient borders on hover
+   - Responsive layout adapting to different screen sizes
+
+3. **Interactive 3D Model Viewer**
+
+   - Custom-built 3D cube visualization with rotation controls
+   - Interactive control buttons for different rotation directions
+   - Auto-rotation animation with pause on interaction
+   - Responsive container with proper aspect ratio
+   - Background gradient effects for visual enhancement
+
+4. **XR Development Process Section**
+
+   - Four-step process visualization with timeline markers
+   - Staggered animation sequence for visual interest
+   - Color-coded phases with consistent styling
+   - Clear descriptions focusing on methodology
+   - Responsive layout for all device sizes
+
+5. **Future of XR Technology Section**
+
+   - Two-column grid showcasing emerging trends and industry applications
+   - Premium card styling with border effects
+   - Detailed content with specific technology explanations
+   - Icon-based visual elements for each trend
+   - Responsive layout with proper spacing
+
+6. **XR Capabilities Showcase**
+
+   - Three-column grid highlighting business outcomes
+   - Animated counter elements with threshold triggers
+   - Premium card styling with consistent design language
+   - Industry-specific examples with visual indicators
+   - Responsive grid layout for all device sizes
+
+7. **XR Technology Stack Section**
+
+   - Comprehensive display of supported platforms and hardware
+   - Four-column grid for technology logos
+   - Detailed compatibility information for VR headsets, AR devices, and enterprise solutions
+   - Premium card styling with consistent design language
+   - Responsive layout adapting to different screen sizes
+
+8. **FAQ Section**
+
+   - Accordion-style toggles for common questions
+   - Smooth expand/collapse transitions
+   - Premium styling consistent with site design
+   - Detailed answers focusing on implementation details
+   - JavaScript-based interaction with proper accessibility
+
+9. **Standardized Footer**
+
+   - Comprehensive footer with company information, services links, and company details
+   - Correct contact information with Nevada address, phone, and email
+   - "Trusted Technologies" section with tech stack logos
+   - Social media links with consistent styling
+   - Copyright section with privacy policy and terms links
+   - "Back to Top" button with smooth scrolling functionality
+   - Responsive grid layout for all device sizes
+
+### Interactive Elements:
+
+- Interactive 3D model viewer with rotation controls:
+  - Mouse/touch drag for free rotation
+  - Button controls for specific rotation directions
+  - Auto-rotation animation with pause on interaction
+  - Reset view functionality
+- XR technology cards with 3D hover effects:
+  - Transform and perspective animations
+  - Border color transitions
+  - Scale effects on hover
+  - Image zoom effects
+- FAQ accordion with smooth transitions:
+  - Toggle functionality with rotation indicators
+  - Smooth height transitions for content
+  - Active state styling for selected questions
+- Animated counters in capabilities section:
+  - Threshold-based animation triggers
+  - Prefix/suffix support for different metrics
+  - Smooth counting animation with easing
+- Scroll-triggered animations throughout page:
+  - Fade and transform effects on scroll
+  - Staggered timing for visual interest
+  - IntersectionObserver implementation for performance
+
+### Visual Style:
+
+- Consistent with site's premium design language
+- Blue/purple color scheme for XR-specific elements
+- Gradient text effects for section headings
+- Premium card styling with hover animations
+- Consistent iconography throughout
+- Subtle background effects for visual depth
+
+### Accessibility Features:
+
+- ARIA attributes for all interactive elements
+- Keyboard navigation support for 3D viewer controls
+- Focus management for accordion toggles
+- Semantic HTML structure with proper heading hierarchy
+- Color contrast compliance for all text elements
+- Screen reader support for dynamic content
+- Reduced motion support for animations
+
+### Performance Optimizations:
+
+- Efficient 3D viewer implementation with requestAnimationFrame
+- Conditional animation density based on device capabilities
+- Lazy loading for below-fold images
+- Optimized video background with proper attributes
+- IntersectionObserver for on-demand animations
+- Hardware-accelerated animations for smooth performance
+- Mobile-optimized layouts with appropriate breakpoints
+
 ## Product Management Page Design (v3.3)
 
 **Last Updated:** 2025-03-16

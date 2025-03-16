@@ -245,7 +245,7 @@
         background: linear-gradient(45deg, #ffd700, #ffa500);
         color: black;
       }
-      /* Enhanced Navbar Styles */
+      /* Nav styles */
       .nav-link {
         color: #d1d5db;
         font-weight: 500;
@@ -280,10 +280,16 @@
         transform: translateY(-0.5rem);
       }
 
-      .group:hover .dropdown-menu {
+      .group:hover .dropdown-menu,
+      .dropdown-menu.active {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
+      }
+
+      /* Active states for menu items */
+      .mobile-menu.active {
+        max-height: 500px !important;
       }
 
       .dropdown-item {
@@ -337,9 +343,9 @@
         margin-bottom: 0.5rem;
       }
     </style>
+    <!-- Navigation -->
     <nav
       class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
-      aria-label="Main navigation"
     >
       <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
@@ -351,18 +357,11 @@
             />
           </div>
 
-          <a
-            href="#main-content"
-            class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded"
-            >Skip to main content</a
-          >
-
           <button
             data-mobile-menu-button
+            aria-label="Toggle menu"
             aria-expanded="false"
-            aria-controls="mobile-menu"
-            aria-label="Toggle navigation menu"
-            class="md:hidden text-white hover:text-yellow-500 focus:outline-none"
+            class="md:hidden text-white hover:text-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
           >
             <svg
               class="w-8 h-8"
@@ -380,14 +379,21 @@
           </button>
 
           <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="index.html"
+              class="nav-link golden-text"
+              aria-current="page"
+              >Home</a
+            >
             <a href="about.html" class="nav-link">About</a>
 
-            <div
-              class="relative group"
-              data-dropdown-trigger
-              aria-expanded="false"
-            >
-              <button class="nav-link dropdown-trigger" aria-expanded="false">
+            <div class="relative group" id="services-dropdown">
+              <button
+                class="nav-link dropdown-trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                id="services-menu-button"
+              >
                 Services
                 <span class="ml-1 transition-transform group-hover:rotate-180"
                   >▾</span
@@ -396,93 +402,374 @@
 
               <div
                 class="dropdown-menu backdrop-blur-3xl bg-gradient-to-b from-gray-900/60 to-gray-900/40 border border-white/20 shadow-2xl shadow-black/30 transition-all duration-500 hover:backdrop-blur-xl hover:from-gray-900/70 hover:to-gray-900/50"
+                id="services-menu"
+                role="menu"
+                aria-labelledby="services-menu-button"
               >
                 <div class="grid grid-cols-2 gap-4 p-4 backdrop-brightness-125">
                   <a
                     href="CustomSoftwareDevelopment.html"
                     class="dropdown-item"
+                    role="menuitem"
                   >
-                    <svg class="dropdown-icon">...</svg>
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      ></path>
+                    </svg>
                     Custom Software
                   </a>
                   <a href="MobileDevelopment.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2h2a2 2 0 002-2z"
+                      ></path>
+                    </svg>
                     Mobile Apps
                   </a>
                   <a href="WebDevelopment.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                      ></path>
+                    </svg>
                     Web Development
                   </a>
                   <a href="DataAnalysis.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                      ></path>
+                    </svg>
                     Data Analysis
                   </a>
                   <a href="EcommerceSolutions.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      ></path>
+                    </svg>
                     E-Commerce
                   </a>
                   <a href="ArtificialIntelligence.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      ></path>
+                    </svg>
                     AI & Machine Learning
                   </a>
-                  <a href="DigitalInnovation.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
-                    Digital Innovation
-                  </a>
-                  <a href="VirtualReality.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
-                    VR & AR
-                  </a>
-                  <a href="GameDevelopment.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
-                    Game Development
+                  <a href="CyberSecurity.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      ></path>
+                    </svg>
+                    Cyber Security
                   </a>
                   <a href="CloudComputing.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                      ></path>
+                    </svg>
                     Cloud Computing
                   </a>
-                  <a href="CyberSecurity.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
-                    Cybersecurity
+                  <a href="DevOpsSolutions.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
+                      ></path>
+                    </svg>
+                    DevOps Solutions
+                  </a>
+                  <a href="SaaSDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                      ></path>
+                    </svg>
+                    SaaS Development
+                  </a>
+                  <a href="EnterpriseSolutions.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                      ></path>
+                    </svg>
+                    Enterprise Solutions
+                  </a>
+                  <a href="DigitalInnovation.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      ></path>
+                    </svg>
+                    Digital Innovation
                   </a>
                   <a href="ProductManagement.html" class="dropdown-item">
-                    <svg class="dropdown-icon">...</svg>
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                      ></path>
+                    </svg>
                     Product Management
+                  </a>
+                  <a href="GameDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    Game Development
+                  </a>
+                  <a href="VirtualReality.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    Virtual Reality
+                  </a>
+                  <a href="BlockchainDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      ></path>
+                    </svg>
+                    Blockchain Development
                   </a>
                 </div>
 
+                <!-- Premium Enterprise Solutions Section -->
                 <div
-                  class="border-t border-white/20 p-4 bg-gray-900/30 backdrop-blur-md transition-all duration-300 hover:bg-gray-900/40"
+                  class="border-t border-white/20 bg-gradient-to-r from-gray-900/80 via-gray-800/80 to-gray-900/80 backdrop-blur-xl transition-all duration-300 hover:from-gray-800/90 hover:to-gray-900/90"
                 >
-                  <h3 class="text-yellow-500 text-sm font-semibold mb-2">
-                    Premium Services
-                  </h3>
-                  <p class="text-gray-300 text-sm">
-                    Custom solutions tailored to your business needs
-                  </p>
+                  <div class="p-4">
+                    <h3
+                      class="text-yellow-500 text-sm font-semibold mb-2 flex items-center"
+                    >
+                      <svg
+                        class="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        ></path>
+                      </svg>
+                      Premium Enterprise Solutions
+                    </h3>
+                    <p class="text-gray-300 text-sm mb-3">
+                      Custom solutions tailored to your business needs with
+                      dedicated support
+                    </p>
+                  </div>
+
+                  <div class="px-4 pb-4 flex flex-wrap gap-2">
+                    <a
+                      href="contact.html"
+                      class="text-xs px-3 py-1.5 bg-yellow-500/20 text-yellow-400 rounded-full hover:bg-yellow-500/30 transition-colors flex items-center"
+                    >
+                      <svg
+                        class="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                      Schedule Consultation
+                    </a>
+                    <a
+                      href="CaseStudies.html"
+                      class="text-xs px-3 py-1.5 bg-blue-500/20 text-blue-400 rounded-full hover:bg-blue-500/30 transition-colors flex items-center"
+                    >
+                      <svg
+                        class="w-3 h-3 mr-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        ></path>
+                      </svg>
+                      View Case Studies
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
 
             <a href="resources.html" class="nav-link">Resources</a>
-            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="CaseStudies.html" class="nav-link">Case Studies</a>
             <a href="blog.html" class="nav-link">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
           </div>
         </div>
 
+        <!-- Mobile Menu -->
         <div
           id="mobile-menu"
           data-mobile-menu
           class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 max-h-0"
         >
           <div class="container mx-auto px-6 py-4 space-y-4">
+            <a href="index.html" class="block nav-link golden-text">Home</a>
             <a href="about.html" class="block nav-link">About</a>
 
             <div class="accordion">
               <button
+                id="mobile-services-button"
                 data-services-button
                 aria-expanded="false"
-                aria-controls="services-dropdown"
                 class="w-full flex justify-between items-center nav-link"
               >
                 Services
@@ -491,23 +778,69 @@
                 >
               </button>
               <div
-                id="services-dropdown"
+                id="mobile-services-menu"
                 data-services-content
                 class="overflow-hidden transition-all duration-300 max-h-0"
               >
-                <div class="pl-4 space-y-2">
+                <div class="pl-4 space-y-2 pt-2">
                   <a
                     href="CustomSoftwareDevelopment.html"
                     class="block nav-link"
                     >Custom Software</a
+                  >
+                  <a href="MobileDevelopment.html" class="block nav-link"
+                    >Mobile Apps</a
+                  >
+                  <a href="WebDevelopment.html" class="block nav-link"
+                    >Web Development</a
+                  >
+                  <a href="DataAnalysis.html" class="block nav-link"
+                    >Data Analysis</a
+                  >
+                  <a href="EcommerceSolutions.html" class="block nav-link"
+                    >E-Commerce</a
+                  >
+                  <a href="ArtificialIntelligence.html" class="block nav-link"
+                    >AI & Machine Learning</a
+                  >
+                  <a href="CyberSecurity.html" class="block nav-link"
+                    >Cyber Security</a
+                  >
+                  <a href="CloudComputing.html" class="block nav-link"
+                    >Cloud Computing</a
+                  >
+                  <a href="DevOpsSolutions.html" class="block nav-link"
+                    >DevOps Solutions</a
+                  >
+                  <a href="SaaSDevelopment.html" class="block nav-link"
+                    >SaaS Development</a
+                  >
+                  <a href="EnterpriseSolutions.html" class="block nav-link"
+                    >Enterprise Solutions</a
+                  >
+                  <a href="DigitalInnovation.html" class="block nav-link"
+                    >Digital Innovation</a
+                  >
+                  <a href="ProductManagement.html" class="block nav-link"
+                    >Product Management</a
+                  >
+                  <a href="GameDevelopment.html" class="block nav-link"
+                    >Game Development</a
+                  >
+                  <a href="VirtualReality.html" class="block nav-link"
+                    >Virtual Reality</a
+                  >
+                  <a href="BlockchainDevelopment.html" class="block nav-link"
+                    >Blockchain Development</a
                   >
                 </div>
               </div>
             </div>
 
             <a href="resources.html" class="block nav-link">Resources</a>
-            <a href="contact.html" class="block nav-link">Contact</a>
+            <a href="CaseStudies.html" class="block nav-link">Case Studies</a>
             <a href="blog.html" class="block nav-link">Blog</a>
+            <a href="contact.html" class="block nav-link">Contact</a>
           </div>
         </div>
       </div>
@@ -845,42 +1178,44 @@
                     <div
                       class="absolute inset-0 bg-blue-900/50 border border-blue-500 transform translate-z-[150px] flex items-center justify-center"
                     >
-                      <span class="text-blue-200 text-2xl font-bold"
-                        >Front</span
-                      >
+                      <span class="text-blue-200 text-2xl font-bold">
+                        Front
+                      </span>
                     </div>
                     <div
                       class="absolute inset-0 bg-purple-900/50 border border-purple-500 transform rotateY(180deg) translate-z-[150px] flex items-center justify-center"
                     >
-                      <span class="text-purple-200 text-2xl font-bold"
-                        >Back</span
-                      >
+                      <span class="text-purple-200 text-2xl font-bold">
+                        Back
+                      </span>
                     </div>
                     <div
                       class="absolute inset-0 bg-green-900/50 border border-green-500 transform rotateY(90deg) translate-z-[150px] flex items-center justify-center"
                     >
-                      <span class="text-green-200 text-2xl font-bold"
-                        >Right</span
-                      >
+                      <span class="text-green-200 text-2xl font-bold">
+                        Right
+                      </span>
                     </div>
                     <div
                       class="absolute inset-0 bg-yellow-900/50 border border-yellow-500 transform rotateY(-90deg) translate-z-[150px] flex items-center justify-center"
                     >
-                      <span class="text-yellow-200 text-2xl font-bold"
-                        >Left</span
-                      >
+                      <span class="text-yellow-200 text-2xl font-bold">
+                        Left
+                      </span>
                     </div>
                     <div
                       class="absolute inset-0 bg-pink-900/50 border border-pink-500 transform rotateX(90deg) translate-z-[150px] flex items-center justify-center"
                     >
-                      <span class="text-pink-200 text-2xl font-bold">Top</span>
+                      <span class="text-pink-200 text-2xl font-bold">
+                        Top
+                      </span>
                     </div>
                     <div
                       class="absolute inset-0 bg-indigo-900/50 border border-indigo-500 transform rotateX(-90deg) translate-z-[150px] flex items-center justify-center"
                     >
-                      <span class="text-indigo-200 text-2xl font-bold"
-                        >Bottom</span
-                      >
+                      <span class="text-indigo-200 text-2xl font-bold">
+                        Bottom
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -1014,16 +1349,379 @@
         </div>
       </section>
 
+      <!-- VR/AR Development Process Section -->
+      <section class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              Our XR Development Process
+            </h2>
+            <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+              From concept to deployment, our structured approach ensures
+              successful immersive experiences
+            </p>
+          </div>
+
+          <div class="max-w-4xl mx-auto">
+            <div
+              class="timeline-container mb-12 animate-on-scroll"
+              data-once="true"
+            >
+              <div class="timeline-marker" style="top: 0">
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mb-10">
+                <h3 class="text-2xl font-bold text-blue-400 mb-2">
+                  Discovery & Strategy
+                </h3>
+                <p class="text-blue-200">
+                  We begin by understanding your business objectives, target
+                  audience, and technical requirements. Our team conducts
+                  thorough research to identify the most effective XR approach
+                  for your specific needs.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="timeline-container mb-12 animate-on-scroll animate-delay-100"
+              data-once="true"
+            >
+              <div class="timeline-marker" style="top: 0">
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mb-10">
+                <h3 class="text-2xl font-bold text-purple-400 mb-2">
+                  Design & Prototyping
+                </h3>
+                <p class="text-purple-200">
+                  Our designers create immersive storyboards and interactive
+                  wireframes to visualize the user experience. We develop rapid
+                  prototypes to test concepts, interactions, and usability
+                  before full development begins.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="timeline-container mb-12 animate-on-scroll animate-delay-200"
+              data-once="true"
+            >
+              <div class="timeline-marker" style="top: 0">
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mb-10">
+                <h3 class="text-2xl font-bold text-pink-400 mb-2">
+                  Development & Integration
+                </h3>
+                <p class="text-pink-200">
+                  Our development team brings your XR experience to life using
+                  industry-leading platforms and tools. We integrate with
+                  existing systems, optimize performance, and ensure
+                  cross-platform compatibility.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="timeline-container animate-on-scroll animate-delay-300"
+              data-once="true"
+            >
+              <div class="timeline-marker" style="top: 0">
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-green-400 mb-2">
+                  Testing & Deployment
+                </h3>
+                <p class="text-green-200">
+                  We conduct rigorous testing across devices and environments to
+                  ensure optimal performance and user experience. Our team
+                  provides comprehensive training, documentation, and ongoing
+                  support after deployment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Industry Trends Section -->
+      <!-- Industry Trends Section -->
+      <section class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              The Future of XR Technology
+            </h2>
+            <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+              Stay ahead of the curve with emerging trends in immersive
+              technology
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12">
+            <div class="animate-on-scroll" data-once="true">
+              <div
+                class="bg-gray-800/50 p-8 rounded-2xl border border-blue-500/20 h-full"
+              >
+                <div class="flex items-center mb-6">
+                  <div class="bg-blue-900/30 p-3 rounded-lg mr-4">
+                    <svg
+                      class="w-8 h-8 text-blue-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold text-blue-400">
+                    Emerging Trends
+                  </h3>
+                </div>
+                <ul class="space-y-4 text-blue-200">
+                  <li class="flex items-start">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400 mt-1 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    <div>
+                      <span class="font-semibold text-white">
+                        Spatial Computing:
+                      </span>
+                      Integration of AI with XR to create context-aware
+                      environments that respond intelligently to user
+                      interactions and environmental factors.
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400 mt-1 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    <div>
+                      <span class="font-semibold text-white">
+                        Haptic Feedback:
+                      </span>
+                      Advanced tactile technologies that simulate physical
+                      sensations, creating more immersive and realistic virtual
+                      experiences.
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400 mt-1 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    <div>
+                      <span class="font-semibold text-white">
+                        5G Integration:
+                      </span>
+                      Ultra-low latency networks enabling cloud-rendered XR
+                      experiences, reducing hardware requirements and expanding
+                      accessibility.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="animate-on-scroll animate-delay-100" data-once="true">
+              <div
+                class="bg-gray-800/50 p-8 rounded-2xl border border-purple-500/20 h-full"
+              >
+                <div class="flex items-center mb-6">
+                  <div class="bg-purple-900/30 p-3 rounded-lg mr-4">
+                    <svg
+                      class="w-8 h-8 text-purple-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold text-purple-400">
+                    Industry Applications
+                  </h3>
+                </div>
+                <ul class="space-y-4 text-purple-200">
+                  <li class="flex items-start">
+                    <svg
+                      class="w-5 h-5 mr-2 text-blue-400 mt-1 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    <div>
+                      <span class="font-semibold text-white">
+                        Healthcare:
+                      </span>
+                      Surgical training, patient rehabilitation, and therapeutic
+                      applications for mental health conditions using immersive
+                      environments.
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="w-5 h-5 mr-2 text-blue-400 mt-1 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    <div>
+                      <span class="font-semibold text-white">
+                        Manufacturing:
+                      </span>
+                      Digital twins for product design, assembly line
+                      optimization, and remote expert assistance for maintenance
+                      and repairs.
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <svg
+                      class="w-5 h-5 mr-2 text-blue-400 mt-1 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    <div>
+                      <span class="font-semibold text-white"> Education: </span>
+                      Immersive learning environments that transform abstract
+                      concepts into interactive experiences, improving
+                      engagement and knowledge retention.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-16 text-center animate-on-scroll animate-delay-200"
+            data-once="true"
+          >
+            <a
+              href="contact.html"
+              class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl transition-all transform hover:scale-105 hover:from-blue-700 hover:to-purple-700"
+            >
+              <span>Discuss Your XR Strategy</span>
+              <svg
+                class="w-5 h-5 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="py-20 bg-gray-900">
         <div class="container mx-auto px-4">
           <div class="text-center mb-16 animate-on-scroll" data-once="true">
             <h2
               class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
             >
-              XR Transformation Stories
+              XR Capabilities Showcase
             </h2>
             <p class="text-xl text-blue-200 max-w-2xl mx-auto">
-              Real-world implementations driving measurable business outcomes
+              Potential business outcomes from our XR implementation
+              capabilities
             </p>
           </div>
 
@@ -1070,8 +1768,9 @@
                       class="counter-value font-bold"
                       data-count="68"
                       data-suffix="%"
-                      >0</span
                     >
+                      0
+                    </span>
                     reduction in training time
                   </p>
                 </div>
@@ -1082,8 +1781,9 @@
                       class="counter-value font-bold"
                       data-count="92"
                       data-suffix="%"
-                      >0</span
                     >
+                      0
+                    </span>
                     knowledge retention rate
                   </p>
                 </div>
@@ -1094,8 +1794,10 @@
                       class="counter-value font-bold"
                       data-prefix="$"
                       data-count="1.2"
-                      >0</span
-                    >M annual training cost savings
+                    >
+                      0
+                    </span>
+                    M annual training cost savings
                   </p>
                 </div>
               </div>
@@ -1146,8 +1848,9 @@
                       class="counter-value font-bold"
                       data-count="40"
                       data-suffix="%"
-                      >0</span
                     >
+                      0
+                    </span>
                     increase in conversion rates
                   </p>
                 </div>
@@ -1158,8 +1861,9 @@
                       class="counter-value font-bold"
                       data-count="25"
                       data-suffix="%"
-                      >0</span
                     >
+                      0
+                    </span>
                     reduction in product returns
                   </p>
                 </div>
@@ -1170,8 +1874,9 @@
                       class="counter-value font-bold"
                       data-count="4.8"
                       data-suffix="/5"
-                      >0</span
                     >
+                      0
+                    </span>
                     customer satisfaction
                   </p>
                 </div>
@@ -1220,8 +1925,9 @@
                       class="counter-value font-bold"
                       data-count="300"
                       data-suffix="%"
-                      >0</span
                     >
+                      0
+                    </span>
                     faster skill acquisition
                   </p>
                 </div>
@@ -1232,8 +1938,9 @@
                       class="counter-value font-bold"
                       data-count="98"
                       data-suffix="%"
-                      >0</span
                     >
+                      0
+                    </span>
                     procedural accuracy
                   </p>
                 </div>
@@ -1243,6 +1950,463 @@
                 </div>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our XR Technology Stack Section -->
+      <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              Our XR Technology Stack
+            </h2>
+            <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+              Industry-leading platforms and tools for immersive experiences
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div class="animate-on-scroll" data-once="true">
+              <div
+                class="tech-badge flex flex-col items-center p-4 text-center"
+              >
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-gray-800 rounded-full mb-3"
+                >
+                  <img
+                    src="assets/images/svg/unity.webp"
+                    alt="Unity"
+                    class="w-12 h-12 object-contain"
+                  />
+                </div>
+                <span class="font-semibold">Unity</span>
+              </div>
+            </div>
+            <div class="animate-on-scroll animate-delay-100" data-once="true">
+              <div
+                class="tech-badge flex flex-col items-center p-4 text-center"
+              >
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-gray-800 rounded-full mb-3"
+                >
+                  <img
+                    src="assets/images/svg/unreal.webp"
+                    alt="Unreal Engine"
+                    class="w-12 h-12 object-contain"
+                  />
+                </div>
+                <span class="font-semibold">Unreal Engine</span>
+              </div>
+            </div>
+            <div class="animate-on-scroll animate-delay-200" data-once="true">
+              <div
+                class="tech-badge flex flex-col items-center p-4 text-center"
+              >
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-gray-800 rounded-full mb-3"
+                >
+                  <img
+                    src="assets/images/svg/arkit.png"
+                    alt="ARKit/ARCore"
+                    class="w-12 h-12 object-contain"
+                  />
+                </div>
+                <span class="font-semibold">ARKit/ARCore</span>
+              </div>
+            </div>
+            <div class="animate-on-scroll animate-delay-300" data-once="true">
+              <div
+                class="tech-badge flex flex-col items-center p-4 text-center"
+              >
+                <div
+                  class="w-16 h-16 flex items-center justify-center bg-gray-800 rounded-full mb-3"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="w-12 h-12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"
+                      fill="#1E88E5"
+                    />
+                    <path d="M13 7H11V13H17V11H13V7Z" fill="#1E88E5" />
+                    <path
+                      d="M7 11.5C7 9.01 9.01 7 11.5 7H12V5H11.5C7.91 5 5 7.91 5 11.5C5 15.09 7.91 18 11.5 18H12V16H11.5C9.01 16 7 13.99 7 11.5Z"
+                      fill="#1E88E5"
+                    />
+                    <path
+                      d="M17.5 9H17V11H19V10.5C19 9.67 18.33 9 17.5 9Z"
+                      fill="#1E88E5"
+                    />
+                  </svg>
+                </div>
+                <span class="font-semibold">WebXR</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800/50 rounded-2xl p-8 border border-blue-500/20 animate-on-scroll"
+            data-once="true"
+          >
+            <h3 class="text-2xl font-bold text-blue-400 mb-4">
+              Hardware Compatibility
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div>
+                <h4 class="text-lg font-semibold text-purple-300 mb-2">
+                  VR Headsets
+                </h4>
+                <ul class="space-y-2 text-blue-200">
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Meta Quest 2/3/Pro
+                  </li>
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    HTC Vive Pro/Focus
+                  </li>
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Valve Index
+                  </li>
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Apple Vision Pro
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-purple-300 mb-2">
+                  AR Devices
+                </h4>
+                <ul class="space-y-2 text-blue-200">
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Microsoft HoloLens 2
+                  </li>
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Magic Leap 2
+                  </li>
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Smartphone AR (iOS/Android)
+                  </li>
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Snap AR Glasses
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-purple-300 mb-2">
+                  Enterprise Solutions
+                </h4>
+                <ul class="space-y-2 text-blue-200">
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Custom haptic controllers
+                  </li>
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Motion capture systems
+                  </li>
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Eye tracking integration
+                  </li>
+                  <li class="flex items-center">
+                    <svg
+                      class="w-5 h-5 mr-2 text-purple-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      ></path>
+                    </svg>
+                    Multi-user server solutions
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent"
+            >
+              Frequently Asked Questions
+            </h2>
+            <p class="text-xl text-blue-200 max-w-2xl mx-auto">
+              Common questions about implementing XR solutions for your business
+            </p>
+          </div>
+
+          <div class="max-w-3xl mx-auto">
+            <div class="space-y-6">
+              <div
+                class="faq-item bg-gray-800/50 rounded-xl overflow-hidden animate-on-scroll"
+                data-once="true"
+              >
+                <button
+                  class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none"
+                  onclick="toggleFAQ(this)"
+                >
+                  <span class="text-xl font-semibold text-blue-300">
+                    What industries benefit most from XR technology?
+                  </span>
+                  <svg
+                    class="faq-toggle w-6 h-6 text-blue-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                  <p class="text-blue-200">
+                    While XR technology offers benefits across virtually all
+                    sectors, industries seeing the most transformative impact
+                    include manufacturing (training, maintenance, design),
+                    healthcare (surgical training, patient therapy), education
+                    (immersive learning), retail (virtual try-on, store
+                    visualization), architecture (virtual walkthroughs), and
+                    entertainment (immersive experiences). Any industry that
+                    relies on spatial understanding, training, visualization, or
+                    remote collaboration can achieve significant ROI from
+                    well-implemented XR solutions.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="faq-item bg-gray-800/50 rounded-xl overflow-hidden animate-on-scroll animate-delay-100"
+                data-once="true"
+              >
+                <button
+                  class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none"
+                  onclick="toggleFAQ(this)"
+                >
+                  <span class="text-xl font-semibold text-blue-300">
+                    What's the typical timeline for an XR project?
+                  </span>
+                  <svg
+                    class="faq-toggle w-6 h-6 text-blue-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                  <p class="text-blue-200">
+                    Project timelines vary based on complexity, but typically
+                    follow this structure: Discovery & Planning (2-4 weeks),
+                    Design & Prototyping (4-8 weeks), Development (8-16 weeks),
+                    Testing & Refinement (2-4 weeks), and Deployment (1-2
+                    weeks). Simple AR applications might be completed in 3-4
+                    months, while complex enterprise VR training systems could
+                    take 6-9 months. We provide detailed timeline estimates
+                    during the initial consultation based on your specific
+                    requirements.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="faq-item bg-gray-800/50 rounded-xl overflow-hidden animate-on-scroll animate-delay-200"
+                data-once="true"
+              >
+                <button
+                  class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none"
+                  onclick="toggleFAQ(this)"
+                >
+                  <span class="text-xl font-semibold text-blue-300">
+                    What hardware is required for implementation?
+                  </span>
+                  <svg
+                    class="faq-toggle w-6 h-6 text-blue-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                  <p class="text-blue-200">
+                    Hardware requirements depend on your specific goals. For AR
+                    applications, modern smartphones or tablets are often
+                    sufficient. For VR, options range from standalone headsets
+                    like Meta Quest (lower cost, easier deployment) to high-end
+                    PC-connected systems like Valve Index (higher fidelity).
+                    Enterprise AR might utilize Microsoft HoloLens or Magic
+                    Leap. We help clients select the optimal hardware based on
+                    use case, budget, and scalability needs, and can develop
+                    cross-platform solutions that work across multiple device
+                    types.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="faq-item bg-gray-800/50 rounded-xl overflow-hidden animate-on-scroll animate-delay-300"
+                data-once="true"
+              >
+                <button
+                  class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none"
+                  onclick="toggleFAQ(this)"
+                >
+                  <span class="text-xl font-semibold text-blue-300">
+                    How do you measure ROI for XR implementations?
+                  </span>
+                  <svg
+                    class="faq-toggle w-6 h-6 text-blue-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                  <p class="text-blue-200">
+                    We establish clear KPIs at project initiation aligned with
+                    your business objectives. Common metrics include training
+                    time reduction (often 40-70%), error rate reduction,
+                    knowledge retention improvement, customer engagement
+                    increases, conversion rate improvements, and cost savings
+                    from reduced physical prototyping or travel. Our analytics
+                    integration provides detailed usage data and performance
+                    metrics. We conduct pre- and post-implementation assessments
+                    to quantify improvements and calculate ROI based on your
+                    specific business value drivers.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1275,7 +2439,7 @@
                 href="contact.html"
                 class="group relative flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all transform hover:scale-105"
               >
-                <span class="relative z-10">Book Strategy Session</span>
+                <span class="relative z-10"> Book Strategy Session </span>
                 <div
                   class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"
                 ></div>
@@ -1311,192 +2475,396 @@
       </section>
     </main>
 
-    <footer class="relative bg-gray-800 py-12 overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <div class="animated-gradient w-full h-full opacity-10"></div>
-      </div>
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="grid md:grid-cols-4 gap-8">
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container mx-auto px-6 py-20">
+        <!-- Footer Top Section -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16"
+        >
           <div>
-            <h3 class="text-2xl font-bold golden-text mb-4">OFO</h3>
-            <p class="text-gray-400">
-              Building tomorrow's digital solutions today.
+            <img
+              src="assets/images/logos/Color logo - no background.png"
+              alt="OFO Development"
+              class="w-48 mb-6"
+            />
+            <p class="text-gray-400 mb-6">
+              Premium enterprise software solutions crafted to transform
+              businesses through innovative technology and expert
+              implementation.
             </p>
+            <div class="flex space-x-4">
+              <a href="#" class="social-icon" aria-label="LinkedIn">
+                <svg
+                  class="w-5 h-5 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Twitter">
+                <svg
+                  class="w-5 h-5 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.032 10.032 0 01-3.127 1.184 4.929 4.929 0 00-8.391 4.491 13.98 13.98 0 01-10.15-5.147 4.9 4.9 0 00-.665 2.479 4.93 4.93 0 002.184 4.097 4.915 4.915 0 01-2.224-.618v.06a4.936 4.936 0 003.95 4.829 4.95 4.95 0 01-2.22.084 4.936 4.936 0 004.601 3.422 9.867 9.867 0 01-6.101 2.105c-.39 0-.78-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a10.038 10.038 0 002.46-2.548l-.047-.02z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="GitHub">
+                <svg
+                  class="w-5 h-5 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Instagram">
+                <svg
+                  class="w-5 h-5 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
+
           <div>
-            <h4 class="font-bold mb-4">Services</h4>
-            <ul class="space-y-2 text-gray-400">
+            <h3 class="text-lg font-semibold mb-6 golden-text">Services</h3>
+            <ul class="space-y-4">
               <li>
-                <a
-                  href="CustomSoftwareDevelopment.html"
-                  class="hover:text-yellow-500"
+                <a href="CustomSoftwareDevelopment.html" class="footer-link"
                   >Custom Software</a
                 >
               </li>
               <li>
-                <a href="MobileDevelopment.html" class="hover:text-yellow-500"
-                  >Mobile Apps</a
+                <a href="MobileDevelopment.html" class="footer-link"
+                  >Mobile Development</a
                 >
               </li>
               <li>
-                <a href="CloudComputing.html" class="hover:text-yellow-500"
+                <a href="WebDevelopment.html" class="footer-link"
+                  >Web Development</a
+                >
+              </li>
+              <li>
+                <a href="ArtificialIntelligence.html" class="footer-link"
+                  >AI & Machine Learning</a
+                >
+              </li>
+              <li>
+                <a href="CloudComputing.html" class="footer-link"
                   >Cloud Solutions</a
                 >
               </li>
             </ul>
           </div>
-          <div>
-            <h4 class="font-bold mb-4">Company</h4>
-            <ul class="space-y-2 text-gray-400">
-              <li>
-                <a href="about.html" class="hover:text-yellow-500">About</a>
-              </li>
-              <li>
-                <a
-                  href="index.html#services-section"
-                  class="hover:text-yellow-500"
-                  >Services</a
-                >
-              </li>
 
+          <div>
+            <h3 class="text-lg font-semibold mb-6 golden-text">Company</h3>
+            <ul class="space-y-4">
+              <li><a href="about.html" class="footer-link">About Us</a></li>
               <li>
-                <a href="contact.html" class="hover:text-yellow-500">Contact</a>
+                <a href="CaseStudies.html" class="footer-link">Case Studies</a>
+              </li>
+              <li><a href="blog.html" class="footer-link">Blog</a></li>
+              <li><a href="careers.html" class="footer-link">Careers</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-6 golden-text">Contact</h3>
+            <ul class="space-y-4 text-gray-400">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-3 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+                <span>5470 Kietzke Ln ste 300<br />Reno, Nevada 89511</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+                <span>+1 (844) 633-3837</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-5 h-5 text-yellow-500 mr-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>info@ofodevelopment.com</span>
               </li>
             </ul>
           </div>
-          <div>
-            <h4 class="font-bold mb-4">Connect</h4>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-yellow-500">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M22 4.01c-1 .49-2.1.82-3.24.97a5.07 5.07 0 002.25-2.83 10.2 10.2 0 01-3.24 1.24 5.07 5.07 0 00-8.63 4.62A14.4 14.4 0 013 2.6a5.07 5.07 0 001.57 6.77 5.07 5.07 0 01-2.3-.63v.06a5.07 5.07 0 004.07 4.97 5.07 5.07 0 01-2.29.09 5.07 5.07 0 004.73 3.52 10.2 10.2 0 01-6.32 2.18c-.41 0-.82-.02-1.22-.07a14.4 14.4 0 007.83 2.3c9.4 0 14.53-7.79 14.53-14.53 0-.22 0-.44-.02-.66a10.4 10.4 0 002.56-2.65z"
-                  ></path>
-                </svg>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-yellow-500">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
-                  ></path>
-                </svg>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-yellow-500">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="border-t border-gray-800 pt-12 pb-8">
+          <h4 class="text-center text-sm font-semibold text-gray-400 mb-8">
+            TRUSTED TECHNOLOGIES
+          </h4>
+          <div
+            class="flex flex-wrap justify-center items-center gap-8 md:gap-12"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              alt="React"
+              class="tech-logo h-8"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              alt="Node.js"
+              class="tech-logo h-8"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+              alt="Python"
+              class="tech-logo h-8"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg"
+              alt="AWS"
+              class="tech-logo h-8"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"
+              alt="Azure"
+              class="tech-logo h-8"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+              alt="Google Cloud"
+              class="tech-logo h-8"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+              alt="Docker"
+              class="tech-logo h-8"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+              alt="Kubernetes"
+              class="tech-logo h-8"
+            />
           </div>
         </div>
-        <div
-          class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400"
-        >
-          <p>
-            © <span class="current-year">2025</span> OFO Development. All rights
-            reserved.
+
+        <!-- Copyright -->
+        <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+          <p class="text-gray-500 text-sm">
+            &copy; 2025 OFO Development. All rights reserved.
           </p>
+          <div class="flex justify-center mt-4 space-x-6 text-sm">
+            <a
+              href="privacy-policy.html"
+              class="text-gray-500 hover:text-gray-400 transition-colors"
+              >Privacy Policy</a
+            >
+            <a
+              href="terms.html"
+              class="text-gray-500 hover:text-gray-400 transition-colors"
+              >Terms of Service</a
+            >
+            <a
+              href="sitemap.xml"
+              class="text-gray-500 hover:text-gray-400 transition-colors"
+              >Sitemap</a
+            >
+          </div>
         </div>
       </div>
+
+      <!-- Back to Top Button -->
+      <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          ></path>
+        </svg>
+      </button>
     </footer>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // 3D Model Viewer Controls
-        const cube = document.querySelector(".rotating-cube");
-        let rotateX = 0;
-        let rotateY = 0;
-        let isDragging = false;
-        let lastX, lastY;
-
-        function updateCubeRotation() {
-          cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        }
-
-        // Mouse/touch controls
-        const modelViewer = document.querySelector(".model-viewer-container");
-
-        modelViewer.addEventListener("mousedown", (e) => {
-          isDragging = true;
-          lastX = e.clientX;
-          lastY = e.clientY;
-        });
-
-        document.addEventListener("mousemove", (e) => {
-          if (!isDragging) return;
-          const deltaX = e.clientX - lastX;
-          const deltaY = e.clientY - lastY;
-
-          rotateY += deltaX * 0.5;
-          rotateX -= deltaY * 0.5;
-
-          updateCubeRotation();
-
-          lastX = e.clientX;
-          lastY = e.clientY;
-        });
-
-        document.addEventListener("mouseup", () => {
-          isDragging = false;
-        });
-
-        // Button controls
-        document.querySelector(".reset-view").addEventListener("click", () => {
-          rotateX = 0;
-          rotateY = 0;
-          updateCubeRotation();
-        });
-
-        document.querySelector(".rotate-left").addEventListener("click", () => {
-          rotateY -= 90;
-          updateCubeRotation();
-        });
-
-        document
-          .querySelector(".rotate-right")
-          .addEventListener("click", () => {
-            rotateY += 90;
-            updateCubeRotation();
-          });
-
-        document.querySelector(".rotate-up").addEventListener("click", () => {
-          rotateX -= 90;
-          updateCubeRotation();
-        });
-
-        document.querySelector(".rotate-down").addEventListener("click", () => {
-          rotateX += 90;
-          updateCubeRotation();
-        });
-
-        // Auto-rotation animation (can be toggled)
-        let autoRotate = true;
-        let animationId;
-
-        function animate() {
-          if (autoRotate && !isDragging) {
-            rotateY += 0.2;
-            updateCubeRotation();
-          }
-          animationId = requestAnimationFrame(animate);
-        }
-
-        animate();
-
-        // Allow auto-rotation to be paused when interacting
-        modelViewer.addEventListener("mouseenter", () => {
-          autoRotate = false;
-        });
-
-        modelViewer.addEventListener("mouseleave", () => {
-          if (!isDragging) {
-            autoRotate = true;
-          }
-        });
-      });
-    </script>
-    <script src="assets/js/analytics.js"></script>
   </body>
 </html>
+<script src="assets/js/counter.js"></script>
+<script src="assets/js/scroll.js"></script>
+<script src="assets/js/scrollreveal.js"></script>
+<script>
+  // FAQ Toggle Function
+  function toggleFAQ(button) {
+    const faqItem = button.closest(".faq-item");
+    const answer = faqItem.querySelector(".faq-answer");
+    const toggle = button.querySelector(".faq-toggle");
+
+    // Check if this FAQ is already open
+    const isOpen =
+      answer.style.maxHeight !== "0px" && answer.style.maxHeight !== "";
+
+    // Close all FAQs first
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      const itemAnswer = item.querySelector(".faq-answer");
+      const itemToggle = item.querySelector(".faq-toggle");
+      itemAnswer.style.maxHeight = "0px";
+      itemToggle.style.transform = "rotate(0deg)";
+    });
+
+    // Toggle the clicked FAQ
+    if (!isOpen) {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      toggle.style.transform = "rotate(180deg)";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Initialize FAQ items to be closed
+    document.querySelectorAll(".faq-answer").forEach((answer) => {
+      answer.style.maxHeight = "0px";
+    });
+
+    // 3D Model Viewer Controls
+    const cube = document.querySelector(".rotating-cube");
+    let rotateX = 0;
+    let rotateY = 0;
+    let isDragging = false;
+    let lastX, lastY;
+
+    function updateCubeRotation() {
+      cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    // Mouse/touch controls
+    const modelViewer = document.querySelector(".model-viewer-container");
+
+    modelViewer.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      lastX = e.clientX;
+      lastY = e.clientY;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - lastX;
+      const deltaY = e.clientY - lastY;
+
+      rotateY += deltaX * 0.5;
+      rotateX -= deltaY * 0.5;
+
+      updateCubeRotation();
+
+      lastX = e.clientX;
+      lastY = e.clientY;
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+
+    // Button controls
+    document.querySelector(".reset-view").addEventListener("click", () => {
+      rotateX = 0;
+      rotateY = 0;
+      updateCubeRotation();
+    });
+
+    document.querySelector(".rotate-left").addEventListener("click", () => {
+      rotateY -= 90;
+      updateCubeRotation();
+    });
+
+    document.querySelector(".rotate-right").addEventListener("click", () => {
+      rotateY += 90;
+      updateCubeRotation();
+    });
+
+    document.querySelector(".rotate-up").addEventListener("click", () => {
+      rotateX -= 90;
+      updateCubeRotation();
+    });
+
+    document.querySelector(".rotate-down").addEventListener("click", () => {
+      rotateX += 90;
+      updateCubeRotation();
+    });
+
+    // Auto-rotation animation (can be toggled)
+    let autoRotate = true;
+    let animationId;
+
+    function animate() {
+      if (autoRotate && !isDragging) {
+        rotateY += 0.2;
+        updateCubeRotation();
+      }
+      animationId = requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Allow auto-rotation to be paused when interacting
+    modelViewer.addEventListener("mouseenter", () => {
+      autoRotate = false;
+    });
+
+    modelViewer.addEventListener("mouseleave", () => {
+      if (!isDragging) {
+        autoRotate = true;
+      }
+    });
+  });
+</script>
+<script src="assets/js/analytics.js"></script>
