@@ -8,24 +8,30 @@
 // Cache name - update version when deploying new changes
 const CACHE_NAME = "ofo-cache-v1";
 
-// Function to check if the server is available with retry mechanism
-async function isServerAvailable(retries = 3, delay = 2000) {
+// Function to check if the server is available with improved retry mechanism
+async function isServerAvailable(retries = 5, delay = 2000) {
+  console.log(`Starting server availability check with ${retries} retries...`);
+
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
-      // If this isn't the first attempt, wait before retrying
+      // If this isn't the first attempt, wait before retrying with exponential backoff
       if (attempt > 0) {
+        const backoffDelay = delay * Math.pow(1.5, attempt - 1); // Exponential backoff
         console.warn(
           `Retrying server availability check (attempt ${
             attempt + 1
-          }/${retries})...`
+          }/${retries}) after ${backoffDelay}ms delay...`
         );
-        await new Promise((resolve) => setTimeout(resolve, delay));
+        await new Promise((resolve) => setTimeout(resolve, backoffDelay));
       }
 
       // Try to fetch the server-status.json file with a timeout
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout (increased from 5s)
 
+      console.log(`Fetching server-status.json (attempt ${attempt + 1})...`);
+
+      // First try a HEAD request to check if the file exists
       const response = await fetch("/server-status.json", {
         method: "HEAD",
         cache: "no-store",
@@ -39,6 +45,8 @@ async function isServerAvailable(retries = 3, delay = 2000) {
       clearTimeout(timeoutId);
 
       if (response.ok) {
+        console.log(`HEAD request successful, fetching full response...`);
+
         // Add a random query parameter to prevent caching issues
         const fullResponse = await fetch(
           `/server-status.json?t=${Date.now()}`,
@@ -52,11 +60,21 @@ async function isServerAvailable(retries = 3, delay = 2000) {
         );
 
         if (fullResponse.ok) {
-          const data = await fullResponse.json();
-          // Check if the status is online
-          if (data.status === "online") {
-            console.log("Server availability check passed");
-            return true;
+          try {
+            const data = await fullResponse.json();
+            console.log(`Server status data:`, data);
+
+            // During server startup, we'll be more lenient with our checks
+            // Just check if the file exists and has basic structure
+            if (data && typeof data === "object") {
+              // If we have any kind of status, consider it valid during service worker checks
+              if (data.status) {
+                console.log("Server availability check passed");
+                return true;
+              }
+            }
+          } catch (jsonError) {
+            console.warn(`Error parsing server-status.json:`, jsonError);
           }
         }
       }
@@ -89,7 +107,7 @@ function scheduleServerCheck() {
   checkServerTimeout = setTimeout(async () => {
     try {
       // Use the improved isServerAvailable function with retries
-      const serverAvailable = await isServerAvailable(3, 2000); // 3 retries, 2 second delay
+      const serverAvailable = await isServerAvailable(5, 2000); // 5 retries, 2 second delay
 
       if (!serverAvailable) {
         console.log("Server is not available, unregistering service worker...");
@@ -107,11 +125,11 @@ function scheduleServerCheck() {
   }, SERVER_CHECK_INTERVAL);
 }
 
-// Delay the initial server check to give the server time to start up
+// Delay the initial server check to give the server more time to start up
 setTimeout(() => {
   console.log("Starting server availability check schedule...");
   scheduleServerCheck();
-}, 5000); // 5 second delay before first check
+}, 10000); // 10 second delay before first check (increased from 5s)
 
 // Resources to cache on install
 const PRECACHE_RESOURCES = [

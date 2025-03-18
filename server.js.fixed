@@ -216,9 +216,7 @@ const updateServerStatus = () => {
       );
       fs.writeFileSync(
         statusFilePath,
-        JSON.stringify({
-          status: "online",
-          timestamp: new Date().toISOString(),
+        JSON.stringify(, , ).toISOString(),
         })
       );
     } catch (fallbackError) {

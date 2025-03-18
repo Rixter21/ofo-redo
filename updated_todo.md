@@ -230,3 +230,4 @@ _These issues must be addressed before the website can be considered production-
 - [ ] Image optimization verification
 - [ ] Performance testing
 - [ ] Accessibility validation
+  - Linked Telemedicine Platform case study to case-studies/telemedicine-platform.html

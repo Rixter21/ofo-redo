@@ -4,24 +4,30 @@
  * Includes server availability check to prevent issues when server is offline
  */
 
-// Function to check if the server is available with retry mechanism
-async function isServerAvailable(retries = 3, delay = 2000) {
+// Function to check if the server is available with improved retry mechanism
+async function isServerAvailable(retries = 5, delay = 2000) {
+  console.log(`Starting server availability check with ${retries} retries...`);
+
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
-      // If this isn't the first attempt, wait before retrying
+      // If this isn't the first attempt, wait before retrying with exponential backoff
       if (attempt > 0) {
+        const backoffDelay = delay * Math.pow(1.5, attempt - 1); // Exponential backoff
         console.log(
           `Retrying server availability check (attempt ${
             attempt + 1
-          }/${retries})...`
+          }/${retries}) after ${backoffDelay}ms delay...`
         );
-        await new Promise((resolve) => setTimeout(resolve, delay));
+        await new Promise((resolve) => setTimeout(resolve, backoffDelay));
       }
 
       // Try to fetch the server-status.json file with a timeout
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout (increased from 3s)
+      const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout (increased from 5s)
 
+      console.log(`Fetching server-status.json (attempt ${attempt + 1})...`);
+
+      // First try a HEAD request to check if the file exists
       const response = await fetch("/server-status.json", {
         method: "HEAD",
         cache: "no-store",
@@ -35,6 +41,8 @@ async function isServerAvailable(retries = 3, delay = 2000) {
       clearTimeout(timeoutId);
 
       if (response.ok) {
+        console.log(`HEAD request successful, fetching full response...`);
+
         // Add a random query parameter to prevent caching issues
         const fullResponse = await fetch(
           `/server-status.json?t=${Date.now()}`,
@@ -48,12 +56,33 @@ async function isServerAvailable(retries = 3, delay = 2000) {
         );
 
         if (fullResponse.ok) {
-          const data = await fullResponse.json();
-          // Check if the timestamp exists and the server reports as online
-          // We're not strictly checking the timestamp age to be more lenient during server startup
-          if (data.status === "online" && data.timestamp) {
-            console.log("Server availability check passed");
-            return true;
+          try {
+            const data = await fullResponse.json();
+            console.log(`Server status data:`, data);
+
+            // During server startup, we'll be more lenient with our checks
+            // Just check if the file exists and has basic structure
+            if (data && typeof data === "object") {
+              // If we're within the first 30 seconds of page load, be very lenient
+              const pageLoadTime =
+                window.performance.timing.navigationStart || Date.now() - 30000;
+              const isRecentPageLoad = Date.now() - pageLoadTime < 30000;
+
+              if (isRecentPageLoad) {
+                console.log(
+                  "Recent page load detected, being lenient with server check"
+                );
+                return true;
+              }
+
+              // Otherwise do a more thorough check
+              if (data.status === "online" && data.timestamp) {
+                console.log("Server availability check passed");
+                return true;
+              }
+            }
+          } catch (jsonError) {
+            console.warn(`Error parsing server-status.json:`, jsonError);
           }
         }
       }
@@ -72,14 +101,14 @@ async function isServerAvailable(retries = 3, delay = 2000) {
 // Only register if service workers are supported
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
-    // Add a delay before checking server availability to give the server time to start up
+    // Add a longer delay before checking server availability to give the server more time to start up
     console.log(
       "Waiting for server to initialize before checking availability..."
     );
-    await new Promise((resolve) => setTimeout(resolve, 3000)); // 3 second delay
+    await new Promise((resolve) => setTimeout(resolve, 8000)); // 8 second delay (increased from 3s)
 
     // Check if server is available before registering service worker (with retries)
-    const serverAvailable = await isServerAvailable(3, 2000); // 3 retries, 2 second delay between retries
+    const serverAvailable = await isServerAvailable(5, 2000); // 5 retries, 2 second delay between retries
 
     if (!serverAvailable) {
       console.log("Server is not available, unregistering service worker...");
