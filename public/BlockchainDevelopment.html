@@ -54,7 +54,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
     />
+    <link rel="stylesheet" href="assets/css/blockchain-development.css" />
+    <link rel="stylesheet" href="assets/css/additional-styles.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
     <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/components.js" defer></script>
     <link
       rel="preload"
       href="assets/images/logos/Color logo - no background.png"
@@ -63,343 +67,6 @@
     />
   </head>
   <body class="bg-gray-900 text-white">
-    <style>
-      /* Dark Mode Styles */
-      .dark {
-        color-scheme: dark;
-      }
-
-      .dark body {
-        background-color: #111827;
-        color: #f3f4f6;
-      }
-
-      /* Scroll Animation Styles */
-      .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      }
-
-      .animate-on-scroll.animated {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .animate-delay-100 {
-        transition-delay: 0.1s;
-      }
-
-      .animate-delay-200 {
-        transition-delay: 0.2s;
-      }
-
-      .animate-delay-300 {
-        transition-delay: 0.3s;
-      }
-
-      /* Blockchain Visualization Styles */
-      .blockchain-container {
-        position: relative;
-        width: 100%;
-        height: 400px;
-        overflow: hidden;
-        border-radius: 1rem;
-        background-color: rgba(30, 41, 59, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .block {
-        width: 120px;
-        height: 160px;
-        background-color: rgba(59, 130, 246, 0.2);
-        border: 1px solid rgba(59, 130, 246, 0.5);
-        border-radius: 0.5rem;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        transition: all 0.3s ease;
-      }
-
-      .block:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
-        background-color: rgba(59, 130, 246, 0.3);
-      }
-
-      .block-header {
-        font-size: 0.75rem;
-        color: #93c5fd;
-        margin-bottom: 0.5rem;
-        border-bottom: 1px solid rgba(59, 130, 246, 0.3);
-        padding-bottom: 0.5rem;
-      }
-
-      .block-hash {
-        font-family: monospace;
-        font-size: 0.7rem;
-        color: #bfdbfe;
-        word-break: break-all;
-        overflow: hidden;
-        flex-grow: 1;
-      }
-
-      .blockchain-link {
-        width: 50px;
-        height: 2px;
-        background: linear-gradient(90deg, #93c5fd, #818cf8);
-        position: absolute;
-      }
-
-      .blockchain-controls {
-        position: absolute;
-        bottom: 16px;
-        left: 16px;
-        z-index: 10;
-        display: flex;
-        gap: 8px;
-      }
-
-      .blockchain-button {
-        background-color: rgba(30, 41, 59, 0.8);
-        border: 1px solid rgba(147, 197, 253, 0.3);
-        border-radius: 4px;
-        padding: 8px;
-        color: #93c5fd;
-        transition: all 0.2s ease;
-      }
-
-      .blockchain-button:hover {
-        background-color: rgba(59, 130, 246, 0.3);
-      }
-
-      /* Enhanced Animation Effects */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .animate-fade-in-up {
-        animation: fadeInUp 0.6s ease forwards;
-      }
-
-      .delay-100 {
-        animation-delay: 0.1s;
-      }
-
-      .delay-200 {
-        animation-delay: 0.2s;
-      }
-
-      /* Blockchain Tech Card Hover Effects */
-      .blockchain-tech-card {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        transform-style: preserve-3d;
-        perspective: 1000px;
-      }
-
-      .blockchain-tech-card:hover {
-        transform: translateY(-10px) rotateX(5deg);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2),
-          0 10px 10px -5px rgba(0, 0, 0, 0.1);
-      }
-
-      .blockchain-tech-card img {
-        transition: transform 0.5s ease;
-      }
-
-      .blockchain-tech-card:hover img {
-        transform: scale(1.05);
-      }
-
-      .blockchain-tech-card .tech-icon {
-        transition: all 0.3s ease;
-      }
-
-      .blockchain-tech-card:hover .tech-icon {
-        transform: translateY(-5px);
-      }
-      .golden-text {
-        background: linear-gradient(45deg, #ffd700, #ffa500);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      /* Dropdown container */
-      .group:hover .dropdown-content {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: all;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        top: calc(100% + 0.5rem);
-        left: -1rem;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: #1a1a1a;
-        border: 1px solid rgba(255, 215, 0, 0.2);
-        border-radius: 0.5rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        min-width: 280px;
-        overflow: hidden;
-      }
-
-      .dropdown-content a {
-        @apply px-6 py-3 text-gray-300 hover:bg-gray-800 block transition-colors;
-        border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-      }
-
-      .dropdown-content a:last-child {
-        border-bottom: none;
-      }
-
-      .blog-card {
-        background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-        border: 1px solid rgba(255, 215, 0, 0.1);
-        transition: transform 0.3s ease;
-      }
-
-      .blog-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255, 215, 0, 0.3);
-      }
-
-      .category-tag.active {
-        background: linear-gradient(45deg, #ffd700, #ffa500);
-        color: black;
-      }
-      /* Enhanced Navbar Styles */
-      .nav-link {
-        color: #d1d5db;
-        font-weight: 500;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .nav-link:hover {
-        background: linear-gradient(45deg, #ffd700, #ffa500);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .dropdown-trigger {
-        display: flex;
-        align-items: center;
-        transition: all 0.3s ease;
-      }
-
-      .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        margin-top: 0.5rem;
-        width: 600px;
-        background-color: #1f2937;
-        border-radius: 0.5rem;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        transform: translateY(-0.5rem);
-      }
-
-      .group:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      .dropdown-item {
-        display: flex;
-        align-items: center;
-        padding: 0.75rem;
-        border-radius: 0.5rem;
-        color: #d1d5db;
-        transition: all 0.3s ease;
-      }
-
-      .dropdown-item:hover {
-        background-color: #374151;
-        transform: translateX(0.5rem);
-      }
-
-      .dropdown-icon {
-        width: 1.25rem;
-        height: 1.25rem;
-        margin-right: 0.75rem;
-        color: #eab308;
-      }
-
-      /* Mobile Menu Animation */
-      .mobile-menu {
-        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      /* Backdrop Blur Effect */
-      nav {
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-
-      /* Accordion Transitions */
-      .accordion div {
-        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      /* Premium Dropdown Footer */
-      .dropdown-menu > div:last-child {
-        border-top: 1px solid #374151;
-        background-color: #1f2937;
-        padding: 1rem;
-      }
-
-      .dropdown-menu > div:last-child h3 {
-        color: #eab308;
-        font-size: 0.875rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-
-      /* Animated gradient background */
-      .animated-gradient {
-        background: linear-gradient(
-          -45deg,
-          #111827,
-          #1f2937,
-          #374151,
-          #1e40af,
-          #1d4ed8
-        );
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-      }
-      @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-    </style>
-
     <nav
       class="fixed w-full z-50 bg-gray-900/50 border-b border-white/20 backdrop-blur-2xl shadow-xl shadow-black/20 transition-all duration-300 hover:backdrop-blur-3xl hover:bg-gray-900/60"
       aria-label="Main navigation"
@@ -658,6 +325,70 @@
                     </svg>
                     Product Management
                   </a>
+                  <a href="SaaSDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                      ></path>
+                    </svg>
+                    SaaS Development
+                  </a>
+                  <a href="EnterpriseSolutions.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                      ></path>
+                    </svg>
+                    Enterprise Solutions
+                  </a>
+                  <a href="BlockchainDevelopment.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      ></path>
+                    </svg>
+                    Blockchain Development
+                  </a>
+                  <a href="DevOpsSolutions.html" class="dropdown-item">
+                    <svg
+                      class="dropdown-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
+                      ></path>
+                    </svg>
+                    DevOps Solutions
+                  </a>
                 </div>
 
                 <div
@@ -742,6 +473,18 @@
                   >
                   <a href="ProductManagement.html" class="block nav-link"
                     >Product Management</a
+                  >
+                  <a href="SaaSDevelopment.html" class="block nav-link"
+                    >SaaS Development</a
+                  >
+                  <a href="EnterpriseSolutions.html" class="block nav-link"
+                    >Enterprise Solutions</a
+                  >
+                  <a href="BlockchainDevelopment.html" class="block nav-link"
+                    >Blockchain Development</a
+                  >
+                  <a href="DevOpsSolutions.html" class="block nav-link"
+                    >DevOps Solutions</a
                   >
                 </div>
               </div>
@@ -864,209 +607,10 @@
                   ></path>
                 </svg>
               </div>
-              <h3 class="text-2xl font-semibold mb-4 text-purple-300">
-                DeFi Applications
-              </h3>
-              <p class="text-gray-300">
-                Build decentralized finance applications including DEXs, lending
-                platforms, yield farming, and staking solutions.
-              </p>
-            </div>
-
-            <div
-              class="flex flex-col items-center text-center p-6 bg-gray-800/50 border border-pink-500/30 rounded-xl hover:bg-gray-800/70 transition-all hover:transform hover:scale-105"
-            >
-              <div
-                class="w-16 h-16 flex items-center justify-center rounded-full bg-pink-500/20 mb-4"
-              >
-                <svg
-                  class="w-8 h-8 text-pink-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="text-2xl font-semibold mb-4 text-pink-300">
-                NFT Marketplaces
-              </h3>
-              <p class="text-gray-300">
-                Create custom NFT marketplaces and collections with advanced
-                features like royalties, auctions, and fractionalized ownership.
-              </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="py-16 animated-gradient">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="text-4xl font-bold mb-8 golden-text">
-            Ready to Transform Your Business with Blockchain?
-          </h2>
-          <p class="text-xl text-blue-200 mb-8 max-w-3xl mx-auto">
-            Our blockchain experts are ready to help you leverage the power of
-            distributed ledger technology for your business.
-          </p>
-          <a
-            href="contact.html"
-            class="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-          >
-            Get Started Today
-          </a>
         </div>
       </section>
     </main>
-
-    <footer class="bg-gray-900 border-t border-gray-800">
-      <div class="container mx-auto px-4 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <img
-              src="assets/images/logos/Color logo - no background.png"
-              alt="OFO Development"
-              class="h-12 mb-4"
-            />
-            <p class="text-gray-400 mb-4">
-              Innovative software solutions for businesses of all sizes.
-            </p>
-            <div class="flex space-x-4">
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-colors"
-              >
-                <span class="sr-only">Twitter</span>
-                <svg
-                  class="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-colors"
-              >
-                <span class="sr-only">LinkedIn</span>
-                <svg
-                  class="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="text-lg font-bold text-white mb-4">Services</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="BlockchainDevelopment.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >Blockchain Development</a
-                >
-              </li>
-              <li>
-                <a
-                  href="ArtificialIntelligence.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >AI & Machine Learning</a
-                >
-              </li>
-              <li>
-                <a
-                  href="WebDevelopment.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >Web Development</a
-                >
-              </li>
-              <li>
-                <a
-                  href="MobileDevelopment.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >Mobile Development</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-lg font-bold text-white mb-4">Company</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="about.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="blog.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >Blog</a
-                >
-              </li>
-              <li>
-                <a
-                  href="resources.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >Resources</a
-                >
-              </li>
-              <li>
-                <a
-                  href="contact.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-lg font-bold text-white mb-4">Legal</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="privacy-policy.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >Privacy Policy</a
-                >
-              </li>
-              <li>
-                <a
-                  href="terms.html"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >Terms of Service</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p class="text-gray-400">
-            © 2025 OFO Development. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>

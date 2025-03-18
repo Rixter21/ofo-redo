@@ -8,23 +8,68 @@
 // Cache name - update version when deploying new changes
 const CACHE_NAME = "ofo-cache-v1";
 
-// Function to check if the server is available
-async function isServerAvailable() {
-  try {
-    // Try to fetch the server-status.json file
-    const response = await fetch("/server-status.json", {
-      method: "HEAD",
-      cache: "no-store",
-      headers: {
-        "Cache-Control": "no-cache",
-        Pragma: "no-cache",
-      },
-    });
-    return response.ok;
-  } catch (error) {
-    console.warn("Server availability check failed:", error);
-    return false;
+// Function to check if the server is available with retry mechanism
+async function isServerAvailable(retries = 3, delay = 2000) {
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      // If this isn't the first attempt, wait before retrying
+      if (attempt > 0) {
+        console.warn(
+          `Retrying server availability check (attempt ${
+            attempt + 1
+          }/${retries})...`
+        );
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
+
+      // Try to fetch the server-status.json file with a timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+      const response = await fetch("/server-status.json", {
+        method: "HEAD",
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-cache",
+          Pragma: "no-cache",
+        },
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      if (response.ok) {
+        // Add a random query parameter to prevent caching issues
+        const fullResponse = await fetch(
+          `/server-status.json?t=${Date.now()}`,
+          {
+            cache: "no-store",
+            headers: {
+              "Cache-Control": "no-cache",
+              Pragma: "no-cache",
+            },
+          }
+        );
+
+        if (fullResponse.ok) {
+          const data = await fullResponse.json();
+          // Check if the status is online
+          if (data.status === "online") {
+            console.log("Server availability check passed");
+            return true;
+          }
+        }
+      }
+    } catch (error) {
+      console.warn(
+        `Server availability check failed (attempt ${attempt + 1}/${retries}):`,
+        error
+      );
+    }
   }
+
+  console.error(`Server availability check failed after ${retries} attempts`);
+  return false;
 }
 
 // Periodically check if the server is available
@@ -43,7 +88,9 @@ function scheduleServerCheck() {
   // Set a new timeout
   checkServerTimeout = setTimeout(async () => {
     try {
-      const serverAvailable = await isServerAvailable();
+      // Use the improved isServerAvailable function with retries
+      const serverAvailable = await isServerAvailable(3, 2000); // 3 retries, 2 second delay
+
       if (!serverAvailable) {
         console.log("Server is not available, unregistering service worker...");
         await self.registration.unregister();
@@ -60,8 +107,11 @@ function scheduleServerCheck() {
   }, SERVER_CHECK_INTERVAL);
 }
 
-// Start the server check schedule
-scheduleServerCheck();
+// Delay the initial server check to give the server time to start up
+setTimeout(() => {
+  console.log("Starting server availability check schedule...");
+  scheduleServerCheck();
+}, 5000); // 5 second delay before first check
 
 // Resources to cache on install
 const PRECACHE_RESOURCES = [

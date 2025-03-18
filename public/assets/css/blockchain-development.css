@@ -1,0 +1,337 @@
+/* Dark Mode Styles */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+/* Scroll Animation Styles */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-delay-100 {
+  transition-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  transition-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  transition-delay: 0.3s;
+}
+
+/* Blockchain Visualization Styles */
+.blockchain-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.block {
+  width: 120px;
+  height: 160px;
+  background-color: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  border-radius: 0.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+  background-color: rgba(59, 130, 246, 0.3);
+}
+
+.block-header {
+  font-size: 0.75rem;
+  color: #93c5fd;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.block-hash {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: #bfdbfe;
+  word-break: break-all;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.blockchain-link {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #93c5fd, #818cf8);
+  position: absolute;
+}
+
+.blockchain-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+.blockchain-button {
+  background-color: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  border-radius: 4px;
+  padding: 8px;
+  color: #93c5fd;
+  transition: all 0.2s ease;
+}
+
+.blockchain-button:hover {
+  background-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Enhanced Animation Effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Blockchain Tech Card Hover Effects */
+.blockchain-tech-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.blockchain-tech-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.blockchain-tech-card img {
+  transition: transform 0.5s ease;
+}
+
+.blockchain-tech-card:hover img {
+  transform: scale(1.05);
+}
+
+.blockchain-tech-card .tech-icon {
+  transition: all 0.3s ease;
+}
+
+.blockchain-tech-card:hover .tech-icon {
+  transform: translateY(-5px);
+}
+
+.golden-text {
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dropdown container */
+.group:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: -1rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  min-width: 280px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  @apply px-6 py-3 text-gray-300 hover:bg-gray-800 block transition-colors;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.blog-card {
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.category-tag.active {
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  color: black;
+}
+
+/* Enhanced Navbar Styles */
+.nav-link {
+  color: #d1d5db;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  width: 600px;
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(-0.5rem);
+}
+
+.group:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #374151;
+  transform: translateX(0.5rem);
+}
+
+.dropdown-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.75rem;
+  color: #eab308;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu {
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Backdrop Blur Effect */
+nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Accordion Transitions */
+.accordion div {
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium Dropdown Footer */
+.dropdown-menu > div:last-child {
+  border-top: 1px solid #374151;
+  background-color: #1f2937;
+  padding: 1rem;
+}
+
+.dropdown-menu > div:last-child h3 {
+  color: #eab308;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Animated gradient background */
+.animated-gradient {
+  background: linear-gradient(
+    -45deg,
+    #111827,
+    #1f2937,
+    #374151,
+    #1e40af,
+    #1d4ed8
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

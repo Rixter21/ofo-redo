@@ -4,58 +4,82 @@
  * Includes server availability check to prevent issues when server is offline
  */
 
-// Function to check if the server is available
-async function isServerAvailable() {
-  try {
-    // Try to fetch the server-status.json file with a timeout
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
+// Function to check if the server is available with retry mechanism
+async function isServerAvailable(retries = 3, delay = 2000) {
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      // If this isn't the first attempt, wait before retrying
+      if (attempt > 0) {
+        console.log(
+          `Retrying server availability check (attempt ${
+            attempt + 1
+          }/${retries})...`
+        );
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
 
-    const response = await fetch("/server-status.json", {
-      method: "HEAD",
-      cache: "no-store",
-      headers: {
-        "Cache-Control": "no-cache",
-        Pragma: "no-cache",
-      },
-      signal: controller.signal,
-    });
+      // Try to fetch the server-status.json file with a timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout (increased from 3s)
 
-    clearTimeout(timeoutId);
-
-    if (response.ok) {
-      // Add a random query parameter to prevent caching issues
-      const fullResponse = await fetch(`/server-status.json?t=${Date.now()}`, {
+      const response = await fetch("/server-status.json", {
+        method: "HEAD",
         cache: "no-store",
         headers: {
           "Cache-Control": "no-cache",
           Pragma: "no-cache",
         },
+        signal: controller.signal,
       });
 
-      if (fullResponse.ok) {
-        const data = await fullResponse.json();
-        // Check if the timestamp is recent (within the last hour)
-        const timestamp = new Date(data.timestamp);
-        const now = new Date();
-        const diffMinutes = (now - timestamp) / (1000 * 60);
+      clearTimeout(timeoutId);
 
-        return diffMinutes < 60; // Server is available if timestamp is less than 60 minutes old
+      if (response.ok) {
+        // Add a random query parameter to prevent caching issues
+        const fullResponse = await fetch(
+          `/server-status.json?t=${Date.now()}`,
+          {
+            cache: "no-store",
+            headers: {
+              "Cache-Control": "no-cache",
+              Pragma: "no-cache",
+            },
+          }
+        );
+
+        if (fullResponse.ok) {
+          const data = await fullResponse.json();
+          // Check if the timestamp exists and the server reports as online
+          // We're not strictly checking the timestamp age to be more lenient during server startup
+          if (data.status === "online" && data.timestamp) {
+            console.log("Server availability check passed");
+            return true;
+          }
+        }
       }
+    } catch (error) {
+      console.warn(
+        `Server availability check failed (attempt ${attempt + 1}/${retries}):`,
+        error
+      );
     }
-
-    return false;
-  } catch (error) {
-    console.warn("Server availability check failed:", error);
-    return false;
   }
+
+  console.error(`Server availability check failed after ${retries} attempts`);
+  return false;
 }
 
 // Only register if service workers are supported
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", async () => {
-    // Check if server is available before registering service worker
-    const serverAvailable = await isServerAvailable();
+    // Add a delay before checking server availability to give the server time to start up
+    console.log(
+      "Waiting for server to initialize before checking availability..."
+    );
+    await new Promise((resolve) => setTimeout(resolve, 3000)); // 3 second delay
+
+    // Check if server is available before registering service worker (with retries)
+    const serverAvailable = await isServerAvailable(3, 2000); // 3 retries, 2 second delay between retries
 
     if (!serverAvailable) {
       console.log("Server is not available, unregistering service worker...");

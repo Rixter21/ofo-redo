@@ -161,22 +161,49 @@ app.use((req, res, next) => {
 const updateServerStatus = () => {
   try {
     const statusFilePath = path.join(__dirname, "public", "server-status.json");
-    if (fs.existsSync(statusFilePath)) {
-      // Use a simple object instead of reading the file to avoid potential race conditions
-      const statusData = {
-        status: "online",
-        timestamp: new Date().toISOString(),
-      };
-      fs.writeFileSync(statusFilePath, JSON.stringify(statusData, null, 2));
-      console.log("Updated server-status.json with current timestamp");
-    }
+    // Create the file if it doesn't exist
+    const statusData = {
+      status: "online",
+      timestamp: new Date().toISOString(),
+    };
+    fs.writeFileSync(statusFilePath, JSON.stringify(statusData, null, 2));
+    console.log("Updated server-status.json with current timestamp");
   } catch (error) {
     console.error("Error updating server-status.json:", error);
   }
 };
 
+// Update status file before starting server to ensure it's available immediately
+console.log("Initializing server-status.json before starting server...");
+updateServerStatus();
+
+// Set up an interval to update the status file periodically
+const statusUpdateInterval = setInterval(updateServerStatus, 30000); // Update every 30 seconds
+
 // start server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  // Update status again after server is fully started
   updateServerStatus();
+});
+
+// Handle graceful shutdown
+process.on("SIGINT", () => {
+  console.log("Shutting down server...");
+  clearInterval(statusUpdateInterval);
+
+  // Update status to offline
+  try {
+    const statusFilePath = path.join(__dirname, "public", "server-status.json");
+    const statusData = {
+      status: "offline",
+      timestamp: new Date().toISOString(),
+    };
+    fs.writeFileSync(statusFilePath, JSON.stringify(statusData, null, 2));
+    console.log("Updated server-status.json to offline");
+  } catch (error) {
+    console.error("Error updating server-status.json:", error);
+  }
+
+  process.exit(0);
 });
