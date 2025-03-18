@@ -1,19 +1,75 @@
 /**
  * Service Worker for OFO Development Website
  * Provides offline support and caching for better performance
- * @version 1.0.0
+ * Includes server availability check to prevent issues when server is offline
+ * @version 1.1.0
  */
 
 // Cache name - update version when deploying new changes
 const CACHE_NAME = "ofo-cache-v1";
+
+// Function to check if the server is available
+async function isServerAvailable() {
+  try {
+    // Try to fetch the server-status.json file
+    const response = await fetch("/server-status.json", {
+      method: "HEAD",
+      cache: "no-store",
+      headers: {
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+      },
+    });
+    return response.ok;
+  } catch (error) {
+    console.warn("Server availability check failed:", error);
+    return false;
+  }
+}
+
+// Periodically check if the server is available
+// If not, unregister the service worker
+// Increased interval to reduce server load
+const SERVER_CHECK_INTERVAL = 30 * 60 * 1000; // 30 minutes
+let checkServerTimeout;
+
+// Function to schedule the next check
+function scheduleServerCheck() {
+  // Clear any existing timeout
+  if (checkServerTimeout) {
+    clearTimeout(checkServerTimeout);
+  }
+
+  // Set a new timeout
+  checkServerTimeout = setTimeout(async () => {
+    try {
+      const serverAvailable = await isServerAvailable();
+      if (!serverAvailable) {
+        console.log("Server is not available, unregistering service worker...");
+        await self.registration.unregister();
+        console.log("Service worker unregistered due to server unavailability");
+      } else {
+        // Schedule the next check only if the server is available
+        scheduleServerCheck();
+      }
+    } catch (error) {
+      console.error("Error checking server availability:", error);
+      // Still schedule the next check even if there was an error
+      scheduleServerCheck();
+    }
+  }, SERVER_CHECK_INTERVAL);
+}
+
+// Start the server check schedule
+scheduleServerCheck();
 
 // Resources to cache on install
 const PRECACHE_RESOURCES = [
   "/",
   "/index.html",
   "/assets/css/output.min.css",
-  "/assets/css/styles.min.css",
-  "/assets/js/main.min.js",
+  "/assets/css/styles.css",
+  "/assets/js/main.js",
   "/assets/images/logos/Color logo - no background.webp",
   "/assets/images/logos/White logo - no background.webp",
   // Add other critical resources here

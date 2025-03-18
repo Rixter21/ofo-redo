@@ -1,11 +1,76 @@
 /**
- * Service Worker Registration Script
+ * Service Worker Registration Script with Server Check
  * Adds offline support and better caching to the website
+ * Includes server availability check to prevent issues when server is offline
  */
+
+// Function to check if the server is available
+async function isServerAvailable() {
+  try {
+    // Try to fetch the server-status.json file with a timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
+
+    const response = await fetch("/server-status.json", {
+      method: "HEAD",
+      cache: "no-store",
+      headers: {
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+      },
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (response.ok) {
+      // Add a random query parameter to prevent caching issues
+      const fullResponse = await fetch(`/server-status.json?t=${Date.now()}`, {
+        cache: "no-store",
+        headers: {
+          "Cache-Control": "no-cache",
+          Pragma: "no-cache",
+        },
+      });
+
+      if (fullResponse.ok) {
+        const data = await fullResponse.json();
+        // Check if the timestamp is recent (within the last hour)
+        const timestamp = new Date(data.timestamp);
+        const now = new Date();
+        const diffMinutes = (now - timestamp) / (1000 * 60);
+
+        return diffMinutes < 60; // Server is available if timestamp is less than 60 minutes old
+      }
+    }
+
+    return false;
+  } catch (error) {
+    console.warn("Server availability check failed:", error);
+    return false;
+  }
+}
 
 // Only register if service workers are supported
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
+  window.addEventListener("load", async () => {
+    // Check if server is available before registering service worker
+    const serverAvailable = await isServerAvailable();
+
+    if (!serverAvailable) {
+      console.log("Server is not available, unregistering service worker...");
+
+      // Unregister any existing service workers
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      for (const registration of registrations) {
+        await registration.unregister();
+        console.log("Service worker unregistered due to server unavailability");
+      }
+
+      return;
+    }
+
+    // Server is available, proceed with registration
     navigator.serviceWorker
       .register("/service-worker.js")
       .then((registration) => {

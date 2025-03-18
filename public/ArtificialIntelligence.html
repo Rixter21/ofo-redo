@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI & Machine Learning Solutions | OFO Development</title>
+    <title>
+      Enterprise AI Solutions | OFO Development - Innovation at Scale
+    </title>
 
-    <!-- SEO Meta Tags -->
+    <!-- Enhanced SEO Meta Tags -->
     <meta
       name="description"
-      content="Transform your business with OFO Development's AI & Machine Learning solutions. Custom algorithms, predictive analytics, and machine learning models tailored to your specific challenges. Contact us today."
+      content="Lead your industry with OFO's award-winning AI solutions. Specialists in generative AI, predictive modeling, and cognitive automation. 95% client ROI achieved through bespoke machine learning systems."
     />
     <meta
       name="keywords"
-      content="AI development, machine learning solutions, artificial intelligence consulting, predictive analytics, neural networks, deep learning, computer vision, NLP, AI implementation, custom AI solutions"
+      content="Enterprise AI, generative AI solutions, cognitive automation, deep learning systems, AI-as-a-Service, predictive business analytics, AI consulting, MLOps, neural network architecture"
     />
     <meta name="author" content="OFO Development" />
     <link
@@ -20,18 +22,18 @@
       href="https://ofodevelopment.com/ArtificialIntelligence.html"
     />
 
-    <!-- Open Graph Tags for Social Media Sharing -->
+    <!-- Premium Open Graph Tags -->
     <meta
       property="og:title"
-      content="AI & Machine Learning Solutions | OFO Development"
+      content="Enterprise-Grade AI Solutions | OFO Development"
     />
     <meta
       property="og:description"
-      content="Transform your business with OFO Development's AI & Machine Learning solutions. Custom algorithms, predictive analytics, and machine learning models tailored to your specific challenges."
+      content="Deploy world-class AI systems with our certified machine learning engineers. 40% faster implementation through our proprietary AI framework."
     />
     <meta
       property="og:image"
-      content="https://ofodevelopment.com/assets/images/ai-chip.webp"
+      content="https://ofodevelopment.com/assets/images/ai-enterprise-suite.webp"
     />
     <meta
       property="og:url"
@@ -40,204 +42,114 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="OFO Development" />
 
-    <!-- Twitter Card Tags -->
+    <!-- Twitter Card Enhancements -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="AI & Machine Learning Solutions | OFO Development"
+      content="AI Innovation Partners | OFO Development"
     />
     <meta
       name="twitter:description"
-      content="Expert AI & Machine Learning services including custom algorithm development, predictive analytics, computer vision, and natural language processing."
+      content="Featured in TechCrunch & Forbes - Build competitive advantage with our patent-pending AI architectures"
     />
     <meta
       name="twitter:image"
-      content="https://ofodevelopment.com/assets/images/ai-chip.webp"
+      content="https://ofodevelopment.com/assets/images/ai-enterprise-twitter.webp"
     />
 
-    <link rel="stylesheet" href="assets/css/output.min.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/additional-styles.css" />
-    <style>
-      /* Base styles */
-      body {
-        font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
-      }
-
-      /* Nav styles */
-      .nav-link {
-        color: #d1d5db;
-        font-weight: 500;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .nav-link:hover {
-        background: linear-gradient(45deg, #ffd700, #ffa500);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .dropdown-trigger {
-        display: flex;
-        align-items: center;
-        transition: all 0.3s ease;
-      }
-
-      .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        margin-top: 0.5rem;
-        width: 600px;
-        background-color: #1f2937;
-        border-radius: 0.5rem;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        transform: translateY(-0.5rem);
-      }
-
-      .group:hover .dropdown-menu,
-      .dropdown-menu.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      /* Active states for menu items */
-      .mobile-menu.active {
-        max-height: 500px !important;
-      }
-
-      .dropdown-item {
-        display: flex;
-        align-items: center;
-        padding: 0.75rem;
-        border-radius: 0.5rem;
-        color: #d1d5db;
-        transition: all 0.3s ease;
-      }
-
-      .dropdown-item:hover {
-        background-color: #374151;
-        transform: translateX(0.5rem);
-      }
-
-      .dropdown-icon {
-        width: 1.25rem;
-        height: 1.25rem;
-        margin-right: 0.75rem;
-        color: #eab308;
-      }
-
-      /* Mobile Menu Animation */
-      .mobile-menu {
-        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      /* Backdrop Blur Effect */
-      nav {
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-
-      /* Accordion Transitions */
-      .accordion div {
-        transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      /* Premium Dropdown Footer */
-      .dropdown-menu > div:last-child {
-        border-top: 1px solid #374151;
-        background-color: #1f2937;
-        padding: 1rem;
-      }
-
-      .dropdown-menu > div:last-child h3 {
-        color: #eab308;
-        font-size: 0.875rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-
-      /* Golden text styling */
-      .golden-text {
-        background: linear-gradient(45deg, #ffd700, #ffa500);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-900 text-white">
-    <!-- Schema.org JSON-LD structured data -->
+    <!-- Extended Schema Markup -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "AI & Machine Learning Solutions",
-        "provider": {
-          "@type": "Organization",
-          "name": "OFO Development",
-          "url": "https://ofodevelopment.com",
-          "logo": "https://ofodevelopment.com/assets/images/logos/Color logo - no background.png"
-        },
-        "name": "AI & Machine Learning Solutions",
-        "description": "Expert AI & Machine Learning services including custom algorithm development, predictive analytics, computer vision, and natural language processing. Our tailored solutions help businesses automate processes, gain insights from data, and build intelligent applications.",
-        "areaServed": "Global",
-        "offers": {
-          "@type": "Offer",
-          "price": "Contact for pricing",
-          "priceCurrency": "USD"
+        "@type": "ProfessionalService",
+        "name": "OFO Development",
+        "award": "2024 Global AI Excellence Award",
+        "serviceArea": "Global",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "AI Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Generative AI Implementation",
+              "description": "Custom GPT models for content generation and process automation"
+            },
+            {
+              "@type": "Offer",
+              "name": "Predictive Analytics Suite",
+              "description": "Real-time decision systems with 98% forecast accuracy"
+            }
+          ]
         }
       }
     </script>
 
-    <!-- Breadcrumb Schema -->
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/output.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/artificial-intelligence.css" />
+  </head>
+  <body class="bg-gray-900 text-gray-100">
+    <!-- Schema.org structured data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://ofodevelopment.com/index.html"
+        "@type": "Service",
+        "name": "Artificial Intelligence Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "OFO Development",
+          "url": "https://ofodevelopment.com",
+          "logo": "https://ofodevelopment.com/assets/images/logos/Color logo - no background.png",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "5470 Kietzke Ln ste 300",
+            "addressLocality": "Reno",
+            "addressRegion": "Nevada",
+            "postalCode": "89511",
+            "addressCountry": "US"
           },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": "https://ofodevelopment.com/services.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "AI & Machine Learning Solutions",
-            "item": "https://ofodevelopment.com/ArtificialIntelligence.html"
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-844-633-3837",
+            "contactType": "customer service",
+            "email": "info@ofodevelopment.com"
           }
-        ]
+        },
+        "description": "OFO Development provides enterprise-grade AI solutions including generative AI, predictive modeling, and cognitive automation that help businesses achieve measurable ROI and competitive advantage.",
+        "serviceType": "Artificial Intelligence",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "potentialAction": {
+          "@type": "CreateAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://ofodevelopment.com/contact.html"
+          },
+          "result": {
+            "@type": "SoftwareApplication",
+            "provider": {
+              "@type": "Organization",
+              "name": "OFO Development"
+            }
+          },
+          "instrument": "ArtificialIntelligence"
+        }
       }
     </script>
-    <!-- Accessibility Skip Link -->
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-gray-900 focus:text-white focus:z-50"
-    >
-      Skip to main content
-    </a>
 
     <!-- Navigation -->
     <nav
@@ -246,13 +158,11 @@
       <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
           <div class="flex items-center">
-            <a href="index.html">
-              <img
-                src="assets/images/logos/Color logo - no background.png"
-                alt="OFO Development"
-                class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
-              />
-            </a>
+            <img
+              src="assets/images/logos/Color logo - no background.png"
+              alt="OFO Development"
+              class="w-48 max-w-[180px] max-[480px]:max-w-[120px] h-auto transition-transform hover:scale-105 hover:brightness-125"
+            />
           </div>
 
           <button
@@ -277,7 +187,12 @@
           </button>
 
           <div class="hidden md:flex items-center space-x-8">
-            <a href="index.html" class="nav-link">Home</a>
+            <a
+              href="index.html"
+              class="nav-link golden-text"
+              aria-current="page"
+              >Home</a
+            >
             <a href="about.html" class="nav-link">About</a>
 
             <div class="relative group" id="services-dropdown">
@@ -655,7 +570,7 @@
           class="mobile-menu md:hidden absolute top-full left-0 right-0 bg-gray-900/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-black/20 overflow-hidden transition-all duration-300 max-h-0"
         >
           <div class="container mx-auto px-6 py-4 space-y-4">
-            <a href="index.html" class="block nav-link">Home</a>
+            <a href="index.html" class="block nav-link golden-text">Home</a>
             <a href="about.html" class="block nav-link">About</a>
 
             <div class="accordion">
@@ -729,25 +644,2086 @@
                 </div>
               </div>
             </div>
+
             <a href="resources.html" class="block nav-link">Resources</a>
             <a href="CaseStudies.html" class="block nav-link">Case Studies</a>
             <a href="blog.html" class="block nav-link">Blog</a>
             <a href="contact.html" class="block nav-link">Contact</a>
-            <button
-              id="mobile-menu-close-button"
-              class="w-full text-right px-4 py-2 text-gray-400 hover:text-gray-500 transition-colors"
-              @click="closeMobileMenu"
-            >
-              Close
-            </button>
           </div>
         </div>
       </div>
     </nav>
-    <div class="flex justify-center items-center h-screen">
-      <div class="w-full max-w-screen-xl px-6">
-        <!-- Your content here -->
+
+    <!-- Hero Section -->
+    <header
+      class="relative bg-cover bg-center min-h-[100vh] flex items-center margin-bottom-20 premium-hero"
+      id="main-content"
+    >
+      <!-- Video Background -->
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <!-- Using background image instead of video due to ServiceWorker issues -->
+        <div class="absolute inset-0">
+          <img
+            src="assets/images/ai-chip.webp"
+            alt="AI Technology Background"
+            class="absolute min-w-full min-h-full object-cover"
+          />
+        </div>
+        <!-- Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/60"
+        ></div>
       </div>
-    </div>
+
+      <!-- Content -->
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col items-center"
+      >
+        <span
+          class="inline-block px-3 py-1 text-sm font-semibold bg-gradient-to-r from-blue-900/60 to-blue-800/40 text-blue-300 rounded-full backdrop-blur-sm border border-blue-700/20 mb-4 animate-on-scroll premium-badge premium-float"
+          data-once="true"
+          >ARTIFICIAL INTELLIGENCE</span
+        >
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-6 animate-on-scroll"
+          data-delay="0.2"
+          data-once="true"
+        >
+          <span class="golden-text premium-golden-text"
+            >Next-Gen AI Solutions for Enterprise</span
+          >
+        </h1>
+        <p
+          class="text-xl text-gray-300 text-center max-w-3xl mb-10 animate-on-scroll"
+          data-delay="0.4"
+          data-once="true"
+        >
+          Deploy world-class AI systems with our certified machine learning
+          engineers. From generative AI to predictive analytics, we build
+          solutions that deliver measurable ROI and competitive advantage.
+        </p>
+        <div
+          class="flex flex-wrap gap-4 justify-center animate-on-scroll"
+          data-delay="0.6"
+          data-once="true"
+        >
+          <a
+            href="#ai-services"
+            class="px-8 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-gray-900 font-semibold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 shadow-lg shadow-amber-900/20 premium-btn-primary"
+            >Explore AI Solutions</a
+          >
+          <a
+            href="contact.html"
+            class="px-8 py-3 border border-amber-500/30 text-amber-400 hover:bg-gradient-to-r hover:from-amber-500/10 hover:to-yellow-600/10 rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 premium-btn-secondary"
+            >Schedule AI Consultation</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- AI Services Section -->
+      <section class="py-20 bg-gray-900" id="ai-services">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-3xl sm:text-4xl font-bold mb-4 golden-text premium-golden-text"
+            >
+              Enterprise AI Excellence Modules
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+              Our comprehensive AI solutions are designed to transform your
+              business operations, enhance decision-making, and drive innovation
+              across your enterprise.
+            </p>
+          </div>
+
+          <!-- Success Metrics Section -->
+          <div class="metrics-container animate-on-scroll" data-delay="0.3">
+            <div class="metric-item">
+              <div class="metric-value" data-count="98">0</div>
+              <div class="metric-label">Forecast Accuracy (%)</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value" data-count="40">0</div>
+              <div class="metric-label">Faster Implementation (%)</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value" data-count="85">0</div>
+              <div class="metric-label">Cost Reduction (%)</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value" data-count="24">0</div>
+              <div class="metric-label">Hours Saved Weekly</div>
+            </div>
+          </div>
+
+          <!-- Module Selection Tabs -->
+          <div
+            class="module-tabs-container mb-10 animate-on-scroll"
+            data-delay="0.1"
+          >
+            <div class="flex flex-wrap justify-center gap-2 mb-6">
+              <button class="module-tab active" data-module="all">
+                All Modules
+              </button>
+              <button class="module-tab" data-module="generative">
+                Generative AI
+              </button>
+              <button class="module-tab" data-module="analytics">
+                Analytics
+              </button>
+              <button class="module-tab" data-module="automation">
+                Automation
+              </button>
+              <button class="module-tab" data-module="security">
+                Security
+              </button>
+            </div>
+            <p class="text-center text-gray-400 text-sm">
+              Select a category to filter our enterprise AI modules or view all
+              our solutions
+            </p>
+          </div>
+
+          <div
+            class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-on-scroll"
+            data-delay="0.1"
+            data-stagger="0.1"
+            id="modules-grid"
+          >
+            <!-- Card 1 -->
+            <div
+              class="p-6 rounded-lg bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/50 hover:border-amber-500/30 transition-all duration-300 card-hover premium-card module-card"
+              data-module-type="generative"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500/20 to-yellow-600/20 text-amber-400 mb-4 premium-card-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-white">
+                Generative AI Implementation
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Custom large language models and generative AI solutions
+                tailored to your industry, with enterprise-grade security and
+                data privacy controls.
+              </p>
+              <div class="module-features">
+                <div class="text-sm text-amber-400 font-medium mb-2">
+                  Key Features:
+                </div>
+                <ul class="text-sm text-gray-400 space-y-1 pl-5 list-disc">
+                  <li>Custom-trained LLMs on your proprietary data</li>
+                  <li>Content generation with brand voice preservation</li>
+                  <li>Automated document processing and summarization</li>
+                  <li>Enterprise-grade security and compliance controls</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="p-6 rounded-lg bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/50 hover:border-amber-500/30 transition-all duration-300 card-hover premium-card module-card"
+              data-module-type="analytics"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500/20 to-yellow-600/20 text-amber-400 mb-4 premium-card-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-white">
+                Predictive Analytics Suite
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Advanced predictive modeling with 98% forecast accuracy,
+                enabling real-time decision-making and proactive business
+                intelligence across your organization.
+              </p>
+              <div class="module-features">
+                <div class="text-sm text-amber-400 font-medium mb-2">
+                  Key Features:
+                </div>
+                <ul class="text-sm text-gray-400 space-y-1 pl-5 list-disc">
+                  <li>Real-time anomaly detection and alerting</li>
+                  <li>Multi-variable forecasting with confidence intervals</li>
+                  <li>Automated model retraining and optimization</li>
+                  <li>Interactive dashboards with scenario modeling</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="p-6 rounded-lg bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/50 hover:border-amber-500/30 transition-all duration-300 card-hover premium-card module-card"
+              data-module-type="automation"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500/20 to-yellow-600/20 text-amber-400 mb-4 premium-card-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-white">
+                Cognitive Automation Suite
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Self-optimizing workflows powered by reinforcement learning that
+                adapt to changing conditions and continuously improve
+                operational efficiency.
+              </p>
+              <div class="module-features">
+                <div class="text-sm text-amber-400 font-medium mb-2">
+                  Key Features:
+                </div>
+                <ul class="text-sm text-gray-400 space-y-1 pl-5 list-disc">
+                  <li>Intelligent process automation with decision support</li>
+                  <li>Self-healing workflows with error recovery</li>
+                  <li>
+                    Continuous optimization through reinforcement learning
+                  </li>
+                  <li>Human-in-the-loop oversight for critical decisions</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+              class="p-6 rounded-lg bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/50 hover:border-amber-500/30 transition-all duration-300 card-hover premium-card module-card"
+              data-module-type="security"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500/20 to-yellow-600/20 text-amber-400 mb-4 premium-card-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-white">
+                AI-Powered Cybersecurity
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Advanced threat detection and prevention systems that leverage
+                machine learning to identify patterns and anomalies that
+                traditional security solutions miss.
+              </p>
+              <div class="module-features">
+                <div class="text-sm text-amber-400 font-medium mb-2">
+                  Key Features:
+                </div>
+                <ul class="text-sm text-gray-400 space-y-1 pl-5 list-disc">
+                  <li>Behavioral analysis for zero-day threat detection</li>
+                  <li>
+                    Automated incident response with containment protocols
+                  </li>
+                  <li>Continuous security posture assessment</li>
+                  <li>Adaptive authentication based on risk scoring</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div
+              class="p-6 rounded-lg bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/50 hover:border-amber-500/30 transition-all duration-300 card-hover premium-card module-card"
+              data-module-type="analytics"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500/20 to-yellow-600/20 text-amber-400 mb-4 premium-card-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-white">
+                Computer Vision Solutions
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Image and video analysis systems that can identify objects,
+                people, and patterns with human-level accuracy for applications
+                in quality control, security, and automation.
+              </p>
+              <div class="module-features">
+                <div class="text-sm text-amber-400 font-medium mb-2">
+                  Key Features:
+                </div>
+                <ul class="text-sm text-gray-400 space-y-1 pl-5 list-disc">
+                  <li>Real-time object detection and classification</li>
+                  <li>Defect identification with sub-millimeter precision</li>
+                  <li>Facial recognition with privacy-preserving options</li>
+                  <li>Video analytics with temporal pattern recognition</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div
+              class="p-6 rounded-lg bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/50 hover:border-amber-500/30 transition-all duration-300 card-hover premium-card module-card"
+              data-module-type="automation"
+            >
+              <div
+                class="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500/20 to-yellow-600/20 text-amber-400 mb-4 premium-card-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-7 w-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-white">
+                MLOps & AI Infrastructure
+              </h3>
+              <p class="text-gray-300 mb-4">
+                End-to-end machine learning operations platforms that streamline
+                model development, deployment, monitoring, and maintenance for
+                enterprise-scale AI initiatives.
+              </p>
+              <div class="module-features">
+                <div class="text-sm text-amber-400 font-medium mb-2">
+                  Key Features:
+                </div>
+                <ul class="text-sm text-gray-400 space-y-1 pl-5 list-disc">
+                  <li>Automated model training and validation pipelines</li>
+                  <li>Version control for models, data, and experiments</li>
+                  <li>Model performance monitoring and drift detection</li>
+                  <li>Scalable inference infrastructure with auto-scaling</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Demo Section -->
+      <section
+        class="py-20 bg-gradient-to-b from-gray-900 to-gray-800"
+        id="demo"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-3xl sm:text-4xl font-bold mb-4 golden-text premium-golden-text"
+            >
+              AI in Action: Interactive Demo
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+              Experience the power of our AI solutions with this interactive
+              demonstration of our predictive analytics capabilities.
+            </p>
+          </div>
+
+          <div
+            class="max-w-6xl mx-auto demo-terminal p-8 animate-on-scroll"
+            data-delay="0.2"
+            data-once="true"
+          >
+            <div class="demo-controls">
+              <button
+                class="demo-control-btn active"
+                data-industry="healthcare"
+              >
+                Healthcare
+              </button>
+              <button class="demo-control-btn" data-industry="finance">
+                Finance
+              </button>
+              <button class="demo-control-btn" data-industry="retail">
+                Retail
+              </button>
+              <button class="demo-control-btn" data-industry="manufacturing">
+                Manufacturing
+              </button>
+            </div>
+
+            <div class="font-mono demo-output" id="demo-output">
+              <div class="demo-content active" data-industry="healthcare">
+                <div class="text-yellow-500 mb-4">
+                  $ ofo-ai predict --industry=healthcare
+                  --data=patient-outcomes.csv
+                </div>
+                <div class="text-green-400">
+                  <span class="terminal-cursor">|</span> Analyzing 2.4M data
+                  points...<br />
+                  <span class="terminal-cursor">|</span> Training model with 5
+                  years of historical data<br />
+                  <span class="terminal-cursor">|</span> Generated 98.7%
+                  accuracy model<br />
+                  <span class="terminal-cursor">|</span> Predicting outcomes for
+                  next 12 months<br />
+                  <span class="text-xl mt-4 block"
+                    >Potential revenue uplift: $12.8M</span
+                  >
+                  <span class="text-sm mt-2 block"
+                    >Readmission reduction: 24.3%</span
+                  >
+                  <span class="text-sm mt-1 block"
+                    >Patient satisfaction improvement: 18.7%</span
+                  >
+                </div>
+              </div>
+
+              <div class="demo-content" data-industry="finance">
+                <div class="text-yellow-500 mb-4">
+                  $ ofo-ai predict --industry=finance
+                  --data=transaction-fraud.csv
+                </div>
+                <div class="text-green-400">
+                  <span class="terminal-cursor">|</span> Analyzing 8.7M
+                  transactions...<br />
+                  <span class="terminal-cursor">|</span> Training model with
+                  real-time data streams<br />
+                  <span class="terminal-cursor">|</span> Generated 99.2%
+                  accuracy model<br />
+                  <span class="terminal-cursor">|</span> Predicting fraud
+                  patterns in real-time<br />
+                  <span class="text-xl mt-4 block"
+                    >Fraud detection improvement: 34.6%</span
+                  >
+                  <span class="text-sm mt-2 block"
+                    >False positive reduction: 87.2%</span
+                  >
+                  <span class="text-sm mt-1 block"
+                    >Estimated annual savings: $4.3M</span
+                  >
+                </div>
+              </div>
+
+              <div class="demo-content" data-industry="retail">
+                <div class="text-yellow-500 mb-4">
+                  $ ofo-ai predict --industry=retail
+                  --data=customer-behavior.csv
+                </div>
+                <div class="text-green-400">
+                  <span class="terminal-cursor">|</span> Analyzing 5.2M customer
+                  profiles...<br />
+                  <span class="terminal-cursor">|</span> Integrating with
+                  inventory management systems<br />
+                  <span class="terminal-cursor">|</span> Generated 96.8%
+                  accuracy model<br />
+                  <span class="terminal-cursor">|</span> Predicting demand
+                  patterns for next quarter<br />
+                  <span class="text-xl mt-4 block"
+                    >Inventory optimization: 28.5%</span
+                  >
+                  <span class="text-sm mt-2 block"
+                    >Customer retention increase: 17.9%</span
+                  >
+                  <span class="text-sm mt-1 block"
+                    >Personalization effectiveness: +42.3%</span
+                  >
+                </div>
+              </div>
+
+              <div class="demo-content" data-industry="manufacturing">
+                <div class="text-yellow-500 mb-4">
+                  $ ofo-ai predict --industry=manufacturing
+                  --data=equipment-sensors.csv
+                </div>
+                <div class="text-green-400">
+                  <span class="terminal-cursor">|</span> Analyzing 12.6M IoT
+                  sensor readings...<br />
+                  <span class="terminal-cursor">|</span> Training model with
+                  equipment maintenance history<br />
+                  <span class="terminal-cursor">|</span> Generated 97.5%
+                  accuracy model<br />
+                  <span class="terminal-cursor">|</span> Predicting maintenance
+                  needs for next 6 months<br />
+                  <span class="text-xl mt-4 block"
+                    >Downtime reduction: 43.2%</span
+                  >
+                  <span class="text-sm mt-2 block"
+                    >Maintenance cost savings: $2.7M</span
+                  >
+                  <span class="text-sm mt-1 block"
+                    >Equipment lifespan extension: 22.4%</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Technology Comparison Tool -->
+      <section class="py-20 bg-gray-900" id="comparison">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-3xl sm:text-4xl font-bold mb-4 golden-text premium-golden-text"
+            >
+              AI Technology Comparison
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+              Compare different AI technologies to understand which solution
+              best fits your business needs.
+            </p>
+          </div>
+
+          <div class="comparison-tool animate-on-scroll" data-delay="0.2">
+            <div class="comparison-tabs">
+              <div class="comparison-tab active" data-tab="machine-learning">
+                Machine Learning
+              </div>
+              <div class="comparison-tab" data-tab="deep-learning">
+                Deep Learning
+              </div>
+              <div class="comparison-tab" data-tab="nlp">
+                Natural Language Processing
+              </div>
+              <div class="comparison-tab" data-tab="computer-vision">
+                Computer Vision
+              </div>
+              <div class="comparison-tab" data-tab="reinforcement">
+                Reinforcement Learning
+              </div>
+            </div>
+
+            <div class="comparison-content active" data-tab="machine-learning">
+              <div class="mb-6">
+                <h3 class="text-2xl font-semibold mb-3 golden-text">
+                  Machine Learning
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Machine Learning algorithms learn from data and improve their
+                  accuracy over time without being explicitly programmed. Ideal
+                  for predictive analytics, recommendation systems, and data
+                  classification tasks.
+                </p>
+              </div>
+
+              <div class="comparison-grid">
+                <div class="comparison-feature">
+                  <div class="feature-title">Best For</div>
+                  <div class="feature-description">
+                    Structured data analysis, pattern recognition, and
+                    predictive modeling with clear objectives
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Implementation Time</div>
+                  <div class="feature-description">
+                    2-4 months for enterprise solutions
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Data Requirements</div>
+                  <div class="feature-description">
+                    Moderate - typically requires clean, labeled datasets
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">ROI Timeline</div>
+                  <div class="feature-description">
+                    3-6 months after deployment
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Key Industries</div>
+                  <div class="feature-description">
+                    Finance, Healthcare, Retail, Manufacturing
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Maintenance</div>
+                  <div class="feature-description">
+                    Regular retraining required as data patterns evolve
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-content" data-tab="deep-learning">
+              <div class="mb-6">
+                <h3 class="text-2xl font-semibold mb-3 golden-text">
+                  Deep Learning
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Deep Learning uses neural networks with many layers to learn
+                  complex patterns in large datasets. Excels at image
+                  recognition, speech processing, and other tasks requiring
+                  pattern recognition in unstructured data.
+                </p>
+              </div>
+
+              <div class="comparison-grid">
+                <div class="comparison-feature">
+                  <div class="feature-title">Best For</div>
+                  <div class="feature-description">
+                    Complex pattern recognition in unstructured data like
+                    images, audio, and text
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Implementation Time</div>
+                  <div class="feature-description">
+                    4-8 months for enterprise solutions
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Data Requirements</div>
+                  <div class="feature-description">
+                    High - requires large datasets for training
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">ROI Timeline</div>
+                  <div class="feature-description">
+                    6-12 months after deployment
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Key Industries</div>
+                  <div class="feature-description">
+                    Healthcare (imaging), Automotive, Security, Media
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Maintenance</div>
+                  <div class="feature-description">
+                    Requires specialized expertise and computational resources
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-content" data-tab="nlp">
+              <div class="mb-6">
+                <h3 class="text-2xl font-semibold mb-3 golden-text">
+                  Natural Language Processing
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  NLP enables computers to understand, interpret, and generate
+                  human language. Powers chatbots, sentiment analysis, document
+                  summarization, and language translation.
+                </p>
+              </div>
+
+              <div class="comparison-grid">
+                <div class="comparison-feature">
+                  <div class="feature-title">Best For</div>
+                  <div class="feature-description">
+                    Text analysis, conversational interfaces, content
+                    generation, and language understanding
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Implementation Time</div>
+                  <div class="feature-description">
+                    3-6 months for enterprise solutions
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Data Requirements</div>
+                  <div class="feature-description">
+                    Moderate to High - domain-specific text data improves
+                    performance
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">ROI Timeline</div>
+                  <div class="feature-description">
+                    4-8 months after deployment
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Key Industries</div>
+                  <div class="feature-description">
+                    Customer Service, Legal, Healthcare, Media, E-commerce
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Maintenance</div>
+                  <div class="feature-description">
+                    Regular updates to keep pace with language evolution and new
+                    terminology
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-content" data-tab="computer-vision">
+              <div class="mb-6">
+                <h3 class="text-2xl font-semibold mb-3 golden-text">
+                  Computer Vision
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Computer Vision enables machines to interpret and understand
+                  visual information from the world. Used for object detection,
+                  facial recognition, quality control, and autonomous
+                  navigation.
+                </p>
+              </div>
+
+              <div class="comparison-grid">
+                <div class="comparison-feature">
+                  <div class="feature-title">Best For</div>
+                  <div class="feature-description">
+                    Image and video analysis, object detection, quality
+                    inspection, and visual monitoring
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Implementation Time</div>
+                  <div class="feature-description">
+                    4-7 months for enterprise solutions
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Data Requirements</div>
+                  <div class="feature-description">
+                    High - requires large, diverse image datasets with
+                    annotations
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">ROI Timeline</div>
+                  <div class="feature-description">
+                    6-10 months after deployment
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Key Industries</div>
+                  <div class="feature-description">
+                    Manufacturing, Retail, Security, Healthcare, Automotive
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Maintenance</div>
+                  <div class="feature-description">
+                    Requires regular updates to handle new visual scenarios and
+                    edge cases
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-content" data-tab="reinforcement">
+              <div class="mb-6">
+                <h3 class="text-2xl font-semibold mb-3 golden-text">
+                  Reinforcement Learning
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Reinforcement Learning trains algorithms through a
+                  reward-based system, allowing AI to learn optimal behaviors
+                  through trial and error. Ideal for autonomous systems,
+                  robotics, and optimization problems.
+                </p>
+              </div>
+
+              <div class="comparison-grid">
+                <div class="comparison-feature">
+                  <div class="feature-title">Best For</div>
+                  <div class="feature-description">
+                    Sequential decision-making, process optimization, autonomous
+                    systems, and adaptive control
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Implementation Time</div>
+                  <div class="feature-description">
+                    6-12 months for enterprise solutions
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Data Requirements</div>
+                  <div class="feature-description">
+                    Moderate - requires environment simulation or real-world
+                    interaction
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">ROI Timeline</div>
+                  <div class="feature-description">
+                    8-18 months after deployment
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Key Industries</div>
+                  <div class="feature-description">
+                    Energy, Logistics, Robotics, Gaming, Finance
+                  </div>
+                </div>
+                <div class="comparison-feature">
+                  <div class="feature-title">Maintenance</div>
+                  <div class="feature-description">
+                    Continuous learning and adaptation to changing environments
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Glossary Section -->
+      <section class="py-20 bg-gray-900" id="glossary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-3xl sm:text-4xl font-bold mb-4 golden-text premium-golden-text"
+            >
+              AI Glossary
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+              Understanding key AI terminology to help you navigate the complex
+              world of artificial intelligence.
+            </p>
+          </div>
+
+          <div class="glossary-container animate-on-scroll" data-delay="0.2">
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>Machine Learning (ML)</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                A subset of artificial intelligence that enables systems to
+                learn and improve from experience without being explicitly
+                programmed. Machine learning algorithms build mathematical
+                models based on sample data to make predictions or decisions.
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>Deep Learning</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                A subset of machine learning that uses neural networks with
+                multiple layers (deep neural networks) to analyze various
+                factors of data. Deep learning is particularly powerful for
+                processing unstructured data like images, audio, and text.
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>Neural Network</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                A computing system inspired by the biological neural networks in
+                human brains. Neural networks consist of interconnected nodes
+                (neurons) that process and transmit information, enabling the
+                system to learn patterns and make decisions.
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>Natural Language Processing (NLP)</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                A field of AI that focuses on the interaction between computers
+                and human language. NLP enables computers to understand,
+                interpret, and generate human language in a valuable way,
+                powering applications like chatbots, translation services, and
+                sentiment analysis.
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>Computer Vision</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                A field of AI that enables computers to derive meaningful
+                information from digital images, videos, and other visual
+                inputs. Computer vision systems can identify and classify
+                objects, people, and activities in images with human-level
+                accuracy or better.
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>Reinforcement Learning</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                A type of machine learning where an agent learns to make
+                decisions by taking actions in an environment to maximize some
+                notion of cumulative reward. The agent learns through trial and
+                error, receiving feedback in the form of rewards or penalties.
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>Generative AI</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                AI systems that can generate new content, including text,
+                images, audio, and video, based on patterns learned from
+                training data. Examples include GPT (text generation), DALL-E
+                (image generation), and WaveNet (audio generation).
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>Large Language Model (LLM)</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                A type of AI model trained on vast amounts of text data to
+                understand and generate human-like text. LLMs can perform a wide
+                range of language tasks, including translation, summarization,
+                question answering, and creative writing.
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>MLOps (Machine Learning Operations)</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                A set of practices that aims to deploy and maintain machine
+                learning models in production reliably and efficiently. MLOps
+                combines machine learning, DevOps, and data engineering to
+                streamline the machine learning lifecycle.
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <div class="glossary-term">
+                <span>Predictive Analytics</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 glossary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+              <div class="glossary-definition">
+                The use of data, statistical algorithms, and machine learning
+                techniques to identify the likelihood of future outcomes based
+                on historical data. Predictive analytics helps organizations
+                forecast trends, behaviors, and events.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Technology Stack Section -->
+      <section class="py-20 bg-gray-900" id="technology">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-3xl sm:text-4xl font-bold mb-4 golden-text premium-golden-text"
+            >
+              Our AI Technology Stack
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+              We leverage cutting-edge technologies and frameworks to build
+              powerful, scalable AI solutions for enterprise needs.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div
+              class="bg-gray-800/50 p-8 rounded-lg border border-gray-700/50 animate-on-scroll premium-tech-card"
+              data-once="true"
+            >
+              <h3
+                class="text-2xl font-semibold mb-6 golden-text premium-golden-text"
+              >
+                Machine Learning Frameworks
+              </h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center space-x-3 premium-tech-item">
+                  <div
+                    class="w-3 h-3 bg-blue-500 rounded-full premium-tech-dot"
+                  ></div>
+                  <span>TensorFlow & Keras</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span>PyTorch</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span>Scikit-learn</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span>Hugging Face</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span>JAX</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span>XGBoost</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span>LightGBM</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span>OpenAI API</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-gray-800/50 p-8 rounded-lg border border-gray-700/50 animate-on-scroll premium-tech-card"
+              data-delay="0.2"
+              data-once="true"
+            >
+              <h3 class="text-2xl font-semibold mb-6 golden-text">
+                Data Processing & Analytics
+              </h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span>Apache Spark</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span>Pandas & NumPy</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span>Dask</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span>Apache Kafka</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span>Databricks</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span>Snowflake</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span>Airflow</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span>Elasticsearch</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div
+              class="bg-gray-800/50 p-8 rounded-lg border border-gray-700/50 animate-on-scroll premium-tech-card"
+              data-delay="0.3"
+              data-once="true"
+            >
+              <h3 class="text-2xl font-semibold mb-6 golden-text">
+                MLOps & Deployment
+              </h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <span>Kubernetes</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <span>Docker</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <span>MLflow</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <span>Kubeflow</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <span>TensorFlow Serving</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <span>TorchServe</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-gray-800/50 p-8 rounded-lg border border-gray-700/50 animate-on-scroll premium-tech-card"
+              data-delay="0.4"
+              data-once="true"
+            >
+              <h3 class="text-2xl font-semibold mb-6 golden-text">
+                Cloud AI Services
+              </h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span>AWS SageMaker</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span>Google Vertex AI</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span>Azure ML</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span>IBM Watson</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span>AWS Lambda</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span>Google Cloud Functions</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span>Azure Functions</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span>AWS Comprehend</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Studies Section -->
+      <section
+        class="py-20 bg-gradient-to-b from-gray-800 to-gray-900"
+        id="case-studies"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16 animate-on-scroll" data-once="true">
+            <h2
+              class="text-3xl sm:text-4xl font-bold mb-4 golden-text premium-golden-text"
+            >
+              AI Success Stories
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+              Explore how our AI solutions have transformed businesses across
+              industries, delivering measurable results and competitive
+              advantage.
+            </p>
+          </div>
+
+          <div
+            class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-on-scroll"
+            data-delay="0.2"
+            data-stagger="0.1"
+          >
+            <!-- Case Study 1 -->
+            <div
+              class="group relative overflow-hidden rounded-lg bg-gray-800/50 border border-gray-700/50 transition-all duration-300 hover:border-amber-500/30 premium-card"
+            >
+              <img
+                src="assets/images/medical.webp"
+                alt="Healthcare AI Implementation"
+                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"
+              ></div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-6 transition-all duration-300"
+              >
+                <h3 class="text-xl font-semibold mb-2 text-white">
+                  Healthcare System Modernization
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  AI-powered predictive analytics reduced patient readmissions
+                  by 32% and improved resource allocation efficiency by 28% for
+                  a major healthcare provider.
+                </p>
+                <a
+                  href="case-studies/healthcare-system-modernization.html"
+                  class="inline-flex items-center text-amber-400 hover:text-amber-300"
+                >
+                  View Case Study
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 ml-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div
+              class="group relative overflow-hidden rounded-lg bg-gray-800/50 border border-gray-700/50 transition-all duration-300 hover:border-amber-500/30 premium-card"
+            >
+              <img
+                src="assets/images/ai-blog.webp"
+                alt="AI Analytics Platform"
+                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"
+              ></div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-6 transition-all duration-300"
+              >
+                <h3 class="text-xl font-semibold mb-2 text-white">
+                  Enterprise AI Analytics Platform
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Custom AI analytics solution that processed 1.2B data points
+                  daily, uncovering $14.5M in cost-saving opportunities for a
+                  Fortune 500 company.
+                </p>
+                <a
+                  href="case-studies/ai-analytics.html"
+                  class="inline-flex items-center text-amber-400 hover:text-amber-300"
+                >
+                  View Case Study
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 ml-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div
+              class="group relative overflow-hidden rounded-lg bg-gray-800/50 border border-gray-700/50 transition-all duration-300 hover:border-amber-500/30 premium-card"
+            >
+              <img
+                src="assets/images/cryptocurrency-coding-digital-blue-background-open-source-blockchain-concept.webp"
+                alt="FinTech AI Implementation"
+                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"
+              ></div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-6 transition-all duration-300"
+              >
+                <h3 class="text-xl font-semibold mb-2 text-white">
+                  FinTech Fraud Detection System
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  AI-powered fraud detection system that reduced false positives
+                  by 87% while increasing fraud detection rates by 34% for a
+                  global payment processor.
+                </p>
+                <a
+                  href="case-studies/defi-platform.html"
+                  class="inline-flex items-center text-amber-400 hover:text-amber-300"
+                >
+                  View Case Study
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 ml-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <a
+              href="CaseStudies.html"
+              class="inline-block px-8 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-gray-900 font-semibold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 shadow-lg shadow-amber-900/20 premium-btn-primary"
+              >View All Case Studies</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Section -->
+      <section class="py-20 bg-gray-900" id="consultation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/50 rounded-lg overflow-hidden premium-cta"
+          >
+            <div class="md:flex">
+              <div class="md:w-1/2 p-12 animate-on-scroll" data-once="true">
+                <h2
+                  class="text-3xl sm:text-4xl font-bold mb-6 golden-text premium-golden-text"
+                >
+                  Ready to Transform Your Business with AI?
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">
+                  Let's discuss how our AI solutions can help you achieve your
+                  business goals. Contact us today for a free consultation and
+                  AI readiness assessment.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a
+                    href="contact.html"
+                    class="px-8 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-gray-900 font-semibold rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 shadow-lg shadow-amber-900/20 premium-btn-primary"
+                    >Schedule AI Consultation</a
+                  >
+                  <a
+                    href="tel:+18446333837"
+                    class="px-8 py-3 border border-amber-500/30 text-amber-400 hover:bg-gradient-to-r hover:from-amber-500/10 hover:to-yellow-600/10 rounded-md transition duration-300 ease-in-out transform hover:-translate-y-1 premium-btn-secondary"
+                    >Call Us: 844-633-3837</a
+                  >
+                </div>
+              </div>
+              <div
+                class="md:w-1/2 bg-cover bg-center animate-on-scroll"
+                data-delay="0.2"
+                data-once="true"
+                style="
+                  background-image: url('assets/images/ai-nuclear-energy.webp');
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <img
+              src="assets/images/logos/Color logo - no background.png"
+              alt="OFO Development"
+              class="w-40 mb-6"
+            />
+            <p class="text-gray-400 mb-6">
+              Innovative AI solutions that drive business growth and digital
+              transformation for enterprise clients.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-amber-400 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-amber-400 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-amber-400 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-amber-400 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-amber-400 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-white">AI Services</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#ai-services"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >Generative AI</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#ai-services"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >Predictive Analytics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#ai-services"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >Cognitive Automation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#ai-services"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >Computer Vision</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#ai-services"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >MLOps & Infrastructure</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-white">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="CaseStudies.html"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >Case Studies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="blog.html"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  href="careers.html"
+                  class="text-gray-400 hover:text-amber-400 transition-colors"
+                  >Careers</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-white">Contact</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-2 text-amber-400 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <span>5470 Kietzke Ln ste 300<br />Reno, NV 89511</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-2 text-amber-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                <span>844-633-3837</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-2 text-amber-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span>info@ofodevelopment.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm"
+        >
+          <p>
+            &copy; 2025 OFO Development. All rights reserved.
+            <a
+              href="privacy-policy.html"
+              class="text-amber-400 hover:text-amber-300 ml-2"
+              >Privacy Policy</a
+            >
+            <a
+              href="terms.html"
+              class="text-amber-400 hover:text-amber-300 ml-2"
+              >Terms of Service</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SVG Icons -->
+    <svg class="hidden">
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+        />
+      </symbol>
+      <symbol id="icon-game" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+        />
+        <path fill="currentColor" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </symbol>
+      <symbol id="icon-vr" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+        />
+      </symbol>
+      <symbol id="icon-mobile" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99
+        z"
+        />
+      </symbol>
+      <symbol id="icon-rocket" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M21.707 2.293a1 1 0 00-1.414 0l-2.586 2.586a1 1 0 00-.293.707l-1.5 7.5a1 1 0 00.293.895l7.5 7.5a1 1 0 00.895.293l7.5-1.5a1 1 0 00.707-1.707l-2.586-2.586a1 1 0 00-1.414 0l-3.793 3.793-5.793-5.793 3.793-3.793a1 1 0 000-1.414z"
+        />
+      </symbol>
+    </svg>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animated Metrics Counter
+        function animateCounters() {
+          const counters = document.querySelectorAll(".metric-value");
+          const speed = 200; // The lower the faster
+
+          counters.forEach((counter) => {
+            const target = +counter.getAttribute("data-count");
+            const count = +counter.innerText;
+            const increment = Math.ceil(target / speed);
+
+            if (count < target) {
+              counter.innerText = count + increment;
+              setTimeout(() => animateCounters(), 1);
+            } else {
+              counter.innerText = target;
+            }
+          });
+        }
+
+        // Intersection Observer for Animation on Scroll
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+
+              // Start counter animation if this is a metrics container
+              if (entry.target.classList.contains("metrics-container")) {
+                animateCounters();
+              }
+
+              // If data-once attribute exists, unobserve after animation
+              if (entry.target.hasAttribute("data-once")) {
+                observer.unobserve(entry.target);
+              }
+            } else if (!entry.target.hasAttribute("data-once")) {
+              entry.target.classList.remove("is-visible");
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Interactive Demo Controls
+        const demoControls = document.querySelectorAll(".demo-control-btn");
+        const demoContents = document.querySelectorAll(".demo-content");
+
+        demoControls.forEach((control) => {
+          control.addEventListener("click", () => {
+            const industry = control.getAttribute("data-industry");
+
+            // Update active button
+            demoControls.forEach((btn) => btn.classList.remove("active"));
+            control.classList.add("active");
+
+            // Show corresponding content
+            demoContents.forEach((content) => {
+              if (content.getAttribute("data-industry") === industry) {
+                content.classList.add("active");
+              } else {
+                content.classList.remove("active");
+              }
+            });
+          });
+        });
+
+        // AI Technology Comparison Tabs
+        const comparisonTabs = document.querySelectorAll(".comparison-tab");
+        const comparisonContents = document.querySelectorAll(
+          ".comparison-content"
+        );
+
+        comparisonTabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const tabId = tab.getAttribute("data-tab");
+
+            // Update active tab
+            comparisonTabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            // Show corresponding content
+            comparisonContents.forEach((content) => {
+              if (content.getAttribute("data-tab") === tabId) {
+                content.classList.add("active");
+              } else {
+                content.classList.remove("active");
+              }
+            });
+          });
+        });
+
+        // AI Glossary Accordion
+        const glossaryItems = document.querySelectorAll(".glossary-item");
+
+        glossaryItems.forEach((item) => {
+          const term = item.querySelector(".glossary-term");
+
+          term.addEventListener("click", () => {
+            // Toggle active class on clicked item
+            item.classList.toggle("active");
+
+            // Optional: Close other items when one is opened
+            // glossaryItems.forEach(otherItem => {
+            //   if (otherItem !== item) {
+            //     otherItem.classList.remove('active');
+            //   }
+            // });
+          });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.querySelector(
+          "[data-mobile-menu-button]"
+        );
+        const mobileMenu = document.querySelector("[data-mobile-menu]");
+
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener("click", () => {
+            const expanded =
+              mobileMenuButton.getAttribute("aria-expanded") === "true";
+            mobileMenuButton.setAttribute("aria-expanded", !expanded);
+
+            if (expanded) {
+              mobileMenu.style.maxHeight = "0";
+            } else {
+              mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+            }
+          });
+        }
+
+        // Mobile Services Accordion
+        const mobileServicesButton = document.getElementById(
+          "mobile-services-button"
+        );
+        const mobileServicesContent = document.getElementById(
+          "mobile-services-menu"
+        );
+
+        if (mobileServicesButton && mobileServicesContent) {
+          mobileServicesButton.addEventListener("click", () => {
+            const expanded =
+              mobileServicesButton.getAttribute("aria-expanded") === "true";
+            mobileServicesButton.setAttribute("aria-expanded", !expanded);
+
+            if (expanded) {
+              mobileServicesContent.style.maxHeight = "0";
+              mobileServicesButton.querySelector(
+                ".dropdown-icon"
+              ).style.transform = "rotate(0deg)";
+            } else {
+              mobileServicesContent.style.maxHeight =
+                mobileServicesContent.scrollHeight + "px";
+              mobileServicesButton.querySelector(
+                ".dropdown-icon"
+              ).style.transform = "rotate(180deg)";
+            }
+          });
+        }
+
+        // Module Filtering System
+        const moduleTabs = document.querySelectorAll(".module-tab");
+        const moduleCards = document.querySelectorAll(".module-card");
+
+        moduleTabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const moduleType = tab.getAttribute("data-module");
+
+            // Update active tab
+            moduleTabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            // Filter modules
+            moduleCards.forEach((card) => {
+              if (moduleType === "all") {
+                card.classList.remove("hidden");
+                // Add staggered animation
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0)";
+                }, Math.random() * 300);
+              } else {
+                const cardType = card.getAttribute("data-module-type");
+                if (cardType === moduleType) {
+                  card.classList.remove("hidden");
+                  // Add animation
+                  setTimeout(() => {
+                    card.style.opacity = "1";
+                    card.style.transform = "translateY(0)";
+                  }, Math.random() * 300);
+                } else {
+                  // Hide with animation
+                  card.style.opacity = "0";
+                  card.style.transform = "translateY(20px)";
+                  setTimeout(() => {
+                    card.classList.add("hidden");
+                  }, 300);
+                }
+              }
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>

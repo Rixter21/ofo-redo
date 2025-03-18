@@ -1408,6 +1408,126 @@
    - Professional project statistics with timeline and team size
    - Energy industry tag with subtle blue accent
 
+## Mobile Development Page Design (v3.2)
+
+**Last Updated:** 2025-03-16
+
+### Core Components:
+
+1. **Hero Section**
+
+   - Full-width background image with gradient overlay
+   - Animated heading with gradient text effects
+   - Compelling value proposition with supporting text
+   - Dual CTA buttons with hover animations
+   - Responsive layout for all device sizes
+
+2. **Mobile Platforms Section**
+
+   - Three-column grid showcasing iOS, Android, and Cross-Platform development
+   - Premium platform cards with hover animations and transform effects
+   - Feature lists with icon indicators
+   - Color-coded headings for different platforms
+   - Responsive layout adapting to different screen sizes
+
+3. **Development Process Section**
+
+   - Four-step process visualization with numbered indicators
+   - Premium card styling with border effects and hover animations
+   - Color-coded phases with consistent styling
+   - Detailed key activities lists for each phase
+   - Responsive grid layout for all device sizes
+
+4. **Interactive Mobile Device Mockup**
+
+   - Realistic mobile device visualization with 3D effects
+   - Interactive demo functionality with screen transitions
+   - Initial welcome screen with tap-to-explore functionality
+   - Detailed app demo screen with project cards and action buttons
+   - Interactive elements with click animations and visual feedback
+   - Home button functionality to return to initial screen
+   - Responsive design that works on all device sizes
+
+5. **Cross-Platform Frameworks Section**
+
+   - Two-column grid showcasing React Native and Flutter
+   - Premium framework cards with hover animations
+   - Feature lists with icon indicators
+   - Detailed descriptions of each framework's capabilities
+   - Responsive layout adapting to different screen sizes
+
+6. **Call-to-Action Section**
+
+   - Gradient background with premium styling
+   - Strong heading with clear value proposition
+   - Supporting copy with concise messaging
+   - Prominent CTA button with hover effects
+   - Responsive layout for all device sizes
+
+7. **Standardized Footer**
+   - Comprehensive footer with company information, services links, and company details
+   - Tech stack logos section with trusted technologies
+   - Contact information with address, phone, and email
+   - Social media links with hover effects
+   - Copyright section with privacy policy and terms links
+   - "Back to Top" button with smooth scrolling functionality
+   - Responsive grid layout for all device sizes
+
+### Interactive Elements:
+
+- Platform cards with hover animations:
+  - Transform effects with translateY on hover
+  - Box shadow transitions for elevation effect
+  - Border highlight animation with scaleX transform
+  - Icon background color transitions
+- Interactive mobile device mockup:
+  - Screen transition between initial and app demo views
+  - Project card click animations with scale effects
+  - Action button click animations with visual feedback
+  - Home button functionality for navigation
+  - 3D rotation effect on device hover
+- Process cards with hover animations:
+  - Scale and transform effects on hover
+  - Border color transitions
+  - Background color changes
+- Framework cards with hover animations:
+  - Background color transitions
+  - Transform effects with translateY
+  - Box shadow changes for elevation
+- Scroll-triggered animations throughout page:
+  - Fade and transform effects on scroll
+  - Staggered timing for visual interest
+  - Delay classes for sequenced animations
+
+### Visual Style:
+
+- Consistent with site's premium design language
+- Blue/purple color scheme for mobile-specific elements
+- Gradient text effects for section headings
+- Premium card styling with hover animations
+- Realistic device mockup with 3D effects
+- Consistent iconography throughout
+
+### Accessibility Features:
+
+- ARIA attributes for all interactive elements
+- Keyboard navigation support for interactive mockup
+- Focus management for clickable elements
+- Semantic HTML structure with proper heading hierarchy
+- Color contrast compliance for all text elements
+- Screen reader support for dynamic content
+- Skip-to-main-content link for keyboard users
+
+### Performance Optimizations:
+
+- Efficient mockup implementation with CSS transforms
+- Conditional animation based on user interaction
+- Lazy loading for below-fold images
+- IntersectionObserver for on-demand animations
+- Hardware-accelerated animations for smooth performance
+- Mobile-optimized layouts with appropriate breakpoints
+- JavaScript event delegation for efficient event handling
+
 ## Product Management Page Design (v3.3)
 
 **Last Updated:** 2025-03-16

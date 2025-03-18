@@ -1493,6 +1493,39 @@
           ></path>
         </svg>
       </button>
+
+      <!-- Team Member Modal -->
+      <div
+        id="team-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center hidden team-modal"
+      >
+        <div
+          class="absolute inset-0 bg-black bg-opacity-80 backdrop-blur-sm"
+        ></div>
+        <div
+          class="relative bg-gray-900 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 mx-4"
+        >
+          <button
+            id="close-team-modal"
+            class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+          <div id="team-content" class="mt-2"></div>
+        </div>
+      </div>
     </footer>
 
     <script>

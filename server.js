@@ -32,6 +32,29 @@ const htmlFiles = fs
   .filter((file) => file.endsWith(".html"));
 console.log(htmlFiles);
 
+// Add case-studies routes
+console.log("Available case study files:");
+const caseStudyFiles = fs.existsSync(
+  path.join(__dirname, "public", "case-studies")
+)
+  ? fs
+      .readdirSync(path.join(__dirname, "public", "case-studies"))
+      .filter((file) => file.endsWith(".html"))
+  : [];
+console.log(caseStudyFiles);
+
+// Add explicit route for the case-studies directory
+app.use(
+  "/case-studies",
+  express.static(path.join(__dirname, "public", "case-studies"))
+);
+
+// Add explicit route for server-status.json
+app.get("/server-status.json", (req, res) => {
+  // Remove logging to reduce overhead from frequent requests
+  res.sendFile(path.join(__dirname, "public", "server-status.json"));
+});
+
 // define home route
 app.get("/", (req, res) => {
   console.log("Serving home page");
@@ -45,6 +68,16 @@ htmlFiles.forEach((file) => {
   app.get(route, (req, res) => {
     console.log(`Serving file directly: ${file}`);
     res.sendFile(path.join(__dirname, "public", file));
+  });
+});
+
+// Add explicit routes for case studies
+caseStudyFiles.forEach((file) => {
+  const route = `/case-studies/${file}`;
+  console.log(`Adding explicit route for: ${route}`);
+  app.get(route, (req, res) => {
+    console.log(`Serving case study file directly: ${file}`);
+    res.sendFile(path.join(__dirname, "public", "case-studies", file));
   });
 });
 
@@ -124,7 +157,26 @@ app.use((req, res, next) => {
   res.status(404).sendFile(path.join(__dirname, "404.html"));
 });
 
+// Update server-status.json with current timestamp
+const updateServerStatus = () => {
+  try {
+    const statusFilePath = path.join(__dirname, "public", "server-status.json");
+    if (fs.existsSync(statusFilePath)) {
+      // Use a simple object instead of reading the file to avoid potential race conditions
+      const statusData = {
+        status: "online",
+        timestamp: new Date().toISOString(),
+      };
+      fs.writeFileSync(statusFilePath, JSON.stringify(statusData, null, 2));
+      console.log("Updated server-status.json with current timestamp");
+    }
+  } catch (error) {
+    console.error("Error updating server-status.json:", error);
+  }
+};
+
 // start server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  updateServerStatus();
 });

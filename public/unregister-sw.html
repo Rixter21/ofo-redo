@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unregister Service Worker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      .result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+      }
+      .success {
+        color: green;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Unregister Service Worker</h1>
+    <div class="result error" style="margin-bottom: 20px">
+      <strong>Important Note:</strong> This page must be served from a web
+      server (http:// or https://) to work properly. Opening it directly from
+      the file system (file://) will not work because browsers restrict service
+      worker operations in this context for security reasons.
+    </div>
+
+    <p>
+      When served properly, this page will help you unregister the service
+      worker and clear the cache to fix the issue with the website appearing to
+      still be running after the server has been shut down.
+    </p>
+
+    <button id="unregisterBtn">Unregister Service Worker</button>
+    <button id="clearCacheBtn">Clear Cache</button>
+    <button id="checkOtherTabsBtn">Check Other Tabs/Windows</button>
+
+    <div class="result" id="result">
+      Status: Ready to unregister service worker
+    </div>
+
+    <h2>What's happening?</h2>
+    <p>
+      The service worker is still active in your browser and serving cached
+      content, which makes it appear as if the server is still running. However,
+      pages like contact.html that are excluded from caching in the service
+      worker configuration will fail to load.
+    </p>
+
+    <h2>Manual steps (if the buttons don't work):</h2>
+    <ol>
+      <li>
+        Open your browser's developer tools (F12 or right-click and select
+        "Inspect")
+      </li>
+      <li>Go to the "Application" tab</li>
+      <li>In the sidebar, select "Service Workers"</li>
+      <li>Click "Unregister" next to the service worker</li>
+      <li>In the sidebar, select "Clear storage"</li>
+      <li>Check all options and click "Clear site data"</li>
+    </ol>
+
+    <script>
+      const resultDiv = document.getElementById("result");
+
+      // Check service worker status on page load
+      window.addEventListener("load", async () => {
+        try {
+          if ("serviceWorker" in navigator) {
+            const registrations =
+              await navigator.serviceWorker.getRegistrations();
+
+            if (registrations.length === 0) {
+              resultDiv.innerHTML =
+                "Status: No service workers are currently registered in this browser.";
+              resultDiv.className = "result";
+            } else {
+              let html = `<strong>Found ${registrations.length} service worker(s):</strong><ul>`;
+
+              registrations.forEach((registration, index) => {
+                html += `<li>Service Worker #${index + 1}: Scope = ${
+                  registration.scope
+                }</li>`;
+              });
+
+              html += "</ul>";
+              resultDiv.innerHTML = html;
+              resultDiv.className = "result";
+            }
+          } else {
+            resultDiv.innerHTML =
+              "Service workers are not supported in this browser.";
+            resultDiv.className = "result error";
+          }
+        } catch (error) {
+          resultDiv.innerHTML = `Error checking service worker status: ${error.message}`;
+          resultDiv.className = "result error";
+          console.error("Service worker status error:", error);
+        }
+      });
+
+      document
+        .getElementById("unregisterBtn")
+        .addEventListener("click", async () => {
+          try {
+            if ("serviceWorker" in navigator) {
+              const registrations =
+                await navigator.serviceWorker.getRegistrations();
+
+              if (registrations.length === 0) {
+                resultDiv.innerHTML = "No service workers found to unregister.";
+                resultDiv.className = "result";
+                return;
+              }
+
+              for (const registration of registrations) {
+                const scope = registration.scope;
+                const success = await registration.unregister();
+
+                if (success) {
+                  resultDiv.innerHTML = `Successfully unregistered service worker with scope: ${scope}`;
+                  resultDiv.className = "result success";
+                } else {
+                  resultDiv.innerHTML = `Failed to unregister service worker with scope: ${scope}`;
+                  resultDiv.className = "result error";
+                }
+              }
+            } else {
+              resultDiv.innerHTML =
+                "Service workers not supported in this browser.";
+              resultDiv.className = "result error";
+            }
+          } catch (error) {
+            resultDiv.innerHTML = `Error unregistering service worker: ${error.message}`;
+            resultDiv.className = "result error";
+            console.error("Service worker unregister error:", error);
+          }
+        });
+
+      document
+        .getElementById("clearCacheBtn")
+        .addEventListener("click", async () => {
+          try {
+            if ("caches" in window) {
+              const cacheNames = await caches.keys();
+
+              if (cacheNames.length === 0) {
+                resultDiv.innerHTML = "No caches found to clear.";
+                resultDiv.className = "result";
+                return;
+              }
+
+              let html = "<ul>";
+              for (const cacheName of cacheNames) {
+                await caches.delete(cacheName);
+                html += `<li>Cleared cache: ${cacheName}</li>`;
+              }
+              html += "</ul>";
+
+              resultDiv.innerHTML = `Successfully cleared ${cacheNames.length} cache(s)!<br>${html}`;
+              resultDiv.className = "result success";
+            } else {
+              resultDiv.innerHTML = "Cache API not supported in this browser.";
+              resultDiv.className = "result error";
+            }
+          } catch (error) {
+            resultDiv.innerHTML = `Error clearing cache: ${error.message}`;
+            resultDiv.className = "result error";
+            console.error("Cache clear error:", error);
+          }
+        });
+
+      // Add a button to check for service workers in other tabs/windows
+      document
+        .getElementById("checkOtherTabsBtn")
+        .addEventListener("click", () => {
+          resultDiv.innerHTML = `
+            <p>To check for service workers in other tabs or windows:</p>
+            <ol>
+              <li>Open the browser's developer tools (F12 or right-click and select "Inspect")</li>
+              <li>Go to the "Application" tab</li>
+              <li>In the sidebar, select "Service Workers"</li>
+              <li>Look for any active service workers for this domain</li>
+            </ol>
+            <p>If you see any service workers listed there, click the "Unregister" link next to them.</p>
+          `;
+          resultDiv.className = "result";
+        });
+    </script>
+  </body>
+</html>
