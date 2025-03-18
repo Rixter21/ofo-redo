@@ -2,6 +2,13 @@
 
 ## Recent Changes (3/17/2025)
 
+- [x] Enhanced CloudComputing.html with content and company information (2025-03-17)
+
+  - Updated image in "Accelerate Your Digital Transformation" section with cloud-svgrepo-com.svg
+  - Updated company address in footer to match index.html (5470 Kietzke Ln ste 300, Reno, Nevada 89511)
+  - Updated company phone number in footer to match index.html (+1 (844) 633-3837)
+  - Ensured email address in footer is correct (info@ofodevelopment.com)
+
 - [x] Fixed service worker issue causing website to appear running after server shutdown (2025-03-17)
 
   - Identified service worker continuing to serve cached content after server shutdown
