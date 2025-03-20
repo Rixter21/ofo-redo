@@ -8,6 +8,7 @@ const fs = require("fs");
 
 // middleware to parse json request bodies
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Configure static assets with compression and caching
 const compression = require("compression");
@@ -86,14 +87,28 @@ const emailTemplate = (name, email, message) => {
   const html = fs.readFileSync(path.join(__dirname, "email.html"), {
     encoding: "utf-8",
   });
+
+  // Format current timestamp
+  const now = new Date();
+  const formattedDate = now.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZoneName: "short",
+  });
+
   return html
     .replace("[name]", name)
     .replace("[email]", email)
-    .replace("[message]", message);
+    .replace("[message]", message)
+    .replace("[timestamp]", formattedDate);
 };
 
 // send email API route
 app.post("/send-email", async (req, res) => {
+  console.log(req.body);
   // validate body
   if (!req.body.email || !req.body.message || !req.body.name) {
     return res
@@ -106,6 +121,7 @@ app.post("/send-email", async (req, res) => {
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: process.env.MAIL_PORT,
+      secure: process.env.MAIL_SECURE === "true", // true for 465, false for other ports
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
