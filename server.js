@@ -2,13 +2,107 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const nodemailer = require("nodemailer");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
+const validator = require("validator");
+const winston = require("winston");
 const app = express();
 const port = process.env.PORT || 3000;
 const fs = require("fs");
 
+// Create logger
+const logger = winston.createLogger({
+  level: process.env.NODE_ENV === "production" ? "info" : "debug",
+  format: winston.format.json(),
+  defaultMeta: { service: "ofo-website" },
+  transports: [
+    new winston.transports.File({ filename: "error.log", level: "error" }),
+    new winston.transports.File({ filename: "combined.log" }),
+  ],
+});
+
+// If not in production, log to console
+if (process.env.NODE_ENV !== "production") {
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.simple(),
+    })
+  );
+}
+
+// Validate required environment variables in production
+if (process.env.NODE_ENV === "production") {
+  const requiredEnvVars = [
+    "MAIL_HOST",
+    "MAIL_USER",
+    "MAIL_PASS",
+    "MAIL_PORT",
+    "MAIL_FROM",
+    "MAIL_SECURE",
+  ];
+
+  const missingEnvVars = requiredEnvVars.filter(
+    (envVar) => !process.env[envVar]
+  );
+
+  if (missingEnvVars.length > 0) {
+    logger.error(
+      `Missing required environment variables: ${missingEnvVars.join(", ")}`
+    );
+    process.exit(1);
+  }
+}
+
 // middleware to parse json request bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// HTTP to HTTPS redirection in production
+app.use((req, res, next) => {
+  if (
+    process.env.NODE_ENV === "production" &&
+    !req.secure &&
+    req.headers["x-forwarded-proto"] !== "https"
+  ) {
+    return res.redirect(`https://${req.headers.host}${req.url}`);
+  }
+  next();
+});
+
+// Basic security headers
+app.use(helmet());
+
+// Custom Content Security Policy
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "cdn.tailwindcss.com",
+        "unpkg.com",
+      ],
+      styleSrc: ["'self'", "'unsafe-inline'", "cdn.tailwindcss.com"],
+      imgSrc: ["'self'", "data:", "*.webp"],
+      connectSrc: ["'self'"],
+      fontSrc: ["'self'"],
+      objectSrc: ["'none'"],
+      mediaSrc: ["'self'"],
+      frameSrc: ["'none'"],
+      reportUri: "/csp-report",
+    },
+  })
+);
+
+// HSTS header
+app.use(
+  helmet.hsts({
+    maxAge: 15552000, // 180 days in seconds
+    includeSubDomains: true,
+    preload: true,
+  })
+);
 
 // Configure static assets with compression and caching
 const compression = require("compression");
@@ -27,14 +121,14 @@ app.use(
 );
 
 // Add more debugging information
-console.log("Available HTML files:");
+logger.info("Available HTML files:");
 const htmlFiles = fs
   .readdirSync(path.join(__dirname, "public"))
   .filter((file) => file.endsWith(".html"));
-console.log(htmlFiles);
+logger.info(htmlFiles);
 
 // Add case-studies routes
-console.log("Available case study files:");
+logger.info("Available case study files:");
 const caseStudyFiles = fs.existsSync(
   path.join(__dirname, "public", "case-studies")
 )
@@ -42,7 +136,7 @@ const caseStudyFiles = fs.existsSync(
       .readdirSync(path.join(__dirname, "public", "case-studies"))
       .filter((file) => file.endsWith(".html"))
   : [];
-console.log(caseStudyFiles);
+logger.info(caseStudyFiles);
 
 // Add explicit route for the case-studies directory
 app.use(
@@ -58,16 +152,16 @@ app.get("/server-status.json", (req, res) => {
 
 // define home route
 app.get("/", (req, res) => {
-  console.log("Serving home page");
+  logger.debug("Serving home page");
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Add explicit routes for all HTML pages
 htmlFiles.forEach((file) => {
   const route = `/${file}`;
-  console.log(`Adding explicit route for: ${route}`);
+  logger.debug(`Adding explicit route for: ${route}`);
   app.get(route, (req, res) => {
-    console.log(`Serving file directly: ${file}`);
+    logger.debug(`Serving file directly: ${file}`);
     res.sendFile(path.join(__dirname, "public", file));
   });
 });
@@ -75,9 +169,9 @@ htmlFiles.forEach((file) => {
 // Add explicit routes for case studies
 caseStudyFiles.forEach((file) => {
   const route = `/case-studies/${file}`;
-  console.log(`Adding explicit route for: ${route}`);
+  logger.debug(`Adding explicit route for: ${route}`);
   app.get(route, (req, res) => {
-    console.log(`Serving case study file directly: ${file}`);
+    logger.debug(`Serving case study file directly: ${file}`);
     res.sendFile(path.join(__dirname, "public", "case-studies", file));
   });
 });
@@ -106,17 +200,49 @@ const emailTemplate = (name, email, message) => {
     .replace("[timestamp]", formattedDate);
 };
 
-// send email API route
-app.post("/send-email", async (req, res) => {
-  console.log(req.body);
+// Rate limiting for email endpoint
+const emailLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // 5 requests per windowMs
+  message: { message: "Too many requests, please try again later" },
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
+// CSP report endpoint
+app.post("/csp-report", (req, res) => {
+  if (req.body) {
+    logger.warn("CSP Violation: ", req.body);
+  } else {
+    logger.warn("CSP Violation: No data received");
+  }
+  res.status(204).end();
+});
+
+// send email API route with rate limiting and validation
+app.post("/send-email", emailLimiter, async (req, res) => {
+  logger.info(`Email request received from: ${req.ip}`);
+
   // validate body
   if (!req.body.email || !req.body.message || !req.body.name) {
+    logger.warn(`Invalid email request: Missing required fields`);
     return res
       .status(400)
       .json({ message: "Name, email and message are required" });
   }
 
-  // send email using SMTP (replace with your own SMTP server details)
+  // Sanitize and validate email
+  const email = validator.normalizeEmail(req.body.email);
+  if (!validator.isEmail(email)) {
+    logger.warn(`Invalid email address: ${req.body.email}`);
+    return res.status(400).json({ message: "Invalid email address" });
+  }
+
+  // Sanitize name and message
+  const name = validator.escape(req.body.name);
+  const message = validator.escape(req.body.message);
+
+  // send email using SMTP
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
@@ -131,13 +257,14 @@ app.post("/send-email", async (req, res) => {
       from: `"OFO New Message" <${process.env.MAIL_USER}>`,
       to: process.env.MAIL_USER,
       subject: "New message from OFO Development",
-      text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nMessage: ${req.body.message}`,
-      html: emailTemplate(req.body.name, req.body.email, req.body.message),
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      html: emailTemplate(name, email, message),
     };
     await transporter.sendMail(mailOptions);
+    logger.info(`Email sent successfully from: ${email}`);
     res.json({ message: "Message sent successfully" });
   } catch (error) {
-    console.error(error);
+    logger.error(`Error sending email: ${error.message}`);
     res.status(500).json({ message: "Internal server error" });
   }
 });
@@ -151,26 +278,49 @@ app.get("/assets/pdf/:filename", (req, res) => {
     "pdf",
     req.params.filename
   );
-  console.log(`Attempting to serve PDF: ${filePath}`);
+  logger.debug(`Attempting to serve PDF: ${filePath}`);
   if (fs.existsSync(filePath)) {
     res.sendFile(filePath);
   } else {
-    console.log(`PDF file not found: ${filePath}`);
+    logger.warn(`PDF file not found: ${filePath}`);
     res.status(404).sendFile(path.join(__dirname, "404.html"));
   }
 });
 
 // catch-all route for unknown endpoints
 app.use((req, res, next) => {
-  console.log(`404 for path: ${req.path}`);
+  logger.info(`404 for path: ${req.path}`);
 
   // Check if the requested path is an HTML file in the public directory
   const htmlFilePath = path.join(__dirname, "public", req.path);
   if (fs.existsSync(htmlFilePath)) {
-    console.log(`File exists but not being served: ${htmlFilePath}`);
+    logger.warn(`File exists but not being served: ${htmlFilePath}`);
   }
 
   res.status(404).sendFile(path.join(__dirname, "404.html"));
+});
+
+// Global error handling middleware
+app.use((err, req, res, next) => {
+  // Log error
+  logger.error(
+    `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
+      req.method
+    } - ${req.ip}`
+  );
+
+  // Don't expose error details in production
+  if (process.env.NODE_ENV === "production") {
+    return res
+      .status(err.status || 500)
+      .sendFile(path.join(__dirname, "404.html"));
+  }
+
+  // In development, provide error details
+  res.status(err.status || 500).json({
+    message: err.message,
+    error: err,
+  });
 });
 
 // Update server-status.json with current timestamp - with improved error handling
@@ -180,7 +330,7 @@ const updateServerStatus = () => {
 
     // Ensure the public directory exists
     if (!fs.existsSync(path.join(__dirname, "public"))) {
-      console.log("Creating public directory...");
+      logger.info("Creating public directory...");
       fs.mkdirSync(path.join(__dirname, "public"), { recursive: true });
     }
 
@@ -207,9 +357,9 @@ const updateServerStatus = () => {
       const fileContent = fs.readFileSync(statusFilePath, "utf8");
       try {
         JSON.parse(fileContent); // Make sure it's valid JSON
-        console.log("Updated server-status.json with current timestamp");
+        logger.debug("Updated server-status.json with current timestamp");
       } catch (jsonError) {
-        console.error(
+        logger.error(
           "Error: server-status.json contains invalid JSON:",
           jsonError
         );
@@ -217,12 +367,12 @@ const updateServerStatus = () => {
         fs.writeFileSync(statusFilePath, JSON.stringify(statusData, null, 2));
       }
     } else {
-      console.error("Error: Failed to create server-status.json");
+      logger.error("Error: Failed to create server-status.json");
       // Try direct write as fallback
       fs.writeFileSync(statusFilePath, JSON.stringify(statusData, null, 2));
     }
   } catch (error) {
-    console.error("Error updating server-status.json:", error);
+    logger.error("Error updating server-status.json:", error);
     // Last resort - try a different approach
     try {
       const statusFilePath = path.join(
@@ -238,7 +388,7 @@ const updateServerStatus = () => {
         })
       );
     } catch (fallbackError) {
-      console.error(
+      logger.error(
         "Critical error: Could not update server-status.json even with fallback:",
         fallbackError
       );
@@ -247,7 +397,7 @@ const updateServerStatus = () => {
 };
 
 // Update status file before starting server to ensure it's available immediately
-console.log("Initializing server-status.json before starting server...");
+logger.info("Initializing server-status.json before starting server...");
 updateServerStatus();
 
 // Double-check that the file exists and is valid before proceeding
@@ -256,16 +406,16 @@ try {
   if (fs.existsSync(statusFilePath)) {
     const fileContent = fs.readFileSync(statusFilePath, "utf8");
     const data = JSON.parse(fileContent);
-    console.log("Verified server-status.json exists and is valid:", data);
+    logger.info("Verified server-status.json exists and is valid:", data);
   } else {
-    console.error(
+    logger.warn(
       "Warning: server-status.json does not exist after initialization"
     );
     // Try one more time
     updateServerStatus();
   }
 } catch (error) {
-  console.error("Error verifying server-status.json:", error);
+  logger.error("Error verifying server-status.json:", error);
   // Try one more time
   updateServerStatus();
 }
@@ -275,14 +425,14 @@ const statusUpdateInterval = setInterval(updateServerStatus, 30000); // Update e
 
 // start server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  logger.info(`Server is running on port ${port}`);
   // Update status again after server is fully started
   updateServerStatus();
 });
 
 // Handle graceful shutdown
 process.on("SIGINT", () => {
-  console.log("Shutting down server...");
+  logger.info("Shutting down server...");
   clearInterval(statusUpdateInterval);
 
   // Update status to offline
@@ -293,9 +443,9 @@ process.on("SIGINT", () => {
       timestamp: new Date().toISOString(),
     };
     fs.writeFileSync(statusFilePath, JSON.stringify(statusData, null, 2));
-    console.log("Updated server-status.json to offline");
+    logger.info("Updated server-status.json to offline");
   } catch (error) {
-    console.error("Error updating server-status.json:", error);
+    logger.error("Error updating server-status.json:", error);
   }
 
   process.exit(0);
