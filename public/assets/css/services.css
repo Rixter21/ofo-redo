@@ -3,6 +3,122 @@
  * Custom CSS for the services.html page
  */
 
+/* Animated Background */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  overflow: hidden;
+}
+
+#particles-js::before,
+#particles-js::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 70%);
+  filter: blur(50px);
+  animation: float 15s infinite alternate ease-in-out;
+}
+
+#particles-js::before {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+#particles-js::after {
+  bottom: 20%;
+  right: 20%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 70%);
+  animation-delay: -7.5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(100px, 50px) scale(1.2);
+  }
+  100% {
+    transform: translate(50px, 100px) scale(1);
+  }
+}
+
+/* Additional particles */
+#particles-js .particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.3);
+  animation: particle-float 20s infinite linear;
+}
+
+#particles-js .particle:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-duration: 25s;
+}
+
+#particles-js .particle:nth-child(2) {
+  top: 30%;
+  left: 40%;
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+#particles-js .particle:nth-child(3) {
+  top: 70%;
+  left: 20%;
+  animation-duration: 35s;
+  animation-delay: -10s;
+}
+
+#particles-js .particle:nth-child(4) {
+  top: 40%;
+  left: 60%;
+  animation-duration: 40s;
+  animation-delay: -15s;
+}
+
+#particles-js .particle:nth-child(5) {
+  top: 60%;
+  left: 80%;
+  animation-duration: 45s;
+  animation-delay: -20s;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(100px, 50px) scale(1.5);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(200px, 100px) scale(1);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translate(100px, 150px) scale(1.5);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(0, 200px) scale(1);
+    opacity: 0.3;
+  }
+}
+
 /* Service Card Styles */
 .service-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -211,3 +327,367 @@ section .container.grid {
   opacity: 1;
   visibility: visible;
 }
+
+/* Capabilities Section Enhancements */
+#capabilities {
+  position: relative;
+  overflow: hidden;
+}
+
+#capabilities::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.1), transparent 70%);
+  z-index: 0;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.capability-card {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.capability-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.capability-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+.capability-card:hover::before {
+  opacity: 1;
+}
+
+.capability-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(79, 70, 229, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.capability-card:hover .capability-icon {
+  transform: scale(1.1);
+  background: rgba(79, 70, 229, 0.2);
+}
+
+.capability-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #e2e8f0;
+  position: relative;
+  display: inline-block;
+}
+
+.capability-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #4f46e5, #ec4899);
+  transition: width 0.3s ease;
+}
+
+.capability-card:hover .capability-title::after {
+  width: 100%;
+}
+
+.capability-description {
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+/* Service Tiers Comparison Enhancements */
+.comparison-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.comparison-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at bottom left, rgba(236, 72, 153, 0.1), transparent 70%);
+  z-index: 0;
+}
+
+.comparison-table {
+  position: relative;
+  z-index: 1;
+}
+
+.comparison-feature {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.comparison-feature.font-semibold {
+  padding-left: 0;
+  color: #4f46e5;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.comparison-feature:not(.font-semibold)::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #4f46e5;
+}
+
+.comparison-toggle.active {
+  background: linear-gradient(45deg, rgba(79, 70, 229, 0.2), rgba(236, 72, 153, 0.2));
+  color: #fff;
+  border-color: rgba(79, 70, 229, 0.4);
+}
+
+.golden-text {
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  cursor: pointer;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
+}
+/* Enhanced Navbar Styles */
+.nav-link {
+  color: #d1d5db;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  width: 600px;
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(-0.5rem);
+}
+
+.group:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #374151;
+  transform: translateX(0.5rem);
+}
+
+.dropdown-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.75rem;
+  color: #eab308;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu {
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Backdrop Blur Effect */
+nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Accordion Transitions */
+.accordion div {
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium Dropdown Footer */
+.dropdown-menu > div:last-child {
+  border-top: 1px solid #374151;
+  background-color: #1f2937;
+  padding: 1rem;
+}
+
+.dropdown-menu > div:last-child h3 {
+  color: #eab308;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+  /* Footer Styles */
+  .footer {
+    background: linear-gradient(to bottom, #111827, #0f172a);
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 215, 0, 0.15) 0%,
+      rgba(255, 165, 0, 0.05) 50%,
+      transparent 70%
+    );
+    filter: blur(50px);
+    opacity: 0.7;
+    bottom: -150px;
+    right: -150px;
+    z-index: 0;
+  }
+
+  .footer-link {
+    color: #d1d5db;
+    transition: all 0.3s ease;
+  }
+
+  .footer-link:hover {
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: translateX(5px);
+  }
+
+  .social-icon {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .social-icon:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 215, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.3);
+  }
+
+  .tech-logo {
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    max-width: 100%;
+    max-height: 30px;
+  }
+
+  .tech-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(25, 25, 35, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .back-to-top:hover {
+    background: rgba(35, 35, 45, 0.9);
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
